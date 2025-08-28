@@ -2,6 +2,7 @@ Our textbook this semester is [Introductory Statistics](OpenIntroTextbook.pdf) b
 
 # Lesson 1 Variables
 Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+
 ### 1.1 Variables
 * 1.2.1 Observations, variables, and data matrices (pages 11-12)
 * 1.2.2 Types of Variables (pages 12-13)
@@ -15,6 +16,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 
 # Lesson 2 Sampling Methods
 Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+
 ### 2.1 Populations and Samples
 * 1.3.1 Populations and Samples (pages 16-17)
 
@@ -24,6 +26,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 
 # Lesson 3 Study Design
 Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+
 ### 3.1 Observational Studies
 * 1.3.4 Observational Studies versus Experiments (pages 19-20)
 * 1.4.1 Observational Studies and Confounding Variables (pages 20-22)
@@ -36,24 +39,31 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 
 # Lesson 4 Graphing
 Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
-### 4.1 Stem-and-leaf plot
+
+### 4.1 Graphing Basics
+
+### 4.2 Stem-and-leaf plot
 * 2.1.2 Stem-and-leaf plots and dot plots (pages 48-49)
 
-### 4.2 Dotplot
+### 4.3 Dotplot
 * 2.1.2 Stem-and-leaf plots and dot plots (pages 50-51)
 
-### 4.3 Scatterplot
+### 4.4 Scatterplot
 * 1.3.3 Explanatory and Response Variables (page 19)
 * 2.1.1 Scatterplots for paired data (pages 46-48)
 
-### 4.4 Timeseries
+### 4.5 Timeseries
 
-### 4.5 Bargraphs and Paretto Charts
+### 4.6 Bargraphs and Paretto Charts
+* 2.3.1 Contingency tables and bar plots (pages 70-71)
+* 2.3.3 Segmented bar plots (pages 73-74)
 
-### 4.6 Pie Charts
+### 4.7 Pie Charts
+* 2.3.4 The only pie chart you will see inthis book (pages 74-75)
 
 # Lesson 5 Histograms
 Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+
 ### 5.1 Making a Histogram
 * 2.1.3 Histograms (pages 51-54)
 
