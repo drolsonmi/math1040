@@ -20,6 +20,11 @@
 * [2.2 Sampling Methods](Lesson02/2_2_SamplingMethods.md)
 * [2.3 Not-so-random Sampling Methods](Lesson02/2_3_NotRandomMethods.md)
 
+3: Designing a Study
+* [3.1 Observational Studies](Lesson03/3_1_ObservationalStudies.md)
+* [3.2 Experimental Studies](Lesson03/3_2_ExperimentalStudies.md)
+* [3.3 Blind Studies](Lesson03/3_3_BlindStudies.md)
+
 18: Confidence Intervals with 1 Sample Means
 * [Lesson 18 Overview](Lesson18)
 * [18.1 Critical Values](Lesson18/18_1_CriticalValues.md)

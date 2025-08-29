@@ -59,7 +59,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 2.3.3 Segmented bar plots (pages 73-74)
 
 ### 4.7 Pie Charts
-* 2.3.4 The only pie chart you will see inthis book (pages 74-75)
+* 2.3.4 The only pie chart you will see in this book (pages 74-75)
 
 # Lesson 5 Histograms
 Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
