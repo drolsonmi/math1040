@@ -19,8 +19,8 @@ To create a bar graph, we need to start with a scale. But what do you do for a s
 
 The height of the bar is determined by the number for each category. An alternative to the count would be the frequency, or the percentage of data in that category. In this example, we take the total number of metals one, which would be 16 + 22 + 29 = 64, and divide each count by that total to get the percentage, or frequency, of each category.
 
-| Medal Type | Count | Frequency                |
-| :--------: | :---: | :----------------------: |
+| Medal Type | Count | Frequency               |
+| :--------: | :---: | :---------------------: |
 | Gold       | 16    | 16 / 64 = 0.250 = 25.0% |
 | Silver     | 26    | 26 / 64 = 0.406 = 40.6% |
 | Bronze     | 22    | 22 / 64 = 0.344 = 34.4% |
