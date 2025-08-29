@@ -28,11 +28,11 @@
 4: Graphing
 * [4.1 Graphing Basics](Lesson04/4_1_GraphingBasics.md)
 * [4.2 Dotplots](Lesson04/4_2_Dotplots.md)
-* [4.3 Stemplots](lesson04/4_3_Stemplots.md)
-* [4.4 Scatterplots](lesson04/4_4_Scatterplots.md)
-* [4.5 Timeseries](lesson04/4_5_Timeseries.md)
-* [4.6 Bargraphs](lesson04/4_6_Bargraphs.md)
-* [4.7 Pie charts](lesson04/4_7_PieCharts.md)
+* [4.3 Stemplots](Lesson04/4_3_Stemplots.md)
+* [4.4 Scatterplots](Lesson04/4_4_Scatterplots.md)
+* [4.5 Timeseries](Lesson04/4_5_Timeseries.md)
+* [4.6 Bargraphs](Lesson04/4_6_Bargraphs.md)
+* [4.7 Pie charts](Lesson04/4_7_PieCharts.md)
 
 18: Confidence Intervals with 1 Sample Means
 * [Lesson 18 Overview](Lesson18)
