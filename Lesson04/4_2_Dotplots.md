@@ -4,3 +4,4 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 2.1.2 Stem-and-leaf plots and dot plots (pages 48-49)
 
 ## Lesson
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O_WM22SpJH0?si=mFnqGio3yUQXX2SF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
