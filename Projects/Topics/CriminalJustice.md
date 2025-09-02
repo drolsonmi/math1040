@@ -12,7 +12,7 @@ As a reminder, here is the question your group is answering:
 > Is the average response time of police departments in different cities shorter in the case of high-priority incidents?
 
 Below is a table that shows the data from a sample collected. 
-* [criminal_justice_study.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EQHqsJFdq_5IsvztuDY5V_4BVw5P-WSWIGSbct0pgr1k1g?e=4ncOB1)
+* [criminal_justice_study.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/criminal_justice_study.csv)
 
 These are the variables in your dataset:
 * Type of Incident

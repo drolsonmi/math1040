@@ -12,7 +12,7 @@ As a reminder, here is the question your group is answering:
 > A biologist claims that the average plant height after 4 weeks of growth under varying sunlight conditions is at least 15 cm. 
 
 Below is a table that shows the data from a sample collected. 
-* [child_behavior_study.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EStYsMk1CaJNuqLegJ-PJG0BLsnu1OTbM43ek_4y0SzADg?e=mduA6W)
+* [biology_experiment_dataset.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/biology_experiment_dataset.csv)
 
 These are the variables in your dataset:
 * Daily Sunlight Exposure (in hours)

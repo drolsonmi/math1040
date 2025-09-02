@@ -12,7 +12,7 @@ As a reminder, here is the question your group is answering:
 > A coach claims that the average sprint time for athletes in a training program is no more than 13 seconds.
 
 Below is a table that shows the data from a sample collected. 
-* [sports_experiment_data.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EeLJelm74WRLv7LZil0zVocBKV8wox9mpBkSg3JAewCVqg?e=v19xE8)
+* [sports_experiment_data.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/sports_experiment_data.csv)
 
 These are the variables in your dataset:
 * Weekly Training Hours (continuous, 1–10 hours)

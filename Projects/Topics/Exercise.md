@@ -12,7 +12,10 @@ As a reminder, here is the question your group is answering:
 > A personal trainer claims that her new 6-week strength training program helps participants lose at least 5 pounds on average.
 
 Below is a table that shows the data from a sample collected. 
-* [exercise_dataset.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EV62K8SuKs5GjaaRc8p5J_wB7Aq4NesLhiHOVDPmasaaig?e=gydLQl)
+* [exercise_dataset.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/exercise_dataset.csv)
+
+(If this link opens up the data in a web page, right-click on the page and select "Save As" to download the data)
+* [https://drolsonmi.github.io/math1040/Projects/Datasets/exercise_dataset.csv](https://drolsonmi.github.io/math1040/Projects/Datasets/exercise_dataset.csv)
 
 These are the variables in your dataset:
 * Average Weekly Time in the Gym (in hours)

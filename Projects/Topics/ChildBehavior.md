@@ -12,7 +12,7 @@ As a reminder, here is the question your group is answering:
 > A psychologist claims that the average attention span score for children with varying screen time is at least 75. 
 
 Below is a table that shows the data from a sample collected. 
-* [biology_experiment_dataset.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EfNUKcaHViRKv8S_GN_uRkEBs_y72ukoEApoxZcw1rynrw?e=xvhMmC)
+* [child_behavior_study.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/child_behavior_study.csv)
 
 These are the variables in your dataset:
 * Daily Screen Time (in hours)

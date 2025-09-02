@@ -12,7 +12,7 @@ As a reminder, here is the question your group is answering:
 > A pharmaceutical company claims that their new medication reduces symptom severity by at least 7 points on average after 2 weeks.
 
 Below is a table that shows the data from a sample collected. 
-* [medical_effectiveness_study.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/Ec2yvdeLGI1ImtHkK3zTFnEBnqiN4_ti1lFs52DmWHqhHQ?e=UWJrJ7)
+* [medical_effectiveness_study.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/medical_effectiveness_study.csv)
 
 These are the variables in your dataset:
 * Dosage (mg): Daily dosage of the medicine

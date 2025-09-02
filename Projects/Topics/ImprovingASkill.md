@@ -12,7 +12,7 @@ s a reminder, here is the question your group is answering:
 > I want to improve my typing. Does increasing typing speed affect accuracy? Does the perceived difficulty of the passage affect this relationship?
 
 Below is a table that shows the data from a sample collected. 
-* [typing_project.csv]()
+* [typing_project.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/typing_project.csv)
 
 These are the variables in your dataset:
 * 
