@@ -14,6 +14,8 @@ As a reminder, here is the question your group is answering:
 Below is a table that shows the data from a sample collected. 
 * [sports_experiment_data.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/sports_experiment_data.csv)
 
+(If this link opens up the data in a web page, right-click on the page and select "Save As" to download the data)
+
 These are the variables in your dataset:
 * Weekly Training Hours (continuous, 1–10 hours)
 * Sprint Time for 100 Meters (mean ≈ 13 seconds, SD ≈ 1.2 seconds)

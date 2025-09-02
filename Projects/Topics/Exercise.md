@@ -15,7 +15,6 @@ Below is a table that shows the data from a sample collected.
 * [exercise_dataset.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/exercise_dataset.csv)
 
 (If this link opens up the data in a web page, right-click on the page and select "Save As" to download the data)
-* [https://drolsonmi.github.io/math1040/Projects/Datasets/exercise_dataset.csv](https://drolsonmi.github.io/math1040/Projects/Datasets/exercise_dataset.csv)
 
 These are the variables in your dataset:
 * Average Weekly Time in the Gym (in hours)

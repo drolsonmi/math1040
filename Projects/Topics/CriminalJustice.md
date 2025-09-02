@@ -14,6 +14,8 @@ As a reminder, here is the question your group is answering:
 Below is a table that shows the data from a sample collected. 
 * [criminal_justice_study.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/criminal_justice_study.csv)
 
+(If this link opens up the data in a web page, right-click on the page and select "Save As" to download the data)
+
 These are the variables in your dataset:
 * Type of Incident
 * Response Time (in minutes)

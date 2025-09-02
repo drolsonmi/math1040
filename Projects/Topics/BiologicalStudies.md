@@ -14,6 +14,8 @@ As a reminder, here is the question your group is answering:
 Below is a table that shows the data from a sample collected. 
 * [biology_experiment_dataset.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/biology_experiment_dataset.csv)
 
+(If this link opens up the data in a web page, right-click on the page and select "Save As" to download the data)
+
 These are the variables in your dataset:
 * Daily Sunlight Exposure (in hours)
 * Plant Height After 4 Weeks (mean ≈ 15 cm, SD ≈ 3 cm)

@@ -14,6 +14,8 @@ s a reminder, here is the question your group is answering:
 Below is a table that shows the data from a sample collected. 
 * [typing_project.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/typing_project.csv)
 
+(If this link opens up the data in a web page, right-click on the page and select "Save As" to download the data)
+
 These are the variables in your dataset:
 * 
 

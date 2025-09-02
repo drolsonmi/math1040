@@ -14,6 +14,8 @@ As a reminder, here is the question your group is answering:
 Below is a table that shows the data from a sample collected. 
 * [medical_effectiveness_study.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/medical_effectiveness_study.csv)
 
+(If this link opens up the data in a web page, right-click on the page and select "Save As" to download the data)
+
 These are the variables in your dataset:
 * Dosage (mg): Daily dosage of the medicine
 * Reduction in Symptom Severity: After 2 weeks (mean ≈ 7, SD ≈ 1.8)
