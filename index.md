@@ -34,6 +34,11 @@
 * [4.6 Bargraphs](Lesson04/4_6_Bargraphs.md)
 * [4.7 Pie charts](Lesson04/4_7_PieCharts.md)
 
+5: Histograms
+* [5.1 What is a Histogram](Lesson05/5_1_WhatIsAHistogram.md)
+* [5.2 Creating a Histogram](Lesson05/5_2_CreatingAHistogram.md)
+* [5.3 Histogram Shapes](Lesson05/5_3_HistogramShapes.md)
+
 18: Confidence Intervals with 1 Sample Means
 * [Lesson 18 Overview](Lesson18)
 * [18.1 Critical Values](Lesson18/18_1_CriticalValues.md)
