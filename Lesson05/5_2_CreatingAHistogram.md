@@ -14,15 +14,15 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 Steps for creating a histogram
 1. Determine the Range: $$~~~Range = Maximum - Minimum$$
 2. Determine the number of bins
-  * Sample Size = *n*
-  * How many times do you need to double to reach *n*?
+    * Sample Size = *n*
+    * How many times do you need to double to reach *n*?
 3. Create the bins
-  * Bin Size: $$~~~Bin~Size = \frac{Range}{n}$$
-  * Starting point
-    * First bin starts at minimum
-    * Add the bin size to the minimum to get the start of the second bin
-    * Add the bin size to that to get the start of the third bin
-    * ...
+    * Bin Size: $$~~~Bin~Size = \frac{Range}{n}$$
+    * Starting point
+      * First bin starts at minimum
+      * Add the bin size to the minimum to get the start of the second bin
+      * Add the bin size to that to get the start of the third bin
+      * ...
 4. Count your data
   * Count how many datapoints in your dataset fit in each bin
 
