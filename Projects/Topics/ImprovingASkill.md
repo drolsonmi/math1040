@@ -7,7 +7,7 @@ As a group, propose a study on how you will answer whether this is true or not f
 
 ---------------------------
 # Project 2: Graph the Data
-s a reminder, here is the question your group is answering:
+As a reminder, here is the question your group is answering:
 
 > I want to improve my typing. Does increasing typing speed affect accuracy? Does the perceived difficulty of the passage affect this relationship?
 
@@ -17,7 +17,9 @@ Below is a table that shows the data from a sample collected.
 (If this link opens up the data in a web page, right-click on the page and select "Save As" to download the data)
 
 These are the variables in your dataset:
-* 
+* Typing Speed (measured in Words per Minute)
+* Typing Accuracy (measured in % of characters typed correctly)
+* Perceived Difficulty (easy, moderate, difficult)
 
 As you create your graphs, remember that a good graph is one that someone can pick up and read without any explanations, so, be sure to include all aspects to make the graph as clear as possible. Then, for each graph, discuss the takeaways from each graph. 
 
