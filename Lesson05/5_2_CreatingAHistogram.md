@@ -13,7 +13,6 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 
 Steps for creating a histogram
 1. Determine the Range
-
 $$Range = Maximum - Minimum$$
 
 2. Determine the number of bins
@@ -22,7 +21,6 @@ $$Range = Maximum - Minimum$$
 
 3. Create the bins
   * Bin Size
-
 $$Bin~Size = \frac{Range}{n}$$
   
   * Starting point
