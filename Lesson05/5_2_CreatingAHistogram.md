@@ -1,4 +1,4 @@
-# Lesson 5.2 Creating a Histogram?
+# Lesson 5.2 Creating a Histogram
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 
@@ -16,7 +16,9 @@ $$Range = Maximum - Minimum$$
 
 3. Create the bins
   * Bin Size
+
 $$Bin~Size = \frac{Range}{n}$$
+  
   * Starting point
     * First bin starts at minimum
     * Add the bin size to the minimum to get the start of the second bin
