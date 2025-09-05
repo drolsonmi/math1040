@@ -12,16 +12,12 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XUthukqSHvQ?si=-8J5bLrCxCY5Tdc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Steps for creating a histogram
-1. Determine the Range
-$$Range = Maximum - Minimum$$
-
+1. Determine the Range: $$~~~Range = Maximum - Minimum$$
 2. Determine the number of bins
   * Sample Size = *n*
   * How many times do you need to double to reach *n*?
-
 3. Create the bins
-  * Bin Size
-$$Bin~Size = \frac{Range}{n}$$
+  * Bin Size: $$~~~Bin~Size = \frac{Range}{n}$$
   * Starting point
     * First bin starts at minimum
     * Add the bin size to the minimum to get the start of the second bin
