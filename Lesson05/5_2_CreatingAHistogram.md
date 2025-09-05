@@ -6,7 +6,7 @@
 # Lesson 5.2 Creating a Histogram
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
-* 
+* 2.1.3 Histograms (pages 51-54)
 
 ## Lesson
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XUthukqSHvQ?si=-8J5bLrCxCY5Tdc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -22,13 +22,11 @@ $$Range = Maximum - Minimum$$
 3. Create the bins
   * Bin Size
 $$Bin~Size = \frac{Range}{n}$$
-  
   * Starting point
     * First bin starts at minimum
     * Add the bin size to the minimum to get the start of the second bin
     * Add the bin size to that to get the start of the third bin
     * ...
-
 4. Count your data
   * Count how many datapoints in your dataset fit in each bin
 
