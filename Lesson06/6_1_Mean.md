@@ -10,7 +10,7 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 2.2.4 Calculator: summarizing 1-variable statistics (pages 64-66)
 
 ## Lesson
-The mean (\[\bar{x}\]) is a balance between all the numbers in a dataset. By balance, we mean that the middle leans more toward the heavily concentrated values.
+The mean ($$\bar{x}$$) is a balance between all the numbers in a dataset. By balance, we mean that the middle leans more toward the heavily concentrated values.
 
 To calculate the mean:
 $$\bar{x} = \frac{\text{add all values together}}{\text{number of values}} = \frac{x_1+x_2+x_3+\dots}{n} = \frac{\sum x_i}{n}$$
