@@ -6,6 +6,8 @@
 # 6.5 Boxplots
 
 ## Reading
+* 2.2.3 Box plots and quartiles (pages 61-64)
+* 2.2.5 Outliers and robust statistics (pages 66-68)
 
 ## Lesson
 ### Boxplots (or box-and-whisker plots)

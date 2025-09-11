@@ -7,7 +7,6 @@
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 2.2.1 Measures of Center (pages 56-58)
-* 2.2.4 Calculator: summarizing 1-variable statistics (pages 64-66)
 
 ## Lesson
 The __mode__ is the most frequently occurring number in a dataset. In the dataset { 15, 16, 16, 18, 19 }, the number 16 occurs the most frequently. So, the mode is 16.

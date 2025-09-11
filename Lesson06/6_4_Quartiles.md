@@ -1,6 +1,8 @@
 # 6.4 Quartiles and Boxplots
 
 ## Reading
+* 2.2.3 Box plots and quartiles (pages 61-64)
+* 2.2.4 Calculator: summarizing 1-variable statistics (pages 64-66)
 
 ## Lesson
 ### Quartiles

@@ -72,15 +72,22 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 
 # Lesson 6 Measures of Center
 Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
-### 6.1 Measures of Center
+### 6.1 Measures of Center - Mean
 * 2.2.1 Measures of Center (pages 56-58)
 * 2.2.4 Calculator: summarizing 1-variable statistics (pages 64-66)
 
-### 6.2 Quartiles
+### 6.2 Measures of Center - Mode
+* 2.2.1 Measures of Center (pages 56-58)
+
+### 6.3 Measures of Center - Median
+* 2.2.1 Measures of Center (pages 56-58)
+* 2.2.4 Calculator: summarizing 1-variable statistics (pages 64-66)
+
+### 6.4 Quartiles
 * 2.2.3 Box plots and quartiles (pages 61-64)
 * 2.2.4 Calculator: summarizing 1-variable statistics (pages 64-66)
 
-### 6.3 Box-and-Whisker Plots
+### 6.5 Boxplots
 * 2.2.3 Box plots and quartiles (pages 61-64)
 * 2.2.5 Outliers and robust statistics (pages 66-68)
 
