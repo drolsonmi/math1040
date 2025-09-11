@@ -19,17 +19,17 @@ A boxplot is a very simple graph intended to display the distribution of the qua
 ### Interquartile Range
 The __interquartile range__ (IQR) is the range between Q1 and Q3. In other words, it is the range of the box in our boxplot.
 
-$$IQR = Q3 - Q1$$
+In short, *IQR = Q3 - Q1*.
 
 ### Outliers
 Sometimes, our boxplot gets really long whiskers - ridiculously long whiskers. This is because we may have a single point that is ridiculously extreme one way or the other. 
 
 There is a way to exclude these extreme points from the plot. Using the IQR, we can judge what a reasonable distance is to consider points valid or extreme. If points are within this distance, we keep them in the graph. Points beyond this reasonable distance are called __outliers__.
 
-What is this reasonable distance? *Any point within $1.5\cdot IQR$ of the box is reasonable. Any points further than $1.5\cdot IQR$ from the box is considered an outlier.* In short, 
-* Points above $(Q3 + 1.5IQR)$ are outliers
-* Points between $(Q1 - 1.5IQR)$ and $(Q3 + 1.5IQR)$ are valid
-* Points below $(Q1 - 1.5IQR)$ are outliers
+What is this reasonable distance? *Any point within $$1.5\cdot IQR$$ of the box is reasonable. Any points further than $$1.5\cdot IQR$$ from the box is considered an outlier.* In short, 
+* Points above $$(Q3 + 1.5IQR)$$ are outliers
+* Points between $$(Q1 - 1.5IQR)$$ and $(Q3 + 1.5IQR)$ are valid
+* Points below $$(Q1 - 1.5IQR)$$ are outliers
 
 
 

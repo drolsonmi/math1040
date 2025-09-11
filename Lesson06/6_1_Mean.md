@@ -31,8 +31,8 @@ So, the more extreme the value, the more the mean changes. This makes the mean v
 
 ### Two common means
 There are two common means:
-* The population mean ($\mu$)
-* The sample mean ($\bar{x}$)
+* The population mean ($$\mu$$)
+* The sample mean ($$\bar{x}$$)
 
 Both are calculated the same way.
 
@@ -121,7 +121,8 @@ Instructions for calculating the mean on a TI-83 or TI-84:
 
     ![TI-83 Running the 1-variable stats calculation](images/TI84-Mean06.png)
 
-* The mean is the first number ($\bar{x} = 16.8$)
+* The mean is the first number ($$\bar{x} = 16.8$$)
+
 ![Final View of 1-variable stats calculation](images/TI84-Mean07.png)
 
 ### Excel

@@ -73,6 +73,7 @@ It can be used when you want to tell something important.
 </div>
 -->
 
+<!--
 ## Technology
 It is important to know how the values we discuss are calculated. However, at this level of statistics, using the calculator will be useful. So, now that we are getting into the calculations portion of the class, we will be using the calculator frequently. So, I will start including instructions on using these calculators.
 
@@ -137,3 +138,4 @@ In Microsoft Excel,
 * Type the name of your dataset followed by `.mean` and press Enter
 
 ![Calculating the mean in Desmos](images/Desmos-Mean03.png)
+-->
