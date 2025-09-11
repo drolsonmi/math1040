@@ -27,8 +27,8 @@ Sometimes, our boxplot gets really long whiskers - ridiculously long whiskers. T
 There is a way to exclude these extreme points from the plot. Using the IQR, we can judge what a reasonable distance is to consider points valid or extreme. If points are within this distance, we keep them in the graph. Points beyond this reasonable distance are called __outliers__.
 
 What is this reasonable distance? *Any point within $$1.5\cdot IQR$$ of the box is reasonable. Any points further than $$1.5\cdot IQR$$ from the box is considered an outlier.* In short, 
-* Points above $$(Q3 + 1.5IQR)$$ are outliers
-* Points between $$(Q1 - 1.5IQR)$$ and $(Q3 + 1.5IQR)$ are valid
+* Points above (*Q3 + 1.5IQR*) are outliers
+* Points between $$Q1 - 1.5IQR$$ and $$(Q3 + 1.5IQR)$$ are valid
 * Points below $$(Q1 - 1.5IQR)$$ are outliers
 
 
