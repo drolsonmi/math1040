@@ -23,6 +23,8 @@ A boxplot is a very simple graph intended to display the distribution of the qua
 4. Connect Q1 to Q3 to create a box (the median line will be inside the box, essentially dividing the box in two)
 5. Draw a single line from the minimum to Q1 and another from Q3 to the maximum (these are the whiskers)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2viqSRfP2Us?si=YTwGVuWQKlei6YFB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### Interquartile Range
 The __interquartile range__ (IQR) is the range between Q1 and Q3. In other words, it is the range of the box in our boxplot.
 

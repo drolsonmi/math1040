@@ -1,4 +1,4 @@
-# 6.4 Quartiles and Boxplots
+# 6.4 Quartiles
 
 ## Reading
 * 2.2.3 Box plots and quartiles (pages 61-64)
@@ -63,6 +63,7 @@ There are a few different ways to calculate quartiles. Different software calcul
 For homework and exams, we will stick with the TI-84 method as we learned. So if you have a different calculator, then be sure you know how to do this method by hand.
 
 ### TI-83/84
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CSyY_vLoM7Q?si=RzNNN_pf2_gy07V-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Excel
 Excel does not calculate quartiles like we did in class. It interpolates between values, then finds the 25th percentile. For example, if your dataset is {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, then
