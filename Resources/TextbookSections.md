@@ -86,13 +86,16 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 
 # Lesson 7 Measures of Spread
 Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
-### 7.1 Standard Deviation
+### 7.1 Variance
 * 2.2.2 Standard deviation as a measure of spread (pages 58-61)
 
-### 7.2 Z-Score
+### 7.2 Standard Deviation
+* 2.2.2 Standard deviation as a measure of spread (pages 58-61)
+
+### 7.3 Z-Score
 * 4.1.2 Standardizing with Z-scores (pages 142-143)
 
-### 7.3 Empirical Rule
+### 7.4 Empirical Rule
 * 2.2.2 Standard deviation as a measure of spread (pages 58-61)
 
 # Lesson 8 Correlation
