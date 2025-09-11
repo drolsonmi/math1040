@@ -5,6 +5,9 @@
 
 # 6.5 Boxplots
 
+## Resources
+* [Desmos Demonstration of creating a boxplot](https://www.desmos.com/calculator/nz6r1pzy2p)
+
 ## Reading
 * 2.2.3 Box plots and quartiles (pages 61-64)
 * 2.2.5 Outliers and robust statistics (pages 66-68)
@@ -25,6 +28,8 @@ A boxplot is a very simple graph intended to display the distribution of the qua
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2viqSRfP2Us?si=YTwGVuWQKlei6YFB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+<iframe src="https://www.desmos.com/calculator/nz6r1pzy2p?embed" width="500" height="300" style="border: 1px solid #ccc" frameborder=0></iframe>
+
 ### Interquartile Range
 The __interquartile range__ (IQR) is the range between Q1 and Q3. In other words, it is the range of the box in our boxplot.
 
@@ -40,6 +45,7 @@ What is this reasonable distance? *Any point within $$1.5\cdot IQR$$ of the box 
 * Points between $$Q1 - 1.5IQR$$ and $$(Q3 + 1.5IQR)$$ are valid
 * Points below $$(Q1 - 1.5IQR)$$ are outliers
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JpMn8y-Rfrs?si=mk9RpAwVJl7SikNN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 <!--
