@@ -39,6 +39,19 @@
 * [5.2 Creating a Histogram](Lesson05/5_2_CreatingAHistogram.md)
 * [5.3 Histogram Shapes](Lesson05/5_3_HistogramShapes.md)
 
+6: Measures of Center
+* [6.1 Measures of Center: The Mean](Lesson06/6_1_Mean.md)
+* [6.2 Measures of Center: The Mode](Lesson06/6_2_Mode.md)
+* [6.3 Measures of Center: The Median](Lesson06/6_3_Median.md)
+* [6.4 Quartiles](Lesson06/6_4_Quartiles.md)
+* [6.5 Boxplots](Lesson06/6_5_Boxplots.md)
+
+7: Measures of Spread
+* [7.1 Variance](Lesson07/7_1_Variance.md)
+* [7.2 Standard Deviation](Lesson07/7_2_StandardDeviation.md)
+* [7.3 The Z-Score](Lesson07/7_3_ZScore.md)
+* [7.4 The Empirical Rule](Lesson07/7_4_EmpiricalRule.md)
+
 18: Confidence Intervals with 1 Sample Means
 * [Lesson 18 Overview](Lesson18)
 * [18.1 Critical Values](Lesson18/18_1_CriticalValues.md)
