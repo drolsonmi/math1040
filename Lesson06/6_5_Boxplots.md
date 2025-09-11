@@ -28,7 +28,7 @@ There is a way to exclude these extreme points from the plot. Using the IQR, we 
 
 What is this reasonable distance? *Any point within $$1.5\cdot IQR$$ of the box is reasonable. Any points further than $$1.5\cdot IQR$$ from the box is considered an outlier.* In short, 
 * Points above (*Q3 + 1.5IQR*) are outliers
-* Points between $$Q1 - 1.5IQR$$ and $$(Q3 + 1.5IQR)$$ are valid
+* Points between \(Q1 - 1.5IQR\) and $$(Q3 + 1.5IQR)$$ are valid
 * Points below $$(Q1 - 1.5IQR)$$ are outliers
 
 
