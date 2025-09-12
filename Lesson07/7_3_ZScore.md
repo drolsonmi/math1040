@@ -9,7 +9,13 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 4.1.2 Standardizing with Z-scores (pages 142-143)
 
 ## Lesson
+The z-score is, essentially, the number of standard deviations a given value is from the mean.
 
+We can easily go from the value to the z-score with the following equation:
+
+$$z=\frac{x-\bar{x}}{s}\tag{Z-Score}$$
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5TNR-RB2EMg?si=f7KigbkK5G9wXfBR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--
 ## Practice

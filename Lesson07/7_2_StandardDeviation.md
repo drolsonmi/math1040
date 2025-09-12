@@ -71,11 +71,12 @@ It can be used when you want to tell something important.
 </div>
 -->
 
-<!--
 ## Technology
 
 ### TI-83/84
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hq4rMWLt8mo?si=N0u8CgXJj5mlnPLG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+<!--
 ### Excel
 
 ### Desmos

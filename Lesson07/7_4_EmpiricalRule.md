@@ -9,7 +9,7 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 2.2.2 Standard deviation as a measure of spread (pages 58-61)
 
 ## Lesson
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rvMb72Tw9js?si=iWBBm_LZNXXH8RFm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--
 ## Practice
