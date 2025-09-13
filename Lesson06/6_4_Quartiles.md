@@ -38,7 +38,7 @@ When finding the 5-number summary, it is helpful to:
 
 (These are not required steps, but if you are struggling, they are good steps to get started.)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jOklRrfNPBo?si=0F3qtFwxNFAQDlYn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cPsIzs5dOdw?si=Je_UhmdlXX9n9dqD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Percentiles
 Percentiles are very similar to quartiles. 
