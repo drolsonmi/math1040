@@ -58,6 +58,37 @@
 * [8.3 Correlation](Lesson08/8_3_Correlation.md)
 * [8.4 Coefficient of Determination](Lesson08/8_4_CoeffDetermination.md)
 
+9: Probability
+* [9.1 Relative Frequency](Lesson09/9_1_RelativeFrequency.md)
+* [9.2 ???]()
+
+10: Compound Probability
+* [10.1 ???]()
+
+11: Rules of Counting
+* [11.1 Fundamental Counting Rule](Lesson11/11_1_FundamentalCounting.md)
+* [11.2 Factorials](Lesson11/11_2_Factorials.md)
+* [11.3 Permutations](Lesson11/11_3_Permutations.md)
+* [11.4 Combinatorics](Lesson11/11_4_Combinations.md)
+
+12: Probability Distributions
+* [12.1 Probability Distributions](Lesson12/12_1_ProbabilityDistributions.md)
+* [12.2 Distributions](Lesson12/12_2_Distributions.md)
+* [12.3 Expected Value](Lesson12/12_3_ExpectedValue.md)
+
+13: Binomial Distributions
+
+14: More on Binomial Distributions
+
+15: Normal Distributions
+
+16: More on Normal Distributions
+
+17: Central Limit Theorem
+* [17.1 Sampling Distributions](Lesson17/17_1_SamplingDistributions.md)
+* [17.2 Statistics of Sampling Distributions](Lesson17/17_2_StatsOfSamplingDists.md)
+* [17.3 The Central Limit Theorem](Lesson17/17_3_CentralLimitTheorem.md)
+
 18: Confidence Intervals with 1 Sample Means
 * [Lesson 18 Overview](Lesson18)
 * [18.1 Critical Values](Lesson18/18_1_CriticalValues.md)
@@ -94,3 +125,7 @@
 * 23.1 Hypotheses of 2 Independent samples
 * 23.2 Confidence Intervals for 2 Independent Samples
 * 23.3 Hypothesis Test of 2 Independent Samples
+
+24: Inference of 2 Dependent samples (Means)
+
+25: Inference with Correlation
