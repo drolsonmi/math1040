@@ -56,7 +56,7 @@
 * [8.1 Line of Best Fit](Lesson08/8_1_LineOfBestFit.md)
 * [8.2 Predictions with Linear Regression](Lesson08/8_2_Predictions.md)
 * [8.3 Correlation](Lesson08/8_3_Correlation.md)
-* [8.4 Coefficient of Determination](Lesson08/8_4_CoffDetermination.md)
+* [8.4 Coefficient of Determination](Lesson08/8_4_CoeffDetermination.md)
 
 18: Confidence Intervals with 1 Sample Means
 * [Lesson 18 Overview](Lesson18)
