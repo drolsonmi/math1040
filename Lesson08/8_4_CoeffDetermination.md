@@ -63,7 +63,7 @@ It can be used when you want to tell something important.
 -->
 
 ## Technology
-The videos below were seen in 8.3 on correlation. When we calculated the correlation coefficient $r$, we also found the coefficient of determination $r^2$. The videos are here as a reminder to you.
+The videos below were seen in 8.3 on correlation. When we calculated the correlation coefficient $$r$$, we also found the coefficient of determination $$r^2$$. The videos are here as a reminder to you.
 
 ### TI-83/84
 <iframe width="560" height="315" src="https://www.youtube.com/embed/40bG6YErzGA?si=OXEAR5CZAPFfleFU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

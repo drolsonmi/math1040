@@ -72,8 +72,8 @@ It can be used when you want to tell something important.
 -->
 
 ### Desmos
-This video was shown in 8.1 on the Line of Best Fit. It is good to watch again, but if you are shaky with line of best fit, go ahead and watch it again. You'll see the correlation in the calculation as I mention in the video.
+This video was shown in [8.1](8_1_LineOfBestFit.md) on the Line of Best Fit. It is good to watch again, but if you are shaky with line of best fit, go ahead and watch it again. You'll see the correlation in the calculation as I mention in the video.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tdikTkheCfs?si=BVpObVSk4ApqxVMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-The correlation according to Desmos is 0.9233. This indicates a __high positive__ correlation. That means that there is a __strong__ relationship and the relationship is __positive__ (as one variable increases, the other increases as well).
+The correlation according to Desmos is *r = 0.9233*. This indicates a __high positive__ correlation. That means that there is a __strong__ relationship and the relationship is __positive__ (as one variable increases, the other increases as well).

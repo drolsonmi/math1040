@@ -59,21 +59,21 @@
 * [8.4 Coefficient of Determination](Lesson08/8_4_CoeffDetermination.md)
 
 9: Probability
-* [9.1 Relative Frequency](Lesson09/9_1_RelativeFrequency.md)
+* [9.1 Relative Frequency](Lesson09/9_1_RelativeFrequency.md) (have page in Canvas)
 * [9.2 ???]()
 
 10: Compound Probability
 * [10.1 ???]()
 
 11: Rules of Counting
-* [11.1 Fundamental Counting Rule](Lesson11/11_1_FundamentalCounting.md)
-* [11.2 Factorials](Lesson11/11_2_Factorials.md)
-* [11.3 Permutations](Lesson11/11_3_Permutations.md)
-* [11.4 Combinatorics](Lesson11/11_4_Combinations.md)
+* [11.1 Fundamental Counting Rule](Lesson11/11_1_FundamentalCounting.md) (have page in Canvas)
+* [11.2 Factorials](Lesson11/11_2_Factorials.md) (have page in Canvas)
+* [11.3 Permutations](Lesson11/11_3_Permutations.md) (have page in Canvas)
+* [11.4 Combinatorics](Lesson11/11_4_Combinations.md) (have page in Canvas)
 
 12: Probability Distributions
-* [12.1 Probability Distributions](Lesson12/12_1_ProbabilityDistributions.md)
-* [12.2 Distributions](Lesson12/12_2_Distributions.md)
+* [12.1 Probability Distributions](Lesson12/12_1_ProbabilityDistributions.md) (Not ready)
+* [12.2 Distributions](Lesson12/12_2_Distributions.md) (Not ready)
 * [12.3 Expected Value](Lesson12/12_3_ExpectedValue.md)
 
 13: Binomial Distributions
