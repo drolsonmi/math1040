@@ -23,52 +23,12 @@ The trick is finding *a* and *b*. These will be found using a calculator, like a
 
 <!--
 ## Practice
-
-
 1. ?
-    * After solving on your own, check the <button popovertarget="Problem_1">Solution</button>
+    * After solving on your own, [check the solution](Solutions/20_1_Solution1.md).
 2. ?
-    * After solving on your own, check the <button popovertarget="Problem_2">Solution</button>
+    * After solving on your own, [check the solution](Solutions/20_1_Solution2.md).
 3. ?
-    * After solving on your own, check the <button popovertarget="Problem_3">Solution</button>
-
-<div popover id="Problem_1">
-
-## Problem 20.1.1
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_1" popovertargetaction="hide">Close</button></center>
-</div>
-
-<div popover id="Problem_2">
-
-## Problem 20.1.2
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_2" popovertargetaction="hide">Close</button></center>
-</div>
-<div popover id="Problem_3">
-
-## Problem 20.1.3
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_3" popovertargetaction="hide">Close</button></center>
-</div>
+    * After solving on your own, [check the solution](Solutions/20_1_Solution3.md).
 -->
 
 ## Technology
