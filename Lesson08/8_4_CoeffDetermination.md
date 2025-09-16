@@ -10,6 +10,7 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 
 ## Lesson
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2zr785gdILA?si=Uzs_MigIiUpdsQxi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--
 ## Practice
