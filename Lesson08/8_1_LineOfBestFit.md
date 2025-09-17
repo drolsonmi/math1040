@@ -6,7 +6,11 @@
 # Lesson 8.1 Line of Best Fit
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
-* 7.1.1 ---
+* 8.1.1 Beginning with Straight Lines (pages 340-342)
+* 8.1.2 Fitting a line by eye (pages 342)
+* 8.1.3 Residuals (pages 342-346)
+* 8.2.1 An objective measure for finding the best line (pages 348-349)
+* 8.2.2 Conditions for the least squares line (pages 349-350)
 
 ## Lesson
 Lessons 6 and 7 looked at an analysis of a single quantitative variable. This lesson explores the relationship between two quantitative variables.

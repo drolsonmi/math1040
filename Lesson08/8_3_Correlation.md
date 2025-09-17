@@ -6,7 +6,7 @@
 # Lesson 8.3 Correlation
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
-* 7.1.1 ---
+* 8.1.4 Describing linear relationships with correlation (pages 346-348)
 
 ## Lesson
 

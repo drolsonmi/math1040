@@ -6,7 +6,7 @@
 # Lesson 8.4 The Coefficient of Determination
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
-* 7.1.1 ---
+* 8.2.6 Using $$r^2$$ to describe the strength of a fit (pages 354-355)
 
 ## Lesson
 

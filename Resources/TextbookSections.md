@@ -114,12 +114,12 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 8.2.1 An objective measure for finding the best line (pages 348-349)
 * 8.2.2 Conditions for the least squares line (pages 349-350)
 
-### 8.2 Correlation Coefficient
-* 8.1.4 Describing linear relationships with correlation (pages 346-348)
-
-### 8.3 Predictions with Interpolation and Extrapolation
+### 8.2 Predictions with Interpolation and Extrapolation
 * 8.2.4 Interpreting regression line parameter estimates (pages 352-353)
 * 8.2.5 Extrapolation is treacherous (pages 353-354)
+
+### 8.3 Correlation Coefficient
+* 8.1.4 Describing linear relationships with correlation (pages 346-348)
 
 ### 8.4 Coefficient of Determination
 * 8.2.6 Using $$r^2$$ to describe the strength of a fit (pages 354-355)

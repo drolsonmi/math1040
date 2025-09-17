@@ -6,7 +6,8 @@
 # Lesson 8.2 Linear Regression Predictions
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
-* 7.1.1 ---
+* 8.2.4 Interpreting regression line parameter estimates (pages 352-353)
+* 8.2.5 Extrapolation is treacherous (pages 353-354)
 
 ## Lesson
 There are two ways to use a line of best fit to make predictions
