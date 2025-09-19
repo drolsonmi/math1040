@@ -37,10 +37,10 @@ Below is a table that shows the data from a sample collected. Do a Quantitative 
     * Discuss what these boxplots tell us
 * Find the correlation coefficient between the two quantitative variables
     * Discuss what this correlation coefficient tells us
-    * Interpret the coefficient of determination (r^2)
+    * Interpret the coefficient of determination ($r^2$)
 
 Make sure all graphs have appropriate scales and labels.
-* [biology_experiment_dataset.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EfNUKcaHViRKv8S_GN_uRkEBs_y72ukoEApoxZcw1rynrw?e=xvhMmC)
+* [child_behavior_study.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/child_behavior_study.csv)
 
 ---------------------------------
 # Project 4: Categorical Analysis

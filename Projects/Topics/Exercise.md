@@ -37,7 +37,7 @@ Below is a table that shows the data from a sample collected. Do a Quantitative 
     * Discuss what these boxplots tell us
 * Find the correlation coefficient between the two quantitative variables
     * Discuss what this correlation coefficient tells us
-    * Interpret the coefficient of determination (r^2)
+    * Interpret the coefficient of determination ($r^2$)
 
 Make sure all graphs have appropriate scales and labels.
 * [exercise_dataset.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EV62K8SuKs5GjaaRc8p5J_wB7Aq4NesLhiHOVDPmasaaig?e=gydLQl)

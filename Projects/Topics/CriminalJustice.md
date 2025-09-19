@@ -28,4 +28,17 @@ As you create your graphs, remember that a good graph is one that someone can pi
 # Project 3: Quantitative Analysis
 As a reminder, here is the question your group is answering:
 
-> 
+> Is the average response time of police departments in different cities shorter in the case of high-priority incidents?
+
+Below is a table that shows the data from a sample collected. Do a Quantitative Analysis on each of the quantitative variables
+* Correct your histogram for each quantitative variable based on the feedback from Project 2
+* Correct your scatterplot for each quantitative variable based on the feedback from Project 2
+* Find the mean, mode, and standard deviation of each quantitative variable
+* Create a boxplot for each quantitative variable
+    * Discuss what these boxplots tell us
+* Find the correlation coefficient between the two quantitative variables
+    * Discuss what this correlation coefficient tells us
+    * Interpret the coefficient of determination ($r^2$)
+
+Make sure all graphs have appropriate scales and labels.
+* [criminal_justice_study.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/criminal_justice_study.csv)

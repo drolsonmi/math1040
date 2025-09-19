@@ -27,4 +27,17 @@ As you create your graphs, remember that a good graph is one that someone can pi
 # Project 3: Quantitative Analysis
 As a reminder, here is the question your group is answering:
 
-> 
+> I want to improve my typing. Does increasing typing speed affect accuracy? Does the perceived difficulty of the passage affect this relationship?
+
+Below is a table that shows the data from a sample collected. Do a Quantitative Analysis on each of the quantitative variables
+* Correct your histogram for each quantitative variable based on the feedback from Project 2
+* Correct your scatterplot for each quantitative variable based on the feedback from Project 2
+* Find the mean, mode, and standard deviation of each quantitative variable
+* Create a boxplot for each quantitative variable
+    * Discuss what these boxplots tell us
+* Find the correlation coefficient between the two quantitative variables
+    * Discuss what this correlation coefficient tells us
+    * Interpret the coefficient of determination ($r^2$)
+
+Make sure all graphs have appropriate scales and labels.
+* [typing_project.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/typing_project.csv)

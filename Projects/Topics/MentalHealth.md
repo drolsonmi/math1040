@@ -24,3 +24,20 @@ These are the variables in your dataset:
 As you create your graphs, remember that a good graph is one that someone can pick up and read without any explanations, so, be sure to include all aspects to make the graph as clear as possible. Then, for each graph, discuss the takeaways from each graph. 
 
 ----------------------------------
+# Project 3: Quantitative Analysis
+As a reminder, here is the question your group is answering:
+
+>  Studies have shown that people that get more sleep have better mental health. Does weekly exercise contribute to the amount of sleep (and thus mental health) among college students?
+
+Below is a table that shows the data from a sample collected. Do a Quantitative Analysis on each of the quantitative variables
+* Correct your histogram for each quantitative variable based on the feedback from Project 2
+* Correct your scatterplot for each quantitative variable based on the feedback from Project 2
+* Find the mean, mode, and standard deviation of each quantitative variable
+* Create a boxplot for each quantitative variable
+    * Discuss what these boxplots tell us
+* Find the correlation coefficient between the two quantitative variables
+    * Discuss what this correlation coefficient tells us
+    * Interpret the coefficient of determination ($r^2$)
+
+Make sure all graphs have appropriate scales and labels.
+* [mental_health_dataset.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/mental_health_dataset.csv)
