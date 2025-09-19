@@ -1,3 +1,8 @@
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
 # MATH 1040 - Introduction to Statistics
 
 ### Textbook and Resources
@@ -66,10 +71,10 @@
 * [10.1 ???]()
 
 11: Rules of Counting
-* [11.1 Fundamental Counting Rule](Lesson11/11_1_FundamentalCounting.md) (have page in Canvas)
-* [11.2 Factorials](Lesson11/11_2_Factorials.md) (have page in Canvas)
-* [11.3 Permutations](Lesson11/11_3_Permutations.md) (have page in Canvas)
-* [11.4 Combinatorics](Lesson11/11_4_Combinations.md) (have page in Canvas)
+* [11.1 Fundamental Counting Rule](Lesson11/11_1_FundamentalCounting.md) (have page in Canvas - Need to separate practice solutions)
+* [11.2 Factorials](Lesson11/11_2_Factorials.md) (have page in Canvas - Need to separate practice solutions)
+* [11.3 Permutations](Lesson11/11_3_Permutations.md) (have page in Canvas - Need to separate practice solutions)
+* [11.4 Combinatorics](Lesson11/11_4_Combinations.md) (have page in Canvas - Need to separate practice solutions)
 
 12: Probability Distributions
 * [12.1 Probability Distributions](Lesson12/12_1_ProbabilityDistributions.md) (Not ready)
@@ -85,9 +90,9 @@
 16: More on Normal Distributions
 
 17: Central Limit Theorem
-* [17.1 Sampling Distributions](Lesson17/17_1_SamplingDistributions.md)
+* [17.1 Sampling Distributions](Lesson17/17_1_SamplingDistributions.md) (Needs reading assignment and practice questions)
 * [17.2 Statistics of Sampling Distributions](Lesson17/17_2_StatsOfSamplingDists.md)
-* [17.3 The Central Limit Theorem](Lesson17/17_3_CentralLimitTheorem.md)
+* [17.3 The Central Limit Theorem](Lesson17/17_3_CentralLimitTheorem.md) (Not written yet)
 
 18: Confidence Intervals with 1 Sample Means
 * [Lesson 18 Overview](Lesson18)
