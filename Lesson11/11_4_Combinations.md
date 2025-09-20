@@ -1,7 +1,12 @@
-# 11.4 Combinations
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
 
+# Lesson 11.4 Combinations
 ## Reading
-* Section 3.3 The Binomial Formula
+Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
+* 3.3 The Binomial Formula (pages 110-115)
 
 ## Lesson
 With permutations (lesson 11.3), we saw how to calculate the number of ways we can arrange a selection of participants. Specifically, we looked at how 13 runners could place in first, second, and third places.
@@ -83,73 +88,20 @@ $$
 ## Practice
 Take the same 3 practice problems as we saw in 11.3 on Permutations. Let's do them again, but making the order irrelevant.
 
-### Practice Problem 1
+### Practice Problem 11.4.1
 You're visiting a city with 7 major tourist attractions, and you only have time to visit 3 of them in one day. You want to plan the order in which you'll visit them to make the most of your experience. You plan to spend __equal__ time at each site, so the order doesn't matter. How many options do you have for choosing 3 attractions?
 
-#### Answer to Practice Problem 1
-If there are 7 attractions and we choose 3 of them. From permutations, there are ${}_7C_3 = 210$ different arrangements.
+After solving on your own, [check the solution](Solutions/11_4_Solution1.md).
 
-Since the order doesn't matter, we divide 210 by the number of rearrangements, 3! = 6.
-
-So, __there are 210/6 = 35 different combinations__.
-
-Looking at the full calculation:
-
-$$
-\begin{align*}
-    {}_7C_3 &= \frac{7!}{3!(7-3)!} \\
-            &= \frac{7!}{3!4!} \\
-            &= \frac{~~~7\times 6\times 5\times 4\times 3\times 2\times 1}{(3\times 2\times 1)\times(4\times 3\times 2\times 1)} \\
-            &= \frac{7\times 6\times 5}{3\times 2\times 1} \\
-            &= \frac{210}{6}\\
-            &= \mathbf{35}
-\end{align*}
-$$
-
-### Practice Problem 2
+### Practice Problem 11.4.2
 A business has 9 applicants for 2 job openings, both as managers. How many ways can the business select 2 new employees out of the 9 candidates?
 
-#### Answer to Practice Problem 2
-Since the job positions are exactly the same, the order doesn't matter. So, to find the number of ways 2 new employees can be selected from a group of 9 candidates, we find the number of permutations:
-$${}_9P_2 = 72$$
+After solving on your own, [check the solution](Solutions/11_4_Solution2.md).
 
-then divide this by the number of arrangements, which is 2! = 2. There are ${}_9C_2 = 72/2 = 36$ different combinations.
-
-Looking at the full calculation:
-
-$$
-\begin{align*}
-    {}_9C_2 &= \frac{9!}{2!(9-2)!} \\
-            &= \frac{9!}{2!7!} \\
-            &= \frac{~~~~9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1}{(2\times 1)\times(7\times 6\times 5\times 4\times 3\times 2\times 1)} \\
-            &= \frac{9\times 8}{2\times 1} \\
-            &= \frac{72}{2} \\
-            &= \mathbf{36}
-\end{align*}
-$$
-
-### Practice Problem 3
+### Practice Problem 11.4.3
 An emergency room receives 8 patients after a multi-vehicle accident. Due to limited resources, only 5 trauma bays are immediately available for treatment. Assume the severity of the injuries is about the same for each patient. In how many different ways can the ER staff choose and prioritize 5 patients out of the 8 for immediate treatment?
 
-#### Answer to Practice Problem 3
-If there are 8 patients and we only treat 5 at a time.
-
-$$ {}_8P_5 = 6720 $$
-
-There are 5! = 120 different ways to arrange the chosen 5, so the total number of combinations is ${}_8C_5 =$ 6720/120 = 56.
-
-Looking at the full calculations:
-
-$$
-\begin{align*}
-    {}_8C_5 &= \frac{8!}{5!(8-5)!} \\
-            &= \frac{8!}{5!3!} \\
-            &= \frac{~~~8\times 7\times 6\times 5\times 4\times 3\times 2\times 1}{(5\times 4\times 3\times 2\times 1)\times (3\times 2\times 1)} \\
-            &= \frac{8\times 7\times 6\times 5\times 4}{5\times 4\times 3\times 2\times 1} \\
-            &= \frac{6720}{120} \\
-            &= \mathbf{56}
-\end{align*}
-$$
+After solving on your own, [check the solution](Solutions/11_4_Solution3.md).
 
 
 ## Technology
@@ -165,11 +117,15 @@ To calculate ${}_{15}C_6$,
 * Type `6` (The desired number of items to select)
 * Press Enter again to calculate
 
+![TI-84 menu for finding combinations](images/TI84_Combination1.png) ![TI-84 Combination function](images/TI84_Combination2.png)
+
 ### Excel
 To calculate ${}_{15}C_6$ on Microsoft Excel,
 * Select the desired cell
 * Type `=COMBIN(15,6)`
 * Press Enter
+
+![Excel Combination function](images/Excel_Combination1.png)
 
 ### Desmos
 To calculate ${}_{15}C_6$,
@@ -177,3 +133,5 @@ To calculate ${}_{15}C_6$,
 * Select a cell
 * Type `nCr(15,6)`
 * The answer will appear on the right side of the cell
+
+![Desmos combination function](images/Desmos_Combination1.png)

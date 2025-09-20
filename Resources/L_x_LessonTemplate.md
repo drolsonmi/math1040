@@ -47,3 +47,17 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 
 ### Desmos
 -->
+
+---------------------------------------------------------
+
+__Template for solution pages L.x.n__
+
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+## Practice Question 9.2.1
+
+
+### Answer to Practice Question 9.2.1

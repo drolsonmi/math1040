@@ -64,17 +64,18 @@
 * [8.4 Coefficient of Determination](Lesson08/8_4_CoeffDetermination.md)
 
 9: Probability
-* [9.1 Relative Frequency](Lesson09/9_1_RelativeFrequency.md) (have page in Canvas)
-* [9.2 ???]()
+* [9.1 Probability](./Lesson09/9_1_Probability.md)
+* [9.2 Relative Frequency](./Lesson09/9_2_RelativeFrequency.md)
+* [9.3 Complements](./Lesson09/9_3_Complements.md)
 
 10: Compound Probability
 * [10.1 ???]()
 
 11: Rules of Counting
-* [11.1 Fundamental Counting Rule](Lesson11/11_1_FundamentalCounting.md) (have page in Canvas - Need to separate practice solutions)
-* [11.2 Factorials](Lesson11/11_2_Factorials.md) (have page in Canvas - Need to separate practice solutions)
-* [11.3 Permutations](Lesson11/11_3_Permutations.md) (have page in Canvas - Need to separate practice solutions)
-* [11.4 Combinatorics](Lesson11/11_4_Combinations.md) (have page in Canvas - Need to separate practice solutions)
+* [11.1 Fundamental Counting Rule](Lesson11/11_1_FundamentalCounting.md) (Need video)
+* [11.2 Factorials](Lesson11/11_2_Factorials.md) (Need video)
+* [11.3 Permutations](Lesson11/11_3_Permutations.md) (Need video)
+* [11.4 Combinatorics](Lesson11/11_4_Combinations.md) (have page in Canvas - Need to separate practice solutions) (Need video)
 
 12: Probability Distributions
 * [12.1 Probability Distributions](Lesson12/12_1_ProbabilityDistributions.md) (Not ready)
