@@ -63,7 +63,7 @@ This table is what we call a Probability Distribution. We will see them more in 
 | Fish     | 15 people             |
 | Reptiles | 10 people             |
 
-    * After solving on your own, [check the solution](Solutions/9_2_Solution1.md).
+After solving on your own, [check the solution](Solutions/9_2_Solution1.md).
 
 2. You have a large bag of colored marbles. You randomly grab a handful of marbles and count the colors. Calculate the relative frequency of each color:
 
@@ -71,7 +71,7 @@ This table is what we call a Probability Distribution. We will see them more in 
 | :---- | :---: | :---: | :---: | :----: | :---: | :---: |
 | Count | 22    | 13    | 10    | 9      | 7     | 18    |
 
-    * After solving on your own, [check the solution](Solutions/9_2_Solution2.md).
+After solving on your own, [check the solution](Solutions/9_2_Solution2.md).
 
 3. A teacher recorded the number of books read by students in five different genres over the course of a semester. The data is shown below:
 
@@ -79,7 +79,7 @@ This table is what we call a Probability Distribution. We will see them more in 
 | :---- | :-----: | :---------: | :-----: | :-------------: | :-------: |
 | Count | 24      | 18          | 12      | 6               | 10        |
 
-    * After solving on your own, [check the solution](Solutions/9_2_Solution3.md).
+After solving on your own, [check the solution](Solutions/9_2_Solution3.md).
 
 <!--
 ## Technology
