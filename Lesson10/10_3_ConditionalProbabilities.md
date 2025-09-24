@@ -12,11 +12,11 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 3.2.7 Tree diagrams (pages 109-110)
 
 ## Lesson
-When dealing with two events, there is a chance that one event could be affected by another event. For example, the clothes that you wear depend on how hot it is. In probability, we would ask, "What is the probability that we wear heavy coats given that it is cold?" We would write that as:
+When dealing with two events, there is a chance that one event could be affected by another event. For example, the clothes that you wear depend on how hot it is. In probability, we would ask, "What is the probability that we wear heavy coats __given that__ it is cold?" This is known as a __conditional probability__. We would write that as:
 
 $$P(coat | cold)$$
 
-The (\|) symbol means "given that". We can find a conditional probability as,
+The bar (\|) symbol means "given that". We can find a conditional probability as,
 
 $$P(B|A) = \frac{P(A~AND~B)}{P(A)}$$
 
