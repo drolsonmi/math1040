@@ -7,6 +7,7 @@
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 3.1.3 Probabilities when events are not disjoint(pages 92-94)
+* 3.2.4 General multiplication rule (pages 103-104)
 * 3.1.5 Independence (pages 96-98 of the [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 3.2.6 Checking for independent and mutually exclusive events (pages 106-108)
 
