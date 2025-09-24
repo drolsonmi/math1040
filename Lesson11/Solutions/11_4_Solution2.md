@@ -10,7 +10,7 @@ A business has 9 applicants for 2 job openings, both as managers. How many ways 
 Since the job positions are exactly the same, the order doesn't matter. So, to find the number of ways 2 new employees can be selected from a group of 9 candidates, we find the number of permutations:
 $${}_9P_2 = 72$$
 
-then divide this by the number of arrangements, which is 2! = 2. There are ${}_9C_2 = 72/2 = 36$ different combinations.
+then divide this by the number of arrangements, which is 2! = 2. There are $${}_9C_2 = 72/2 = 36$$ different combinations.
 
 Looking at the full calculation:
 

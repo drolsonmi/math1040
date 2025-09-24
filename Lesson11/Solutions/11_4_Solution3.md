@@ -11,7 +11,7 @@ If there are 8 patients and we only treat 5 at a time.
 
 $$ {}_8P_5 = 6720 $$
 
-There are 5! = 120 different ways to arrange the chosen 5, so the total number of combinations is ${}_8C_5 =$ 6720/120 = 56.
+There are 5! = 120 different ways to arrange the chosen 5, so the total number of combinations is $${}_8C_5 =$$ 6720/120 = 56.
 
 Looking at the full calculations:
 

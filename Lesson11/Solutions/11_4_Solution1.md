@@ -7,7 +7,7 @@
 You're visiting a city with 7 major tourist attractions, and you only have time to visit 3 of them in one day. You want to plan the order in which you'll visit them to make the most of your experience. You plan to spend __equal__ time at each site, so the order doesn't matter. How many options do you have for choosing 3 attractions?
 
 ### Answer to Practice Question 11.4.1
-If there are 7 attractions and we choose 3 of them. From permutations, there are ${}_7C_3 = 210$ different arrangements.
+If there are 7 attractions and we choose 3 of them. From permutations, there are $${}_7C_3 = 210$$ different arrangements.
 
 Since the order doesn't matter, we divide 210 by the number of rearrangements, 3! = 6.
 
