@@ -127,7 +127,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 
 
 # Lesson 9 Probabilities
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ## 9.1 Definitions and Relative Frequency
 * 3.1.1 Probability (pages 88-90)
 
@@ -138,14 +138,12 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 3.1.4 Complement of an event (page 95)
     
 # Lesson 10 Compound Probabilities
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
-## 10.1 OR probabilities and Mutual Exclusivity
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
+## 10.1 OR probabilities
 * 3.1.2 Disjoint or mutually exclusive outcomes (pages 90-92)
 
-## 10.2 AND probabilities and Independence
-* 3.1.3 Probabilities when events are not disjoint(pages 92-94)
-* 3.1.5 Independence (pages 96-98 of the [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
-* 3.2.6 Checking for independent and mutually exclusive events (pages 106-108)
+## 10.2 Mutually Exclusive Events
+* 3.1.2 Disjoint or mutually exclusive outcomes (pages 90-92)
 
 ## 10.3 Conditional Probability
 * 3.2.1 Conditional Probability (pages 98-100)
@@ -153,8 +151,15 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 3.2.4 General multiplication rule (pages 103-104)
 * 3.2.7 Tree diagrams (pages 109-110)
 
+## 10.4 AND probabilities and Independence
+* 3.1.3 Probabilities when events are not disjoint(pages 92-94)
+
+## 10.5 Independent Events
+* 3.1.5 Independence (pages 96-98)
+* 3.2.6 Checking for independent and mutually exclusive events (pages 106-108)
+
 # Lesson 11 Rules of Counting
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ## 11.1 Fundamental Counting Rule
 
 ## 11.2 Factorials
