@@ -1,6 +1,7 @@
 Lesson 11
 * [] Transcribe
-* [] Move practice solutions to their own page
+* [] Change practice problem 11.1.2
+* [] Change practice problem 11.1.3
 
 Lesson 12
 * [] Transcribe

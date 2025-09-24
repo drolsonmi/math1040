@@ -16,18 +16,18 @@ Consider two dice - one 4-sided white die and one 6-sided black die. If the whit
 * If we roll `W2`, there are 6 possibilities for black: (`W2,B1`),(`W2,B2`),(`W2,B3`),(`W2,B4`),(`W2,B5`),(`W2,B6`)
 * If we roll `W3`, there are 6 possibilities for black: (`W3,B1`),(`W3,B2`),(`W3,B3`),(`W3,B4`),(`W3,B5`),(`W3,B6`)
 * If we roll `W4`, there are 6 possibilities for black: (`W4,B1`),(`W4,B2`),(`W4,B3`),(`W4,B4`),(`W4,B5`),(`W4,B6`)
-* *Bottom line*: There are 4 possibilities for the white die. For each possibility, there are 6 possibilities for the black die. That is a total of $4\times 6 = 24$ possibilities
+* *Bottom line*: There are 4 possibilities for the white die. For each possibility, there are 6 possibilities for the black die. That is a total of $$4\times 6 = 24$$ possibilities
 
 That's it! That is the __Fundamental Counting Rule__. 
-> If event A has $k$ different possibilities, and event B has $n$ different possibilities, then __the total number of combined possibilities is $k\times n$__.
+> If event A has $$k$$ different possibilities, and event B has $$n$$ different possibilities, then __the total number of combined possibilities is $$k\times n$$__.
 
 What about 3 events? Let's take the 4-sided white die and the 6-sided black die, and we'll add a 10-sided red die.
 * There are 24 possibilities with the white and black dice
 * For each possibility with the white and black dice, there are 10 possibilities for the red die
-* That's a total of $24\times 10 = 240$ possible combinations
+* That's a total of $$24\times 10 = 240$$ possible combinations
 
 The complete __Fundamental Counting Rule__.
-> For multiple events, let's say that event $i$ has $n_i$ different possible outcomes. __The total possible combinations is, $n_1 \times n_2 \times n_3 \times \dots$__.
+> For multiple events, let's say that event $$i$$ has $$n_i$$ different possible outcomes. __The total possible combinations is, $$n_1 \times n_2 \times n_3 \times \dots$$__.
 
 ## Practice
 Here are three example problems using the Fundamental Counting Rule. Answer the questions to the best of your ability then *afterwards* check the answer.

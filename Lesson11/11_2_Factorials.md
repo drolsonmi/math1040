@@ -28,11 +28,11 @@ So, following the Fundamental Counting Rule, the number of possible arrangements
 
 $$13\times 12\times 11\times 10\times 9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1 = \mathbf{6,227,020,800}$$
 
-This type of calculation where you multiple all numbers from 1 through a number $k$ is very common, so it is given a notation called a __factorial__ and is indicated as $k!$.
-* 2! = $1\times 2$ = __2__
-* 3! = $1\times 2\times 3$ = __6__
-* 4! = $1\times 2\times 3\times 4$ = __24__
-* 5! = $1\times 2\times 3\times 4\times 5$ = __120__
+This type of calculation where you multiple all numbers from 1 through a number $$k$$ is very common, so it is given a notation called a __factorial__ and is indicated as $$k!$$.
+* 2! = $$1\times 2$$ = __2__
+* 3! = $$1\times 2\times 3$$ = __6__
+* 4! = $$1\times 2\times 3\times 4$$ = __24__
+* 5! = $$1\times 2\times 3\times 4\times 5$$ = __120__
 * ...
 
 ## Practice

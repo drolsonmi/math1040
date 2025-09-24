@@ -14,7 +14,7 @@ Consider once again the runners in the race. In 11.1 and 11.2, we saw that the 1
 * There are 12 different contestants who can place 2nd (all but the 1st place contestant).
 * There are 11 different contestants who can place 3rd (all but the 1st and 2nd place contestants).
 
-Then, from the Fundamental Counting Rule, there are $13\times 12\times 11 = 1716$$ different ways the runners can finish 1st, 2nd, and 3rd places.
+Then, from the Fundamental Counting Rule, there are $$13\times 12\times 11 = 1716$$ different ways the runners can finish 1st, 2nd, and 3rd places.
 
 Mathematically, this is simple. We take the total number of arrangements (13!) and divide out all the places that don't matter (10 for 4th place, 9 for 5th place, etc., or 10!).
 
@@ -24,10 +24,10 @@ This is what we call a __permutation__, or counting the ways we can arrange a ce
 
 $${}_nP_r = \frac{n!}{(n-r)!}$$
 
-The $(n-r)$ will give the number of unnecessary places. In the racing example, 
-* $n=13$ is the number of racers
-* $r=3$ is the number of places we are considering
-* $(n-r) = 13-3 = 10$ is the number of places we don't care about
+The $$(n-r)$$ will give the number of unnecessary places. In the racing example, 
+* $$n=13$$ is the number of racers
+* $$r=3$$ is the number of places we are considering
+* $$(n-r) = 13-3 = 10$$ is the number of places we don't care about
 
 $${}_{13}P_3 = \frac{13!}{(13-3)!} = \frac{13!}{10!} = 13\times 12\times 11 = 1716$$
 
@@ -36,13 +36,13 @@ $${}_{13}P_3 = \frac{13!}{(13-3)!} = \frac{13!}{10!} = 13\times 12\times 11 = 17
 Let's try another example:
 
 A radio DJ has 15 special new songs and wants to choose 6 of them to play during a special segment of a program. The order in which the songs are played matters because it affects the flow and mood of the show. How many permutations of 6 songs are possible?
-* There are 15 songs ($n=15$)
-* We are selecting 6 songs ($r=6$)
-* The rest of the songs ($n-r = 15-6 = 9$) are unnecessary.
+* There are 15 songs ($$n=15$$)
+* We are selecting 6 songs ($$r=6$$)
+* The rest of the songs ($$n-r = 15-6 = 9$$) are unnecessary.
 
 $$
 \begin{align*}
-   {}_{15}P{6} &= \frac{15!}{(15-6)!} \\
+   {}_{15}P_{6} &= \frac{15!}{(15-6)!} \\
      &= \frac{15!}{9!} \\
      &= \frac{15\times 14\times 13\times 12\times 11\times 10\times 9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1}{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1} \\
      &= 15\times 14\times 13\times 12\times 11\times 10 \\
@@ -73,7 +73,7 @@ After solving on your own, [check the solution](Solutions/11_3_Solution3.md).
 Below are instructions for finding these calculations using various technologies
 
 ### TI-83/84
-To calculate ${}_{15}P_6$,
+To calculate $${}_{15}P_6$$,
 * Type `15` (The total number of items)
 * Select `MATH`
 * Push the right arrow to the `PRB` section for probability functions
@@ -85,7 +85,7 @@ To calculate ${}_{15}P_6$,
 ![TI-84 menu for finding permutations](images/TI84_Permutation1.png) ![TI-84 permutation function](images/TI84_Permutation2.png)
 
 ### Excel
-To calculate ${}_{15}P_6$ on Microsoft Excel,
+To calculate $${}_{15}P_6$$ on Microsoft Excel,
 * Select the desired cell
 * Type `=PERMUT(15,6)`
 * Press Enter
@@ -93,7 +93,7 @@ To calculate ${}_{15}P_6$ on Microsoft Excel,
 ![Excel permutation function](images/Excel_Permutation1.png)
 
 ### Desmos
-To calculate ${}_{15}P_6$,
+To calculate $${}_{15}P_6$$,
 * Open [desmos.com/calculator](https://www.desmos.com/calculator) or any other Desmos app
 * Select a cell
 * Type `nPr(15,6)`

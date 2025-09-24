@@ -8,6 +8,7 @@ A business has 9 applicants for 2 job openings, one as a manager and another as 
 
 ### Answer to Practice Question 11.3.2
 To find the number of ways 2 new employees can be selected from a group of 9 candidates,
+
 $$
 \begin{align*}
     {}_9P_2 &= \frac{9!}{(9-2)!} \\

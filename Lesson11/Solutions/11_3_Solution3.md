@@ -8,6 +8,7 @@ An emergency room receives 8 patients after a multi-vehicle accident. Due to lim
 
 ### Answer to Practice Question 11.3.3
 If there are 8 patients and we only treat 5 at a time,
+
 $$
 \begin{align*}
     {}_8P_5 &= \frac{8!}{(8-5)!} \\
