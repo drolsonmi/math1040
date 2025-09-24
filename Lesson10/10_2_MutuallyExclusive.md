@@ -9,6 +9,14 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 3.1.2 Disjoint or mutually exclusive outcomes (pages 90-92)
 
 ## Lesson
+Two events are __Mutually Exclusive__ if they cannot occur at the same time. When this happens,
+
+$$P(A~AND~B) = 0$$
+
+When this occurs, the equation for the "OR" probability is,
+
+$$P(A~OR~B) = P(A) + P(B)$$
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/d8FTanhfWB8?si=5qfDSVHxcFkvkrc5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--

@@ -12,6 +12,14 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 3.2.7 Tree diagrams (pages 109-110)
 
 ## Lesson
+When dealing with two events, there is a chance that one event could be affected by another event. For example, the clothes that you wear depend on how hot it is. In probability, we would ask, "What is the probability that we wear heavy coats given that it is cold?" We would write that as:
+
+$$P(coat | cold)$$
+
+The (|) symbol means "given that". We can find a conditional probability as,
+
+$$P(B|A) = \frac{P(A~AND~B)}{P(A)}$$
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jd_K5PfKHk0?si=pMWKGkl9PtR2Qsvt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--

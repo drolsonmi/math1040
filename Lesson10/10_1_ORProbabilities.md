@@ -9,6 +9,16 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 3.1.2 Disjoint or mutually exclusive outcomes (pages 90-92)
 
 ## Lesson
+When we ask about the probability of one event OR another event, we count both groups as successful outcomes. So, we can add their individual probabilities together.
+
+$$P(A~OR~B) = P(A)+P(B)$$
+
+However, there is a chance that some outcomes can occur in both events. When this happens, any events that happen in both categories are counted twice. So, we subtract one out so it is only counted once.
+
+$$P(A~OR~B) = P(A)+P(B)-P(A~AND~B)$$
+
+This is the full equation for "OR" probabilities.
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FcCjfTRqCIk?si=3Ev9WyxYx-8tWb5R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--

@@ -11,6 +11,14 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 3.2.6 Checking for independent and mutually exclusive events (pages 106-108)
 
 ## Lesson
+Conditional probabilities happen when the probability of one event depends on the occurrence of another event.
+
+However, there are some events that do not depend on another event. If this is the case, then an events conditional probability is the same as the probability of the event itself.
+
+$$P(B|A) = P(B)$$
+
+In other words, event B doesn't change whether event A happens or not.
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NNjgaYUA0k8?si=1UM3QMqby74sJNoo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--

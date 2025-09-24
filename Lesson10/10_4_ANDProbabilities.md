@@ -11,6 +11,10 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 3.2.6 Checking for independent and mutually exclusive events (pages 106-108)
 
 ## Lesson
+Rearranging the conditional probability equation, we find a way to calculate "AND" probabilities:
+
+$$P(B|A) = \frac{P(A~AND~B)}{P(A)} \qquad\to\qquad P(A~AND~B)=P(A)\cdot P(B|A)$$
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dfyN2HU3ZSs?si=P2HS4iB4tDZWOEd5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--
