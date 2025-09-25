@@ -8,7 +8,7 @@
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 
 
-## Lesson
+## Expected Values
 With quantitative data, you can find the center by using the mean, the median, and the mode. But how do you calculate the center of categorical data? What is the middle of the categorical set {Exhausted, Tired, Normal, Energized}, taking into account the probabilities of each category?
 
 To calculate the center, we use the __expected value__.
@@ -22,9 +22,9 @@ Calculating the expected value can be done in 4 steps:
 3. Multiply the value $$x$$ by its probability $$P(x)$$
 4. Add up all the results
 
-Here's the full equation:
+This is the mean! (If you are interested in see that, in fact, [the expected value is the mean, look and my proof](./ExProof.md).) Here's the full equation:
 
-$$\sum x\cdot P(x)$$
+$$E[X] = \mu = \sum x\cdot P(x)$$
 
 This can be applied in cases where you have values for each category. If there are no values, we can assign values. Let me give you two examples, one for each scenario.
 
@@ -97,53 +97,17 @@ Now, what does this number mean? On average, my energy level is at 1.394. That i
 
 And there you have it! We have found the average of a categorical variable.
 
+<!--
 ## Practice
 1. ?
-    * After solving on your own, check the <button popovertarget="Problem_1">Solution</button>
+    * After solving on your own, [check the solution](Solutions/20_1_Solution1.md).
 2. ?
-    * After solving on your own, check the <button popovertarget="Problem_2">Solution</button>
+    * After solving on your own, [check the solution](Solutions/20_1_Solution2.md).
 3. ?
-    * After solving on your own, check the <button popovertarget="Problem_3">Solution</button>
+    * After solving on your own, [check the solution](Solutions/20_1_Solution3.md).
+-->
 
-<div popover id="Problem_1">
-
-## Problem 20.1.1
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_1" popovertargetaction="hide">Close</button></center>
-</div>
-
-<div popover id="Problem_2">
-
-## Problem 20.1.2
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_2" popovertargetaction="hide">Close</button></center>
-</div>
-<div popover id="Problem_3">
-
-## Problem 20.1.3
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_3" popovertargetaction="hide">Close</button></center>
-</div>
-
-
+<!--
 ## Technology
 
 ### TI-83/84
@@ -151,3 +115,4 @@ It can be used when you want to tell something important.
 ### Excel
 
 ### Desmos
+-->
