@@ -85,6 +85,8 @@ $$
 \end{align*}
 $$
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7DR5sVjoE3M?si=B_k5CF79yGNqBwbC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Practice
 Take the same 3 practice problems as we saw in 11.3 on Permutations. Let's do them again, but making the order irrelevant.
 

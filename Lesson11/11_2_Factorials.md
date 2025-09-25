@@ -35,6 +35,8 @@ This type of calculation where you multiple all numbers from 1 through a number 
 * 5! = $$1\times 2\times 3\times 4\times 5$$ = __120__
 * ...
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2GkeFG9YZug?si=OZmx9POSj8qbUq8r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Practice
 Find the value of the following factorials.
 

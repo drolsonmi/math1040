@@ -29,6 +29,10 @@ What about 3 events? Let's take the 4-sided white die and the 6-sided black die,
 The complete __Fundamental Counting Rule__.
 > For multiple events, let's say that event $$i$$ has $$n_i$$ different possible outcomes. __The total possible combinations is, $$n_1 \times n_2 \times n_3 \times \dots$$__.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3inwc2NFqJ4?si=Ik0LIDb6bBihT-oL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jqxmWx5lGIU?si=nBhEm1bdL-zT2r1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Practice
 Here are three example problems using the Fundamental Counting Rule. Answer the questions to the best of your ability then *afterwards* check the answer.
 
