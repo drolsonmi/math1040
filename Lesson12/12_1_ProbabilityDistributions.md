@@ -23,6 +23,7 @@ There are two very important rules for probability distributions:
 
 If one of these rules is broken, then we have an invalid probability distribution.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bbliECmvm94?si=NNWuwfASrpChY7MB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
 1. Here is a probability distribution with one missing value. Determine what that value should be.

@@ -28,6 +28,8 @@ $$E[X] = \mu = \sum x\cdot P(x)$$
 
 This can be applied in cases where you have values for each category. If there are no values, we can assign values. Let me give you two examples, one for each scenario.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Yx_M216sUT0?si=xaJ99NOfpvr05_Va" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### Example 1 - Values provided
 First, we have an example where values are already given to each category. 
 
@@ -96,6 +98,12 @@ E[x] &= 0*0.214 + 1*0.339 + 2*0.286 + 3*0.161 \\
 Now, what does this number mean? On average, my energy level is at 1.394. That is part way between 1 and 2. But remember that 1 means "Tired" and 2 means "Normal". So, on average, I am somewhere between Tired and Normal, a little closer to Tired.
 
 And there you have it! We have found the average of a categorical variable.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ekspNEd_le0?si=Q_7hfFvqhBuuexbq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mou0Zb4EhAs?si=rP9dkgQzMbjNWaIc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IdxqnkzRP5g?si=uCPYfEr4ow7pEjvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--
 ## Practice
