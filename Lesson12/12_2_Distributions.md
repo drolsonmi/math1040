@@ -34,14 +34,14 @@ A __right-skewed distribution__ is almost a normal distribution, but have extra 
 * Show a graph of a right-skewed distribution
 
 ## Binomial
-The next distribution we will be discussing (Lessons 13-14) is the __binomial distribution__. This is characterized by only having two possible outcomes - either a success or a failure. For example, if we want to study how many students play sports by taking a sample of 20 students, the binomial distribution shows,
-* the probability that 1 of the 20 students plays a sport
-* the probability that 2 of the 20 students plays a sport
-* the probability that 3 of the 20 students plays a sport
-* the probability that 4 of the 20 students plays a sport
+The next distribution we will be discussing (Lessons 13-14) is the __binomial distribution__. This is characterized by only having two possible outcomes - either a success or a failure. For example, let's say that 35% of students at a particular school are involved with sports. If we want to study how many students play sports by taking a sample of 20 students, the binomial distribution shows,
+* the probability that 1 of the 20 students plays a sport is 0.02%
+* the probability that 2 of the 20 students plays a sport is 1.00%
+* the probability that 3 of the 20 students plays a sport is 3.23%
+* the probability that 4 of the 20 students plays a sport is 7.38%
 * etc.
 
-* Show a graph of a binomial distribution
+![Example of a binomial distribution](./images/12_2_binomialdist.png)
 
 <!--
 ## Practice
