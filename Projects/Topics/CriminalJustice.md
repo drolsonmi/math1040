@@ -12,7 +12,9 @@ As a reminder, here is the question your group is answering:
 > Is the average response time of police departments in different cities shorter in the case of high-priority incidents?
 
 Below is a table that shows the data from a sample collected. 
-* [criminal_justice_study.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/criminal_justice_study.csv)
+* [criminal_justice_study.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EVTn007gElJJpA6JybpQGHcBldBUnb3Vnj_B3KqsifDkeA?e=RGukHc)
+* __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
+* This is the dataset you will use for the remaining projects throughout the semester
 
 (If this link opens up the data in a web page, right-click on the page and select "Save As" to download the data)
 
@@ -41,4 +43,20 @@ Below is a table that shows the data from a sample collected. Do a Quantitative 
     * Interpret the coefficient of determination ($r^2$)
 
 Make sure all graphs have appropriate scales and labels.
-* [criminal_justice_study.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/criminal_justice_study.csv)
+* [criminal_justice_study.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EVTn007gElJJpA6JybpQGHcBldBUnb3Vnj_B3KqsifDkeA?e=RGukHc)
+* __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
+
+---------------------------------
+# Project 4: Categorical Analysis
+As a reminder, here is the question your group is answering:
+
+> Is the average response time of police departments in different cities shorter in the case of high-priority incidents?
+
+Below is a table that shows the data from a sample collected. Do a Categorical Analysis on each of the quantitative variables
+    • Correct your bargraph for each categorical variable based on the feedback from Project 2
+    • Find the probability distribution of your categorical variable
+    • Calculate the expected value of your categorical variable
+
+Make sure all graphs have appropriate scales and labels.
+* [criminal_justice_study.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EVTn007gElJJpA6JybpQGHcBldBUnb3Vnj_B3KqsifDkeA?e=RGukHc)
+* __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.

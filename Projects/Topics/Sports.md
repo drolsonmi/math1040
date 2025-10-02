@@ -12,7 +12,9 @@ As a reminder, here is the question your group is answering:
 > A coach claims that the average sprint time for athletes in a training program is no more than 13 seconds.
 
 Below is a table that shows the data from a sample collected. 
-* [sports_experiment_data.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/sports_experiment_data.csv)
+* [sports_experiment_data.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/Easkt6_Vz2RLhp0lDmBcNecBw4Po2Qy0IkRQQGKtKDaAwQ?e=It2LcK)
+* __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
+* This is the dataset you will use for the remaining projects throughout the semester
 
 (If this link opens up the data in a web page, right-click on the page and select "Save As" to download the data)
 
@@ -40,7 +42,8 @@ Below is a table that shows the data from a sample collected. Do a Quantitative 
     * Interpret the coefficient of determination ($r^2$)
 
 Make sure all graphs have appropriate scales and labels.
-* [sports_experiment_data.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EeLJelm74WRLv7LZil0zVocBKV8wox9mpBkSg3JAewCVqg?e=v19xE8)
+* [sports_experiment_data.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/Easkt6_Vz2RLhp0lDmBcNecBw4Po2Qy0IkRQQGKtKDaAwQ?e=It2LcK)
+* __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
 
 ---------------------------------
 # Project 4: Categorical Analysis
@@ -54,7 +57,8 @@ Below is a table that shows the data from a sample collected. Do a Categorical A
     • Calculate the expected value of your categorical variable
 
 Make sure all graphs have appropriate scales and labels.
-* [sports_experiment_data.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EeLJelm74WRLv7LZil0zVocBKV8wox9mpBkSg3JAewCVqg?e=v19xE8)
+* [sports_experiment_data.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/Easkt6_Vz2RLhp0lDmBcNecBw4Po2Qy0IkRQQGKtKDaAwQ?e=It2LcK)
+* __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
 
 ---------------------------------
 # Project 5: Normal Distributions

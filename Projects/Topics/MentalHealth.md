@@ -9,10 +9,12 @@ As a group, propose a study on how you will answer whether this is true or not f
 # Project 2: Graph the Data
 As a reminder, here is the question your group is answering:
 
->  Studies have shown that people that get more sleep have better mental health. Does weekly exercise contribute to the amount of sleep (and thus mental health) among college students?
+> Studies have shown that people that get more sleep have better mental health. Does weekly exercise contribute to the amount of sleep (and thus mental health) among college students?
 
 Below is a table that shows the data from a sample collected. 
-* [mental_health_dataset.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/mental_health_dataset.csv)
+* [mental_health_dataset.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EVlPKF0aTj5DnqTRl4M8vFkBkMXbVkTjRhYMMR6XCeH9kQ?e=FHByVd)
+* __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
+* This is the dataset you will use for the remaining projects throughout the semester
 
 (If this link opens up the data in a web page, right-click on the page and select "Save As" to download the data)
 
@@ -27,7 +29,7 @@ As you create your graphs, remember that a good graph is one that someone can pi
 # Project 3: Quantitative Analysis
 As a reminder, here is the question your group is answering:
 
->  Studies have shown that people that get more sleep have better mental health. Does weekly exercise contribute to the amount of sleep (and thus mental health) among college students?
+> Studies have shown that people that get more sleep have better mental health. Does weekly exercise contribute to the amount of sleep (and thus mental health) among college students?
 
 Below is a table that shows the data from a sample collected. Do a Quantitative Analysis on each of the quantitative variables
 * Correct your histogram for each quantitative variable based on the feedback from Project 2
@@ -40,4 +42,20 @@ Below is a table that shows the data from a sample collected. Do a Quantitative 
     * Interpret the coefficient of determination ($r^2$)
 
 Make sure all graphs have appropriate scales and labels.
-* [mental_health_dataset.csv](https://raw.githubusercontent.com/drolsonmi/math1040/refs/heads/main/Projects/Datasets/mental_health_dataset.csv)
+* [mental_health_dataset.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EVlPKF0aTj5DnqTRl4M8vFkBkMXbVkTjRhYMMR6XCeH9kQ?e=FHByVd)
+* __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
+
+---------------------------------
+# Project 4: Categorical Analysis
+As a reminder, here is the question your group is answering:
+
+> Studies have shown that people that get more sleep have better mental health. Does weekly exercise contribute to the amount of sleep (and thus mental health) among college students?
+
+Below is a table that shows the data from a sample collected. Do a Categorical Analysis on each of the quantitative variables
+    • Correct your bargraph for each categorical variable based on the feedback from Project 2
+    • Find the probability distribution of your categorical variable
+    • Calculate the expected value of your categorical variable
+
+Make sure all graphs have appropriate scales and labels.
+* [mental_health_dataset.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EVlPKF0aTj5DnqTRl4M8vFkBkMXbVkTjRhYMMR6XCeH9kQ?e=FHByVd)
+* __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
