@@ -52,9 +52,9 @@ As a reminder, here is the question your group is answering:
 > A coach claims that the average sprint time for athletes in a training program is no more than 13 seconds.
 
 Below is a table that shows the data from a sample collected. Do a Categorical Analysis on each of the quantitative variables
-    • Correct your bargraph for each categorical variable based on the feedback from Project 2
-    • Find the probability distribution of your categorical variable
-    • Calculate the expected value of your categorical variable
+* Correct your bargraph for each categorical variable based on the feedback from Project 2
+* Find the probability distribution of your categorical variable
+* Calculate the expected value of your categorical variable
 
 Make sure all graphs have appropriate scales and labels.
 * [sports_experiment_data.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/Easkt6_Vz2RLhp0lDmBcNecBw4Po2Qy0IkRQQGKtKDaAwQ?e=It2LcK)

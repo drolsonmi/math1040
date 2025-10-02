@@ -52,9 +52,9 @@ As a reminder, here is the question your group is answering:
 > I want to improve my typing. Does increasing typing speed affect accuracy? Does the perceived difficulty of the passage affect this relationship?
 
 Below is a table that shows the data from a sample collected. Do a Categorical Analysis on each of the quantitative variables
-    • Correct your bargraph for each categorical variable based on the feedback from Project 2
-    • Find the probability distribution of your categorical variable
-    • Calculate the expected value of your categorical variable
+* Correct your bargraph for each categorical variable based on the feedback from Project 2
+* Find the probability distribution of your categorical variable
+* Calculate the expected value of your categorical variable
 
 Make sure all graphs have appropriate scales and labels.
 * [typing_project.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/ER3bWqtEEs1Mv_hIY_gBut8B3sF5SJ47Dui0HCMxyC52RQ?e=uzPqhb)

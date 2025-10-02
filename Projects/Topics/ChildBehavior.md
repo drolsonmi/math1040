@@ -52,12 +52,12 @@ As a reminder, here is the question your group is answering:
 > A psychologist claims that the average attention span score for children with varying screen time is at least 75. 
 
 Below is a table that shows the data from a sample collected. Do a Categorical Analysis on each of the quantitative variables
-    • Correct your bargraph for each categorical variable based on the feedback from Project 2
-    • Find the probability distribution of your categorical variable
-    • Calculate the expected value of your categorical variable
+* Correct your bargraph for each categorical variable based on the feedback from Project 2
+* Find the probability distribution of your categorical variable
+* Calculate the expected value of your categorical variable
 
 Make sure all graphs have appropriate scales and labels.
-* [biology_experiment_dataset.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EUz_WTgwyZlHmzXW-NkLnkUBodsLTOxeN3CvxaQZb5e9QQ?e=9M6jC4)
+* [child_behavior_study.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EUz_WTgwyZlHmzXW-NkLnkUBodsLTOxeN3CvxaQZb5e9QQ?e=9M6jC4)
 * __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
 
 ---------------------------------

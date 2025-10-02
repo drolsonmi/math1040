@@ -52,9 +52,9 @@ As a reminder, here is the question your group is answering:
 > A biologist claims that the average plant height after 4 weeks of growth under varying sunlight conditions is at least 15 cm. 
 
 Below is a table that shows the data from a sample collected. Do a Categorical Analysis on each of the quantitative variables
-    • Correct your bargraph for each categorical variable based on the feedback from Project 2
-    • Find the probability distribution of your categorical variable
-    • Calculate the expected value of your categorical variable
+* Correct your bargraph for each categorical variable based on the feedback from Project 2
+* Find the probability distribution of your categorical variable
+* Calculate the expected value of your categorical variable
 
 Make sure all graphs have appropriate scales and labels.
 * [child_behavior_study.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EWtSg-Y9YRRKlf8Rtzs6zMgB8N8yfisATo9gMov_q4kdFw?e=q9g2fo)

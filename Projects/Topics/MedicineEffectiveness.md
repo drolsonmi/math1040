@@ -52,9 +52,9 @@ As a reminder, here is the question your group is answering:
 > A pharmaceutical company claims that their new medication reduces symptom severity by at least 7 points on average after 2 weeks.
 
 Below is a table that shows the data from a sample collected. Do a Categorical Analysis on each of the quantitative variables
-    • Correct your bargraph for each categorical variable based on the feedback from Project 2
-    • Find the probability distribution of your categorical variable
-    • Calculate the expected value of your categorical variable
+* Correct your bargraph for each categorical variable based on the feedback from Project 2
+* Find the probability distribution of your categorical variable
+* Calculate the expected value of your categorical variable
 
 Make sure all graphs have appropriate scales and labels.
 * [medical_effectiveness_study.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/ETds0J7-krBPi9an5sLciD8BbuPMp4OfnS9hrVi4QcVlAw?e=R1vrZ6)

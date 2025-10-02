@@ -52,9 +52,9 @@ As a reminder, here is the question your group is answering:
 > Studies have shown that people that get more sleep have better mental health. Does weekly exercise contribute to the amount of sleep (and thus mental health) among college students?
 
 Below is a table that shows the data from a sample collected. Do a Categorical Analysis on each of the quantitative variables
-    • Correct your bargraph for each categorical variable based on the feedback from Project 2
-    • Find the probability distribution of your categorical variable
-    • Calculate the expected value of your categorical variable
+* Correct your bargraph for each categorical variable based on the feedback from Project 2
+* Find the probability distribution of your categorical variable
+* Calculate the expected value of your categorical variable
 
 Make sure all graphs have appropriate scales and labels.
 * [mental_health_dataset.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EVlPKF0aTj5DnqTRl4M8vFkBkMXbVkTjRhYMMR6XCeH9kQ?e=FHByVd)

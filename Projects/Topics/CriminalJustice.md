@@ -53,9 +53,9 @@ As a reminder, here is the question your group is answering:
 > Is the average response time of police departments in different cities shorter in the case of high-priority incidents?
 
 Below is a table that shows the data from a sample collected. Do a Categorical Analysis on each of the quantitative variables
-    • Correct your bargraph for each categorical variable based on the feedback from Project 2
-    • Find the probability distribution of your categorical variable
-    • Calculate the expected value of your categorical variable
+* Correct your bargraph for each categorical variable based on the feedback from Project 2
+* Find the probability distribution of your categorical variable
+* Calculate the expected value of your categorical variable
 
 Make sure all graphs have appropriate scales and labels.
 * [criminal_justice_study.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EVTn007gElJJpA6JybpQGHcBldBUnb3Vnj_B3KqsifDkeA?e=RGukHc)
