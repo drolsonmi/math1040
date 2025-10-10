@@ -176,6 +176,41 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 #### 3.3 The binomial
 
 
+
+
+
+# Lesson 15 The Normal Distribution
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+## 15.1 Discrete and Continuous Variables
+* 3.6 Continuous distributions (pages 125-127)
+
+## 15.2 The Normal Distribution
+* 4.1.1 Normal distribution model (pages 141-142)
+
+## 15.3 Probability from a Normal Distribution
+* 4.1.3 Normal probability table (pages 143-144)
+* 4.1.4 Normal probability examples (pages 144-147)
+* 4.1.5 Calculator: finding normal probabilities (pages 148-150)
+* 4.1.6 68-95-99.7 rule (page 150)
+
+## 15.4 Finding Z-scores from a Probability
+* 4.1.5 Calculator: finding normal probabilities (pages 148-150)
+
+
+# Lesson 16 The Normal Distribution with Real Data
+## 16.1 Standardizing with Z-scores
+* 4.1.2 Standardizing with Z-scores (pages 142-143)
+
+## 16.2 Finding probabilities with values
+* 4.1.3 Normal probability table (pages 143-144)
+* 4.1.4 Normal probability examples (pages 144-147)
+* 4.1.5 Calculator: finding normal probabilities (pages 148-150)
+* 4.1.6 68-95-99.7 rule (page 150)
+
+## 16.3 Finding values with probabilities
+* 4.1.5 Calculator: finding normal probabilities (pages 148-150)
+
+
 # Lesson 17 Central Limit Theorem
 Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 ## 17.1 Sampling Distributions
