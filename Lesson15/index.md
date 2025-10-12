@@ -22,8 +22,8 @@ The solution then is to look instead at a range of numbers. The primary tool we'
   * Instead, we'll look at the probability of getting between 6.9 and 7.1 ozs.
 
 ## Topics in this lecture
-* Discrete and Continuous Variables
-* The Normal Distribution
-* Probability from a Normal Distribution
-  * Z-Tables
-* Finding the Z-score from a Probability
+* [15.1 Discrete and Continuous Variables](./15_1_ContinuousVars.md)
+* [15.2 The Normal Distribution](./15_2_NormalDistributions.md)
+* [15.3 Probability from a Normal Distribution](./15_3_ProbabilityFromNormal.md)
+  * [Z-Tables](../Resources/Z-Table.pdf)
+* [15.4 Finding the Z-score from a Probability](./15_4_FindingZScore.md)
