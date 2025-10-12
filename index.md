@@ -91,6 +91,11 @@
 14: More on Binomial Distributions
 
 15: Normal Distributions
+* [15.1 Discrete and Continuous Variables](./Lesson15/15_1_ContinuousVars.md)
+* [15.2 The Normal Distribution](./Lesson15/15_2_NormalDistributions.md)
+* [15.3 Probability from a Normal Distribution](./Lesson15/15_3_ProbabilityFromNormal.md)
+  * [Z-Tables](./Resources/Z-Table.pdf)
+* [15.4 Finding the Z-score from a Probability](./Lesson15/15_4_FindingZScore.md)
 
 16: More on Normal Distributions
 
