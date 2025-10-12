@@ -13,14 +13,16 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 
 ## Lesson
 
+<!--Using a Z-Table-->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yWhPWzh1vL4?si=8WirIj1SR9-xKUX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <!--Normal Distributions - Find the probability above a value-->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/l85wo0hJRTU?si=ZTghJ439wr0xUSbp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--Normal Distributions - Find the probability between two values-->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RRFJZDXrg6o?si=2dYUvevhMHb620hN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<!--Using a Z-Table-->
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yWhPWzh1vL4?si=8WirIj1SR9-xKUX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 
 <!--
