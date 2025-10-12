@@ -9,7 +9,8 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 4.1.5 Calculator: finding normal probabilities (pages 148-150)
 
 ## Lesson
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RxKY0Hf5G5k?si=wFzvt9AmvMRLYtED" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<!--Finding the z-score from a probability-->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RxKY0Hf5G5k?si=aaMtuhgHnZWqbf6e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--
 ## Practice
@@ -24,7 +25,13 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 ## Technology
 
 ### TI-83/84
+<!--Finding the z-score on a TI-84-->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8hCPrf3AUdU?si=wJlxhAiEiFQcaxzs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Excel
+<!--Finding the z-score on Excel-->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_xXdGU60Y48?si=8KnQEujYlv7EP1mD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Desmos
+<!--Finding the z-score on Desmos-->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sMEoedv3MVA?si=roeXU-BnnGHuC02q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

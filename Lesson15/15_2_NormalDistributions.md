@@ -12,10 +12,10 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 ## Lesson
 
 
-<!---->
+<!--The Normal Distribution-->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JFZmA1nrpUU?si=NkyUXy1h9jrTaOQ_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<!---->
+<!--Standardized Normal Distributions-->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/e43uMhpKSOs?si=7QjCJb0BVb5Uq72t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--
