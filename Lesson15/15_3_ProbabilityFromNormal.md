@@ -13,6 +13,16 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 
 ## Lesson
 
+<!---->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/l85wo0hJRTU?si=ZTghJ439wr0xUSbp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<!---->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RRFJZDXrg6o?si=2dYUvevhMHb620hN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<!---->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yWhPWzh1vL4?si=8WirIj1SR9-xKUX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
 <!--
 ## Practice
 1. ?
@@ -23,12 +33,12 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
     * After solving on your own, [check the solution](Solutions/20_1_Solution3.md).
 -->
 
-<!--
 ## Technology
 
 ### TI-83/84
+<iframe width="560" height="315" src="https://www.youtube.com/embed/J1WImZgnBDY?si=JYl8eQmOYtKv3B1o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Excel
 
 ### Desmos
--->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/J1WImZgnBDY?si=JYl8eQmOYtKv3B1o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

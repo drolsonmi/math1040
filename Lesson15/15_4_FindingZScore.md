@@ -9,6 +9,7 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 4.1.5 Calculator: finding normal probabilities (pages 148-150)
 
 ## Lesson
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RxKY0Hf5G5k?si=wFzvt9AmvMRLYtED" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--
 ## Practice
@@ -20,7 +21,6 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
     * After solving on your own, [check the solution](Solutions/20_1_Solution3.md).
 -->
 
-<!--
 ## Technology
 
 ### TI-83/84
@@ -28,4 +28,3 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 ### Excel
 
 ### Desmos
--->
