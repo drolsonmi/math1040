@@ -1,0 +1,90 @@
+<head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+# MATH 1040 - Introduction to Statistics
+## Midterm Exam Review
+Below is material from the online version of my class. You are welcome to use these pages to review the topics we have covered that may appear on the midterm exam.
+
+### Textbook and Resources
+* [OpenIntro Textbook](Resources/OpenIntroTextbook.pdf)
+* [Reading from Textbook](Resources/TextbookSections.md)
+
+### Lectures
+1: Variables
+* [Lesson 1 Overview](Lesson01)
+* [1.1 Variables](Lesson01/1_1_Variables.md)
+* [1.2 Quantitative Variables](Lesson01/1_2_QuantitativeVariables.md)
+* [1.3 Levels of Measurement](Lesson01/1_3_LevelsOfMeasurement.md)
+
+2: Sampling Methods
+* [Lesson 2 Overview](Lesson02)
+* [2.1 Randomness](Lesson02/2_1_Randomness.md)
+* [2.2 Sampling Methods](Lesson02/2_2_SamplingMethods.md)
+* [2.3 Not-so-random Sampling Methods](Lesson02/2_3_NotRandomMethods.md)
+
+3: Designing a Study
+* [3.1 Observational Studies](Lesson03/3_1_ObservationalStudies.md)
+* [3.2 Experimental Studies](Lesson03/3_2_ExperimentalStudies.md)
+* [3.3 Blind Studies](Lesson03/3_3_BlindStudies.md)
+
+4: Graphing
+* [4.1 Graphing Basics](Lesson04/4_1_GraphingBasics.md)
+* [4.2 Dotplots](Lesson04/4_2_Dotplots.md)
+* [4.3 Stemplots](Lesson04/4_3_Stemplots.md)
+* [4.4 Scatterplots](Lesson04/4_4_Scatterplots.md)
+* [4.5 Timeseries](Lesson04/4_5_Timeseries.md)
+* [4.6 Bargraphs](Lesson04/4_6_Bargraphs.md)
+* [4.7 Pie charts](Lesson04/4_7_PieCharts.md)
+
+5: Histograms
+* [5.1 What is a Histogram](Lesson05/5_1_WhatIsAHistogram.md)
+* [5.2 Creating a Histogram](Lesson05/5_2_CreatingAHistogram.md)
+* [5.3 Histogram Shapes](Lesson05/5_3_HistogramShapes.md)
+
+6: Measures of Center
+* [6.1 Measures of Center: The Mean](Lesson06/6_1_Mean.md)
+* [6.2 Measures of Center: The Mode](Lesson06/6_2_Mode.md)
+* [6.3 Measures of Center: The Median](Lesson06/6_3_Median.md)
+* [6.4 Quartiles](Lesson06/6_4_Quartiles.md)
+* [6.5 Boxplots](Lesson06/6_5_Boxplots.md)
+
+7: Measures of Spread
+* [7.1 Variance](Lesson07/7_1_Variance.md)
+* [7.2 Standard Deviation](Lesson07/7_2_StandardDeviation.md)
+* [7.3 The Z-Score](Lesson07/7_3_ZScore.md)
+* [7.4 The Empirical Rule](Lesson07/7_4_EmpiricalRule.md)
+
+8: Correlation
+* [8.1 Line of Best Fit](Lesson08/8_1_LineOfBestFit.md)
+* [8.2 Predictions with Linear Regression](Lesson08/8_2_Predictions.md)
+* [8.3 Correlation](Lesson08/8_3_Correlation.md)
+* [8.4 Coefficient of Determination](Lesson08/8_4_CoeffDetermination.md)
+
+9: Probability
+* [9.1 Probability](./Lesson09/9_1_Probability.md)
+* [9.2 Relative Frequency](./Lesson09/9_2_RelativeFrequency.md)
+* [9.3 Complements](./Lesson09/9_3_Complements.md)
+
+[10: Compound Probability](./Lesson10/index.md)
+* [10.1 Two Events: "OR" Probabilities](./Lesson10/10_1_ORProbabilities.md)
+* [10.2 Mutually Exclusive Events](./Lesson10/10_2_MutuallyExclusive.md)
+* [10.3 Conditional Probabilities](./Lesson10/10_3_ConditionalProbabilities.md)
+* [10.4 Two Events: "AND" Probabilities](./Lesson10/10_4_ANDProbabilities.md)
+* [10.5 Independent Events](./Lesson10/10_5_IndependentEvents.md)
+
+11: Rules of Counting
+* [11.1 Fundamental Counting Rule](Lesson11/11_1_FundamentalCounting.md) (Need video)
+* [11.2 Factorials](Lesson11/11_2_Factorials.md) (Need video)
+* [11.3 Permutations](Lesson11/11_3_Permutations.md) (Need video)
+* [11.4 Combinatorics](Lesson11/11_4_Combinations.md) (have page in Canvas - Need to separate practice solutions) (Need video)
+
+12: Probability Distributions
+* [12.1 Probability Distributions](Lesson12/12_1_ProbabilityDistributions.md) (Not ready)
+* [12.2 Distributions](Lesson12/12_2_Distributions.md) (Not ready)
+* [12.3 Expected Value](Lesson12/12_3_ExpectedValue.md)
+
+13: Binomial Distributions
+
+14: More on Binomial Distributions
