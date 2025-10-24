@@ -25,3 +25,6 @@ Fall/Spring projects:
 |  14   | Final Project  |
 |  15   | Final Project / Exam Review  |
 |  16   | Exam Review    |
+
+## Activity ideas I can use
+* Drop ruler to measure reaction time (or drop a pencil and pull up an online ruler)
