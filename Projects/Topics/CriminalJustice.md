@@ -60,3 +60,15 @@ Below is a table that shows the data from a sample collected. Do a Categorical A
 Make sure all graphs have appropriate scales and labels.
 * [criminal_justice_study.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EVTn007gElJJpA6JybpQGHcBldBUnb3Vnj_B3KqsifDkeA?e=RGukHc)
 * __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
+
+
+---------------------------------
+# Project 7: Hypothesis Tests
+Here are the questions your group needs to answer in this project:
+
+1. A news agency claims that the average incident response time is at least 25 minutes. Test this claim.
+2. The same news agency claims that 25% of incidents are domestic disputes. Test this claim.
+
+At the 0.05 significance level, is there enough evidence to support the news agency's claims?
+
+Be sure to include all the required elements described in the assignment.

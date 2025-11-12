@@ -59,3 +59,15 @@ Below is a table that shows the data from a sample collected. Do a Categorical A
 Make sure all graphs have appropriate scales and labels.
 * [typing_project.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/ER3bWqtEEs1Mv_hIY_gBut8B3sF5SJ47Dui0HCMxyC52RQ?e=uzPqhb)
 * __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
+
+
+---------------------------------
+# Project 7: Hypothesis Tests
+Here are the questions your group needs to answer in this project:
+
+1. In order to be successful in your typing class, you need to consistently type over 50 wpm. You claim that you have met this criteria.
+2. You also claim that you felt the typing was easy for the majority of your practice sessions.
+
+At the 0.05 significance level, is there enough evidence to support your claims?
+
+Be sure to include all the required elements described in the assignment.

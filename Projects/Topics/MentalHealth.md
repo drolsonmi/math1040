@@ -59,3 +59,14 @@ Below is a table that shows the data from a sample collected. Do a Categorical A
 Make sure all graphs have appropriate scales and labels.
 * [mental_health_dataset.csv](https://snow0-my.sharepoint.com/:x:/g/personal/michael_olson2_snow_edu/EVlPKF0aTj5DnqTRl4M8vFkBkMXbVkTjRhYMMR6XCeH9kQ?e=FHByVd)
 * __*Note*__: This is not a real dataset. It was created by AI. Please do not take results from this project as truth. Any problems with the data are because of the way the dataset was created.
+
+-------------------------------
+# Project 7: Hypothesis Testing
+Here are the questions your group needs to answer in this project:
+
+1. You claim that your students are getting better sleep from your study after exercising. You use the time of sleep as an indicator. Patients with good sleep get over 6 hours of sleep a night, and patients with poor sleep get 6 hours or less. 
+2. You claim that the result of your study is that the majority of your patients have a lower stress level (less than 3).
+
+At the 0.05 significance level, is there enough evidence to support your claims?
+
+Be sure to include all the required elements described in the assignment.
