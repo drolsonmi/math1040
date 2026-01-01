@@ -1,7 +1,7 @@
 Our textbook this semester is [Introductory Statistics](OpenIntroTextbook.pdf) by OpenIntro
 
 # Lesson 1 Variables
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 
 ### 1.1 Variables
 * 1.2.1 Observations, variables, and data matrices (pages 11-12)
@@ -15,7 +15,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 1.2.2 Types of Variables (pages 12-13)
 
 # Lesson 2 Sampling Methods
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 
 ### 2.1 Populations and Samples
 * 1.3.1 Populations and Samples (pages 16-17)
@@ -25,7 +25,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 1.4.3 Random sampling methods (pages 25-29)
 
 # Lesson 3 Study Design
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 
 ### 3.1 Observational Studies
 * 1.3.4 Observational Studies versus Experiments (pages 19-20)
@@ -38,7 +38,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 1.5.3 Randomized Experiments (pages 32-34)
 
 # Lesson 4 Graphing
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 
 ### 4.1 Graphing Basics
 
@@ -62,7 +62,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 2.3.4 The only pie chart you will see in this book (pages 74-75)
 
 # Lesson 5 Histograms
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 
 ### 5.1 Making a Histogram
 * 2.1.3 Histograms (pages 51-54)
@@ -71,7 +71,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 2.1.4 Describing Shape (pages 954-55)
 
 # Lesson 6 Measures of Center
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ### 6.1 Measures of Center - Mean
 * 2.2.1 Measures of Center (pages 56-58)
 * 2.2.4 Calculator: summarizing 1-variable statistics (pages 64-66)
@@ -92,7 +92,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 2.2.5 Outliers and robust statistics (pages 66-68)
 
 # Lesson 7 Measures of Spread
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ### 7.1 Variance
 * 2.2.2 Standard deviation as a measure of spread (pages 58-61)
 
@@ -106,7 +106,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 2.2.2 Standard deviation as a measure of spread (pages 58-61)
 
 # Lesson 8 Correlation
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ### 8.1 Line of Best Fit
 * 8.1.1 Beginning with Straight Lines (pages 340-342)
 * 8.1.2 Fitting a line by eye (pages 342)
@@ -172,7 +172,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 
 
 # Lesson 13 Binomial Probability
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 #### 3.3 The binomial
 
 
@@ -180,7 +180,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 
 
 # Lesson 15 The Normal Distribution
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ## 15.1 Discrete and Continuous Variables
 * 3.6 Continuous distributions (pages 125-127)
 
@@ -212,7 +212,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 
 
 # Lesson 17 Central Limit Theorem
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ## 17.1 Sampling Distributions
 * 4.2.1 The mean and standard deviation of $\bar{x}$ (pages 155-157)
 ## 17.2 Statistics of Sampling Distributions
@@ -221,7 +221,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 * 4.2.2 Examining the Central Limit Theorem (pages 159-162)
 
 # Lesson 18 Confidence Intervals with 1 Sample Means
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ## 18.1 Critical Values
 * 4.2.3 Normal approximation for the sampling distribution of $\bar{x}$ (pages 162-163)
 
@@ -245,7 +245,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 
 
 # Lesson 20 Hypothesis Testing with 1 Sample Means
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ## 20.1 Hypotheses
 * 5.3.1 Introducing Hypotheis Testing (page 195)
 * 5.3.2 Setting up the null and alternate hypotheses (pages 196-198)
@@ -254,5 +254,5 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
 
 
 # Lesson 25 Correlation Inference
-Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf))
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 * 8.4
