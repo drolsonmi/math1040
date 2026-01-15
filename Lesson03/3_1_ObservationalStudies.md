@@ -43,10 +43,10 @@ In addition to eliminating confounding variables, the extra variables will give 
 Here are some examples of possible problems. Think of any possible confounding variables, then consider ways to get around these problems. (Note that your answers may not be the same as what is here. There are many possible confounding variables for any situation. The trick is to eliminate as many of them as possible.)
 
 1. Which stop sign is run through most often? You look at three different stop signs and count the number of cars that pass the stop sign, calculating the percentage of responses in support or against.
-    * After solving on your own, [check the solution](Solution/3_1_Solution1.md)
+    * After solving on your own, [check the solution](./Solutions/3_1_Solution1.html)
 
 2. Which candidate do you support? A party wants to determine the support they have, so they send surveys to ask people of their preferred candidate
-    * After solving on your own, [check the solution](Solution/3_1_Solution2.md)
+    * After solving on your own, [check the solution](./Solutions/3_1_Solution2.html)
 
 3. What is the most popular brand of car? You want to know which make of car is most popular in the area. So, you gather data from car dealerships in the area.
-    * After solving on your own, [check the solution](Solution/3_1_Solution3.md)
+    * After solving on your own, [check the solution](./Solutions/3_1_Solution3.html)
