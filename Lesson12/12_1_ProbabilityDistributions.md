@@ -32,7 +32,7 @@ If one of these rules is broken, then we have an invalid probability distributio
 | :---------- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Probability | 0.08  | 0.16  | 0.22  | 0.34  | 0.18  |   x   |
 
-* After solving on your own, [check the solution](Solutions/12_1_Solution1.md).
+After solving on your own, [check the solution](Solutions/12_1_Solution1.md).
 
 2. Here are three distributions. One of them is invalid. Determine which is the invalid distribution and what can be done to fix it.
 
@@ -48,7 +48,7 @@ If one of these rules is broken, then we have an invalid probability distributio
 | :------------- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Probability    | 0.17  | 0.17  | 0.16  | 0.16  | 0.17  | 0.17  |
 
-* After solving on your own, [check the solution](Solutions/12_1_Solution2.md).
+After solving on your own, [check the solution](Solutions/12_1_Solution2.md).
 
 3. Here are three distributions. One of them is invalid. Determine which is the invalid distribution and what can be done to fix it.
 
