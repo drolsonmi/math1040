@@ -94,7 +94,7 @@
 * [15.1 Discrete and Continuous Variables](./Lesson15/15_1_ContinuousVars.md)
 * [15.2 The Normal Distribution](./Lesson15/15_2_NormalDistributions.md)
 * [15.3 Probability from a Normal Distribution](./Lesson15/15_3_ProbabilityFromNormal.md)
-  * [Z-Tables](./Resources/Z-Table.pdf)
+  * [Z-Table](./Resources/Z-Table.pdf)
 * [15.4 Finding the Z-score from a Probability](./Lesson15/15_4_FindingZScore.md)
 
 16: More on Normal Distributions
@@ -107,10 +107,12 @@
 18: Confidence Intervals with 1 Sample Means
 * [Lesson 18 Overview](Lesson18)
 * [18.1 Critical Values](Lesson18/18_1_CriticalValues.md)
+  * [Z-Table](./Resources/Z-Table.pdf)
 * [18.2 Margin of Error](Lesson18/18_2_MarginOfError.md)
 * [18.3 Confidence Interval when you know $$\sigma$$](Lesson18/18_3_ConfidenceInterval.md)
 * [18.4 Finding the best sample size](Lesson18/18_4_FindingN.md)
 * [18.5 Confidence Interval when you don't know $$\sigma$$](Lesson18/18_5_StudentT.md)
+  * [T-Table](./Resources/T-Table.pdf)
 
 19: Confidence Intervals with 1 Sample Proportions
 * [Lesson 19 Overview](Lesson19)
