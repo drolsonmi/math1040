@@ -5,3 +5,9 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 
 ## Lesson
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NY5cJC10EdY?si=g1R-qmAIrSeehH0v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<!--
+Ideas for practice questions:
+* Show a graph and ask about the skew and what this means about the mean, median, and mode
+* Give data. Ask student to graph it and then describe the skew
+-->

@@ -49,6 +49,9 @@ What is this reasonable distance? *Any point within $$1.5\cdot IQR$$ of the box 
 
 
 <!--
+Perhaps it would be a good idea to create 6.6 Boxplots and Skewness (compare to histograms)
+
+
 ## Practice
 
 ## Technology

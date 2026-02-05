@@ -76,10 +76,10 @@
 * [10.5 Independent Events](./Lesson10/10_5_IndependentEvents.md)
 
 11: Rules of Counting
-* [11.1 Fundamental Counting Rule](Lesson11/11_1_FundamentalCounting.md) (Need video)
-* [11.2 Factorials](Lesson11/11_2_Factorials.md) (Need video)
-* [11.3 Permutations](Lesson11/11_3_Permutations.md) (Need video)
-* [11.4 Combinatorics](Lesson11/11_4_Combinations.md) (have page in Canvas - Need to separate practice solutions) (Need video)
+* [11.1 Fundamental Counting Rule](Lesson11/11_1_FundamentalCounting.md)
+* [11.2 Factorials](Lesson11/11_2_Factorials.md)
+* [11.3 Permutations](Lesson11/11_3_Permutations.md)
+* [11.4 Combinatorics](Lesson11/11_4_Combinations.md)
 
 12: Probability Distributions
 * [12.1 Probability Distributions](Lesson12/12_1_ProbabilityDistributions.md) (Not ready)
