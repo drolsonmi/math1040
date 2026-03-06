@@ -16,7 +16,7 @@ In Lesson 15, we learned about the structure of Normal Distributions. In Lesson 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hVIBYPrxgY4?si=iPHSedM2gOcaR9Uh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Quick example
-> As CEO of my business, I do an quarterly review with my financing department. I find that my annual budget towards the utilities in the building has a mean of $276,000 with a standard deviation of $17,500. What is the probability that I will spend less than $250,000 on utilities for this upcoming year?
+> As CEO of my business, I do an quarterly review with my financing department. I find that my annual budget towards the utilities in the building has a mean of \$276,000 with a standard deviation of \$17,500. What is the probability that I will spend less than \$250,000 on utilities for this upcoming year?
 >
 > $$z = \frac{\$250,000 - \$276,000}{\$17,500} = \frac{-26000}{17500} = -1.486$$
 >
@@ -27,6 +27,5 @@ In Lesson 15, we learned about the structure of Normal Distributions. In Lesson 
 > So, there is only a 6.9% chance of spending less than $250,000 on utilities next year.
 
 ## Topics in this lecture
-* Finding areas above a value
-* Finding areas between two values
-* Real-life scenarios
+* [16.1 Practice Calculating Probabilities](./16_1_Probabilities.md)
+* [16.2 Practice Calculating Percentiles/Quartiles](./16_2_Percentiles.md)

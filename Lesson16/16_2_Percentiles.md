@@ -10,7 +10,7 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-# Lesson 16.2 Practicing Calculating Percentiles/Quartiles
+# Lesson 16.2 Practice Calculating Percentiles/Quartiles
 On the last page, we looked at using Normal Distributions to calculation probabilities. On this page, we will continue this study by looking at percentiles, or calculating values which border on areas.
 
 We'll continue with the problem we worked on last time:

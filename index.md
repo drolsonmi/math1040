@@ -98,6 +98,9 @@
 * [15.4 Finding the Z-score from a Probability](./Lesson15/15_4_FindingZScore.md)
 
 [16: More on Normal Distributions](./Lesson16/index.md)
+* [16.1 Practice Calculating Probabilities](./Lesson16/16_1_Probabilities.md)
+* [16.2 Practice Calculating Percentiles/Quartiles](./Lesson16/16_2_Percentiles.md)
+* [16.3](./Lesson16/16_3_MorePractice.md)
 
 17: Central Limit Theorem
 * [17.1 Sampling Distributions](Lesson17/17_1_SamplingDistributions.md) (Needs reading assignment and practice questions)
