@@ -36,8 +36,11 @@ $$P(z > 1.5) = 1 - P(z < 1.5) = 1 - 0.9332 = 0.0668 = 6.68\%$$
 3. Find the probability that a randomly selected chocolate bar will have between 200 and 220 calories.
 
 $$z_a = \frac{200 - 210}{10} = \frac{-10}{10} = -1$$
+
 $$z_b = \frac{220 - 210}{10} = \frac{10}{10} = 1$$
+
 $$P(z < 1) = 0.8413 \qquad P(z < -1) = 0.1587$$
+
 $$P(-1 < z < 1) = P(z < 1) - P(z < -1) = 0.8413 - 0.1587 = 0.6826 = 68.26\%$$
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sUu8M82s-xM?si=d_kwUbVOSpdzTSgV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
