@@ -41,12 +41,12 @@ In both of these examples, we have looked at how to find the areas of the tails.
 ### Method 1: Remove the two tails
 Remember that the entire area equals 1.0. If we remove the tail to the right of $b$ ($P(z > b)$, depicted in green in the figure below), and the tail to the left of $a$ ($P(z < a)$, depicted in blue in the figure below), then we'll only be left with the area in the middle ($P(a < z < b), depicted in red in the figure below).
 
-![Removing the two tails to find the middle area](./images/remove_two_tails.png)
+<img src="https://drolsonmi.github.io/math1040/Lesson15/images/remove_two_tails.png" width=350 alt="Removing the two tails to find the middle area">
 
 ### Method 2: Remove the left tail
 We can start with the area left of $b$, which is $P(z < b)$. However, this also includes the left tail, which is $P(z < a)$ (depicted in blue in the figure below). We don't want to include this area. So, we can just remove it. This will leave us just the area between $a$ and $b$, which is $P(a < z < b)$, depicted in red in the fibure below.
 
-![Removing the left tail to find the middle area](./images/remove_one_tail.png)
+<img src="https://drolsonmi.github.io/math1040/Lesson15/images/remove_one_tail.png" width=350 title="Removing the left tail to find the middle area">
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RRFJZDXrg6o?si=2dYUvevhMHb620hN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
