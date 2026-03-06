@@ -24,7 +24,7 @@ In Lesson 15, we learned about the structure of Normal Distributions. In Lesson 
 >
 > $$P(z < -1.486) = 0.069$$
 >
-> So, there is only a 6.9% chance of spending less than $250,000 on utilities next year.
+> So, there is only a 6.9% chance of spending less than \$250,000 on utilities next year.
 
 ## Topics in this lecture
 * [16.1 Practice Calculating Probabilities](./16_1_Probabilities.md)
