@@ -16,20 +16,25 @@ On this page, we will be practicing using Normal Distributions. We will practice
 
 <!--Probabilities Left of Value-->
 1. Find the probability that a randomly selected chocolate bar will have less than 200 calories.
+
 $$z = \frac{200 - 210}{10} = \frac{-10}{10} = -1$$
+
 $$P(z < -1) = 0.1587 = 15.87\%$$
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ha1ClYEy_LM?si=hKi7FjGa8kNZLsr5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--Probabilities Right of Value-->
 2. Find the probability that a randomly selected chocolate bar will have more than 225 calories.
+
 $$z = \frac{225 - 210}{10} = \frac{15}{10} = 1.5$$
+
 $$P(z > 1.5) = 1 - P(z < 1.5) = 1 - 0.9332 = 0.0668 = 6.68\%$$
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dc8rolSPfgA?si=ysbk01E-e8VvJeyd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!--Probabilities Between Two Values-->
 3. Find the probability that a randomly selected chocolate bar will have between 200 and 220 calories.
+
 $$z_a = \frac{200 - 210}{10} = \frac{-10}{10} = -1$$
 $$z_b = \frac{220 - 210}{10} = \frac{10}{10} = 1$$
 $$P(z < 1) = 0.8413 \qquad P(z < -1) = 0.1587$$
