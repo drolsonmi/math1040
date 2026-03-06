@@ -13,13 +13,13 @@
 * [Decision Tree for Inference](Resources/DecisionTree.pdf)
 
 ### Lectures
-1: Variables
+[1: Variables](./Lesson01/index.md)
 * [Lesson 1 Overview](Lesson01)
 * [1.1 Variables](Lesson01/1_1_Variables.md)
 * [1.2 Quantitative Variables](Lesson01/1_2_QuantitativeVariables.md)
 * [1.3 Levels of Measurement](Lesson01/1_3_LevelsOfMeasurement.md)
 
-2: Sampling Methods
+[2: Sampling Methods](./Lesson02/index.md)
 * [Lesson 2 Overview](Lesson02)
 * [2.1 Randomness](Lesson02/2_1_Randomness.md)
 * [2.2 Sampling Methods](Lesson02/2_2_SamplingMethods.md)
@@ -63,7 +63,7 @@
 * [8.3 Correlation](Lesson08/8_3_Correlation.md)
 * [8.4 Coefficient of Determination](Lesson08/8_4_CoeffDetermination.md)
 
-9: Probability
+[9: Probability](./Lesson09/index.md)
 * [9.1 Probability](./Lesson09/9_1_Probability.md)
 * [9.2 Relative Frequency](./Lesson09/9_2_RelativeFrequency.md)
 * [9.3 Complements](./Lesson09/9_3_Complements.md)
@@ -75,29 +75,29 @@
 * [10.4 Two Events: "AND" Probabilities](./Lesson10/10_4_ANDProbabilities.md)
 * [10.5 Independent Events](./Lesson10/10_5_IndependentEvents.md)
 
-11: Rules of Counting
+[11: Rules of Counting](./Lesson11/index.md)
 * [11.1 Fundamental Counting Rule](Lesson11/11_1_FundamentalCounting.md)
 * [11.2 Factorials](Lesson11/11_2_Factorials.md)
 * [11.3 Permutations](Lesson11/11_3_Permutations.md)
 * [11.4 Combinatorics](Lesson11/11_4_Combinations.md)
 
-12: Probability Distributions
+[12: Probability Distributions](./Lesson12/index.md)
 * [12.1 Probability Distributions](Lesson12/12_1_ProbabilityDistributions.md) (Not ready)
 * [12.2 Distributions](Lesson12/12_2_Distributions.md) (Not ready)
 * [12.3 Expected Value](Lesson12/12_3_ExpectedValue.md)
 
-13: Binomial Distributions
+[13: Binomial Distributions](./Lesson13/index.md)
 
-14: More on Binomial Distributions
+[14: More on Binomial Distributions](./Lesson14/index.md)
 
-15: Normal Distributions
+[15: Normal Distributions](./Lesson15/index.md)
 * [15.1 Discrete and Continuous Variables](./Lesson15/15_1_ContinuousVars.md)
 * [15.2 The Normal Distribution](./Lesson15/15_2_NormalDistributions.md)
 * [15.3 Probability from a Normal Distribution](./Lesson15/15_3_ProbabilityFromNormal.md)
   * [Z-Table](./Resources/Z-Table.pdf)
 * [15.4 Finding the Z-score from a Probability](./Lesson15/15_4_FindingZScore.md)
 
-16: More on Normal Distributions
+[16: More on Normal Distributions](./Lesson16/index.md)
 
 17: Central Limit Theorem
 * [17.1 Sampling Distributions](Lesson17/17_1_SamplingDistributions.md) (Needs reading assignment and practice questions)
