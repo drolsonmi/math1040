@@ -32,11 +32,11 @@ When we learned about probabilities, we started by looking at the probability of
 
 Here is a graph showing the uniform distribution of rolling 1 die.
 
-![w:700 Uniform probability distribution of rolling 1 die](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/images/Fig17_1a_uniform_distribution.png?raw=true)
+<img src="./images/Fig17_1a_uniform_distribution.png" width=350 alt="Uniform probability distribution of rolling 1 die">
 
 This is the distribution of the population, and it has an expected value (or population mean) of 3.5 (the value right in the middle of the distribution). If we were to simply take a sample (roll a die), we would get something similar but not exact. (We saw this with the Law of Large Numbers back in Lesson 9.)
 
-![Sampling Distribution of rolling 1 die 10 times, 100 times, and 1000 times](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/images/Fig17_1b_samples_distribution.png?raw=true)
+<img src="./images/Fig17_1b_samples_distribution.png" width=550 alt="Sampling Distribution of rolling 1 die 10 times, 100 times, and 1000 times">
 
 Let's instead roll 2 dice and take their average. Here is a table showing the different possible averages of two dice and the possible ways to roll them. Notice the distribution - it looks more normal. This will become important in lesson 17.2.
 
@@ -47,7 +47,7 @@ Let's instead roll 2 dice and take their average. Here is a table showing the di
 
 Now, let's say that I roll 2 dice 10 times, 100 times, then 1000 times. This is the distribution that I get for each.
 
-![Sampling Distribution of rolling 2 dice 10 times, 100 times, and 1000 times](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/images/Fig17_1c_2samples_distribution.png?raw=true)
+<img src="./images/Fig17_1c_2samples_distribution.png" width=350 alt="Sampling Distribution of rolling 2 dice 10 times, 100 times, and 1000 times">
 
 #### The Point
 Instead of taking 1 sample, we took 2 samples and found the mean. Then we did this over and over and over and found the distribution of these mean values. This is known as a __sampling distribution__.
@@ -57,8 +57,11 @@ We saw what happens with a sample of 2 dice. What happens if we get a sampling d
 
 The following graph shows what it looks like with larger sample sizes. The blue bars show the histograms from sampling (rolling) with 2 dice, 5 dice, 10 dice, 20 dice, 30 dice, and 50 dice. The red lines show the normal distributions using the mean and standard deviation of our samples.
 
-![Sampling distribution with sample sizes of 2, 5, 10, 20, 30, and 50](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/images/Fig17_1d_n_samples_distribution.png?raw=true)
+<img src="./images/Fig17_1d_n_samples_distribution.png" width=350 alt="Sampling distribution with sample sizes of 2, 5, 10, 20, 30, and 50">
 
 At first, the shape of the distribution is very angular. As the sample size increases, the shape gets closer and closer to the normal distribution. By the time the sample size is 20 or 30, the sampling distribution is normal.
 
 __If the sample size is large enough, the sampling distribution becomes normal__. As a result, we can use normal distribution mathematics to relate the sample back to the population. *This is the first key to the __Central Limit Theorem__*.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/g8POH1oAB5Q?si=wd_PLG_XohudkZLW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+

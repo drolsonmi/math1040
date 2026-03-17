@@ -16,7 +16,7 @@ Now, we need to talk about the exact shape of the normal distribution. Let's con
 
 Your company collects 10,000 sample averages of people's IQ scores. In the following figures, I show the sampling distributions indicated with the blue histogram and the normal distribution of the samples (red curve). I also show the normal distribution for the population (green curve). The figures show the distributions for sample sizes of 10, 25, 50, and 100.
 
-![Sampling Distributions compared to normal distributions of the population](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/images/Fig17_2a_sampling_distributions.png?raw=true)
+<img src="./images/Fig17_2a_sampling_distributions.png" width=500 alt="Sampling Distributions compared to normal distributions of the population">
 
 Notice how the mean for the population and the samples are the same. So, 
 $$\mu_{\bar{x}} = \mu$$
@@ -49,7 +49,8 @@ You are asked to administer the exam in an area that you suspect will complete t
 * What is the probability that one single student completes the exam in less than 42 minutes?
 
 $$\mu = 45 \qquad \sigma = 12$$
-![Normal Distribution of population](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/images/Fig17_2b_Example_PopulationNormal.png?raw=true)
+
+<img src="./images/Fig17_2b_Example_PopulationNormal.png" width=300 alt="Normal Distribution of population">
 
 $$z = \frac{42-45}{12} = \frac{-3}{12} = -0.25$$
 $$P(t \le 42) = P(z \le -0.25) = 0.401 = \mathbf{40.1\%}$$
@@ -59,7 +60,7 @@ Now, instead of looking at just one student, you're going to sample 30 students.
 
 $$\mu_{\bar{x}} = \mu = 45 \qquad \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}} = \frac{12}{\sqrt{30}} = \frac{12}{5.477} = 2.191$$
 
-![w:200 Normal Distribution of sample](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/images/Fig17_2c_Example_SamplingNormal.png?raw=true)
+<img src="./images/Fig17_2c_Example_SamplingNormal.png" width=300 alt="Normal Distribution of sample">
 
 $$z = \frac{42-45}{2.191} = \frac{-3}{2.191} = -1.369$$
 $$P(t \le 42) = P(z \le -1.369) = 0.085 = \mathbf{8.5\%}$$
