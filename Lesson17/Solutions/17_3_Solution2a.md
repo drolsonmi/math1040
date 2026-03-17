@@ -24,6 +24,6 @@ A factory produces light bulbs with a mean lifetime of 1,200 hours and a standar
         * On a TI-83/84, DISTR --> 2:normalcdf(
             * 2:normalcdf(1225,9999,1200,100) if using the values from the problem
             * 2:normalcdf(0.25,9999,0,1) if using the z-score (gives the same answer)
-    * __Probability = 0.401 = 40.1\%__
+    * __Probability = 0.401 = 40.1%__
 
-[Click here](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/Lectures/17_2_StatsOfSamplingDists.md#practice) to return to the lecture notes.
+[Click here](../17_3_CentralLimitTheorem.md#practice) to return to the lecture notes.

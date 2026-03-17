@@ -54,7 +54,7 @@ Below are three problems regarding sampling distributions. Work on these problem
 ### Practice Problem 1
 The average commute time for workers in a large metropolitan area is 35 minutes with a standard deviation of 8 minutes. A researcher takes a random sample of 64 workers.
 1. What is the probability that the commute time of a single passenger is less than 33.5 minutes? 
-    * (After completing this on your own, [check the solution here](https://drolsonmi.github.com/math1040/Lesson17/Solutions/17_3_Solution1a.html).)
+    * (After completing this on your own, [check the solution here](./Solutions/17_3_Solution1a.html).)
 2. What is the probability that the sample mean commute time is less than 33.5 minutes? 
     * (After completing this on your own, [check the solution here](./Solutions/17_3_Solution1b.html).)
 
@@ -62,17 +62,17 @@ The average commute time for workers in a large metropolitan area is 35 minutes 
 ### Practice Problem 2
 A factory produces light bulbs with a mean lifetime of 1,200 hours and a standard deviation of 100 hours. A quality control engineer selects a random sample of 36 bulbs.
 1. What is the probability that the lifetime of a single bulb is greater than 1,225 hours? 
-    * (After completing this on your own, [check the solution here](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/Lectures/Solutions/17_2_Solution2a.md).)
+    * (After completing this on your own, [check the solution here](./Solutions/17_3_Solution2a.md).)
 2. What is the probability that the sample mean lifetime of the 36 bulbs is greater than 1,225 hours? 
-    * (After completing this on your own, [check the solution here](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/Lectures/Solutions/17_2_Solution2b.md).)
+    * (After completing this on your own, [check the solution here](./Solutions/17_3_Solution2b.md).)
 
 
 ### Practice Problem 3
 A coffee shop claims that the average temperature of its freshly brewed coffee is 160°F with a standard deviation of 5°F. A health inspector randomly samples 41 cups of coffee.
 1. What is the probability that the temperature of a single cup is between 158°F and 162°F? 
-    * (After completing this on your own, [check the solution here](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/Lectures/Solutions/17_2_Solution3a.md).)
+    * (After completing this on your own, [check the solution here](./Solutions/17_3_Solution3a.md).)
 2. What is the probability that the sample mean temperature is between 158°F and 162°F? 
-    * (After completing this on your own, [check the solution here](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/Lectures/Solutions/17_2_Solution3b.md).)
+    * (After completing this on your own, [check the solution here](./Solutions/17_3_Solution3b.md).)
 
 
 ## Technology

@@ -27,6 +27,6 @@ A coffee shop claims that the average temperature of its freshly brewed coffee i
         * On a TI-83/84, DISTR --> 2:normalcdf(
             * 2:normalcdf(158,162,160,5) if using the values from the problem
             * 2:normalcdf(0.3446,0.6554,0,1) if using the z-score (gives the same answer)
-    * __Probability = 0.311 = 31.1\%__
+    * __Probability = 0.311 = 31.1%__
 
-[Click here](https://github.com/drolsonmi/SnowCollegeClasses/blob/main/math1040online/Lectures/17_2_StatsOfSamplingDists.md#practice) to return to the lecture notes.
+[Click here](../17_3_CentralLimitTheorem.md#practice) to return to the lecture notes.

@@ -102,8 +102,8 @@
 * [16.2 Practice Calculating Percentiles/Quartiles](./Lesson16/16_2_Percentiles.md)
 * [16.3](./Lesson16/16_3_MorePractice.md)
 
-17: Central Limit Theorem
-* [17.1 Sampling Distributions](Lesson17/17_1_SamplingDistributions.md) (Needs reading assignment and practice questions)
+[17: Central Limit Theorem](./Lesson17/index.md)
+* [17.1 Sampling Distributions](Lesson17/17_1_SamplingDistributions.md)
 * [17.2 Statistics of Sampling Distributions](Lesson17/17_2_StatsOfSamplingDists.md)
 * [17.3 The Central Limit Theorem](Lesson17/17_3_CentralLimitTheorem.md) (Not written yet)
 
