@@ -1,5 +1,12 @@
 <head>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
@@ -47,7 +54,7 @@ Let's instead roll 2 dice and take their average. Here is a table showing the di
 
 Now, let's say that I roll 2 dice 10 times, 100 times, then 1000 times. This is the distribution that I get for each.
 
-<img src="./images/Fig17_1c_2samples_distribution.png" width=350 alt="Sampling Distribution of rolling 2 dice 10 times, 100 times, and 1000 times">
+<img src="./images/Fig17_1c_2samples_distribution.png" width=700 alt="Sampling Distribution of rolling 2 dice 10 times, 100 times, and 1000 times">
 
 #### The Point
 Instead of taking 1 sample, we took 2 samples and found the mean. Then we did this over and over and over and found the distribution of these mean values. This is known as a __sampling distribution__.
@@ -57,7 +64,7 @@ We saw what happens with a sample of 2 dice. What happens if we get a sampling d
 
 The following graph shows what it looks like with larger sample sizes. The blue bars show the histograms from sampling (rolling) with 2 dice, 5 dice, 10 dice, 20 dice, 30 dice, and 50 dice. The red lines show the normal distributions using the mean and standard deviation of our samples.
 
-<img src="./images/Fig17_1d_n_samples_distribution.png" width=350 alt="Sampling distribution with sample sizes of 2, 5, 10, 20, 30, and 50">
+<img src="./images/Fig17_1d_n_samples_distribution.png" width=750 alt="Sampling distribution with sample sizes of 2, 5, 10, 20, 30, and 50">
 
 At first, the shape of the distribution is very angular. As the sample size increases, the shape gets closer and closer to the normal distribution. By the time the sample size is 20 or 30, the sampling distribution is normal.
 
