@@ -15,3 +15,9 @@ We have arrived at the __Central Limit Theorem__. I cannot define it here yet. T
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/j6B8HzVTytc?si=6TWRRy3RzIIzhCDd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Topics in this lecture
+[17.1 Sampling Distributions](./17_1_SamplingDistributions.md)
+[17.2 Statistics of Sampling Distributions](./17_2_StatsOfSamplingDists.md)
+[17.3 The Central Limit Theorem](./17_3_CentralLimitTheorem.md)
+[17.4 Example of using the Central Limit Theorem](./17_4_Example.md)

@@ -103,9 +103,10 @@
 * [16.3](./Lesson16/16_3_MorePractice.md)
 
 [17: Central Limit Theorem](./Lesson17/index.md)
-* [17.1 Sampling Distributions](Lesson17/17_1_SamplingDistributions.md)
-* [17.2 Statistics of Sampling Distributions](Lesson17/17_2_StatsOfSamplingDists.md)
-* [17.3 The Central Limit Theorem](Lesson17/17_3_CentralLimitTheorem.md) (Not written yet)
+* [17.1 Sampling Distributions](./Lesson17/17_1_SamplingDistributions.md)
+* [17.2 Statistics of Sampling Distributions](./Lesson17/17_2_StatsOfSamplingDists.md)
+* [17.3 The Central Limit Theorem](./Lesson17/17_3_CentralLimitTheorem.md)
+* [17.4 Example of using the Central Limit Theorem](./Lesson17/17_4_Example.md)
 
 18: Confidence Intervals with 1 Sample Means
 * [Lesson 18 Overview](Lesson18)
