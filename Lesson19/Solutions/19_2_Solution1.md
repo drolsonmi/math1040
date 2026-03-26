@@ -21,18 +21,14 @@ Find the sample proportion and its complement:
 $$\hat{p} = \frac{x}{n} = \frac{174}{300} = 0.58 \qquad \hat{q} = 1 - \hat{p} = 0.42$$
 
 * The sample is random — *satisfied*
-* $$n\hat{p} = 300(0.58) = 174 \ge 10$$ — *satisfied*
-* $$n\hat{q} = 300(0.42) = 126 \ge 10$$ — *satisfied*
+* $n\hat{p} = 300(0.58) = 174 \ge 10$ — *satisfied*
+* $n\hat{q} = 300(0.42) = 126 \ge 10$ — *satisfied*
 
 The Central Limit Theorem applies. We can continue.
 
 **Step 2: Find the Critical Value**
 
-For a 95% confidence level, the remaining 5% is in the tails, with 2.5% in each tail. Using a Z-Table with a left tail area of 2.5%:
-
-<img src="../images/Fig19_2a_Practice1_ZTable.png?raw=true" width="500" alt="95% Confidence Level on a Z-Table">
-
-The critical value is $$z_c = \pm 1.96$$.
+For a 95% confidence level, the remaining 5% is in the tails, with 2.5% in each tail. As we saw in [Lesson 18.1 Critical Values](../../Lesson18/18_1_CriticalValues.md), the critical value for a 95% confidence level is $z_c = \pm 1.96$.
 
 **Step 3: Find the Margin of Error**
 
@@ -56,8 +52,4 @@ The confidence interval is $$(0.524,\ 0.636)$$.
 
 > **We are 95% confident that the true proportion of residents who support the proposed new park is between 0.524 and 0.636 (between 52.4% and 63.6%).**
 
-We can verify this result using Desmos:
-
-<img src="../images/Fig19_2a_Practice1_Desmos.png?raw=true" width="500" alt="95% Confidence Interval for a Proportion on Desmos">
-
-[Return back to Lesson 19.2](../19_2_ConfidenceInterval_Proportion.md#practice)
+[Return back to Lesson 19.2](../19_2_ConfidenceIntervalProps.md#practice)

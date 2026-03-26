@@ -21,18 +21,14 @@ Find the sample proportion and its complement:
 $$\hat{p} = \frac{x}{n} = \frac{45}{500} = 0.09 \qquad \hat{q} = 1 - \hat{p} = 0.91$$
 
 * The sample is random — *satisfied*
-* $$n\hat{p} = 500(0.09) = 45 \ge 10$$ — *satisfied*
-* $$n\hat{q} = 500(0.91) = 455 \ge 10$$ — *satisfied*
+* $n\hat{p} = 500(0.09) = 45 \ge 10$ — *satisfied*
+* $n\hat{q} = 500(0.91) = 455 \ge 10$ — *satisfied*
 
 The Central Limit Theorem applies. We can continue.
 
 **Step 2: Find the Critical Value**
 
-For a 99% confidence level, the remaining 1% is in the tails, with 0.5% in each tail. Using a Z-Table with a left tail area of 0.5%:
-
-<img src="../images/Fig19_2b_Practice2_ZTable.png?raw=true" width="500" alt="99% Confidence Level on a Z-Table">
-
-The critical value is $$z_c = \pm 2.58$$.
+For a 99% confidence level, the remaining 1% is in the tails, with 0.5% in each tail. As we saw in [Lesson 18.1 Critical Values](../../Lesson18/18_1_CriticalValues.md), the critical value for a 99% confidence level is $z_c = \pm 2.58$.
 
 **Step 3: Find the Margin of Error**
 
@@ -56,8 +52,4 @@ The confidence interval is $$(0.057,\ 0.123)$$.
 
 > **We are 99% confident that the true proportion of defective items produced by this factory is between 0.057 and 0.123 (between 5.7% and 12.3%).**
 
-We can verify this result using Desmos:
-
-<img src="../images/Fig19_2b_Practice2_Desmos.png?raw=true" width="500" alt="99% Confidence Interval for a Proportion on Desmos">
-
-[Return back to Lesson 19.2](../19_2_ConfidenceInterval_Proportion.md#practice)
+[Return back to Lesson 19.2](../19_2_ConfidenceIntervalProps.md#practice)

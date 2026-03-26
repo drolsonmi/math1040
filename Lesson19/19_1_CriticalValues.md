@@ -71,19 +71,14 @@ We will use a 95% confidence level for our scenario, so $$z_c = \pm 1.96$$.
 
 The __margin of error__ for a proportion is:
 
-$$E = z_c\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
-
-Some write that $\hat{q} = 1-\hat{p}$, so this can also be written as,
-
-$$E = z_c\sqrt{\frac{\hat{p}\hat{q}}{n}}$$
+$$E = z_c\sqrt{\frac{\hat{p}\hat{q}}{n}} = z_c\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
 
 This formula is analogous to the margin of error for a mean ($$E = z_c \cdot \sigma/\sqrt{n}$$) — the critical value multiplied by the standard error. The key difference is that the error is now computed from $$\hat{p}$$ instead of a known population standard deviation.
 
 For our scenario at the 95% confidence level,
 
 $$\begin{align*}
-E &= z_c\sqrt{\frac{\hat{p}\hat{q}}{n}} \\
-E &= z_c\sqrt{\frac{\hat{p}(1-\hat{p}}){n}} \\
+E &= z_c\sqrt{\frac{\hat{p}\hat{q}}{n}} = z_c\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \\
   &= 1.96\sqrt{\frac{(0.65)(0.35)}{200}} \\
   &= 1.96 \times 0.03373 \\
   &\approx \mathbf{0.066}

@@ -21,18 +21,14 @@ Find the sample proportion and its complement:
 $$\hat{p} = \frac{x}{n} = \frac{63}{180} = 0.35 \qquad \hat{q} = 1 - \hat{p} = 0.65$$
 
 * The sample is random — *satisfied*
-* $$n\hat{p} = 180(0.35) = 63 \ge 10$$ — *satisfied*
-* $$n\hat{q} = 180(0.65) = 117 \ge 10$$ — *satisfied*
+* $n\hat{p} = 180(0.35) = 63 \ge 10$ — *satisfied*
+* $n\hat{q} = 180(0.65) = 117 \ge 10$ — *satisfied*
 
 The Central Limit Theorem applies. We can continue.
 
 **Step 2: Find the Critical Value**
 
-For a 90% confidence level, the remaining 10% is in the tails, with 5% in each tail. Using a Z-Table with a left tail area of 5%:
-
-<img src="../images/Fig19_2c_Practice3_ZTable.png?raw=true" width="500" alt="90% Confidence Level on a Z-Table">
-
-The critical value is $$z_c = \pm 1.645$$.
+For a 90% confidence level, the remaining 10% is in the tails, with 5% in each tail. As we saw in [Lesson 18.1 Critical Values](../../Lesson18/18_1_CriticalValues.md), the critical value for a 90% confidence level is $z_c = \pm 1.645$.
 
 **Step 3: Find the Margin of Error**
 
@@ -56,8 +52,4 @@ The confidence interval is $$(0.292,\ 0.408)$$.
 
 > **We are 90% confident that the true proportion of students who experience high levels of stress during finals week is between 0.292 and 0.408 (between 29.2% and 40.8%).**
 
-We can verify this result using Desmos:
-
-<img src="../images/Fig19_2c_Practice3_Desmos.png?raw=true" width="500" alt="90% Confidence Interval for a Proportion on Desmos">
-
-[Return back to Lesson 19.2](../19_2_ConfidenceInterval_Proportion.md#practice)
+[Return back to Lesson 19.2](../19_2_ConfidenceIntervalProps.md#practice)

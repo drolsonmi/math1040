@@ -35,29 +35,36 @@ These are the two requirements needed to satisfy the Central Limit Theorem for p
 1. __The sample must be random__
     * The problem states that the sample is random, so *this is satisfied*
 2. __The sample must be large enough__
-    * Since we are dealing with categorical data and proportions, we require $$n\hat{p} \ge 10$$ and $$n\hat{q} \ge 10$$
-    * First, compute the sample proportion: $$\hat{p} = \frac{x}{n} = \frac{130}{200} = 0.65$$ and $$\hat{q} = 1 - \hat{p} = 0.35$$
-    * $$n\hat{p} = 200(0.65) = 130 \ge 10$$ — *this is satisfied*
-    * $$n\hat{q} = 200(0.35) = 70 \ge 10$$ — *this is satisfied*
+    * Since we are dealing with categorical data and proportions, we require $n\hat{p} \ge 10$ and $n\hat{q} \ge 10$
+    * First, compute the sample proportion: 
+
+        $$\hat{p} = \frac{x}{n} = \frac{130}{200} = 0.65$$
+        $$\hat{q} = 1 - \hat{p} = 0.35$$
+
+    * $n\hat{p} = 200(0.65) = 130 \ge 10$ — *this is satisfied*
+    * $n\hat{q} = 200(0.35) = 70 \ge 10$ — *this is satisfied*
 
 Since __both__ conditions are satisfied, __the Central Limit Theorem passes, and we can continue with this problem__.
 
 #### 2. Find the Critical Value
 We are given a confidence level of 95%.
 * The remaining 5% is in the two tails, 2.5% in each tail
-* The z-scores that separate the two tails are $$z_c = \pm 1.96$$
+* The z-scores that separate the two tails are $z_c = \pm 1.96$
 
 #### 3. Find the Margin of Error
-The equation for the margin of error for a proportion is $$E = z_c\sqrt{\tfrac{\hat{p}\hat{q}}{n}}$$.
-* $$z_c = 1.96$$ is the critical value
-* $$\hat{p} = 0.65$$ is the sample proportion
-* $$\hat{q} = 0.35$$ is the complement of the sample proportion
-* $$n = 200$$ is the sample size
+The equation for the margin of error for a proportion is 
+
+$$E = z_c\sqrt{\tfrac{\hat{p}\hat{q}}{n}} = z_c\sqrt{\tfrac{\hat{p}(1-\hat{p})}{n}}$$
+
+* $z_c = 1.96$ is the critical value
+* $\hat{p} = 0.65$ is the sample proportion
+* $\hat{q} = 0.35$ is the complement of the sample proportion
+* $n = 200$ is the sample size
 
 Plugging these in,
 
 $$\begin{align*}
-E &= z_c\sqrt{\frac{\hat{p}\hat{q}}{n}} \\
+E &= z_c\sqrt{\frac{\hat{p}\hat{q}}{n}} = z_c\sqrt{\tfrac{\hat{p}(1-\hat{p})}{n}} \\
   &= 1.96\sqrt{\frac{(0.65)(0.35)}{200}} \\
   &= 1.96\sqrt{\frac{0.2275}{200}} \\
   &= 1.96 \times 0.03373 \\
@@ -65,9 +72,9 @@ E &= z_c\sqrt{\frac{\hat{p}\hat{q}}{n}} \\
 \end{align*}$$
 
 #### 4. Find the Confidence Interval
-The boundaries of the confidence interval are the sample proportion ($$\hat{p}$$) plus or minus the margin of error ($$E$$).
-* $$\hat{p} = 0.65$$ is the sample proportion
-* $$E = 0.066$$ is the margin of error
+The boundaries of the confidence interval are the sample proportion ($\hat{p}$) plus or minus the margin of error ($E$).
+* $\hat{p} = 0.65$ is the sample proportion
+* $E = 0.066$ is the margin of error
 
 $$\hat{p} + E = 0.65 + 0.066 = 0.716$$
 

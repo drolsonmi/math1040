@@ -23,11 +23,7 @@ Verify the Central Limit Theorem applies:
 * $$n\hat{p} = 150(0.64) = 96 \ge 10$$ — *satisfied*
 * $$n\hat{q} = 150(0.36) = 54 \ge 10$$ — *satisfied*
 
-Find the critical value. For a 90% confidence level, the remaining 10% is in the tails, with 5% in each tail. Using a Z-Table with a left tail area of 5%:
-
-<img src="../images/Fig19_1a_Practice1_ZTable.png?raw=true" width="500" alt="90% Confidence Level on a Z-Table">
-
-The critical value is $$z_c = \pm 1.645$$.
+Find the critical value. For a 90% confidence level, the remaining 10% is in the tails, with 5% in each tail. As we saw in [Lesson 18.1 Critical Values](../../Lesson18/18_1_CriticalValues.md), the critical value for a 90% confidence level is $z_c = \pm 1.645$.
 
 Now calculate the margin of error:
 
@@ -41,8 +37,4 @@ E &= z_c\sqrt{\frac{\hat{p}\hat{q}}{n}} \\
 
 The margin of error is **0.064**, or about **6.4 percentage points**.
 
-We can verify this result using Desmos by computing the margin of error formula directly:
-
-<img src="../images/Fig19_1a_Practice1_Desmos.png?raw=true" width="500" alt="90% Confidence Level Margin of Error on Desmos">
-
-[Return back to Lesson 19.1](../19_1_CriticalValue_MarginOfError.md#practice)
+[Return back to Lesson 19.1](../19_1_CriticalValues.md#practice)
