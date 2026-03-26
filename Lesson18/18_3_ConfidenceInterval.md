@@ -74,6 +74,12 @@ Here is a proper interpretation of the confidence interval:
 
 > __We are 90% confident that the true average of Snow College student IQ scores is between the values of 102.4 and 110.2.__
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZwU7jF_qlkc?si=Jd7Y4uR1Fxu5evvC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+What if you are given a confidence interval. Can you find the margin of error? (Would I be asking if you couldn't?)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UByp4S7E4bM?si=5jNSKuz2zkjm1f9u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Practice
 1. A university is interested in estimating the average daily commute time for its students. A random sample of 50 students is selected, and their average commute time is found to be 32 minutes. The population standard deviation is known to be 8 minutes. Construct a 95% confidence interval for the true mean commute time of all students at the university.
     * [After solving on your own, see solution here](Solutions/18_3_Solution1.md)

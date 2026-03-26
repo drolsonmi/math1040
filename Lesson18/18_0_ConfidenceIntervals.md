@@ -20,6 +20,8 @@ This doesn't give an exact number, but it gives us a good approximation.
 
 Over the next few pages, we'll look at how to find the confidence interval. In this lesson, we will focus on a single sample of quantitative data
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LuX1RLTt30c?si=PKWYkfHAmEaBWoG2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Topics in this lecture
 * 18.1 Critical Values
 * 18.2 Margin of Error

@@ -69,6 +69,8 @@ We have just found the three most common critical values.
 
 Other confidence levels are used, but these three are most common.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nZrIjAJLzWU?si=hJkEL91fVQJTl-kg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Practice
 1. What is the critical value for the 76% confidence level?
     * [After solving on your own, see solution here](Solutions/18_1_Solution1.md)

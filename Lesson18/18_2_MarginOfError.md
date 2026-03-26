@@ -37,6 +37,7 @@ The last term of this formula is known as the __margin of error__ ($$E$$).
 
 $$E = z\frac{\sigma}{\sqrt{n}}$$
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zpM8SOqrYKI?si=zq94h5UtQOCPPYIr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
 1. The average height of a particular species of flower is 5.5 inches with a standard deviation of 0.4 inches. You sample a subspecies and find 49 flowers with a sample mean height of 5.8 inches. What is the margin of error with a 95% confidence level?
