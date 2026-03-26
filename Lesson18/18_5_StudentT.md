@@ -43,6 +43,8 @@ Using these on the T-Table, we get a critical t-score of $$t_c = 2.064$$
 Other than that, the calculations for the Margin of Error and the Confidence Interval are exactly the same.
 $$E = t_c\frac{s}{\sqrt{n}} \qquad \mu = \bar{x} \pm SE$$
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OEGcLdttb4g?si=1JgpZCyLc6NQJMvn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 #### Example
 Here is the problem from earlier:
 > A health researcher wants to estimate the average number of hours of sleep that college students get on weeknights. A random sample of 25 students is taken from a normally-distributed population, and the sample yields a mean of 6.8 hours with a sample standard deviation of 1.2 hours.
@@ -72,6 +74,8 @@ $$\bar{x} + E = 6.8 + 0.495 = 7.295 \approx \mathbf{7.3}$$
 $$\bar{x} - E = 6.8 - 0.495 = 6.305 \approx \mathbf{6.3}$$
 
 Solution: __We are 95% confident that the true mean for the number of hours of sleep college students get on weeknights is between 6.3 and 7.3 hours__.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EqGZH1dWkgM?si=-JBwXRUbzc5M4ICT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
 1. A nutritionist wants to estimate the average number of cups of coffee consumed per week by graduate students. A random sample of 16 students shows a mean of 9.3 cups with a sample standard deviation of 2.1 cups. Construct a 90% confidence interval for the true mean weekly coffee consumption of graduate students.
