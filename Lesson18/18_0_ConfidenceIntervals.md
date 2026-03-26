@@ -1,4 +1,17 @@
-# Lesson 18: Confidence Intervals with 1 Sample Means
+<head>
+<title>Confidence Intervals with 1 Quantitative Sample</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+# Lesson 18: Confidence Intervals with 1 Quantitative Sample
 Knowing the __Central Limit Theorem__, we are ready to make our first inference. By __inference__, we mean that we are using our sample to infer information about the population. 
 
 This is really what we wanted from the beginning of the course. We can't actually find the average weight of all Americans, but if we find a sample average, we can find an approximation of the true average.
@@ -23,7 +36,8 @@ Over the next few pages, we'll look at how to find the confidence interval. In t
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LuX1RLTt30c?si=PKWYkfHAmEaBWoG2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Topics in this lecture
-* 18.1 Critical Values
-* 18.2 Margin of Error
-* 18.3 Confidence Interval with 1 Sample Means
-* 18.4 Interpreting the Confidence Interval
+* [18.1 Critical Values](./18_1_CriticalValues.md)
+* [18.2 Margin of Error](./18_2_MarginOfError.md)
+* [18.3 Confidence Interval when you know $$\sigma$$](./18_3_ConfidenceInterval.md)
+* [18.4 Finding the best sample size](./18_4_FindingN.md)
+* [18.5 Confidence Interval when you don't know $$\sigma$$](./18_5_StudentT.md)

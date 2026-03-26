@@ -220,7 +220,7 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ## 17.3 The Central Limit Theorem
 * 4.2.2 Examining the Central Limit Theorem (pages 159-162)
 
-# Lesson 18 Confidence Intervals with 1 Sample Means
+# Lesson 18 Confidence Intervals with 1 Quantitative Sample
 Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ## 18.1 Critical Values
 * 4.2.3 Normal approximation for the sampling distribution of $\bar{x}$ (pages 162-163)
@@ -228,20 +228,24 @@ Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
 ## 18.2 Margin of Error
 * 7.1.1 Using the z-distribution for inference when $\mu$ is unknown and $\sigma$ is known (page 277)
 
-## 18.3 Confidence Interval with 1 Sample Means
+## 18.3 Confidence Interval with 1 Quantitative Sample
 * 7.1.4 The Normality Condition (page 282)
 * 7.1.1 Using the z-distribution for inference when $\mu$ is unknown and $\sigma$ is known (page 277)
 
 ## 18.4 Determining $$n$$
 * 7.1.6 Choosing a sample size when estimating a mean (pages 285-286)
 
-## 18.4 Interpreting the Confidence Interval
+## 18.5 Interpreting the Confidence Interval
 * 7.1.2 Introducing the t-distribution (pages 278-281)
 * 7.1.3 The t-distribution and the standard error of a mean (page 281)
 * 7.1.5 One sample t-intervals (pages 282-285)
 
-
-
+# Lesson 19 Confidence Intervals with 1 Categorical Sample 
+Readings from our [Introductory Statistics Textbook](OpenIntroTextbook.pdf)
+## 19.1 Critical Value and Margin of Error for a Proportion
+* 6.1.1 Confidence intervals for a proportion (pages 218–222)
+## Lesson 19.2 Confidence Interval for a Proportion
+* 6.1.1 Confidence intervals for a proportion (pages 218–222)
 
 
 # Lesson 20 Hypothesis Testing with 1 Sample Means
