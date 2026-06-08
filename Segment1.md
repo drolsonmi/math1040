@@ -5,12 +5,14 @@
 </head>
 
 ## Lessons
-- Lesson 1: Variables
-- Lesson 2: Sampling Methods
-- Lesson 3: Study Design
-- Lesson 4: Graphing
-- Lesson 5: Histogram
+- [Lesson 1: Variables](./Lesson01/index.md)
+- [Lesson 2: Sampling Methods](./Lesson02/index.md)
+- [Lesson 3: Study Design](./Lesson03/index.md)
+- [Lesson 4: Graphing](./Lesson04/index.md)
+- [Lesson 5: Histogram](./Lesson05/index.md)
 
 ## Segment Objectives:
 - Identify variable types
 - Determine the level of measurement for any variable
+- Define what makes a sample random
+- Distinguish random sampling methods from not-so-random sampling methods

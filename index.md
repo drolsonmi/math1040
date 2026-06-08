@@ -29,7 +29,7 @@ MathJax = {
 
 [2: Sampling Methods](./Lesson02/index.md)
 * [2.1 Randomness](Lesson02/2_1_Randomness.md)
-* [2.2 Sampling Methods](Lesson02/2_2_SamplingMethods.md)
+* [2.2 Random Sampling Methods](Lesson02/2_2_SamplingMethods.md)
 * [2.3 Not-so-random Sampling Methods](Lesson02/2_3_NotRandomMethods.md)
 
 [3: Designing a Study](./Lesson03/index.md)
