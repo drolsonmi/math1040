@@ -30,24 +30,24 @@ We can distinguish variables by what they measure. There are 4 __levels of measu
 Here are a few variables. Determine if they are Quantitative or Categorical, then determine the level of measurement of each variable. Once you have identified the level of measurement, move your mouse over each variable to see the answer.
 
 1. Age
-    * [After solving on your own, see solution here](Solutions/1_3_Solution1.md)
+    * [After solving on your own, see solution here](Solutions/1_4_Solution1.md)
 2. Name
-    * [After solving on your own, see solution here](Solutions/1_3_Solution2.md)
+    * [After solving on your own, see solution here](Solutions/1_4_Solution2.md)
 3. Temperature (given in degrees Fahrenheit or degrees Celsius)
-    * [After solving on your own, see solution here](Solutions/1_3_Solution3.md)
+    * [After solving on your own, see solution here](Solutions/1_4_Solution3.md)
 4. Pain Level (for example, "rate your pain on a scale of 1-10")
-    * [After solving on your own, see solution here](Solutions/1_3_Solution4.md)
+    * [After solving on your own, see solution here](Solutions/1_4_Solution4.md)
 5. Time of the day
-    * [After solving on your own, see solution here](Solutions/1_3_Solution5.md)
+    * [After solving on your own, see solution here](Solutions/1_4_Solution5.md)
 6. Weight
-    * [After solving on your own, see solution here](Solutions/1_3_Solution6.md)
+    * [After solving on your own, see solution here](Solutions/1_4_Solution6.md)
 7. Book Title
-    * [After solving on your own, see solution here](Solutions/1_3_Solution7.md)
+    * [After solving on your own, see solution here](Solutions/1_4_Solution7.md)
 8. Grade in school (Both 5th, 6th, 7th, ... and Freshman, Sophomore, Junior, Senior)
-    * [After solving on your own, see solution here](Solutions/1_3_Solution8.md)
+    * [After solving on your own, see solution here](Solutions/1_4_Solution8.md)
 9. ZIP Code
-    * [After solving on your own, see solution here](Solutions/1_3_Solution9.md)
+    * [After solving on your own, see solution here](Solutions/1_4_Solution9.md)
 10. Time to run a race
-    * [After solving on your own, see solution here](Solutions/1_3_Solution10.md)
+    * [After solving on your own, see solution here](Solutions/1_4_Solution10.md)
 11. GPA
-    * [After solving on your own, see solution here](Solutions/1_3_Solution11.md)
+    * [After solving on your own, see solution here](Solutions/1_4_Solution11.md)

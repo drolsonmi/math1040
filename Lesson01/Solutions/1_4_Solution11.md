@@ -1,4 +1,4 @@
-## Problem 1.3.11
+## Problem 1.4.11
 __GPA__ is generally used as a __Ratio__ variable.
 * Numerical variable
 * There is a definite value of zero, meaning no grade points were earned
@@ -10,4 +10,4 @@ Note that GPA can also be used as an Ordinal variable
 * 0.5-2.5 = D
 * 0.0-0.5 = F
 
-[Return to lesson](../1_3_LevelsOfMeasurement.md#practice)
+[Return to lesson](../1_4_LevelsOfMeasurement.md#practice)

@@ -1,4 +1,4 @@
-## Problem 1.3.1:
+## Problem 1.4.1:
 Determine the Level of Measure for the variable "Age"
 
 __Age__ is generally a __ratio__ variable
@@ -7,4 +7,4 @@ __Age__ is generally a __ratio__ variable
 
 *Note* that if Age is used to separate people into groups (such as ages 0-3, 4-7, 8-12, etc.), then this is categorizing people. It would then be an __Ordinal__ variable.
 
-[Return to lesson](../1_3_LevelsOfMeasurement.md#practice)
+[Return to lesson](../1_4_LevelsOfMeasurement.md#practice)
