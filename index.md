@@ -24,8 +24,8 @@ MathJax = {
 [1: Variables](./Lesson01/index.md)
 * [1.1 Populations and Samples](./Lesson01/1_1_Populations.md)
 * [1.2 Variables](./Lesson01/1_2_Variables.md)
-* [1.2 Quantitative Variables](./Lesson01/1_3_QuantitativeVariables.md)
-* [1.3 Levels of Measurement](./Lesson01/1_4_LevelsOfMeasurement.md)
+* [1.3 Quantitative Variables](./Lesson01/1_3_QuantitativeVariables.md)
+* [1.4 Levels of Measurement](./Lesson01/1_4_LevelsOfMeasurement.md)
 
 [2: Sampling Methods](./Lesson02/index.md)
 * [2.1 Randomness](Lesson02/2_1_Randomness.md)

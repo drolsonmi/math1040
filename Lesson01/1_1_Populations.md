@@ -1,14 +1,14 @@
 <head>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<title>Lesson 1.1 Populations and Samples</title>
 </head>
 
 # Lesson 1.1 Populations and Samples
 ## Reading
 Reading selections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 1.2.1 Observations, variables, and data matrices (pages 11-12)
-* 1.2.2 Types of Variables (pages 12-13)
-* 1.2.3 Relationships between variables (pages 13-15)
+* 1.3.1 Populations and samples (pages 16-17)
 
 ## Lesson
 We begin by looking at populations.

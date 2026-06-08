@@ -1,14 +1,17 @@
 <head>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<title>Lesson 1 Overview</title>
 </head>
 
-# Lesson 1 The Nature of Data
+# Lesson 1 Variables
+## The Nature of Data
 In statistics, we are working with data. __Data__ are *a collection of observations*.
 * (Side-note: A single observation is known as a __datum__. Multiple observations, or a collection of observations, are known as __data__. So, the word "data" is actually plural.)
 
 In the field of __Statistics__, we are trying to find __*the best way to collect, analyze, and draw conclusions from data*__.
 
+## Data Tables
 Here is an example of a data table displaying student exam scores:
 
 | __Student__ | __Exam 1__ | __Exam 2__ | __Exam 3__ | __Final Exam__ |
@@ -25,6 +28,7 @@ Each observation is made of multiple measurements known as __variables__, depict
 In this lesson, we are going to explore what variables are as well as the different types of variables we will deal with through the course.
 
 ## Lesson Objectives
+By the end of this lesson, you should be able to accomplish the following:
 - Identify variable types
 - Determine the level of measurement for any variable
 

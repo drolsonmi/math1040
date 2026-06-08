@@ -1,15 +1,10 @@
----
-title: Lesson 1: Variables
----
-
 <head>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<title>Lesson 1.3 Levels of Measurement</title>
+<title>Lesson 1.4 Levels of Measurement</title>
 </head>
 
-
-# Lesson 1.3 Levels of Measurement
+# Lesson 1.4 Levels of Measurement
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 1.2.2 Types of Variables (pages 12-13)

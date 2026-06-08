@@ -1,5 +1,5 @@
 ## Problem 1.2.4
-4. What type of variable is a student's "GPA"?
+__What type of variable is a student's "GPA"?__
 
 This is a number, and finding the average GPA makes sense. So, this is a __Quantitative__ variable.
 

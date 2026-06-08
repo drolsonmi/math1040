@@ -1,9 +1,10 @@
 <head>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<title>Lesson 1.2 Variables</title>
 </head>
 
-# Lesson 1.1 Variables
+# Lesson 1.2 Variables
 ## Reading
 Reading selections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 1.2.1 Observations, variables, and data matrices (pages 11-12)

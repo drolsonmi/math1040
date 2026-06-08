@@ -1,5 +1,5 @@
 ## Problem 1.2.1
-1. What type of variable is the "Age" variable? 
+__What type of variable is the "Age" variable?__
 
 This is a number, and finding the average age makes sense, so this is a __Quantitative__ variable.
 
