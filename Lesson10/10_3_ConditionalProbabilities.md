@@ -16,7 +16,7 @@ When dealing with two events, there is a chance that one event could be affected
 
 $$P(coat | cold)$$
 
-The vertical bar symbol ( | ) means "given that". We can find a conditional probability as,
+The vertical bar symbol ( `|` ) means "given that". We can find a conditional probability as,
 
 $$P(B|A) = \frac{P(A~AND~B)}{P(A)}$$
 
