@@ -12,9 +12,11 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 Since we had to square the deviations to find the variance, our result comes out in squared units. To get rid of the squared unit, take the square root. This is the standard deviation.
 
 Variance for a population and a sample
+
 $$\sigma^2 = \frac{\sum(x-\mu)^2}{n} \qquad s^2 = \frac{\sum(x-\bar{x})^2}{n-1}\tag{Variance}$$
 
 Standard Deviation for a population and a sample
+
 $$\sigma = \sqrt{\frac{\sum(x-\mu)^2}{n}} \qquad s = \sqrt{\frac{\sum(x-\bar{x})^2}{n-1}}\tag{Standard Deviation}$$
 
 The standard deviation can be interpreted as a specific distance from the mean that indicates how spread out the data is.
