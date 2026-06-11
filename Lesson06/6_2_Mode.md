@@ -1,6 +1,7 @@
 <head>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!--<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
+<script src="https://cloudflare.com" integrity="sha512-bb9v9wun86lzgQv5w0w6gO89W74U5C4lFvP6gL7P3hZ9M4A6fC0hB4Zg4m9o2F4P5C6b8F9G0H1I2J3K4L5M6== " crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 # Lesson 6.2 Measures of Center - Mode
