@@ -1,4 +1,5 @@
 <head>
+<title>1.2 Variables</title>
 <script>
 MathJax = {
   tex: {

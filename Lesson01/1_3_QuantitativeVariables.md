@@ -1,4 +1,5 @@
 <head>
+<title>1.3 Quantitative Variables</title>
 <script>
 MathJax = {
   tex: {

@@ -1,4 +1,5 @@
 <head>
+<title>1.1 Populations and Samples</title>
 <script>
 MathJax = {
   tex: {

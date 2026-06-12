@@ -8,7 +8,7 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<title>Lesson 2.2 Random Sampling Methods</title>
+<title>2.2 Random Sampling Methods</title>
 </head>
 
 # Lesson 2.2 Random Sampling Methods
@@ -37,18 +37,18 @@ These methods, if done appropriately, will eliminate bias as it gives everyone a
 Determine the sampling method in each of the scenarios below. After you determine the sampling method, click on the scenario to verify your answers.
 
 1. __Public Opinion Poll__: Randomly dialing phone numbers across a country to ask about political preferences.
-    * [After solving on your own, see solution here](Solutions/2_2_Solution1.md)
+    * [After solving on your own, see solution here](./Solutions/2_2_Solution1.md)
 2. __Income Survey__: Grouping a city’s residents by income brackets and sampling proportionally from each bracket.
-    * [After solving on your own, see solution here](Solutions/2_2_Solution2.md)
+    * [After solving on your own, see solution here](./Solutions/2_2_Solution2.md)
 3. __Library Usage__: Randomly choosing 30 books from a library catalog to analyze borrowing frequency.
-    * [After solving on your own, see solution here](Solutions/2_2_Solution3.md)
+    * [After solving on your own, see solution here](./Solutions/2_2_Solution3.md)
 4. __Factory Inspection__: Selecting 2 out of 10 factory shifts and inspecting all products made during those shifts.
-    * [After solving on your own, see solution here](Solutions/2_2_Solution4.md)
+    * [After solving on your own, see solution here](./Solutions/2_2_Solution4.md)
 5. __School Performance__: Dividing students by grade level (e.g., 9th, 10th, 11th, 12th) and randomly selecting 25 from each to assess academic performance.
-    * [After solving on your own, see solution here](Solutions/2_2_Solution5.md)
+    * [After solving on your own, see solution here](./Solutions/2_2_Solution5.md)
 6. __Email Survey__: Sending a survey to every 5th person on a mailing list.
-    * [After solving on your own, see solution here](Solutions/2_2_Solution6.md)
+    * [After solving on your own, see solution here](./Solutions/2_2_Solution6.md)
 7. __Traffic Study__: Recording the speed of every 7th car passing a checkpoint.
-    * [After solving on your own, see solution here](Solutions/2_2_Solution7.md)
+    * [After solving on your own, see solution here](./Solutions/2_2_Solution7.md)
 8. __University Research__: Choosing 4 dormitories at random and surveying all residents.
-    * [After solving on your own, see solution here](Solutions/2_2_Solution8.md)
+    * [After solving on your own, see solution here](./Solutions/2_2_Solution8.md)

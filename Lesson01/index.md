@@ -8,7 +8,7 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<title>Lesson 1 Overview</title>
+<title>Lesson 1 Variables</title>
 </head>
 
 # Lesson 1 Variables

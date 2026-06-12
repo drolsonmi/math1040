@@ -8,7 +8,7 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<title>Lesson 2.3 Not-so-random Sampling Methods</title>
+<title>2.3 Not-so-random Sampling Methods</title>
 </head>
 
 # Lesson 2.3 Not-so-random Sampling Methods

@@ -1,4 +1,5 @@
 <head>
+<title>Lesson 2 Sampling Methods</title>
 <script>
 MathJax = {
   tex: {
@@ -19,6 +20,7 @@ How we collect the data is important. For example, if I want to sample citizens 
 The solution is to make sure all areas are represented in our sample. The key to this is making sure the sample is totally random. In this lesson, we will look at what is meant by randomness, then look at a few sampling methods that incorporate randomness. We'll also look at a couple of common sampling methods that aren't actually random, along with the problems they can create.
 
 ## Lesson Objectives
+By the end of this lesson, you should be able to accomplish the following:
 - Define what makes a sample random
 - Distinguish random sampling methods from not-so-random sampling methods
 
