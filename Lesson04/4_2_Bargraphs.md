@@ -86,6 +86,7 @@ The points on the line indicate the total percentage of the sample accounted for
 By the time you are above the final column, your line should be up to 100%. This is why we call it a cumulative sum - cumulative meaning we're adding the values for all the columns.
 
 Here is the math showing this cumulative sum:
+
 | Cylinders | Count | Frequency | Cumulative Sum                             |
 | :-------: | :---: | :-------- | :----------------------------------------- |
 |   4       | 204   | 51.3%     | 51.3%                                      |
