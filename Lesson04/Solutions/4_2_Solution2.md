@@ -61,7 +61,7 @@ To make it a pareto chart, we need to go from largest to smallest. Rearranging t
 
 Then, we make a bargraph from this data in this order.
 
-![Bargraph of medals won by country in 2024 olympics](../images/Fig4_Solution2.png)
+![Bargraph of medals won by country in 2024 olympics](../images/Fig422_Solution.png)
 
 You may have used frequencies instead of the count. This was not specified, so either option is acceptable. Be sure that your graph includes:
 - proper scales

@@ -1,4 +1,5 @@
 <head>
+<title>4.1 Graphing Basics</title>
 <script>
 MathJax = {
   tex: {
