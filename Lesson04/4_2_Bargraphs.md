@@ -129,4 +129,35 @@ One final note. Notice how in this last graph, the bars are arranged in descendi
 
 -->
 
+
+## Practice
+1. In the 2024 Olympics, the host country (France) won 16 Gold medals, 26 Silver medals, and 22 Bronze medals. Create a bargraph of these numbers with the frequency on the y-axis.
+    * [After solving on your own, see solution here](./Solutions/4_2_Solution1.md)
+
+2. Below is a table of medals won by a number of countries in the 2024 olympics. Create a pareto chart for the __total__ number of medals won by each country.
+  * [After solving on your own, see solution here](./Solutions/4_2_Solution2.md)
+
+| Country       | Gold  | Silver | Bronze |
+| :------------ | :---: | :----: | :----: |
+| Australia     | 18    | 19     | 16     |
+| China         | 40    | 27     | 24     |
+| France        | 16    | 26     | 22     |
+| Germany       | 12    | 13     | 8      | 
+| Great Britain | 14    | 22     | 29     |
+| Italy         | 12    | 13     | 15     |
+| Japan         | 20    | 12     | 13     |
+| Korea         | 13    | 9      | 10     |
+| Netherlands   | 15    | 7      | 12     |
+| USA           | 40    | 44     | 42     |
+
+## Technology
+Throughout the course, I will show you how to accomplish a number of tasks using technology including,
+- TI-83/84
+- Microsoft Excel
+- Desmos
+
+All three can be useful in different scenarios. Honestly, your careers will benefit most from Microsoft Excel (or something like it) more than any other technology. So, I'll include this. However, we won't be able to test you with Excel since you won't have computers. For this reason, I will also show you the instructions for a TI-83/84 when appropriate.
+
+### Microsoft Excel
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fNriRQeToLg?si=fsTtSxSJwYJ-nfT1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
