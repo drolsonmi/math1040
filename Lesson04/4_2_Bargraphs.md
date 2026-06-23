@@ -58,7 +58,7 @@ Then to find the frequency, we divide the count by the total and multiply by 100
 >
 > $$1.0\% + 51.3\% + 0.8\% + 21.1\% + 25.9\% = 100.1\%$$
 >
-> In my case, I am off by 0.1\%. This is likely because of rounding issues. If your total is off by more than 0.1\%, then go back and check your work again.
+> In my case, I am off by 0.1%. This is likely because of rounding issues. If your total is off by more than 0.1%, then go back and check your work again.
 
 Now, to make a frequency bargraph, just use percentages from 0% up to 100% on the y-axis and make each bar height equal to the frequency we just calculated.
 
