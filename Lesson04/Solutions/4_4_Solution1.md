@@ -4,7 +4,7 @@
     - How many weeks had more than 5 sales?
     - Were there any weeks that had fewer than 2 sales?
 
-![Image for Problem 1](../images/Fig4_DotplotPractice1.png)
+![Image for Problem 1](../images/Fig4_4_DotplotPractice1.png)
 
 ### Solution
 - There were 4 sales on three weeks: week 6, week 12, week 13

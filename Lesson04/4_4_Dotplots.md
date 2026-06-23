@@ -18,7 +18,7 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 ## Lesson
 A __dotplot__ is a quantitative graph. It follows a simple method of adding one dot for every occurrence of a value. Here is an example of a dotplot from our Gas Mileage dataset we saw in [4.1 Graphing Basics](./4_1_GraphingBasics.md). This plot is counting the number of European cars we have in our sample for each year from 1970 through 1982.
 
-![European Cars in Sample by Year](./images/Fig4_Dotplot.png)
+![European Cars in Sample by Year](./images/Fig4_4_Dotplot.png)
 
 This graph is very simple to create.
 - Draw a numberline that reaches from below the minimum value to above the maximum value
@@ -39,7 +39,7 @@ All of this happened because I didn't follow a scale. The result is that a reade
 
 What happens when the count gets really high? Are you going to draw 100 dots for a single value? I would want to. When the counts are really high, it becomes cumbersome to draw that many dots. When this happens, we often switch to a bargraph.
 
-![European Cars in Sample by Year as a bargraph](./images/Fig4_DotplotAsBars.png)
+![European Cars in Sample by Year as a bargraph](./images/Fig4_4_DotplotAsBars.png)
 
 In the video below, I use Desmos to demonstrate how to create a dotplot. However, once you see what the dot plot looks like, it will be simple to follow when drawing this by hand. Just remember these basic steps:
 
@@ -52,7 +52,7 @@ In the video below, I use Desmos to demonstrate how to create a dotplot. However
     - Were there any weeks that had fewer than 2 sales?
     - [After answering these questions on your own, check the solution](./Solutions/4_4_Solution1.html)
 
-![Image for Problem 1](./images/Fig4_DotplotPractice1.png)
+![Image for Problem 1](./images/Fig4_4_DotplotPractice1.png)
 
 2. You want to know how much time students spend watching movies every day. You sample 20 students who report the following times to the nearest half hour. Create a dotplot of this data. Be sure to include a proper scale along with proper labels.
   - [After answering these questions on your own, check the solution](./Solutions/4_4_Solution2.html)

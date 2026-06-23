@@ -30,13 +30,13 @@ We'll also look at how to effectively make these graphs.
 ## Topics in this lecture
 Below are the subtopics for this lecture:
 - [4.1 Graphing Basics](./4_1_GraphingBasics.md)
-- Quantitative Graphs:
-  - [4.2 Dotplots](./4_2_Dotplots.md)
-  - [4.3 Stem-and-leaf plots](./4_3_Stemplots.md)
-  - [4.4 Scatterplots](./4_4_Scatterplots.md)
-  - [4.5 Timeseries graphs](./4_5_Timeseries.md)
 - Categorical Graphs:
-  - [4.6 Bargraphs and Pareto Charts](./4_6_Bargraphs.md)
-  - [4.7 Pie Charts](4_7_PieCharts.md)
+  - [4.2 Bargraphs and Pareto Charts](./4_2_Bargraphs.md)
+  - [4.3 Pie Charts](4_3_PieCharts.md)
+- Quantitative Graphs:
+  - [4.4 Dotplots](./4_4_Dotplots.md)
+  - [4.5 Stem-and-leaf plots](./4_5_Stemplots.md)
+  - [4.6 Scatterplots](./4_6_Scatterplots.md)
+  - [4.7 Timeseries graphs](./4_7_Timeseries.md)
 
 We will look at Histograms in Lesson 5. Box-and-whisker plots will be examined in Lesson 6.
