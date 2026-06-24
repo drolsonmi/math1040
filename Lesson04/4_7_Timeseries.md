@@ -1,4 +1,5 @@
 <head>
+<title>4.7 Timeseries plots</title>
 <script>
 MathJax = {
   tex: {

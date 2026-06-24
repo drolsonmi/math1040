@@ -1,4 +1,5 @@
 <head>
+<title>4.6 Scatterplots</title>
 <script>
 MathJax = {
   tex: {

@@ -1,4 +1,5 @@
 <head>
+<title>4.5 Stem-and-Leaf plots</title>
 <script>
 MathJax = {
   tex: {

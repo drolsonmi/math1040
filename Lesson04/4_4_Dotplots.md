@@ -1,4 +1,5 @@
 <head>
+<title>4.4 Dotplots</title>
 <script>
 MathJax = {
   tex: {
