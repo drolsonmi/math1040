@@ -19,7 +19,7 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 
 ## Lesson
 ### The Bargraph
-The first graph we'll look at is the __bargraph__ (sometimes called a __barplot__). *Bargraphs are graphs to look at the frequency of __categorical__ variables.* In our cars' gas mileage dataset, we have the model year for each sample car. Let's look at the number of cars in our sample for each year:
+The first graph we'll look at is the __bargraph__ (sometimes called a __barplot__). *Bargraphs are used to look at the frequency of __categorical__ variables.* In our cars' gas mileage dataset, we have the model year for each sample car. Let's look at the number of cars in our sample for each year:
 
 ![Bar graph of cars by model year](./images/Fig4_2_Bargraph.png)
 
