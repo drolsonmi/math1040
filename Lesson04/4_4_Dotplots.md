@@ -17,7 +17,16 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 2.1.2 Stem-and-leaf plots and dot plots (pages 48-49)
 
 ## Lesson
-A __dotplot__ is a quantitative graph. It follows a simple method of adding one dot for every occurrence of a value. Here is an example of a dotplot from our Gas Mileage dataset we saw in [4.1 Graphing Basics](./4_1_GraphingBasics.md). This plot is counting the number of European cars we have in our sample for each year from 1970 through 1982.
+*A __dotplot__ is used to look at the frequency of a single __quantitative__ variables.* At first, the graph looks very different from the others we have already learned about, but you will see in the end that it behaves very much like a bar graph, but for quantitative values instead of categories.
+
+Dotplots follow a simple method of adding one dot for every occurrence of a value. To make a dotplot,
+
+1. Draw a numberline that goes from a value below the variable's minimum to a value above the maximum (__proper scale__)
+2. Create a __proper label__ for the graph, including a title
+3. For each sample, draw a dot above that sample's value on the numberline
+    - Be sure the dots are equally spaced going upward. If the spacing changes, it loses the visual effect the dotplot offers.
+
+Here is an example of a dotplot from our Gas Mileage dataset we saw in [4.1 Graphing Basics](./4_1_GraphingBasics.md). This plot is counting the number of European cars we have in our sample for each year from 1970 through 1982.
 
 ![European Cars in Sample by Year](./images/Fig4_4_Dotplot.png)
 
