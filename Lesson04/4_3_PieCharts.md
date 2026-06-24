@@ -17,7 +17,9 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 2.3.4 The only pie chart you will see in this book (pages 74-75)
 
 ## Lesson
-__Pie charts__ are rather easy to make. They are also limited in what they can display. As such, I do not tend to use pie charts very often. However, since they are commonly seen in the public, it is important to know how they work.
+*__Pie charts__ are used to look at the frequency of __categorical__ variables.* Specifically, they make it easy to visualize the relative proportions of different categories at a glance. They are most effective when comparing a small number of segments to understand their individual contribution to the total dataset.
+
+Pie charts are rather easy to make. They are also limited in what they can display. As such, I do not tend to use pie charts very often. However, they do have their place, and since they are commonly seen in the public, it is important to know how they work.
 
 Using our cars' gas mileage dataset, let's look at the cars' origin (manufacturing region). To create a pie chart, we do the following:
 1. Count the samples in each category
