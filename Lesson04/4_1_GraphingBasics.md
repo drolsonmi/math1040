@@ -40,7 +40,16 @@ To make a graph understandable, we need to add a few important elements to our g
 
 __All__ graphs need to begin with scales and labels (including a title). Throughout the semester, I will be watching to see if your graphs have scales and labels. *Graphs without scales and labels will not receive full credit*. So, be sure to begin every graph with the scale and label
 
-For the graphs above, I used a publicly-available dataset looking at the gas mileage of cars in the 1970's and the early 1980's. In the rest of this lesson, we'll use this dataset to learn how to make and read these graphs:
+For the graphs above, I used a publicly-available dataset looking at the gas mileage of cars in the 1970's and the early 1980's. Here is a sample of the data available in this dataset:
+
+| mpg   | cylinders | displacement | horsepower | weight | acceleration | model_year | origin | name |
+| :---: | :-------: | :----------: | :--------: | :----: | :----------: | :--------: | :----: | :--- |
+| 18.0  | 8         | 307.0        | 130.0      | 3504   | 12.0         | 1970       | USA    | chevrolet chevelle malibu | 
+| 15.0  | 8         | 350.0        | 165.0      | 3693   | 11.5         | 1970       | USA    | buick skylark 320 | 
+
+There are 398 cars in this dataset. 
+
+In the rest of this lesson, we'll use this data to learn how to make and read these graphs:
 
 | Quantitative Graphs             | Categorical Graphs   |
 | :-----------------------------: | :------------------: |
