@@ -17,7 +17,7 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 * 2.1.2 Stem-and-leaf plots and dot plots (pages 48-49)
 
 ## Lesson
-*A __dotplot__ is used to look at the frequency of a single __quantitative__ variables.* At first, the graph looks very different from the others we have already learned about, but you will see in the end that it behaves very much like a bar graph, but for quantitative values instead of categories.
+*A __dotplot__ is used to look at the frequency of a single __quantitative__ variable.* At first, the graph looks very different from the others we have already learned about, but you will see in the end that it behaves very much like a bar graph, but for quantitative values instead of categories.
 
 Dotplots follow a simple method of adding one dot for every occurrence of a value. To make a dotplot,
 
