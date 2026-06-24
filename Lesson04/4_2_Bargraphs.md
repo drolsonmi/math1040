@@ -19,7 +19,17 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 
 ## Lesson
 ### The Bargraph
-The first graph we'll look at is the __bargraph__ (sometimes called a __barplot__). *Bargraphs are used to look at the frequency of __categorical__ variables.* In our cars' gas mileage dataset, we have the model year for each sample car. Let's look at the number of cars in our sample for each year:
+The first graph we'll look at is the __bargraph__ (sometimes called a __barplot__). *Bargraphs are used to look at the frequency of __categorical__ variables.* Here are the basic steps to creating a bar graph:
+
+1. List all categories
+2. Count the number of samples in each category 
+3. Create a set of x- and y-axis (in other words, __create a proper scale__)
+    - On the x-axis, list all the categories
+    - On the y-axis, list numbers going at least as high as your largest category (You don't want to go too high, or if will wash out the details of the graph) 
+4. __Properly label your axes__. Include a proper title. 
+5. For each category, draw a bar up the the y-axis value that matches the count of that category
+
+In our cars' gas mileage dataset, we have the model year for each sample car. Let's look at the number of cars in our sample for each year:
 
 ![Bar graph of cars by model year](./images/Fig4_2_Bargraph.png)
 
