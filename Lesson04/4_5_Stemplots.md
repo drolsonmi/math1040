@@ -11,22 +11,6 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
----
-canonical: https://drolsonmi.github.io/math1040/Lesson04/4_5_Stemplots.html
-meta-description: Lecture Pages for MATH 1040 Online course
-meta-generator: Jekyll v3.10.0
-meta-og:description: Lecture Pages for MATH 1040 Online course
-meta-og:locale: en_US
-meta-og:site_name: MATH 1040 - Introduction to Statistics
-meta-og:title: MATH 1040 - Introduction to Statistics
-meta-og:type: website
-meta-og:url: https://drolsonmi.github.io/math1040/Lesson04/4_5_Stemplots.html
-meta-twitter:card: summary
-meta-twitter:title: MATH 1040 - Introduction to Statistics
-meta-viewport: width=device-width, initial-scale=1
-title: MATH 1040 - Introduction to Statistics | Lecture Pages for MATH 1040 Online course
----
-
 # Lesson 4.5 Stem-and-leaf plots (stemplots)
 
 ## Reading

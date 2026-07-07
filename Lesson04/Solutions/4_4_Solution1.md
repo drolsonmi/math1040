@@ -1,3 +1,16 @@
+<head>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<title>Solution for practice 4.4.1</title>
+</head>
+
 ## 4.4 Dotplots - Solution for Practice 1
 1. You want to study how well a specific item sells at a store. This graph is a dotplot of sales by week.   which displays rainfall amounts over the past 40 years. From this graph, answer the following questions
     - How many weeks were there 4 sales?

@@ -11,21 +11,6 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
----
-canonical: https://drolsonmi.github.io/math1040/Lesson04/4_6_Scatterplots.html
-meta-description: Lecture Pages for MATH 1040 Online course
-meta-generator: Jekyll v3.10.0
-meta-og:description: Lecture Pages for MATH 1040 Online course
-meta-og:locale: en_US
-meta-og:site_name: MATH 1040 - Introduction to Statistics
-meta-og:title: MATH 1040 - Introduction to Statistics
-meta-og:type: website
-meta-og:url: https://drolsonmi.github.io/math1040/Lesson04/4_6_Scatterplots.html
-meta-twitter:card: summary
-meta-twitter:title: MATH 1040 - Introduction to Statistics
-meta-viewport: width=device-width, initial-scale=1
----
-
 # Lesson 4.6 Scatterplots
 
 ## Reading
@@ -53,6 +38,22 @@ Once your labels are created,
 - Imagine a vertical line from your x-value and a horizontal line from your y-value. Where they meet is the location of your datapoint
 
 Do this for all datapoints, and you have a scatterplot!
+
+For example, if we want to plot a car's **weight** against its **gas mileage** using our cars dataset from [4.1 Graphing Basics](https://drolsonmi.github.io/math1040/Lesson04/4_1_GraphingBasics.html), we first identify the explanatory variable and the response variable. To do this, I like to ask myself which variable is more likely to influence the other. Is the car's weight more likely to explain the gas mileage, or is the gas mileage more likely to explain the weight? The second option isn't reasonable at all, so we stick with the first. Thus, the car's weight is the *explanatory variable* and we put it on the x-axis and the gas mileage is the *response variable* and we put it on the y-axis.
+
+![Graph with Explanatory and Response Variables](./images/Fig4_2_OnlyLabels.png)
+
+Now, we identify each observation's weight on the x-axis and the gas mileage on the y-axis, then draw a point where the two values meet.
+
+![1st point of a scatterplot of Car Weights and Gas Mileage](./images/Fig4_6_Scatterplot-1point.png)
+
+Continue to do this with all points.
+
+![Scatterplot of Car Weights and Gas Mileage](./images/Fig4_6_Scatterplot.png)
+
+This is the basic scatterplot. We can make further adaptations to demonstrate more information, such as this figure where points are colored based on where the car was produced. We will not be doing this in class. Just be aware that you may come across this type of scatterplot.
+
+![Scatterplot of Car Weights and Gas Mileage colored by origin](./images/Fig4_6_ColoredScatterplot.png)
 
 ### Reading a Scatterplot
 

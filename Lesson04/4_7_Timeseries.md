@@ -11,26 +11,6 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
----
-canonical: https://drolsonmi.github.io/math1040/Lesson04/4_7_Timeseries.html
-meta-description: Lecture Pages for MATH 1040 Online course
-meta-generator: Jekyll v3.10.0
-meta-og:description: Lecture Pages for MATH 1040 Online course
-meta-og:locale: en_US
-meta-og:site_name: MATH 1040 - Introduction to Statistics
-meta-og:title: MATH 1040 - Introduction to Statistics
-meta-og:type: website
-meta-og:url: https://drolsonmi.github.io/math1040/Lesson04/4_7_Timeseries.html
-meta-twitter:card: summary
-meta-twitter:title: MATH 1040 - Introduction to Statistics
-meta-viewport: width=device-width, initial-scale=1
-title: MATH 1040 - Introduction to Statistics | Lecture Pages for MATH 1040 Online course
----
-
-# [MATH 1040 - Introduction to Statistics](https://drolsonmi.github.io/math1040/)
-
-4.7 Timeseries plots
-
 # Lesson 4.7 Timeseries
 
 ## Lesson
@@ -50,17 +30,11 @@ Since a timeseries plot is a special type of scatterplot, we build it the same w
 
 Because time only moves in one direction, connecting the dots in order makes sense for a time series in a way it wouldn't for an ordinary scatterplot (where there isn't a natural order to connect points in).
 
-### Example
+Let's look at the yearly average gas mileage for our dataset. We can take the average gas mileage by year and create a scatterplot.
 
-Suppose a small company tracks its number of monthly sales over the first half of the year:
+![Timeseries of Gas Mileage](./images/Fig4_7_Timeseries.png)
 
-| Month |  Jan  |  Feb  |  Mar  |  Apr  |  May  |  Jun  |
-| :---- | :---: | :---: | :---: | :---: | :---: | :---: |
-| Sales |  120  |  135  |  128  |  150  |  162  |  158  |
-
-To graph this, we would put the months in order along the x-axis (Jan through Jun) and Sales (say, from 100 to 175) along the y-axis. We then plot a point above each month at its corresponding sales value, and connect the points in order with line segments.
-
-Reading this graph, we can look for:
+Note that we have connected the points. The lines help the reader to see patterns and trends. Reading this graph, we can look for:
 
 - **Trend**: an overall upward or downward pattern over the long run (here, sales generally trend upward over the six months)
 - **Seasonality**: a pattern that repeats at regular intervals (for example, retail sales that always spike every December)
@@ -76,6 +50,11 @@ It's worth pausing to compare a time series graph to a regular scatterplot, sinc
 | Connect points with lines? | No | Yes, in time order |
 | Main question | Is there a relationship between the two variables? | How does the variable change over time? |
 
+### Variations on timeseries
+Just as we did with scatterplots, we can create different lines based on category. For example, we can see the gas mileage over time based on country of origin. Another adaptation is that we can show error bars for each point. These error bars can indicate the standard deviation or the confidence interval, both of which we'll learn about later. Here is an example of the timeseries graph with error bars indicating the standard deviation.
+
+![Timeseries of Gas Mileage with Error Bars](./images/Fig4_7_TimeseriesErrorbars.png)
+
 ## Practice
 
 1. The table below shows the average monthly high temperature (in °F) for a city over one year:
@@ -87,7 +66,7 @@ It's worth pausing to compare a time series graph to a regular scatterplot, sinc
   - Create a timeseries graph of this data, including a proper scale, labels, and title.
   - Describe any trend or seasonality you observe.
   - [After solving on your own, see solution here](https://drolsonmi.github.io/math1040/Lesson04/Solutions/4_7_Solution1.html)
-2. A company's stock price (in dollars) was recorded at the close of each trading day for one week: \[52, 54, 53, 58, 61\]   Create a timeseries graph of this data and describe what happened to the stock price over the week.
+2. A company's stock price (in dollars) was recorded at the close of each trading day for one week: $52, 54, 53, 58, 61$   Create a timeseries graph of this data and describe what happened to the stock price over the week.
   - [After solving on your own, see solution here](https://drolsonmi.github.io/math1040/Lesson04/Solutions/4_7_Solution2.html)
 
 
