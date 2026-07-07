@@ -34,7 +34,7 @@ The stems are lined up in a column (smallest at the top, largest at the bottom),
 
 1. Look at the range of the data (find the minimum and maximum) and decide what the stems will be. **This is our scale**, so be sure it is consistent — every stem from the smallest to the largest must be listed, even if a stem ends up with no leaves.
 2. Draw a vertical line to the right of the stems.
-3. **Label** the plot with a title, and include a key showing how to read a stem-leaf pair (for example, "4|7 = 47").
+3. **Label** the plot with a title, and include a key showing how to read a stem-leaf pair (for example, "4\|7 = 47").
 4. Go through the data values in order and write each leaf next to its stem, from smallest leaf to largest.
 
 ### Example
