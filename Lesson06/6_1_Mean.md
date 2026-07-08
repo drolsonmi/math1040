@@ -45,55 +45,18 @@ Both are calculated the same way.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/e5NMhvnCJSs?si=bDpqmCgXl05nfn6w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<!--
+
 ## Practice
-Find the mean of the following datasets. Calculate the mean first, then check the answer.
+1. Find the mean of the following dataset: \[4, 8, 6, 5, 3, 7\]
+  - [After solving on your own, see solution here](./Solutions/6_1_Solution1.html)
+2. Consider the dataset \[12, 15, 14, 13, 16, 55\].
+  - Find the mean of the dataset as given.
+  - Remove the value 55 and find the mean of the remaining five values.
+  - Explain what happened to the mean and why.
+  - [After solving on your own, see solution here](./Solutions/6_1_Solution2.html)
+3. The mean score on 5 tests is 84. Four of the five scores are 78, 90, 85, and 82. What was the fifth score?
+  - [After solving on your own, see solution here](./Solutions/6_1_Solution3.html)
 
-1. 
-    * After solving on your own, check the <button popovertarget="Problem_1">Solution</button>
-2. ?
-    * After solving on your own, check the <button popovertarget="Problem_2">Solution</button>
-3. ?
-    * After solving on your own, check the <button popovertarget="Problem_3">Solution</button>
-
-<div popover id="Problem_1">
-
-## Problem 20.1.1
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_1" popovertargetaction="hide">Close</button></center>
-</div>
-
-<div popover id="Problem_2">
-
-## Problem 20.1.2
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_2" popovertargetaction="hide">Close</button></center>
-</div>
-<div popover id="Problem_3">
-
-## Problem 20.1.3
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_3" popovertargetaction="hide">Close</button></center>
-</div>
--->
 
 ## Technology
 It is important to know how the values we discuss are calculated. However, at this level of statistics, using the calculator will be useful. So, now that we are getting into the calculations portion of the class, we will be using the calculator frequently. So, I will start including instructions on using these calculators.

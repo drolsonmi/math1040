@@ -68,6 +68,16 @@ There are some common points between quartiles and percentiles. For example,
 In this class, this is about as far as we need to go with percentiles. They are very useful and you should have a basic understanding of them. But we are only going to work with quartiles in this class.
 
 ## Practice
+1. Find the 5-number summary of the following dataset: \[2, 4, 6, 8, 10, 12, 14, 16, 18\]
+  - [After solving on your own, see solution here](./Solutions/6_4_Solution1.html)
+2. Find the 5-number summary of the following dataset: \[5, 7, 9, 12, 15, 18, 20, 22\]
+  - [After solving on your own, see solution here](./Solutions/6_4_Solution2.html)
+3. A dataset has the 5-number summary: Min = 10, Q1 = 25, Median = 40, Q3 = 58, Max = 90.
+  - What percentile does Q1 correspond to?
+  - What is the IQR?
+  - What proportion of the data lies between Q1 and Q3?
+  - [After solving on your own, see solution here](./Solutions/6_4_Solution3.html)
+  
 
 ## Technology
 There are a few different ways to calculate quartiles. Different software calculates the quartiles differently. The method we learned here is the method used by the TI-83/TI-84. However, it is useful to see how it is done with other technologies.

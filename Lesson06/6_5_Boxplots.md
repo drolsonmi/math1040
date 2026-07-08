@@ -55,11 +55,26 @@ What is this reasonable distance? *Any point within $$1.5\cdot IQR$$ of the box 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JpMn8y-Rfrs?si=mk9RpAwVJl7SikNN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
+## Practice
+1. Consider the dataset \[12, 15, 14, 10, 18, 20, 13, 55\].
+  - Find the 5-number summary and the IQR.
+  - Determine whether any values are outliers.
+  - Describe how you would draw the boxplot, including where the whiskers would end.
+  - [After solving on your own, see solution here](./Solutions/6_5_Solution1.html)
+2. A dataset has the 5-number summary: Min = 45, Q1 = 52, Median = 60, Q3 = 68, Max = 75.
+  - Find the IQR and check for outliers.
+  - Based on the box and whisker lengths, describe whether the distribution appears roughly symmetric or skewed.
+  - [After solving on your own, see solution here](./Solutions/6_5_Solution2.html)
+3. Two classes' exam scores have the following 5-number summaries:
+  - Class A: Min = 60, Q1 = 70, Median = 78, Q3 = 85, Max = 95
+  - Class B: Min = 50, Q1 = 65, Median = 78, Q3 = 90, Max = 100
+  - Compare the center and spread of the two classes using their boxplots.
+  - [After solving on your own, see solution here](./Solutions/6_5_Solution3.html)
+
 <!--
 Perhaps it would be a good idea to create 6.6 Boxplots and Skewness (compare to histograms)
 
 
-## Practice
 
 ## Technology
 
