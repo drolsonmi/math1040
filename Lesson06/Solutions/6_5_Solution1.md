@@ -50,6 +50,8 @@ Since $55 > 28.75$, the value **55 is an outlier**. No values fall below the low
 
 **Drawing the boxplot**: The box stretches from Q1 (12.5) to Q3 (19), with a line inside at the median (14.5). Because 55 is an outlier, the right whisker does **not** extend all the way to 55 — instead, it stops at the largest value that is *not* an outlier, which is 20. The point 55 is then plotted separately as a single dot beyond the whisker to mark it as an outlier. The left whisker extends from Q1 down to the minimum, 10, since 10 is within the fences.
 
-![Boxplot with an outlier](https://drolsonmi.github.io/math1040/Lesson06/images/Fig651_Solution.png)
+<img src="https://drolsonmi.github.io/math1040/Lesson06/images/Fig652_Solution.png" width=400 alt="Boxplot with an outlier">
+
+<!--![Boxplot with an outlier](../images/Fig652_Solution.png)-->
 
 [Return to lesson](https://drolsonmi.github.io/math1040/Lesson06/6_5_Boxplots.html#practice)

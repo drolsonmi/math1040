@@ -86,18 +86,17 @@ As you look at histograms throughout this course (and in the real world), get in
 
 1. For each histogram below, identify whether the shape is symmetric (normal), skewed right, skewed left, uniform, or bimodal.
 
-**Graph A**
+    **Graph A:**
 
-<img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeA.png" width=250>
-![Graph A](./images/Fig531_PracticeA.png)
+    <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeA.png" width=450>
 
-**Graph B**
+    **Graph B:**
 
-![Graph B](./images/Fig531_PracticeB.png)
+    <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeB.png" width=450>
 
-**Graph C**
+    **Graph C:**
 
-![Graph C](./images/Fig531_PracticeC.png)
+    <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeC.png" width=450>
 
 - [After answering these questions on your own, check the solution](https://drolsonmi.github.io/math1040/Lesson05/Solutions/5_3_Solution1.html)
 
