@@ -28,7 +28,7 @@ This is where the histogram comes in. Instead of plotting every single value, a 
 
 Here is a histogram of the miles-per-gallon (mpg) values from our cars' gas mileage dataset:
 
-![Histogram of Gas Mileage](https://drolsonmi.github.io/math1040/Lesson05/images/Fig5_1_Histogram.png)
+![Histogram of Gas Mileage](./images/Fig5_1_Histogram.png)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iiZMdK-azqY?si=VJPxDW97fAZZzHZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -67,7 +67,7 @@ In the next lesson, [5.2 Creating a Histogram](https://drolsonmi.github.io/math1
 
 1. Thirty adults were asked how many hours per day they spend on their phone. Use the histogram below to answer the questions that follow.
 
-![Daily Phone Use for 30 Adults](https://drolsonmi.github.io/math1040/Lesson05/images/Fig5_1_ReadingPractice.png)
+![Daily Phone Use for 30 Adults](./images/Fig511PhoneUseHistogram.png)
 
 - How many adults spend between 2 and 3 hours per day on their phone?
 - Which bin has the highest frequency?

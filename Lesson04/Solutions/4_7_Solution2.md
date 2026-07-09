@@ -19,7 +19,7 @@ MathJax = {
  
 Put the days of the week (Monday through Friday) on the x-axis and closing stock price on the y-axis. Plot a point for each day and connect them in order with line segments:
  
-![Timeseries graph of stock price over one week](https://drolsonmi.github.io/math1040/Lesson04/images/Fig472_Solution.png)
+![Timeseries graph of stock price over one week](../images/Fig472_Solution.png)
  
 **Description**: The stock price rose slightly from Monday to Tuesday ($52 to $54), dipped slightly on Wednesday ($53), and then climbed for the rest of the week, closing the week at $61. Overall, the stock price shows an **upward trend** over the five days, with one small dip on Wednesday.
  
@@ -28,4 +28,5 @@ Be sure that your graph includes:
 - proper scales
 - proper labels
 - a title
+
 [Return to lesson](https://drolsonmi.github.io/math1040/Lesson04/4_7_Timeseries.html#practice)

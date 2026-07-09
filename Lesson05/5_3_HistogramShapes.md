@@ -88,15 +88,16 @@ As you look at histograms throughout this course (and in the real world), get in
 
 **Graph A**
 
-![Graph A](https://drolsonmi.github.io/math1040/Lesson05/images/Fig5_3_Practice_A.png)
+<img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeA.png" width=250>
+![Graph A](./images/Fig531_PracticeA.png)
 
 **Graph B**
 
-![Graph B](https://drolsonmi.github.io/math1040/Lesson05/images/Fig5_3_Practice_B.png)
+![Graph B](./images/Fig531_PracticeB.png)
 
 **Graph C**
 
-![Graph C](https://drolsonmi.github.io/math1040/Lesson05/images/Fig5_3_Practice_C.png)
+![Graph C](./images/Fig531_PracticeC.png)
 
 - [After answering these questions on your own, check the solution](https://drolsonmi.github.io/math1040/Lesson05/Solutions/5_3_Solution1.html)
 

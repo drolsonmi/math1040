@@ -1,29 +1,35 @@
-# [MATH 1040 - Introduction to Statistics](https://drolsonmi.github.io/math1040/)
-
-Lesson 5 Histograms
+<head>
+<title>Lesson 5 Histograms</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
 
 ## Lesson 5 Histograms
 
-In Lesson 4, we looked at several graphs for both categorical and quantitative data: bar graphs, pie charts, dotplots, stem-and-leaf plots, scatterplots, and time series graphs. We saved one graph for its own lesson because it deserves a little extra attention — the **histogram**.
+In Lesson 4, we graphed quantitative data with dotplots, stem-and-leaf plots, scatterplots, and time series graphs. Each of those graphs works well for smaller datasets, but once we start working with dozens or hundreds of values, plotting every single point becomes impractical. Instead, we need a graph that groups the data together while still showing us its overall shape.
+ 
+That's exactly what a **histogram** does. A histogram groups quantitative data into equal-width intervals called **classes** (or bins), then draws a bar for each class showing how many data values fall inside it. Unlike a bar graph, a histogram is used for quantitative data, its bars touch (since the data is continuous), and the order of the bars can never be rearranged.
+ 
+Once we know how to build a histogram, we'll spend time learning how to *read* one. The shape of a histogram — whether it's symmetric, skewed, uniform, or has more than one peak — tells us a great deal about the underlying data, and it will set the stage for the measures of center and spread we calculate in Lesson 6.
 
-The histogram is one of the most commonly used graphs in all of statistics. Unlike the other quantitative graphs we've learned, a histogram doesn't plot every individual datapoint. Instead, it groups nearby values together into **bins** (also called **classes**) and shows how many datapoints fall into each bin. This makes histograms especially useful for large datasets, where plotting every single value (like we did with a dotplot) would be too cluttered to read.
 
-Because a histogram groups data into bins, it can also double as a graph for categorical data, which is why you saw it listed in both columns of our table back in Lesson 4:
+## Lesson Objectives
+ 
+By the end of this lesson, you should be able to accomplish the following:
+ 
+- Construct a frequency table and histogram from a quantitative dataset, choosing an appropriate number of classes and class width
+- Construct a relative frequency histogram and explain how it differs from a frequency histogram
+- Identify and describe the shape of a distribution (symmetric, skewed left, skewed right, uniform, or bimodal)
+- Use the shape of a histogram to describe where the data is centered and how spread out it is
+- Explain when a histogram is a more appropriate choice than a dotplot, stem-and-leaf plot, or bar graph
 
-| Quantitative Graphs              | Categorical Graphs     |
-| -------------------------------- | ---------------------- |
-| Dotplot                          | Bar graph              |
-| Stem-and-leaf plot               | (Paretto chart)        |
-| Scatterplot                      | Pie chart              |
-| Timeseries                       |                        |
-| **Histogram**                    | **Histogram**          |
-| Box-and-whisker plot (Lesson 6)  |                        |
-
-In this lesson, we'll answer three questions:
-
-1. What *is* a histogram, and how do we read one?
-2. How do we *create* a histogram from raw data?
-3. What can the *shape* of a histogram tell us about our data?
 
 ## Topics in this lecture
 

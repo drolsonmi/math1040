@@ -1,4 +1,5 @@
 <head>
+<title>5.2 Creating a Histogram</title>
 <script>
 MathJax = {
   tex: {
@@ -9,8 +10,6 @@ MathJax = {
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
-
 
 
 # Lesson 5.2 Creating a Histogram
@@ -110,24 +109,24 @@ The "doubling" rule we used in Step 2 (formally called **Sturges' Rule**) is a g
 
 $$22, 24, 25, 29, 31, 33, 35, 38, 40, 44, 47, 50$$
 
-Follow the steps above to find the range, the number of bins, and the bin size, and then create a histogram of this data.
+  - Follow the steps above to find the range, the number of bins, and the bin size, and then create a histogram of this data.
   - [After solving on your own, see solution here](https://drolsonmi.github.io/math1040/Lesson05/Solutions/5_2_Solution1.html)
 
 2. A teacher has already grouped her 35 students' exam scores into the frequency table below. Use this table to draw a histogram. (Since the data is already binned for you, you can skip straight to Steps 5 and 6.)
 
-| Exam Score | Frequency |
-| ---------- | --------- |
-| 50 - 60    | 3         |
-| 60 - 70    | 7         |
-| 70 - 80    | 12        |
-| 80 - 90    | 9         |
-| 90 - 100   | 4         |
+    | Exam Score | Frequency |
+    | :--------: | :-------: |
+    | 50 - 60    | 3         |
+    | 60 - 70    | 7         |
+    | 70 - 80    | 12        |
+    | 80 - 90    | 9         |
+    | 90 - 100   | 4         |
 
   - [After solving on your own, see solution here](https://drolsonmi.github.io/math1040/Lesson05/Solutions/5_2_Solution2.html)
 
 ## Technology
 
-Just like the graphs in Lesson 4, you can create histograms using Excel, Desmos, or a TI-83/84 calculator.
+Just like the graphs in Lesson 4, you can create histograms using Excel, Desmos, or on a TI-83/84 calculator.
 
 ### Microsoft Excel
 

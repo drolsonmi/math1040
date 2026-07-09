@@ -1,6 +1,16 @@
-# [MATH 1040 - Introduction to Statistics](https://drolsonmi.github.io/math1040/)
+<head>
+<title>Solution for 5.2.2</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
 
-Solution for practice 5.2.2
 
 ## 5.2 Creating a Histogram - Solution for Practice 2
 

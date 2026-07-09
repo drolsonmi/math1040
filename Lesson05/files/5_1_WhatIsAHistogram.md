@@ -30,7 +30,7 @@ This is where the histogram comes in. Instead of plotting every single value, a 
 
 Here is a histogram of the miles-per-gallon (mpg) values from our cars' gas mileage dataset:
 
-![Histogram of Gas Mileage](https://drolsonmi.github.io/math1040/Lesson05/images/Fig5_1_Histogram.png)
+![Histogram of Gas Mileage](../images/Fig5_1_Histogram.png)
 
 ### Reading a Histogram
 
@@ -67,13 +67,13 @@ In the next lesson, [5.2 Creating a Histogram](https://drolsonmi.github.io/math1
 
 1. Thirty adults were asked how many hours per day they spend on their phone. Use the histogram below to answer the questions that follow.
 
-![Daily Phone Use for 30 Adults](https://drolsonmi.github.io/math1040/Lesson05/images/Fig5_1_ReadingPractice.png)
+![Daily Phone Use for 30 Adults](./images/Fig511PhoneUseHistogram.png)
 
-- How many adults spend between 2 and 3 hours per day on their phone?
-- Which bin has the highest frequency?
-- How many adults spend 4 or more hours per day on their phone?
-- What is the total sample size shown in this histogram?
-- [After answering these questions on your own, check the solution](https://drolsonmi.github.io/math1040/Lesson05/Solutions/5_1_Solution1.html)
+  - How many adults spend between 2 and 3 hours per day on their phone?
+  - Which bin has the highest frequency?
+  - How many adults spend 4 or more hours per day on their phone?
+  - What is the total sample size shown in this histogram?
+  - [After answering these questions on your own, check the solution](https://drolsonmi.github.io/math1040/Lesson05/Solutions/5_1_Solution1.html)
 
 2. A researcher collects two datasets: (1) the favorite genre of music for 200 students, and (2) the height (in inches) of those same 200 students. Which dataset should be displayed with a bar graph, and which should be displayed with a histogram? Explain your reasoning.
   - [After answering this question on your own, check the solution](https://drolsonmi.github.io/math1040/Lesson05/Solutions/5_1_Solution2.html)

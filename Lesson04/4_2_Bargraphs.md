@@ -145,7 +145,7 @@ One final note. Notice how in this last graph, the bars are arranged in descendi
     * [After solving on your own, see solution here](./Solutions/4_2_Solution1.md)
 
 2. Below is a table of medals won by a number of countries in the 2024 olympics. Create a pareto chart for the __total__ number of medals won by each country.
-  * [After solving on your own, see solution here](./Solutions/4_2_Solution2.md)
+    * [After solving on your own, see solution here](./Solutions/4_2_Solution2.md)
 
 | Country       | Gold  | Silver | Bronze |
 | :------------ | :---: | :----: | :----: |

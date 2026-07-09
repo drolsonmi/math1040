@@ -27,6 +27,14 @@ Graphing is when we display the data in a visual format, which gives a visual un
 
 We'll also look at how to effectively make these graphs.
 
+## Lesson Objectives
+By the end of this lesson, you should be able to accomplish the following:
+- Choose an appropriate type of graph based on whether the data is categorical or quantitative
+- Construct a bar graph, Pareto chart, and pie chart from categorical data
+- Construct a dotplot, stem-and-leaf plot, scatterplot, and time series graph from quantitative data
+- Read and interpret each type of graph, including identifying patterns, trends, and unusual features
+- Identify the explanatory and response variables in a scatterplot or time series graph
+
 ## Topics in this lecture
 Below are the subtopics for this lecture:
 - [4.1 Graphing Basics](./4_1_GraphingBasics.md)

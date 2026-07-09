@@ -14,13 +14,14 @@ MathJax = {
 ## 4.6 Scatterplots - Solution for Practice 1
  
 1. A researcher records the number of hours 10 students studied for an exam and their exam score:
-| Hours Studied | 1  | 2  | 2  | 3  | 3  | 4  | 5  | 5  | 6  | 7  |
-| :------------ | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Exam Score    | 55 | 62 | 68 | 70 | 75 | 78 | 85 | 88 | 90 | 95 |
+
+| Hours Studied | 1    | 2    | 2    | 3    | 3    | 4    | 5    | 5    | 6    | 7    |
+| :------------ | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| Exam Score    | 55   | 62   | 68   | 70   | 75   | 78   | 85   | 88   | 90   | 95   |
  
-  - Identify the explanatory and response variables.
-  - Create a scatterplot of this data.
-  - Describe the direction, form, and strength of the association.
+- Identify the explanatory and response variables.
+- Create a scatterplot of this data.
+- Describe the direction, form, and strength of the association.
 
 ### Solution
  
@@ -28,7 +29,7 @@ MathJax = {
  
 **Scatterplot**:
  
-![Scatterplot of exam score vs. hours studied](https://drolsonmi.github.io/math1040/Lesson04/images/Fig461_Solution.png)
+![Scatterplot of exam score vs. hours studied](../images/Fig461_Solution.png)
  
 **Direction, form, and strength**: The scatterplot shows a **positive** association — as hours studied increases, exam score also tends to increase. The points follow a fairly straight pattern, so the form is **linear**. The points stay close to that pattern with very little scatter, so the association is **strong**.
  
