@@ -20,6 +20,8 @@ Reading sections are from the [Introductory Statistics Textbook](https://drolson
 - 2.1.3 Histograms (pages 51-54)
 
 ## Lesson
+
+
 *A **histogram** is used to look at the frequency of a **quantitative** variable.* In that sense, it does the same job as the dotplot we learned about in [4.4 Dotplots](https://drolsonmi.github.io/math1040/Lesson04/4_4_Dotplots.html). The difference is *how* it groups the data.
 
 A dotplot places one dot for every single value in the dataset. That works well when we have a small sample or only a handful of distinct values. But what happens when we have hundreds (or thousands) of datapoints, or the data is spread across a wide range of decimal values? Drawing one dot per value quickly becomes impossible to read.
@@ -29,8 +31,6 @@ This is where the histogram comes in. Instead of plotting every single value, a 
 Here is a histogram of the miles-per-gallon (mpg) values from our cars' gas mileage dataset:
 
 ![Histogram of Gas Mileage](https://drolsonmi.github.io/math1040/Lesson05/images/Fig5_1_Histogram.png)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iiZMdK-azqY?si=VJPxDW97fAZZzHZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Reading a Histogram
 
@@ -48,12 +48,12 @@ At first glance, a histogram looks a lot like a bar graph. Both use bars to show
 
 ![Bar Graph versus Histogram](https://drolsonmi.github.io/math1040/Lesson05/images/Fig5_1_BarVsHistogram.png)
 
-|                       | Bar Graph                               | Histogram                             |
-| :-------------------- | :-------------------------------------- | :------------------------------------ |
-| Type of data          | Categorical                             | Quantitative                          |
-| What the x-axis shows | Categories (in any order)               | Ranges of values (in numerical order) |
-| Bars                  | Have gaps between them                  | Touch, with no gaps                   |
-| Order of bars         | Can be rearranged (like a Pareto chart) | Cannot be rearranged - order matters  |
+| | Bar Graph | Histogram |
+| --- | --- | --- |
+| Type of data | Categorical | Quantitative |
+| What the x-axis shows | Categories (in any order) | Ranges of values (in numerical order) |
+| Bars | Have gaps between them | Touch, with no gaps |
+| Order of bars | Can be rearranged (like a Pareto chart) | Cannot be rearranged - order matters |
 
 The gaps (or lack of gaps) aren't just a stylistic choice. The gaps in a bar graph remind us that the categories are separate and could be listed in any order (Japan, USA, Europe - it doesn't matter which comes first). The lack of gaps in a histogram reminds us that we are looking at a continuous number line, and that the bins must stay in numerical order from smallest to largest.
 
@@ -77,3 +77,7 @@ In the next lesson, [5.2 Creating a Histogram](https://drolsonmi.github.io/math1
 
 2. A researcher collects two datasets: (1) the favorite genre of music for 200 students, and (2) the height (in inches) of those same 200 students. Which dataset should be displayed with a bar graph, and which should be displayed with a histogram? Explain your reasoning.
   - [After answering this question on your own, check the solution](https://drolsonmi.github.io/math1040/Lesson05/Solutions/5_1_Solution2.html)
+
+## Technology
+
+[https://www.youtube.com/embed/iiZMdK-azqY?si=VJPxDW97fAZZzHZA](https://www.youtube.com/embed/iiZMdK-azqY?si=VJPxDW97fAZZzHZA)

@@ -1,20 +1,4 @@
-<head>
-<script>
-MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']]
-  }
-};
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-
-<!--
-Ideas for practice questions:
-* Show a graph and ask about the skew and what this means about the mean, median, and mode
-* Give data. Ask student to graph it and then describe the skew
--->
+# [MATH 1040 - Introduction to Statistics](https://drolsonmi.github.io/math1040/)
 
 # Lesson 5.3 Histogram Shapes
 

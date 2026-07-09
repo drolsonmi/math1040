@@ -47,7 +47,7 @@ MathJax = {
 * [4.7 Timeseries graphs](./Lesson04/4_7_Timeseries.md)
 
 [5: Histograms](./Lesson05/index.md)
-* [5.1 What is a Histogram](./Lesson05/5_1_WhatIsAHistogram.md)
+* [5.1 What is a Histogram?](./Lesson05/5_1_WhatIsAHistogram.md)
 * [5.2 Creating a Histogram](./Lesson05/5_2_CreatingAHistogram.md)
 * [5.3 Histogram Shapes](./Lesson05/5_3_HistogramShapes.md)
 

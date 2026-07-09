@@ -1,17 +1,4 @@
-<head>
-<script>
-MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']]
-  }
-};
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-
-
-
+# [MATH 1040 - Introduction to Statistics](https://drolsonmi.github.io/math1040/)
 
 # Lesson 5.2 Creating a Histogram
 
@@ -23,7 +10,7 @@ Reading sections are from the [Introductory Statistics Textbook](https://drolson
 
 ## Lesson
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XUthukqSHvQ?si=-8J5bLrCxCY5Tdc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[https://www.youtube.com/embed/XUthukqSHvQ?si=-8J5bLrCxCY5Tdc8](https://www.youtube.com/embed/XUthukqSHvQ?si=-8J5bLrCxCY5Tdc8)
 
 Steps for creating a histogram
 
@@ -40,19 +27,24 @@ Steps for creating a histogram
     * …
 4. Count your data
   - Count how many datapoints in your dataset fit in each bin
+
+[https://www.youtube.com/embed/yxw063NLQ7E?si=Y_nxltRmHOaBNHX2](https://www.youtube.com/embed/yxw063NLQ7E?si=Y_nxltRmHOaBNHX2)
+
+### Step 5: Draw the Histogram
+
+Once your bins are set up and you've counted how many datapoints fall in each one, the last step is to draw the graph:
+
 5. Create a proper scale and labels (just like every other graph we've made)
-  - On the x-axis, create a numberline and mark off the boundaries of each bin, in order from smallest to largest
+  - On the x-axis, mark off the boundaries of each bin, in order from smallest to largest
   - On the y-axis, use a scale that reaches at least as high as your largest bin's frequency
 6. For each bin, draw a bar reaching up to the frequency (count) for that bin
   - Remember: **the bars must touch**. Don't leave gaps between them.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yxw063NLQ7E?si=Y_nxltRmHOaBNHX2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
 ### A Full Worked Example
 
-Let's put all of these steps together. Suppose we ask 18 students how many minutes it takes them to commute to campus. Here is our data, already sorted from smallest to largest:
+Let's put all of these steps together. Suppose we ask 16 students how many minutes it takes them to commute to campus. Here is our data, already sorted from smallest to largest:
 
-$$5, 7, 9, 12, 14, 16, 18, 20, 23, 26, 29, 32, 35, 37, 38, 41, 44, 45$$
+$$5, ~7, ~9, ~12, ~14, ~16, ~18, ~20, ~23, ~26, ~29, ~32, ~35, ~38, ~41, ~45$$
 
 **Step 1: Find the range.**
 
@@ -60,11 +52,11 @@ $$Range = Maximum - Minimum = 45 - 5 = 40$$
 
 **Step 2: Determine the number of bins.**
 
-Our sample size is $n = 17$. We need to find out how many times we have to double, starting from 1, to reach 18:
+Our sample size is $n = 16$. We need to find out how many times we have to double, starting from 1, to reach 16:
 
-$$1 \rightarrow 2 \rightarrow 4 \rightarrow 8 \rightarrow 16 \rightarrow 32$$
+$$1 \rightarrow 2 \rightarrow 4 \rightarrow 8 \rightarrow 16$$
 
-That's 4 doublings to 16 and 5 doublings to 32. Since the sample size of 18 is closer to 16, we'll use **4 bins**.
+That's 4 doublings, so we will use **4 bins**.
 
 **Step 3: Create the bins.**
 
@@ -74,25 +66,25 @@ Our first bin starts at the minimum value, 5. We keep adding the bin size (10) t
 
 | Bin # | Bin Range |
 | ----- | --------- |
-| 1     | 5 - 14.9  |
-| 2     | 15 - 24.9 |
-| 3     | 25 - 34.9 |
-| 4     | 35+       |
+| 1     | 5 - 15    |
+| 2     | 15 - 25   |
+| 3     | 25 - 35   |
+| 4     | 35 - 45   |
 
 **Step 4: Count your data.**
 
 Going through our sorted list, we count how many values fall into each bin. (When a value lands exactly on the boundary between two bins, like 35, it belongs to the bin that starts at that number.)
 
-| Bin Range | Values in Bin          | Frequency |
-| --------- | ---------------------- | --------- |
+| Bin Range | Values in Bin        | Frequency |
+| --------- | --------------------- | --------- |
 | 5 - 15    | 5, 7, 9, 12, 14        | 5         |
 | 15 - 25   | 16, 18, 20, 23         | 4         |
 | 25 - 35   | 26, 29, 32             | 3         |
-| 35 - 45   | 35, 37, 38, 41, 44, 45 | 6         |
+| 35 - 45   | 35, 38, 41, 45         | 4         |
 
-Notice these frequencies add up to our sample size: $5 + 4 + 3 + 6 = 18$. This is a good way to check your counting.
+Notice these frequencies add up to our sample size: $5 + 4 + 3 + 4 = 16$. This is a good way to check your counting.
 
-**Steps 5 & 6: Draw the histogram.**
+**Step 5 & 6: Draw the histogram.**
 
 Now we create a proper scale on the x-axis using our bin boundaries (5, 15, 25, 35, 45), a proper scale on the y-axis reaching at least up to 5, and draw a bar for each bin with no gaps between them.
 
@@ -108,7 +100,7 @@ The "doubling" rule we used in Step 2 (formally called **Sturges' Rule**) is a g
 
 1. The ages of 12 customers at a coffee shop were recorded:
 
-$$22, 24, 25, 29, 31, 33, 35, 38, 40, 44, 47, 50$$
+$$22, ~24, ~25, ~29, ~31, ~33, ~35, ~38, ~40, ~44, ~47, ~50$$
 
 Follow the steps above to find the range, the number of bins, and the bin size, and then create a histogram of this data.
   - [After solving on your own, see solution here](https://drolsonmi.github.io/math1040/Lesson05/Solutions/5_2_Solution1.html)

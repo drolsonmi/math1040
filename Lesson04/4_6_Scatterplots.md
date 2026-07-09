@@ -90,6 +90,7 @@ Just because two variables show a strong association in a scatterplot does *not*
   - Create a scatterplot of this data.
   - Describe the direction, form, and strength of the association.
   - [After solving on your own, see solution here](https://drolsonmi.github.io/math1040/Lesson04/Solutions/4_6_Solution1.html)
+  
 2. For each pair of variables below, state whether you would expect a positive association, a negative association, or no association, and explain why.
   - A person's age and their resting heart rate
   - The outdoor temperature and the number of hot cocoas sold at a stand
