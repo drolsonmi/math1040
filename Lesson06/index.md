@@ -29,6 +29,7 @@ By the end of this lesson, you should be able to accomplish the following:
 - Calculate the interquartile range (IQR) and use it to identify outliers
 - Construct a box-and-whisker plot from a 5-number summary
 - Use a boxplot to describe the center, spread, and shape of a distribution, and to compare two or more datasets
+
 ## Topics in this lecture
 Below are the subtopics for this lecture:
 * [6.1 Mean](https://drolsonmi.github.io/math1040/Lesson06/6_1_Mean.html)

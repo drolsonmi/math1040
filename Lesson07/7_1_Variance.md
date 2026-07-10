@@ -1,4 +1,5 @@
 <head>
+<title>Lesson 7.1 Variance</title>
 <script>
 MathJax = {
   tex: {
@@ -24,7 +25,7 @@ Once we have the deviations for all the points, we could take an average. Howeve
 
 $$(x-\bar{x})^2\tag{Squared Deviation}$$
 
-Now, we can take the average. This average is known as the __variance__ and is the primary tool used for determining how spread out the data is. Taking the average for a population is straightforward. However, the average for a sample has one difference: we divide by $$n-1$$.
+Now, we can take the average. This average is known as the __variance__ and is the primary tool used for determining how spread out the data is. Taking the average for a population is straightforward. However, the average for a sample has one difference: we divide by $(n-1)$.
 
 $$\sigma^2 = \frac{\sum (x-\mu)^2}{n}\tag{Variance of a Population}$$
 
@@ -32,55 +33,19 @@ $$s^2 = \frac{\sum (x-\bar{x})^2}{n-1}\tag{Variance of a Sample}$$
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HxcSVjm6p80?si=XP47XRoiPdspmMik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<!--
 ## Practice
+Calculate the variance for each of the questions below. First, solve it by hand, check the solution, then try it on the calculator.
 
+1. The ages of all 6 employees at a small office are: \[24, 28, 22, 30, 26, 26\]. Since this is every employee at the office, treat this as a **population**. Find the population variance.
+  - [After solving on your own, see solution here](./Solutions/7_1_Solution1.html)
+2. A researcher weighs a **sample** of 5 puppies from a large litter: \[8, 10, 9, 11, 12\] pounds. Find the sample variance.
+  - [After solving on your own, see solution here](./Solutions/7_1_Solution2.html)
+3. Two vending machines are each timed on 5 separate fills (in seconds):
+  - Machine A: \[30, 32, 31, 29, 33\]
+  - Machine B: \[25, 40, 20, 35, 30\]
+  - Treating each list as a sample, find the sample variance for Machine A and for Machine B. Which machine is more consistent? Explain how the variance tells you this.
+  - [After solving on your own, see solution here](./Solutions/7_1_Solution3.html)
 
-1. ?
-    * After solving on your own, check the <button popovertarget="Problem_1">Solution</button>
-2. ?
-    * After solving on your own, check the <button popovertarget="Problem_2">Solution</button>
-3. ?
-    * After solving on your own, check the <button popovertarget="Problem_3">Solution</button>
-
-<div popover id="Problem_1">
-
-## Problem 20.1.1
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_1" popovertargetaction="hide">Close</button></center>
-</div>
-
-<div popover id="Problem_2">
-
-## Problem 20.1.2
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_2" popovertargetaction="hide">Close</button></center>
-</div>
-<div popover id="Problem_3">
-
-## Problem 20.1.3
-A popover is an element that is placed on top of everything else.
-* Item 1
-* Item 2
-
-$$\bar{x}=\frac{1}{n}\sum x$$
-It can be used when you want to tell something important.
-
-<center><button popovertarget="Problem_3" popovertargetaction="hide">Close</button></center>
-</div>
--->
 
 <!--
 ## Technology
