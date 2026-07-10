@@ -98,6 +98,10 @@ As you look at histograms throughout this course (and in the real world), get in
 
     <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeC.png" width=450>
 
+    **Graph D:**
+
+    <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeD.png" width=450>
+
 - [After answering these questions on your own, check the solution](https://drolsonmi.github.io/math1040/Lesson05/Solutions/5_3_Solution1.html)
 
 2. A real estate agent creates a histogram of home sale prices in a large city. Would you expect this histogram to be symmetric, skewed right, or skewed left? Explain your reasoning.

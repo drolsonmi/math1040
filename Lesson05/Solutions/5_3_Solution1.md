@@ -28,10 +28,15 @@ MathJax = {
 
     <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeC.png" width=450>
 
+    **Graph D:**
+
+    <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeD.png" width=450>
+
 ### Solution
 
-- **Graph A** is **uniform**. This graph shows the results of 600 dice rolls. Since each of the 6 outcomes (1 through 6) is equally likely, every bin has roughly the same frequency, and the graph is close to flat across its width.
-- **Graph B** is **skewed right**. This graph shows household income. Most households cluster at the lower end, while a smaller number of high-income households stretch a tail out toward the larger values on the right.
-- **Graph C** is **bimodal**. This graph combines test scores from two different classes. Since the two classes performed differently on average, we see two separate peaks rather than one, with a dip between them.
+- **Graph A** is **skewed right**. This graph shows clinic wait times. Most wait times cluster at the lower end, while a smaller number of wait times stretch a tail out toward the larger values on the right.
+- **Graph B** is **bimodal**. This graph shows the hours of sleeps students get before an exam. There are two peaks with a decrease in the middle. It looks as if there are two normal distributions combined and joined in the middle.
+- **Graph C** is **normal**. This graph shows the heights of a sample of adult males. The majority of the samples are in the middle with equal numbers of measurements in both tails, making it a symmetric distribution.
+- **Graph B** is **skewed left**. This graph shows mastery quiz scores. Most quiz scores cluster at the upper end, while a smaller number of lower quiz scores stretch a tail out toward the smaller values on the left.
 
 [Return to lesson](https://drolsonmi.github.io/math1040/Lesson05/5_3_HistogramShapes.html#practice)
