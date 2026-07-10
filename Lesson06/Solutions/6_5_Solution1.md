@@ -20,6 +20,8 @@ MathJax = {
 
 ### Solution
 
+#### Find 5-number summary
+
 **Order the data**: \[10, 12, 13, 14, 15, 18, 20, 55\] (\(n = 8\))
 
 **Minimum**: 10
@@ -46,12 +48,19 @@ $$1.5 \cdot IQR = 1.5 \cdot 6.5 = 9.75$$
 - Lower fence: $Q_1 - 9.75 = 12.5 - 9.75 = 2.75$
 - Upper fence: $Q_3 + 9.75 = 19 + 9.75 = 28.75$
 
+#### Determine Outliers
 Since $55 > 28.75$, the value **55 is an outlier**. No values fall below the lower fence of 2.75, so there are no low outliers.
 
-**Drawing the boxplot**: The box stretches from Q1 (12.5) to Q3 (19), with a line inside at the median (14.5). Because 55 is an outlier, the right whisker does **not** extend all the way to 55 — instead, it stops at the largest value that is *not* an outlier, which is 20. The point 55 is then plotted separately as a single dot beyond the whisker to mark it as an outlier. The left whisker extends from Q1 down to the minimum, 10, since 10 is within the fences.
+#### New 5-number summary
+Since 55 is an outlier, let's find the 5-number summary without that datapoint. We make remove the outliers and make the next value within the lower and upper fences to be the minimum and maximum. So, the new 5-number summary is:
 
-<img src="https://drolsonmi.github.io/math1040/Lesson06/images/Fig652_Solution.png" width=400 alt="Boxplot with an outlier">
+| Minimum | Q1    | Median | Q3    | Maximum | Outliers |
+| :-----: | :---: | :----: | :---: | :-----: | :------: |
+| 10      | 12.5  | 14.5   | 19    | 20      | [55]     |
 
-<!--![Boxplot with an outlier](../images/Fig652_Solution.png)-->
+#### Drawing the boxplot
+The box stretches from Q1 (12.5) to Q3 (19), with a line inside at the median (14.5). Because 55 is an outlier, the right whisker does **not** extend all the way to 55 — instead, it stops at the largest value that is *not* an outlier, which is 20. The point 55 is then plotted separately as a single dot beyond the whisker to mark it as an outlier. The left whisker extends from Q1 down to the minimum, 10, since 10 is within the fences.
+
+![Boxplot with an outlier](../images/Fig651_Solution.png)
 
 [Return to lesson](https://drolsonmi.github.io/math1040/Lesson06/6_5_Boxplots.html#practice)

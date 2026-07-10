@@ -31,6 +31,6 @@ Both the range and the IQR are larger for Class B, so Class B's scores are more 
 
 **Interpretation**: Even though the two classes are centered at the same median score (78), Class A's scores are more tightly clustered around that center, while Class B has a wider range of both high and low performers — its students are more spread out in ability (or performance) than Class A's.
 
-![Boxplot comparison of Class A and Class B](https://drolsonmi.github.io/math1040/Lesson06/images/Fig653_Solution.png)
+![Boxplot comparison of Class A and Class B](../images/Fig653_Solution.png)
 
 [Return to lesson](https://drolsonmi.github.io/math1040/Lesson06/6_5_Boxplots.html#practice)
