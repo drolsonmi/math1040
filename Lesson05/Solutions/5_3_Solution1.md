@@ -16,21 +16,9 @@ MathJax = {
 
 1. For each histogram below, identify whether the shape is symmetric (normal), skewed right, skewed left, uniform, or bimodal.
 
-    **Graph A:**
+    <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeA.png" width=450> <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeB.png" width=450>
 
-    <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeA.png" width=450>
-
-    **Graph B:**
-
-    <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeB.png" width=450>
-
-    **Graph C:**
-
-    <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeC.png" width=450>
-
-    **Graph D:**
-
-    <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeD.png" width=450>
+    <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeC.png" width=450> <img src="https://drolsonmi.github.io/math1040/Lesson05/images/Fig531_PracticeD.png" width=450>
 
 ### Solution
 
