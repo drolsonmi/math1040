@@ -1,4 +1,5 @@
 <head>
+<title>Lesson 11.4 Combinations</title>
 <script>
 MathJax = {
   tex: {
@@ -33,23 +34,34 @@ But notice that 3! = 6. Does this work if we take the top 4 runners instead? If 
 * CABD, CADB, CBAD, CBDA, CDAB, CDBA
 * DABC, DACB, DBAC, DBCA, DCAB, DCBA
 
-This makes $$4\times 6 = 24$$ different arrangements. Notice that this is $$4\times 3! = 4!$$. So, again we divide by 24 (or by $$4!$$).
+This makes $$4\times 6 = 24$$ different arrangements. Notice that this is $$4\times 6 = 4\times 3! = 4!$$. So, again we divide by 24 (or by $$4!$$).
 
-We call this a __Combination__. A Combination is the number of ways to select r items from a pool of n. To calculate it, we take our permutation equation and divide by r!.
+We call this a __Combination__. We often write a combination as ${}_nC_r$. However, another common way (including in your textbook) is $\begin{pmatrix}n \\ r\end{pmatrix}$. Know that *both notations mean exactly the same thing*. When we see either of these, we often say this out loud as "n Choose r".
 
-$${}_nC_r = \frac{n!}{r!(n-r)!}$$
+A Combination is the number of ways to select r items from a pool of n. To calculate it, we take our permutation equation and divide by r!.
+
+$${}_nC_r = \frac{{}_nP_r}{r!}$$
 
 Think of it this way:
-* The $$n!/(n-r)!$$ counts the arrangements of the first r places (our permutation)
+* The $${}n_P_r = n!/(n-r)!$$ counts the arrangements of the first r places (our permutation)
 * Dividing by $$r!$$ eliminates duplicate arrangements when the order doesn't matter (ABC vs. CBA)
 
-Another way commonly used to write this (including in your textbook) is,
+Back to our runners example, how many ways can 3 people from a 13-runner race qualify for the final round? We have 13 runners, and we are choosing 3. So, 13 Choose 3 is the number of permutations ($${}_{13}P_3 = 1716$$) divided by the number of ways they can be rearranged ($$3! = 6$$), which gives 286 different combinations:
+
+$$
+\begin{align*}
+    {}_{13}P_3 &= 13 \times 12 \times 11 = 1716 \\
+    {}_{13}C_3 &= \frac{{}_{13}P_3}{3!} \\
+      &= \frac{1716}{6} \\
+      &= \mathbf{286}
+\end{align*}
+$$
+
+Said in simpler terms, there are 1,716 ways that 3 runners can finish in first, second, and third places and 6 ways that those same 3 finishers can be rearranged if the order doesn't matter. So there are 1,716/6 = 286 combinations in which 3 runners can qualify from the race.
+
+This equation we just followed is the easiest way to think of it. If you want to combine the permutation with the combination equation, you get the full definition of a combination (you don't have to do this if you don't want to. This is so that you see the full picture if you want it)
 
 $$\begin{pmatrix}n \\ r\end{pmatrix} = {}_nC_r = \frac{n!}{r!(n-r)!}$$
-
-We often say this as "n Choose r".
-
-Back to our runners example, how many ways can 3 people from a 13-runner race qualify for the final round? We have 13 runners, and we are choosing 3. So, 13 Choose 3 is the number of permutations ($${}_{13}P_3 = 1716$$) divided by the number of ways they can be rearranged ($$3! = 6$$), which gives 286 different combinations:
 
 $$
 \begin{align*}
@@ -62,9 +74,10 @@ $$
 \end{align*}
 $$
 
-Said in simpler terms, there are 1716 ways that 3 runners can finish in first, second, and third places, and 6 ways that those same 3 finishers can be rearranged if the order doesn't matter. So there are 1716/6 = 286 combinations in which 3 runners can qualify from the race.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7DR5sVjoE3M?si=B_k5CF79yGNqBwbC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Let's now revisit the music example we also saw in the lesson 11.3:
+### Example
+Let's now revisit the music example we saw in the lesson 11.3:
 
 A radio DJ has 15 special new songs and wants to choose 6 of them to play during a special segment of a program. The music is background music, so the order in which the songs are played does not matter. How many combinations of 6 songs are possible?
 * There are 15 songs ($$n=15$$)
@@ -79,38 +92,29 @@ Let's solve this logically first, then I'll show the full math.
 
 So, there are 5,005 different combinations of 6 songs from our pool of 15 songs.
 
-Now, let's look at the full math to see if it agrees:
-
 $$
 \begin{align*}
-   {}_{15}C_{6} &= \frac{15!}{6!(15-6)!} \\
-     &= \frac{15!}{6!9!} \\
-     &= \frac{15\times 14\times 13\times 12\times 11\times 10\times 9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1}{~~~~~~~~~(6\times 5\times 4\times 3\times 2\times 1)\times(9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1)} \\
-     &= \frac{15\times 14\times 13\times 12\times 11\times 10}{6\times 5\times 4\times 3\times 2\times 1} \\
-     &= \frac{3,603,600}{720} \tag{These are the numbers we saw solving it logically} \\
-     & = \mathbf{5,005}
+  {}_{15}P_{6} &= 15 \times 14 \times 13 \times 12 \times 11 \times 10\\
+     &= 3,603,600 \\
+  {}_{15}C_{6} &= \frac{{}_{15}P_6}{6!}\\
+     &= \frac{3,603,600}{6 \times 5 \times 4 \times 3 \times 2 \times 1} \\
+     &= \frac{3,603,600}{720} \\
+     &= \mathbf{5,005}
 \end{align*}
 $$
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7DR5sVjoE3M?si=B_k5CF79yGNqBwbC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
 Take the same 3 practice problems as we saw in 11.3 on Permutations. Let's do them again, but making the order irrelevant.
 
-### Practice Problem 11.4.1
-You're visiting a city with 7 major tourist attractions, and you only have time to visit 3 of them in one day. You want to plan the order in which you'll visit them to make the most of your experience. You plan to spend __equal__ time at each site, so the order doesn't matter. How many options do you have for choosing 3 attractions?
+1. You're visiting a city with 7 major tourist attractions, and you only have time to visit 3 of them in one day. You want to plan the order in which you'll visit them to make the most of your experience. You plan to spend __equal__ time at each site, so the order doesn't matter. How many options do you have for choosing 3 attractions?
+    - [After solving on your own, see solution here](Solutions/11_4_Solution1.md)
 
-After solving on your own, [check the solution](Solutions/11_4_Solution1.md).
+2. A business has 9 applicants for 2 job openings, both as managers. How many ways can the business select 2 new employees out of the 9 candidates?
+    - [After solving on your own, see solution here](Solutions/11_4_Solution2.md)
 
-### Practice Problem 11.4.2
-A business has 9 applicants for 2 job openings, both as managers. How many ways can the business select 2 new employees out of the 9 candidates?
-
-After solving on your own, [check the solution](Solutions/11_4_Solution2.md).
-
-### Practice Problem 11.4.3
-An emergency room receives 8 patients after a multi-vehicle accident. Due to limited resources, only 5 trauma bays are immediately available for treatment. Assume the severity of the injuries is about the same for each patient. In how many different ways can the ER staff choose and prioritize 5 patients out of the 8 for immediate treatment?
-
-After solving on your own, [check the solution](Solutions/11_4_Solution3.md).
+3. An emergency room receives 8 patients after a multi-vehicle accident. Due to limited resources, only 5 trauma bays are immediately available for treatment. Assume the severity of the injuries is about the same for each patient. In how many different ways can the ER staff choose and prioritize 5 patients out of the 8 for immediate treatment?
+    - [After solving on your own, see solution here](Solutions/11_4_Solution3.md)
 
 
 ## Technology

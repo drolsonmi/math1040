@@ -1,4 +1,5 @@
 <head>
+<title>Lesson 11.2 Factorials</title>
 <script>
 MathJax = {
   tex: {
@@ -47,20 +48,14 @@ This type of calculation where you multiple all numbers from 1 through a number 
 ## Practice
 Find the value of the following factorials.
 
-### Practice Problem 11.2.1
-Calculate the value of 9!
+1. Calculate the value of 9!
+    - [After solving on your own, see solution here](Solutions/11_2_Solution1.md)
 
-After solving on your own, [check the solution](Solutions/11_2_Solution1.md).
+2. Calculate the value of 15!
+    - [After solving on your own, see solution here](Solutions/11_2_Solution2.md)
 
-### Practice Problem 11.2.2
-Calculate the value of 15!
-
-After solving on your own, [check the solution](Solutions/11_2_Solution2.md).
-
-### Practice Problem 11.2.3
-Calculate the value of $$\frac{7!}{4!}$$.
-
-After solving on your own, [check the solution](Solutions/11_2_Solution3.md).
+3. Calculate the value of $$\frac{7!}{4!}$$.
+    - [After solving on your own, see solution here](Solutions/11_2_Solution3.md)
 
 
 ## Technology

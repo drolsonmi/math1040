@@ -1,4 +1,5 @@
 <head>
+<title>Lesson 11.1 Fundamental Counting Rule</title>
 <script>
 MathJax = {
   tex: {
@@ -43,34 +44,16 @@ The complete __Fundamental Counting Rule__.
 ## Practice
 Here are three example problems using the Fundamental Counting Rule. Answer the questions to the best of your ability then *afterwards* check the answer.
 
-### Practice Problem 11.1.1
-Papa Miguel's pizza place allows you to choose your sauce, cheese and 1 topping for a flat price. The menu has the following options:
-* Sauce: Tomato, BBQ, Alfredo
-* Cheese: Mozerella, 5-cheese, Mexican, Parmesan
-* Toppings: Pepperoni, Sausage, Chicken, Ham, Bacon, Pineapple, Onion, Taco Beef
+1. Papa Miguel's pizza place allows you to choose your sauce, cheese and 1 topping for a flat price. How many possible pizza combinations could you create if the menu has the following options?
+    * Sauce: Tomato, BBQ, Alfredo
+    * Cheese: Mozerella, 5-cheese, Mexican, Parmesan
+    * Toppings: Pepperoni, Sausage, Chicken, Ham, Bacon, Pineapple, Onion, Taco Beef
+    - [After solving on your own, see solution here](Solutions/11_1_Solution1.md)
 
-How many possible pizza combinations could you create?
+2. There are 13 people in a race. How many ways can the 13 runners cross the finish line?
+    - [After solving on your own, see solution here](Solutions/11_1_Solution2.md)
 
-* After solving on your own, [check the solution](Solutions/11_1_Solution1.md).
+3. If you have a secure password, then it is very difficult for a hacker to randomly guess your password. Is it safer to have an 8-character password that can contain any character \{a-z, A-Z, 0-9, !@#$%^&*() \} or a 12-character password with only lower-case letters? 
+    - Take a second and make a guess as to which is more secure. Then use the Fundamental Counting Rule to find the number of possible 8-character and 12-character passwords. The option with more possible passwords would be more secure as it is more difficult to randomly guess.
+    - [After solving on your own, see solution here](Solutions/11_1_Solution3.md)
 
-### Practice Problem 11.1.2
-There are 13 people in a race. How many ways can the 13 runners cross the finish line?
-
-* After solving on your own, [check the solution](Solutions/11_1_Solution2.md).
-
-### Practice Problem 11.1.3
-If you have a secure password, then it is very difficult for a hacker to randomly guess your password. Is it safer to have an 8-character password that can contain any character \{a-z, A-Z, 0-9, !@#$%^&*() \} or a 12-character password with only lower-case letters? 
-
-Take a second and make a guess as to which is more secure. Then use the Fundamental Counting Rule to find the number of possible 8-character and 12-character passwords. The option with more possible passwords would be more secure as it is more difficult to randomly guess.
-
-* After solving on your own, [check the solution](Solutions/11_1_Solution3.md).
-
-<!--
-## Technology
-
-### TI-83/84
-
-### Excel
-
-### Desmos
--->

@@ -1,4 +1,5 @@
 <head>
+<title>Lesson 11.3 Permutations</title>
 <script>
 MathJax = {
   tex: {
@@ -23,11 +24,19 @@ Consider once again the runners in the race. In 11.1 and 11.2, we saw that the 1
 
 Then, from the Fundamental Counting Rule, there are $$13\times 12\times 11 = 1716$$ different ways the runners can finish 1st, 2nd, and 3rd places.
 
-Mathematically, this is simple. We take the total number of arrangements (13!) and divide out all the places that don't matter (10 for 4th place, 9 for 5th place, etc., or 10!).
+This is what we call a __permutation__, or counting the ways we can arrange a certain number of places. We indicate this as ${}_nP_r$.
+
+The simplest way to think of a permutation is as we just saw it:
+- There are $n$ possibilities for the 1st spot
+- There are $n-1$ possibilities for the 2nd spot
+- There are $n-2$ possibilities for the 3rd spot
+- ... continue until you have all the spots filled
+- The number of permutations is the product of all these possibilities 
+
+Mathematically, this is simple. You won't need the full equation - what I just showed you is enough to complete a permutation. However, for those who want to see the math, I will include it. We take the total number of arrangements (13!) and divide out all the places that don't matter (10 for 4th place, 9 for 5th place, etc., or 10!).
 
 $$\frac{13!}{10!} = \frac{13\times 12\times 11\times 10\times 9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1}{~~~~~~~~~~~~~~~10\times 9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1} = 13\times 12\times 11 = 1716$$
 
-This is what we call a __permutation__, or counting the ways we can arrange a certain number of places. We indicate this as,
 
 $${}_nP_r = \frac{n!}{(n-r)!}$$
 
@@ -38,8 +47,11 @@ The $$(n-r)$$ will give the number of unnecessary places. In the racing example,
 
 $${}_{13}P_3 = \frac{13!}{(13-3)!} = \frac{13!}{10!} = 13\times 12\times 11 = 1716$$
 
-*Note*: The order in which they cross the finish line matters. If the order is different, then the participants will get different awards. This is important for 11.3 on Combinations.
+__*Important Note*__: The order in which they cross the finish line matters. If the order is different, then the participants will get different awards. Keep this is mind as it will be important in lesson 11.4 on Combinations.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EGnOGSK1Ehw?si=P6ZWvh86BzDKa8oy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Example
 Let's try another example:
 
 A radio DJ has 15 special new songs and wants to choose 6 of them to play during a special segment of a program. The order in which the songs are played matters because it affects the flow and mood of the show. How many permutations of 6 songs are possible?
@@ -49,33 +61,22 @@ A radio DJ has 15 special new songs and wants to choose 6 of them to play during
 
 $$
 \begin{align*}
-   {}_{15}P_{6} &= \frac{15!}{(15-6)!} \\
-     &= \frac{15!}{9!} \\
-     &= \frac{15\times 14\times 13\times 12\times 11\times 10\times 9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1}{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1} \\
-     &= 15\times 14\times 13\times 12\times 11\times 10 \\
+   {}_{15}P_{6} &= 15 \times 14 \times 13 \times 12 \times 11 \times 10 \\
      & = \mathbf{3,603,600}
 \end{align*}
 $$
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EGnOGSK1Ehw?si=P6ZWvh86BzDKa8oy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
 ## Practice
 Here are three practice problems for you to try out.
 
-### Practice Problem 11.3.1
-You're visiting a city with 7 major tourist attractions, and you only have time to visit 3 of them in one day. You want to plan the order in which you'll visit them to make the most of your experience. You plan to spend the most time in the 1st choice and the least in the 3rd. How many options do you have for choosing 3 attractions?
+1. You're visiting a city with 7 major tourist attractions, and you only have time to visit 3 of them in one day. You want to plan the order in which you'll visit them to make the most of your experience. You plan to spend the most time in the 1st choice and the least in the 3rd. How many options do you have for choosing 3 attractions?
+    - [After solving on your own, see solution here](Solutions/11_3_Solution1.md)
 
-After solving on your own, [check the solution](Solutions/11_3_Solution1.md).
+2. A business has 9 applicants for 2 job openings, one as a manager and another as just a regular employee. How many ways can the business select 2 new employees out of the 9 candidates?
+    - [After solving on your own, see solution here](Solutions/11_3_Solution2.md)
 
-### Practice Problem 11.3.2
-A business has 9 applicants for 2 job openings, one as a manager and another as just a regular employee. How many ways can the business select 2 new employees out of the 9 candidates?
-
-After solving on your own, [check the solution](Solutions/11_3_Solution2.md).
-
-### Practice Problem 11.3.3
-An emergency room receives 8 patients after a multi-vehicle accident. Due to limited resources, only 5 trauma bays are immediately available for treatment. The order in which patients are treated matters because of varying injury severity, risk of complications, and the need for specific specialists. In how many different ways can the ER staff choose and prioritize 5 patients out of the 8 for immediate treatment?
-
-After solving on your own, [check the solution](Solutions/11_3_Solution3.md).
+3. An emergency room receives 8 patients after a multi-vehicle accident. Due to limited resources, only 5 trauma bays are immediately available for treatment. The order in which patients are treated matters because of varying injury severity, risk of complications, and the need for specific specialists. In how many different ways can the ER staff choose and prioritize 5 patients out of the 8 for immediate treatment?
+    - [After solving on your own, see solution here](Solutions/11_3_Solution3.md)
 
 ## Technology
 Below are instructions for finding these calculations using various technologies
