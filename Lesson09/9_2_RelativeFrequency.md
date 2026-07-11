@@ -1,4 +1,5 @@
 <head>
+<title>Lesson 9.2 Relative Frequency</title>
 <script>
 MathJax = {
   tex: {
@@ -62,38 +63,29 @@ This table is what we call a Probability Distribution. We will see them more in 
 ### Practice Question 9.2.1
 1. A survey was conducted to find out people's preferred type of pet. The results are as follows:
 
-| Pet Type | People who prefer pet |
-| :------- | :-------------------: |
-| Dogs     | 40 people             |
-| Cats     | 25 people             |
-| Birds    | 10 people             |
-| Fish     | 15 people             |
-| Reptiles | 10 people             |
+    | Pet Type | People who prefer pet |
+    | :------- | :-------------------: |
+    | Dogs     | 40 people             |
+    | Cats     | 25 people             |
+    | Birds    | 10 people             |
+    | Fish     | 15 people             |
+    | Reptiles | 10 people             |
 
-After solving on your own, [check the solution](Solutions/9_2_Solution1.md).
+    - [After solving on your own, see solution here](Solutions/9_2_Solution1.md).
 
 2. You have a large bag of colored marbles. You randomly grab a handful of marbles and count the colors. Calculate the relative frequency of each color:
 
-| Color | Red   | Blue  | Green | Yellow | Black | White |
-| :---- | :---: | :---: | :---: | :----: | :---: | :---: |
-| Count | 22    | 13    | 10    | 9      | 7     | 18    |
+    | Color | Red   | Blue  | Green | Yellow | Black | White |
+    | :---- | :---: | :---: | :---: | :----: | :---: | :---: |
+    | Count | 22    | 13    | 10    | 9      | 7     | 18    |
 
-After solving on your own, [check the solution](Solutions/9_2_Solution2.md).
+    - [After solving on your own, see solution here](Solutions/9_2_Solution2.md).
 
 3. A teacher recorded the number of books read by students in five different genres over the course of a semester. The data is shown below:
 
-| Genre | Fiction | Non-Fiction | Mystery | Science Fiction | Biography |
-| :---- | :-----: | :---------: | :-----: | :-------------: | :-------: |
-| Count | 24      | 18          | 12      | 6               | 10        |
+    | Genre | Fiction | Non-Fiction | Mystery | Science Fiction | Biography |
+    | :---- | :-----: | :---------: | :-----: | :-------------: | :-------: |
+    | Count | 24      | 18          | 12      | 6               | 10        |
 
-After solving on your own, [check the solution](Solutions/9_2_Solution3.md).
+    - [After solving on your own, see solution here](Solutions/9_2_Solution3.md)
 
-<!--
-## Technology
-
-### TI-83/84
-
-### Excel
-
-### Desmos
--->
