@@ -1,4 +1,5 @@
 <head>
+<title>Lesson 11: Rules of Counting</title>
 <script>
 MathJax = {
   tex: {

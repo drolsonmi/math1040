@@ -1,4 +1,5 @@
 <head>
+<title>Lesson 9 Probability</title>
 <script>
 MathJax = {
   tex: {
@@ -34,6 +35,14 @@ A few important definitions for this lesson:
         * There are 6 possible outcomes: {1, 2, 3, 4, 5, 6} (This is your Sample Space)
         * There are 4 possible successful outcomes that would be a number larger than 2: {3, 4, 5, 6}
         * The probability would be $$\frac{size\{3,4,5,6\}}{size\{1,2,3,4,5,6\}} = \frac{4}{6}=\frac{2}{3}=0.667 = 66.7\%$$
+
+## Outcomes
+By the end of this lesson, you should be able to accomplish the following:
+ 
+- Identify the sample space, outcomes, and events associated with a random process
+- Calculate the theoretical probability of an event, and explain why probabilities must always fall between 0 and 1
+- Calculate the relative frequency of an event from observed data, and explain how it differs from theoretical probability
+- Calculate the complement of an event and use the complement rule, $P(A') = 1 - P(A)$, to simplify probability calculations
 
 ## Topics in this lecture
 * [9.1 Probability](./9_1_Probability.md)
