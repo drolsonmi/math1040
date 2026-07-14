@@ -40,7 +40,7 @@ We call this a __Combination__. We often write a combination as ${}_nC_r$. Howev
 
 A Combination is the number of ways to select r items from a pool of n. To calculate it, we take our permutation equation and divide by r!.
 
-$${}_nC_r = \frac{{}_nP_r}{r!}$$
+<!-- $${}_nC_r = \frac{{}_nP_r}{r!}$$ -->
 
 Think of it this way:
 * The $${}n_P_r = n!/(n-r)!$$ counts the arrangements of the first r places (our permutation)
