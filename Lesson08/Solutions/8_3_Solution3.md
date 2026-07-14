@@ -14,11 +14,11 @@ MathJax = {
 ## 8.3 Correlation - Solution for Practice 3
 
 3. For each correlation coefficient below, describe the direction (positive or negative) and strength (weak, moderate, or strong) of the relationship:
-{:start="3"}
   - $r = 0.85$
   - $r = -0.42$
   - $r = 0.05$
   - $r = -0.95$
+{:start="3"}
 
 ### Solution
 

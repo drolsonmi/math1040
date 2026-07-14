@@ -14,6 +14,7 @@ MathJax = {
 ## 4.7 Timeseries - Solution for Practice 2
  
 2. A company's stock price (in dollars) was recorded at the close of each trading day for one week: $52, 54, 53, 58, 61$ Create a timeseries graph of this data and describe what happened to the stock price over the week.
+{:start="2"}
 
 ### Solution
  

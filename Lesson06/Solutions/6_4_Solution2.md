@@ -13,7 +13,8 @@ MathJax = {
 
 ## 6.4 Quartiles - Solution for Practice 2
 
-1. Find the 5-number summary of the following dataset: \[5, 7, 9, 12, 15, 18, 20, 22\]
+2. Find the 5-number summary of the following dataset: \[5, 7, 9, 12, 15, 18, 20, 22\]
+{:start="2"}
 
 ### Solution
 

@@ -13,7 +13,8 @@ MathJax = {
 
 ## 6.2 Mode - Solution for Practice 2
 
-1. Find the mode of the following dataset: \[2, 4, 6, 8, 10\]
+2. Find the mode of the following dataset: \[2, 4, 6, 8, 10\]
+{:start="2"}
 
 ### Solution
 

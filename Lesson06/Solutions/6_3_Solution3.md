@@ -13,9 +13,10 @@ MathJax = {
 
 ## 6.3 Median - Solution for Practice 3
 
-1. Consider the dataset \[5, 6, 6, 7, 8, 50\].
+3. Consider the dataset \[5, 6, 6, 7, 8, 50\].
   - Find the mean, median, and mode of this dataset.
   - Which measure of center best represents a "typical" value in this dataset? Explain why.
+{:start="3"}
 
 ### Solution
 

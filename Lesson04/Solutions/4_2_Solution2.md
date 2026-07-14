@@ -13,19 +13,20 @@ MathJax = {
 
 ## 4.2 Bargraphs - Solution for Practice 2
 2. Below is a table of medals won by a number of countries in the 2024 olympics. Create a pareto chart for the __total__ number of medals won by each country.
+{:start="2"}
 
-| Country       | Gold  | Silver | Bronze |
-| :------------ | :---: | :----: | :----: |
-| Australia     | 18    | 19     | 16     |
-| China         | 40    | 27     | 24     |
-| France        | 16    | 26     | 22     |
-| Germany       | 12    | 13     | 8      | 
-| Great Britain | 14    | 22     | 29     |
-| Italy         | 12    | 13     | 15     |
-| Japan         | 20    | 12     | 13     |
-| Korea         | 13    | 9      | 10     |
-| Netherlands   | 15    | 7      | 12     |
-| USA           | 40    | 44     | 42     |
+    | Country       | Gold  | Silver | Bronze |
+    | :------------ | :---: | :----: | :----: |
+    | Australia     | 18    | 19     | 16     |
+    | China         | 40    | 27     | 24     |
+    | France        | 16    | 26     | 22     |
+    | Germany       | 12    | 13     | 8      | 
+    | Great Britain | 14    | 22     | 29     |
+    | Italy         | 12    | 13     | 15     |
+    | Japan         | 20    | 12     | 13     |
+    | Korea         | 13    | 9      | 10     |
+    | Netherlands   | 15    | 7      | 12     |
+    | USA           | 40    | 44     | 42     |
 
 
 ### Solution

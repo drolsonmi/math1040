@@ -13,10 +13,11 @@ MathJax = {
 
 ## 6.1 Mean - Solution for Practice 2
 
-1. Consider the dataset \[12, 15, 14, 13, 16, 55\].
+2. Consider the dataset \[12, 15, 14, 13, 16, 55\].
   - Find the mean of the dataset as given.
   - Remove the value 55 and find the mean of the remaining five values.
   - Explain what happened to the mean and why.
+{:start="2"}
 
 ### Solution
 

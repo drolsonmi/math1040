@@ -13,9 +13,10 @@ MathJax = {
 
 ## 6.5 Boxplots - Solution for Practice 2
 
-1. A dataset has the 5-number summary: Min = 45, Q1 = 52, Median = 60, Q3 = 68, Max = 75.
+2. A dataset has the 5-number summary: Min = 45, Q1 = 52, Median = 60, Q3 = 68, Max = 75.
   - Find the IQR and check for outliers.
   - Based on the box and whisker lengths, describe whether the distribution appears roughly symmetric or skewed.
+{:start="2"}
 
 ### Solution
 

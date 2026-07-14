@@ -1,9 +1,17 @@
 <head>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<title>Solution for practice 11.3.2</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-## Practice Question 11.3.2
+## 11.3 Permutations - Solution for Practice 2
 A business has 9 applicants for 2 job openings, one as a manager and another as just a regular employee. How many ways can the business select 2 new employees out of the 9 candidates?
 
 ### Answer to Practice Question 11.3.2

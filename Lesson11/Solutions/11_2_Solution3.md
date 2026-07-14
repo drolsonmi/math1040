@@ -1,9 +1,17 @@
 <head>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<title>Solution for practice 11.2.3</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-## Practice Question 11.2.3
+## 11.2 Factorials - Solution for Practice 3
 Calculate the value of $$\frac{7!}{4!}$$.
 
 ### Answer to Practice Question 11.2.3

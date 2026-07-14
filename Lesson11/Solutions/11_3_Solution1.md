@@ -1,9 +1,17 @@
 <head>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<title>Solution for practice 11.3.1</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-## Practice Question 11.3.1
+## 11.3 Permutations - Solution for Practice 1
 You're visiting a city with 7 major tourist attractions, and you only have time to visit 3 of them in one day. You want to plan the order in which you'll visit them to make the most of your experience. You plan to spend the most time in the 1st choice and the least in the 3rd. How many options do you have for choosing 3 attractions?
 
 ### Answer to Practice Question 11.3.1

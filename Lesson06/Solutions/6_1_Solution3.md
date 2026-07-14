@@ -13,7 +13,8 @@ MathJax = {
 
 ## 6.1 Mean - Solution for Practice 3
 
-1. The mean score on 5 tests is 84. Four of the five scores are 78, 90, 85, and 82. What was the fifth score?
+3. The mean score on 5 tests is 84. Four of the five scores are 78, 90, 85, and 82. What was the fifth score?
+{:start="3"}
 
 ### Solution
 

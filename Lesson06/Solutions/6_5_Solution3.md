@@ -13,10 +13,11 @@ MathJax = {
 
 ## 6.5 Boxplots - Solution for Practice 3
 
-1. Two classes' exam scores have the following 5-number summaries:
+3. Two classes' exam scores have the following 5-number summaries:
   - Class A: Min = 60, Q1 = 70, Median = 78, Q3 = 85, Max = 95
   - Class B: Min = 50, Q1 = 65, Median = 78, Q3 = 90, Max = 100
   - Compare the center and spread of the two classes using their boxplots.
+{:start="3"}
 
 ### Solution
 

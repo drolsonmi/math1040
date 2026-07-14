@@ -13,7 +13,8 @@ MathJax = {
 
 ## 6.3 Median - Solution for Practice 2
 
-1. Find the median of the following dataset: \[8, 3, 12, 7, 15, 10\]
+2. Find the median of the following dataset: \[8, 3, 12, 7, 15, 10\]
+{:start="2"}
 
 ### Solution
 

@@ -17,6 +17,7 @@ MathJax = {
   - How many people were on hold for fewer than 20 minutes?
   - What is the longest hold time in the data?
   - Describe the shape of the distribution in a sentence.
+{:start="2"}
 
 ### Solution
  

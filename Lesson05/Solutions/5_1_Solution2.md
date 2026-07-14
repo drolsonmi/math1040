@@ -14,6 +14,7 @@ MathJax = {
 ## 5.1 What is a Histogram? - Solution for Practice 2
 
 2. A researcher collects two datasets: (1) the favorite genre of music for 200 students, and (2) the height (in inches) of those same 200 students. Which dataset should be displayed with a bar graph, and which should be displayed with a histogram? Explain your reasoning.
+{:start="2"}
 
 ### Solution
 

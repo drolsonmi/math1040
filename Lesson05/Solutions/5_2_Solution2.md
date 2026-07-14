@@ -15,14 +15,15 @@ MathJax = {
 ## 5.2 Creating a Histogram - Solution for Practice 2
 
 2. A teacher has already grouped her 35 students' exam scores into the frequency table below. Use this table to draw a histogram.
+{:start="2"}
 
-| Exam Score | Frequency |
-| ---------- | --------- |
-| 50 - 60    | 3         |
-| 60 - 70    | 7         |
-| 70 - 80    | 12        |
-| 80 - 90    | 9         |
-| 90 - 100   | 4         |
+    | Exam Score | Frequency |
+    | ---------- | --------- |
+    | 50 - 60    | 3         |
+    | 60 - 70    | 7         |
+    | 70 - 80    | 12        |
+    | 80 - 90    | 9         |
+    | 90 - 100   | 4         |
 
 ### Solution
 

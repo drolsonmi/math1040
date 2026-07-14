@@ -13,10 +13,11 @@ MathJax = {
 
 ## 6.4 Quartiles - Solution for Practice 3
 
-1. A dataset has the 5-number summary: Min = 10, Q1 = 25, Median = 40, Q3 = 58, Max = 90.
+3. A dataset has the 5-number summary: Min = 10, Q1 = 25, Median = 40, Q3 = 58, Max = 90.
   - What percentile does Q1 correspond to?
   - What is the IQR?
   - What proportion of the data lies between Q1 and Q3?
+{:start="3"}
 
 ### Solution
 

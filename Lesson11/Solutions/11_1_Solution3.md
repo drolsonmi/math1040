@@ -1,9 +1,17 @@
 <head>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<title>Solution for practice 11.1.3</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-## Practice Question 11.1.3
+## 11.1 Fundamental Counting Rule - Solution for Practice 3
 If you have a secure password, then it is very difficult for a hacker to randomly guess your password. Is it safer to have an 8-character password that can contain any character \{a-z, A-Z, 0-9, !@#$%^&*() \} or a 12-character password with only lower-case letters? 
 
 Take a second and make a guess as to which is more secure. Then use the Fundamental Counting Rule to find the number of possible 8-character and 12-character passwords. The option with more possible passwords would be more secure as it is more difficult to randomly guess.

@@ -15,6 +15,7 @@ MathJax = {
 ## 5.3 Histogram Shapes - Solution for Practice 2
 
 2. A real estate agent creates a histogram of home sale prices in a large city. Would you expect this histogram to be symmetric, skewed right, or skewed left? Explain your reasoning.
+{:start="2"}
 
 ### Solution
 

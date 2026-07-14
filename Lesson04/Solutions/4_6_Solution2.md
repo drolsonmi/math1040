@@ -17,6 +17,7 @@ MathJax = {
   - A person's age and their resting heart rate
   - The outdoor temperature and the number of hot cocoas sold at a stand
   - A person's shoe size and their favorite color
+{:start="2"}
 
 ### Solution
  

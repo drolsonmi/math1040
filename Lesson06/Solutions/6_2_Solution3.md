@@ -13,7 +13,8 @@ MathJax = {
 
 ## 6.2 Mode - Solution for Practice 3
 
-1. Find the mode(s) of the following dataset: \[5, 8, 8, 10, 12, 12, 15\]
+3. Find the mode(s) of the following dataset: \[5, 8, 8, 10, 12, 12, 15\]
+{:start="3"}
 
 ### Solution
 

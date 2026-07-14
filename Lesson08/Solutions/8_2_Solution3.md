@@ -14,9 +14,9 @@ MathJax = {
 ## 8.2 Predictions - Solution for Practice 3
 
 3. In 8.1, we found the line of best fit for temperature ($x$, ranging from 60°F to 100°F) and ice cream sales ($y$, in $100s): $y = -8.2 + 0.17x$.
-{:start="3"}
   - Predict the ice cream sales on a day when the temperature is 75°F. Is this an interpolation or an extrapolation?
   - Predict the ice cream sales on a day when the temperature is 30°F. Is this an interpolation or an extrapolation? Does the result make sense in context?
+{:start="3"}
 
 ### Solution
 
