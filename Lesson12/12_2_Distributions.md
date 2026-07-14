@@ -1,4 +1,5 @@
 <head>
+<title>Lesson 12.2 Distributions</title>
 <script>
 MathJax = {
   tex: {
@@ -10,7 +11,7 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-# 12.2 Distributions
+# Lesson 12.2 Distributions
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 
@@ -51,22 +52,21 @@ The next distribution we will be discussing (Lessons 13-14) is the __binomial di
 ![Example of a binomial distribution](./images/12_2_binomialdist.png)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rrmiD98f9bc?si=j5npVz-3BU-S3ymt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<!--
+
+
 ## Practice
-1. ?
-    * After solving on your own, [check the solution](Solutions/20_1_Solution1.md).
-2. ?
-    * After solving on your own, [check the solution](Solutions/20_1_Solution2.md).
-3. ?
-    * After solving on your own, [check the solution](Solutions/20_1_Solution3.md).
--->
-
-<!--
-## Technology
-
-### TI-83/84
-
-### Excel
-
-### Desmos
--->
+ 
+1. A fair six-sided die is rolled 600 times, and the number of times each face appears is recorded:
+| Face | 1  | 2  | 3  | 4  | 5  | 6  |
+| ---- | -- | -- | -- | -- | -- | -- |
+| Count | 98 | 103 | 99 | 101 | 97 | 102 |
+ 
+  Which distribution shape does this data best represent? Explain your reasoning.
+  - [After solving on your own, see solution here](./Solutions/12_2_Solution1.html)
+2. A college records the number of hours students spend studying per week. Most students study somewhere around 10 hours per week, but a small number of students study 25-30+ hours per week, stretching the data out toward the high end. What shape would you expect this distribution to have? Explain your reasoning.
+  - [After solving on your own, see solution here](./Solutions/12_2_Solution2.html)
+3. For each variable described below, identify whether you would expect its distribution to be uniform, normal, skewed left, or skewed right. Explain your reasoning for each.
+  - The height of adult women in the United States.
+  - The number on a randomly selected ping-pong ball drawn from a raffle drum numbered 1 through 50.
+  - The age at which people retire, where most people retire around 65, but a smaller number retire much earlier (in their 40s or 50s).
+  - [After solving on your own, see solution here](./Solutions/12_2_Solution3.html)

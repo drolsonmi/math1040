@@ -1,4 +1,5 @@
 <head>
+<title>Lesson 12.3 Expected Value</title>
 <script>
 MathJax = {
   tex: {
@@ -112,22 +113,47 @@ And there you have it! We have found the average of a categorical variable.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IdxqnkzRP5g?si=uCPYfEr4ow7pEjvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<!--
-## Practice
-1. ?
-    * After solving on your own, [check the solution](Solutions/20_1_Solution1.md).
-2. ?
-    * After solving on your own, [check the solution](Solutions/20_1_Solution2.md).
-3. ?
-    * After solving on your own, [check the solution](Solutions/20_1_Solution3.md).
--->
 
-<!--
+## Practice
+1. A game costs $5 to play. There is a 30% chance of winning $20 (a net gain of $15 after paying to play), and a 70% chance of winning nothing (a net loss of $5). Find the expected value of playing this game, and explain what it means.
+  - [After solving on your own, see solution here](./Solutions/12_3_Solution1.html)
+2. A company surveys 100 customers about their satisfaction with a new product, using the categories Very Unsatisfied, Unsatisfied, Neutral, Satisfied, and Very Satisfied:
+    | Category | Very Unsatisfied | Unsatisfied | Neutral | Satisfied | Very Satisfied |
+    | --- | --- | --- | --- | --- | --- |
+    | Count | 5 | 10 | 20 | 40 | 25 |
+ 
+  - Assign a numerical value to each category (0 through 4, in order), find the expected value, and interpret what it means.
+  - [After solving on your own, see solution here](./Solutions/12_3_Solution2.html)
+3. An insurance company sells a policy for $200 per year. Based on past data, there is a 2% chance a policyholder will file a claim for $5,000 in a given year, and a 98% chance no claim is filed. Find the insurance company's expected payout per policy, and find the company's expected profit per policy.
+  - [After solving on your own, see solution here](./Solutions/12_3_Solution3.html)
+ 
+
 ## Technology
+
+The expected value, $E[x] = \sum x\cdot P(x)$, is actually just a weighted mean — so each of these tools calculates it using the same tools you'd use to find a mean, just with the probabilities acting as weights.
 
 ### TI-83/84
 
-### Excel
+1. Press **STAT**, then select **1: Edit** to open the list editor.
+2. Enter your $x$-values into **L1**, and enter the corresponding probabilities $P(x)$ into **L2**.
+3. Press **STAT**, arrow over to **CALC**, and select **1: 1-Var Stats**.
+4. When prompted, set the first list to **L1** and the frequency list (**FreqList**) to **L2**, then select **Calculate**.
+5. Read $\bar{x}$ from the output — since the probabilities in L2 already add up to 1, this value is exactly the expected value, $E[x]$.
+
+### Microsoft Excel
+
+1. Enter your $x$-values in one column (for example, column A) and the corresponding probabilities $P(x)$ in the adjacent column (column B).
+2. Click on an empty cell and enter:
+
+   `=SUMPRODUCT(A1:A5, B1:B5)`
+
+   (Adjust the cell range to match wherever your data is located.)
+3. This multiplies each $x$-value by its matching probability and adds up all the results in one step — exactly the expected value formula.
 
 ### Desmos
--->
+
+1. Go to [desmos.com/calculator](https://www.desmos.com/calculator).
+2. Click on an empty expression line and create a table (click the **+** button and select **table**).
+3. Enter your $x$-values in the first column (for example, $x_1$) and your probabilities in the second column (for example, $y_1$).
+4. On a new line, type: `total(x_1 * y_1)`
+5. Desmos will multiply each $x$-value by its matching probability, element by element, and add up the results — giving you the expected value.
