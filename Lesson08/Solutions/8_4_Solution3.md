@@ -14,10 +14,10 @@ MathJax = {
 ## 8.4 The Coefficient of Determination - Solution for Practice 3
 
 3. A dataset has a coefficient of determination of $r^2 = 0.36$.
-{:start="3"}
   - What percentage of the variation in $y$ is explained by the linear relationship with $x$?
   - What are the two possible values of the correlation coefficient $r$?
   - Can you tell from $r^2$ alone whether the relationship is positive or negative? Explain.
+{:start="3"}
 
 ### Solution
 
