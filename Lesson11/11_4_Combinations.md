@@ -69,7 +69,7 @@ $$
             &= \frac{13!}{3!10!} \\
             &= \frac{13\times 12\times 11\times 10\times 9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1}{~~~(3\times 2\times 1)\times(10\times 9\times 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1)} \\
             &= \frac{13\times 12\times 11}{3\times 2\times 1} \\
-            &= \frac{\mathbf{1716}}{6} \tag{Permutation of 1716, which can be arranged in 3! = 6 ways}\\
+            &= \frac{\mathbf{1716}}{6} \\
             &= \mathbf{286}
 \end{align*}
 $$
