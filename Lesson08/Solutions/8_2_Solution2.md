@@ -13,7 +13,8 @@ MathJax = {
 
 ## 8.2 Predictions - Solution for Practice 2
 
-1. In 8.1, we found the line of best fit for a car's age ($x$, ranging from 1 to 5 years) and its resale value ($y$, in $1000s): $y = 22.3 - 2.5x$. Use this line to predict the resale value of a car that is 8 years old. Is this an interpolation or an extrapolation? Explain why we should be cautious about trusting this prediction.
+2. In 8.1, we found the line of best fit for a car's age ($x$, ranging from 1 to 5 years) and its resale value ($y$, in $1000s): $y = 22.3 - 2.5x$. Use this line to predict the resale value of a car that is 8 years old. Is this an interpolation or an extrapolation? Explain why we should be cautious about trusting this prediction.
+{:start="2"}
 
 ### Solution
 

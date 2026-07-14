@@ -13,6 +13,7 @@ MathJax = {
 
 ## 7.1 Variance - Solution for Practice 2
 2. A researcher weighs a **sample** of 5 puppies from a large litter: $[8, 10, 9, 11, 12]$ pounds. Find the sample variance.
+{:start="2"}
 
 ### Solution
  

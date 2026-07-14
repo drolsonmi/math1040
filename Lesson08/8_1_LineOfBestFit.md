@@ -35,26 +35,28 @@ The trick is finding *a* and *b*. These will be found using a calculator, like a
 
 ## Practice
 1. A tutor records the number of practice problem sets a student completes and the student's score (out of 10) on the following quiz:
-| Practice Sets Completed ($x$) | 1 | 2 | 3 | 4 | 5 |
-| --- | --- | --- | --- | --- | --- |
-| Quiz Score ($y$) | 3 | 5 | 4 | 6 | 7 |
+    | Practice Sets Completed ($x$) | 1 | 2 | 3 | 4 | 5 |
+    | --- | --- | --- | --- | --- | --- |
+    | Quiz Score ($y$) | 3 | 5 | 4 | 6 | 7 |
  
-  Find the equation of the line of best fit, $y = a+bx$.
-  - [After solving on your own, see solution here](./Solutions/8_1_Solution1.html)
+    Find the equation of the line of best fit, $y = a+bx$.
+    - [After solving on your own, see solution here](./Solutions/8_1_Solution1.html)
+
 2. A used car dealer records the age of 5 cars (in years) and their resale value (in $1000s):
-| Age of Car ($x$) | 1 | 2 | 3 | 4 | 5 |
-| --- | --- | --- | --- | --- | --- |
-| Resale Value ($y$) | 20 | 17 | 15 | 12 | 10 |
+    | Age of Car ($x$) | 1 | 2 | 3 | 4 | 5 |
+    | --- | --- | --- | --- | --- | --- |
+    | Resale Value ($y$) | 20 | 17 | 15 | 12 | 10 |
  
-  Find the equation of the line of best fit, $y = a+bx$.
-  - [After solving on your own, see solution here](./Solutions/8_1_Solution2.html)
+    Find the equation of the line of best fit, $y = a+bx$.
+    - [After solving on your own, see solution here](./Solutions/8_1_Solution2.html)
+
 3. A researcher records the outdoor temperature (in °F) and a shop's ice cream sales (in $100s) on 5 different days:
-| Temperature ($x$) | 60 | 70 | 80 | 90 | 100 |
-| --- | --- | --- | --- | --- | --- |
-| Ice Cream Sales ($y$) | 2 | 4 | 5 | 7 | 9 |
+    | Temperature ($x$) | 60 | 70 | 80 | 90 | 100 |
+    | --- | --- | --- | --- | --- | --- |
+    | Ice Cream Sales ($y$) | 2 | 4 | 5 | 7 | 9 |
  
-  Find the equation of the line of best fit, $y=a+bx$, and interpret the slope in the context of the problem. Does the y-intercept have a meaningful real-world interpretation here? Explain.
-  - [After solving on your own, see solution here](./Solutions/8_1_Solution3.html)
+    Find the equation of the line of best fit, $y=a+bx$, and interpret the slope in the context of the problem. Does the y-intercept have a meaningful real-world interpretation here? Explain.
+    - [After solving on your own, see solution here](./Solutions/8_1_Solution3.html)
 
 
 ## Technology

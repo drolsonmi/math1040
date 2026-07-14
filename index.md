@@ -91,8 +91,8 @@ MathJax = {
 * [11.4 Combinatorics](./Lesson11/11_4_Combinations.md)
 
 [12: Probability Distributions](./Lesson12/index.md)
-* [12.1 Probability Distributions](./Lesson12/12_1_ProbabilityDistributions.md) (Not ready)
-* [12.2 Distributions](./Lesson12/12_2_Distributions.md) (Not ready)
+* [12.1 Probability Distributions](./Lesson12/12_1_ProbabilityDistributions.md)
+* [12.2 Distributions](./Lesson12/12_2_Distributions.md)
 * [12.3 Expected Value](./Lesson12/12_3_ExpectedValue.md)
 
 [13: Binomial Distributions](./Lesson13/index.md)

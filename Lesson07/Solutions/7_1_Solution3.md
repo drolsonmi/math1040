@@ -13,6 +13,7 @@ MathJax = {
 
 ## 7.1 Variance - Solution for Practice 3
 3. Two vending machines are each timed on 5 separate fills (in seconds):
+{:start="3"}
   - Machine A: $[30, 32, 31, 29, 33]$
   - Machine B: $[25, 40, 20, 35, 30]$
   - Treating each list as a sample, find the sample variance for Machine A and for Machine B. Which machine is more consistent? Explain how the variance tells you this.

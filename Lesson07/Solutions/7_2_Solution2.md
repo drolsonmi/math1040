@@ -13,6 +13,7 @@ MathJax = {
 
 ## 7.2 Standard Deviation - Solution for Practice 2
 2. A researcher records the reaction times (in tenths of a second) of a **sample** of 6 volunteers: $[5, 7, 9, 9, 11, 13]$. Find the sample standard deviation.
+{:start="2"}
 
 ### Solution
  

@@ -13,6 +13,7 @@ MathJax = {
 
 ## 7.4 The Empirical Rule - Solution for Practice 3
 3. Using the same light bulb data (mean = 1200 hours, standard deviation = 50 hours), estimate the percentage of light bulbs that last **between 1250 and 1300 hours**.
+{:start="3"}
 
 ### Solution
  

@@ -13,6 +13,7 @@ MathJax = {
 
 ## 7.3 The Z-Score - Solution for Practice 2
 2. Sally scores 88 on Test A, where the mean was 80 and the standard deviation was 4. Tom scores 91 on Test B, a completely different test, where the mean was 85 and the standard deviation was 2. Find each student's z-score, and determine who performed better relative to their own test.
+{:start="2"}
 
 ### Solution
 Since Sally and Tom took two different tests with different means and different standard deviations, we can't compare their raw scores of 88 and 91 directly. Converting each score to a z-score puts both students on the same standardized scale.

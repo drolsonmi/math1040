@@ -13,13 +13,14 @@ MathJax = {
 
 ## 8.3 Correlation - Solution for Practice 2
 
-1. Recall the car age vs. resale value data from 8.1:
+2. Recall the car age vs. resale value data from 8.1:
+{:start="2"}
 
-| Age of Car ($x$) | 1 | 2 | 3 | 4 | 5 |
-| --- | --- | --- | --- | --- | --- |
-| Resale Value ($y$) | 20 | 17 | 15 | 12 | 10 |
+    | Age of Car ($x$) | 1 | 2 | 3 | 4 | 5 |
+    | --- | --- | --- | --- | --- | --- |
+    | Resale Value ($y$) | 20 | 17 | 15 | 12 | 10 |
 
-Find the correlation coefficient $r$, and describe the direction and strength of the relationship.
+    Find the correlation coefficient $r$, and describe the direction and strength of the relationship.
 
 ### Solution
 

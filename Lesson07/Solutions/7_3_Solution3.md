@@ -13,6 +13,7 @@ MathJax = {
 
 ## 7.3 The Z-Score - Solution for Practice 3
 3. A dataset has a mean of 50 and a standard deviation of 8. What data value corresponds to a z-score of $-1.5$?
+{:start="3"}
 
 ### Solution
 This problem gives us the z-score and asks us to work backward to find the original data value $x$. Start with the z-score formula and solve for $x$:

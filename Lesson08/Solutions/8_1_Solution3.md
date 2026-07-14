@@ -13,7 +13,8 @@ MathJax = {
 
 ## 8.1 Line of Best Fit - Solution for Practice 3
 
-1. A researcher records the outdoor temperature (in °F) and a shop's ice cream sales (in $100s) on 5 different days:
+3. A researcher records the outdoor temperature (in °F) and a shop's ice cream sales (in $100s) on 5 different days:
+{:start="3"}
 
 | Temperature ($x$) | 60 | 70 | 80 | 90 | 100 |
 | --- | --- | --- | --- | --- | --- |

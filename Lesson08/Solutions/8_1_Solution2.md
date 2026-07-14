@@ -13,7 +13,8 @@ MathJax = {
 
 ## 8.1 Line of Best Fit - Solution for Practice 2
 
-1. A used car dealer records the age of 5 cars (in years) and their resale value (in $1000s):
+2. A used car dealer records the age of 5 cars (in years) and their resale value (in $1000s):
+{:start="2"}
 
 | Age of Car ($x$) | 1 | 2 | 3 | 4 | 5 |
 | --- | --- | --- | --- | --- | --- |

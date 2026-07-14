@@ -13,6 +13,7 @@ MathJax = {
 
 ## 7.2 Standard Deviation - Solution for Practice 3
 3. Two classes take the same 5-question quiz. A sample of scores from each class is recorded:
+{:start="3"}
   - Class A: $[78, 82, 85, 80, 90]$
   - Class B: $[83, 84, 82, 83, 83]$
   - Find the sample standard deviation for each class. Both classes have the same mean — what does the standard deviation tell you about how the two classes differ?

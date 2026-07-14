@@ -13,7 +13,8 @@ MathJax = {
 
 ## 8.4 The Coefficient of Determination - Solution for Practice 2
 
-1. In 8.3, we found that the correlation coefficient for the car age vs. resale value data was $r \approx -0.998$. Find the coefficient of determination, $r^2$, and interpret it in the context of this problem.
+2. In 8.3, we found that the correlation coefficient for the car age vs. resale value data was $r \approx -0.998$. Find the coefficient of determination, $r^2$, and interpret it in the context of this problem.
+{:start="2"}
 
 ### Solution
 
