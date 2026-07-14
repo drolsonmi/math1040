@@ -45,7 +45,7 @@ A Combination is the number of ways to select r items from a pool of n. To calcu
 $${}_nC_r = \frac{{}_nP_r}{r!}$$
 
 Think of it this way:
-* The $${}n_P_r = n!/(n-r)!$$ counts the arrangements of the first r places (our permutation)
+* The ${}n_P_r = n!/(n-r)!$ counts the arrangements of the first r places (our permutation)
 * Dividing by $$r!$$ eliminates duplicate arrangements when the order doesn't matter (ABC vs. CBA)
 
 Back to our runners example, how many ways can 3 people from a 13-runner race qualify for the final round? We have 13 runners, and we are choosing 3. So, 13 Choose 3 is the number of permutations ($${}_{13}P_3 = 1716$$) divided by the number of ways they can be rearranged ($$3! = 6$$), which gives 286 different combinations:
