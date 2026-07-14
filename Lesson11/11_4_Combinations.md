@@ -11,6 +11,8 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
+{% raw %}
+
 # Lesson 11.4 Combinations
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
@@ -40,7 +42,7 @@ We call this a __Combination__. We often write a combination as ${}_nC_r$. Howev
 
 A Combination is the number of ways to select r items from a pool of n. To calculate it, we take our permutation equation and divide by r!.
 
-<!-- $${}_nC_r = \frac{{}_nP_r}{r!}$$ -->
+$${}_nC_r = \frac{{}_nP_r}{r!}$$
 
 Think of it this way:
 * The $${}n_P_r = n!/(n-r)!$$ counts the arrangements of the first r places (our permutation)
@@ -148,3 +150,5 @@ To calculate ${}_{15}C_6$,
 * The answer will appear on the right side of the cell
 
 ![Desmos combination function](images/Desmos_Combination1.png)
+
+{% endraw %}
