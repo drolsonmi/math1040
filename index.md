@@ -96,9 +96,9 @@ MathJax = {
 * [12.3 Expected Value](./Lesson12/12_3_ExpectedValue.md)
 
 [13: Binomial Distributions](./Lesson13/index.md)
-* []()
-* []()
-* []()
+* [13.1 Review of OR Probabilities](./Lesson13/13_1_ORProbabilities.md)
+* [13.2 Binomial Probabilities](./Lesson13/13_2_BinomialProbabilities.md)
+* [13.3 Binomial Distributions](./Lesson13/13_3_BinomialDistribution.md)
 
 [14: More on Binomial Distributions](./Lesson14/index.md)
 * []()
@@ -125,7 +125,6 @@ MathJax = {
 * [17.4 Example of using the Central Limit Theorem](./Lesson17/17_4_Example.md)
 
 [18: Confidence Intervals with 1 Sample Means](./Lesson18/index.md)
-* [Lesson 18 Overview](./Lesson18/index.md)
 * [18.1 Critical Values](./Lesson18/18_1_CriticalValues.md)
   * [Z-Table](./Resources/Z-Table.pdf)
 * [18.2 Margin of Error](./Lesson18/18_2_MarginOfError.md)
@@ -135,13 +134,11 @@ MathJax = {
   * [T-Table](./Resources/T-Table.pdf)
 
 [19: Confidence Intervals with 1 Sample Proportions](./Lesson19/index.md)
-* [Lesson 19 Overview](./Lesson19/index.md)
 * [19.1 Critical Values](./Lesson19/19_1_CriticalValues.md)
 * [19.2 Confidence Intervals with Proportions](./Lesson19/19_2_ConfidenceIntervalProps.md)
 
 ## Segment 5: Inference
 [20: Hypothesis Testing with 1 Sample Means](./Lesson20/index.md)
-* [Lesson 20 Overview](./Lesson20/index.md)
 * [20.1 Hypotheses](./Lesson20/20_1_Hypotheses.md)
 * [20.2 How Confidence Intervals fit in](./Lesson20/20_2_HypTestAndConfInt.md)
 * [20.3 Critical Regions](./Lesson20/20_3_CriticalRegions.md)
