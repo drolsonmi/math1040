@@ -28,9 +28,19 @@ The solution then is to look instead at a range of numbers. The primary tool we'
   * The probability of getting *exactly* 7.0 ozs is extremely small
   * Instead, we'll look at the probability of getting between 6.9 and 7.1 ozs.
 
+## Lesson Objectives
+
+By the end of this lesson, you should be able to accomplish the following:
+
+- Distinguish between discrete and continuous distributions, and explain why the probability of an exact value is essentially zero for a continuous variable
+- Describe the shape and properties of the normal distribution, and explain why area under the density curve represents probability
+- Calculate the z-score of a value from a normal distribution, and use the Empirical Rule to estimate probabilities
+- Use a Z-table (and technology) to find the probability associated with a given z-score or range of values
+- Find the data value that corresponds to a given z-score, and use this to find values associated with a given probability or percentile
+
 ## Topics in this lecture
-* [15.1 Discrete and Continuous Variables](./15_1_ContinuousVars.md)
-* [15.2 The Normal Distribution](./15_2_NormalDistributions.md)
-* [15.3 Probability from a Normal Distribution](./15_3_ProbabilityFromNormal.md)
-  * [Z-Tables](../Resources/Z-Table.pdf)
-* [15.4 Finding the Z-score from a Probability](./15_4_FindingZScore.md)
+- [15.1 Discrete and Continuous Distributions](https://drolsonmi.github.io/math1040/Lesson15/15_1_ContinuousVars.html)
+- [15.2 The Normal Distribution](https://drolsonmi.github.io/math1040/Lesson15/15_2_NormalDistributions.html)
+- [15.3 Probability from a Normal Distribution](https://drolsonmi.github.io/math1040/Lesson15/15_3_ProbabilityFromNormal.html)
+  * [Z-Tables](https://drolsonmi.github.io/math1040/Resources/Z-Table.pdf)
+- [15.4 Finding the Z-score from a Probability](https://drolsonmi.github.io/math1040/Lesson15/15_4_FindingZScore.html)

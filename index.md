@@ -107,16 +107,15 @@ MathJax = {
 
 ## Segment 4: The Central Limit Theorem
 [15: Normal Distributions](./Lesson15/index.md)
-* [15.1 Discrete and Continuous Variables](./Lesson15/15_1_ContinuousVars.md)
-* [15.2 The Normal Distribution](./Lesson15/15_2_NormalDistributions.md)
-* [15.3 Probability from a Normal Distribution](./Lesson15/15_3_ProbabilityFromNormal.md)
-  * [Z-Table](./Resources/Z-Table.pdf)
-* [15.4 Finding the Z-score from a Probability](./Lesson15/15_4_FindingZScore.md)
+- [15.1 Discrete and Continuous Distributions](https://drolsonmi.github.io/math1040/Lesson15/15_1_ContinuousVars.html)
+- [15.2 The Normal Distribution](https://drolsonmi.github.io/math1040/Lesson15/15_2_NormalDistributions.html)
+- [15.3 Probability from a Normal Distribution](https://drolsonmi.github.io/math1040/Lesson15/15_3_ProbabilityFromNormal.html)
+  * [Z-Tables](https://drolsonmi.github.io/math1040/Resources/Z-Table.pdf)
+- [15.4 Finding the Z-score from a Probability](https://drolsonmi.github.io/math1040/Lesson15/15_4_FindingZScore.html)
 
 [16: More on Normal Distributions](./Lesson16/index.md)
-* [16.1 Practice Calculating Probabilities](./Lesson16/16_1_Probabilities.md)
-* [16.2 Practice Calculating Percentiles/Quartiles](./Lesson16/16_2_Percentiles.md)
-* [16.3](./Lesson16/16_3_MorePractice.md)
+- [16.1 Practice Calculating Probabilities](https://drolsonmi.github.io/math1040/Lesson16/16_1_Probabilities.html)
+- [16.2 Practice Calculating Percentiles/Quartiles](https://drolsonmi.github.io/math1040/Lesson16/16_2_Percentiles.html)
 
 [17: Central Limit Theorem](./Lesson17/index.md)
 * [17.1 Sampling Distributions](./Lesson17/17_1_SamplingDistributions.md)

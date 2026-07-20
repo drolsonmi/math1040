@@ -26,6 +26,15 @@ In Lesson 15, we learned about the structure of Normal Distributions. In Lesson 
 >
 > So, there is only a 6.9% chance of spending less than \$250,000 on utilities next year.
 
+## Lesson Objectives
+
+By the end of this lesson, you should be able to accomplish the following:
+
+- Set up and solve real-world probability questions using the normal distribution
+- Choose the correct z-score and area (left tail, right tail, or middle) based on the wording of a real-world problem
+- Calculate percentiles and quartiles for real-world normally distributed data, and interpret what they mean in context
+- Use a TI-83/84, Excel, or Desmos to find normal probabilities and percentiles
+
 ## Topics in this lecture
-* [16.1 Practice Calculating Probabilities](./16_1_Probabilities.md)
-* [16.2 Practice Calculating Percentiles/Quartiles](./16_2_Percentiles.md)
+- [16.1 Practice Calculating Probabilities](https://drolsonmi.github.io/math1040/Lesson16/16_1_Probabilities.html)
+- [16.2 Practice Calculating Percentiles/Quartiles](https://drolsonmi.github.io/math1040/Lesson16/16_2_Percentiles.html)
