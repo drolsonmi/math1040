@@ -11,29 +11,17 @@ MathJax = {
 <title>Solution for practice 13.1.2</title>
 </head>
 
-## 13.1 Review of "OR" Probabilities - Solution for Practice 2
-2. A jar of marbles contains only red, blue, and green marbles. The probability of drawing a red marble is 0.3, and the probability of drawing a blue marble is 0.45. What is the probability of drawing a red or a blue marble? What is the probability of drawing a green marble?
+## 13.1 What is a Binomial Distribution? - Solution for Practice 2
+2. A bag contains 4 red marbles and 2 blue marbles. Three marbles are drawn **without replacement**, and we count the number of red marbles drawn.
 
 ### Solution
 
-**Part 1: Red or blue**
+Check the four requirements:
+- Fixed number of trials: yes, $n=3$ draws.
+- Two outcomes: yes, each draw is red (success) or blue (failure).
+- Constant probability: **no**. On the first draw, $P(\text{red}) = \frac{4}{6}$. If a red marble is drawn first, the probability of red on the second draw drops to $\frac{3}{5}$. Since marbles are not replaced, the probability of success changes from draw to draw.
+- Independent trials: **no**, for the same reason — what happens on one draw changes what is left in the bag for the next draw.
 
-A single marble can't be both red and blue at the same time, so these events are mutually exclusive:
+Because the probability of success is not constant and the draws are not independent, this **is not a binomial experiment**. (With a bag this small, removing even one marble noticeably changes the probabilities, so we cannot use the "large population" approximation either.)
 
-$$P(\text{red or blue}) = P(\text{red}) + P(\text{blue}) = 0.3 + 0.45 = 0.75$$
-
-There is a **75% chance** of drawing a red or blue marble.
-
-**Part 2: Green**
-
-Since the jar contains *only* red, blue, and green marbles, the probabilities of all three colors must add up to 1 (this is the same idea we used when building probability distributions in lesson 12 — all the probabilities in a distribution add up to 1):
-
-$$P(\text{red}) + P(\text{blue}) + P(\text{green}) = 1$$
-
-$$0.3 + 0.45 + P(\text{green}) = 1$$
-
-$$P(\text{green}) = 1 - 0.75 = 0.25$$
-
-There is a **25% chance** of drawing a green marble.
-
-[Return to lesson](https://drolsonmi.github.io/math1040/Lesson13/13_1_ORProbabilities.html#practice)
+[Return to lesson](https://drolsonmi.github.io/math1040/Lesson13/13_1_WhatIsBinomial.html#practice)

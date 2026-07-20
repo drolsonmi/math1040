@@ -12,32 +12,26 @@ MathJax = {
 </head>
 
 ## 13.2 Binomial Probabilities - Solution for Practice 3
-3. Historically, 85% of flights at a small airport depart on time. If 6 flights are selected at random, what is the probability that exactly 4 of them departed on time?
+3. A manufacturer knows that 5% of the light bulbs it produces are defective. In a random sample of 12 bulbs, find the probability that exactly 2 are defective.
 
 ### Solution
 
-**Step 1: Identify $n$, $p$, and $k$.**
+Identify the values: $n=12$, $p=0.05$, $q=0.95$, $x=2$.
 
-- $n = 6$
-- $p = 0.85$ (probability a flight departs on time — this is our "success")
-- $k = 4$
+$$P(2) = \binom{12}{2}(0.05)^2(0.95)^{10}$$
 
-**Step 2: Set up the binomial probability formula.**
+**Step 1: Find the combination.**
 
-$$P(X=4) = \binom{6}{4}(0.85)^4(0.15)^2$$
+$$\binom{12}{2} = \frac{12!}{2!10!} = 66$$
 
-**Step 3: Calculate the combination.**
+**Step 2: Find the probability powers.**
 
-$$\binom{6}{4} = \frac{6!}{4!\,2!} = 15$$
+$$(0.05)^2 = 0.0025 \qquad (0.95)^{10} \approx 0.59874$$
 
-**Step 4: Calculate the powers and multiply.**
+**Step 3: Multiply everything together.**
 
-$$(0.85)^4 \approx 0.52200 \qquad (0.15)^2 = 0.0225$$
+$$P(2) = 66(0.0025)(0.59874) \approx 0.0988$$
 
-$$P(X=4) = 15 \times 0.52200 \times 0.0225 \approx 0.1762$$
-
-There is about a **17.6% chance** that exactly 4 of the 6 randomly selected flights departed on time.
-
-Notice that this probability is fairly low even though 85% of flights are on time individually — that's because we're asking for *exactly* 4, not "4 or more." A result of 5 or 6 on-time flights is actually more likely here, since $p=0.85$ is closer to 1, and $n=6$ is small. We'll build the full distribution for a situation like this in the next lesson.
+The probability that exactly 2 of the 12 bulbs are defective is about **9.88%**.
 
 [Return to lesson](https://drolsonmi.github.io/math1040/Lesson13/13_2_BinomialProbabilities.html#practice)

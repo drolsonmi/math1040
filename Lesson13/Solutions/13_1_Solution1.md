@@ -11,21 +11,19 @@ MathJax = {
 <title>Solution for practice 13.1.1</title>
 </head>
 
-## 13.1 Review of "OR" Probabilities - Solution for Practice 1
-1. A survey of registered voters finds that 40% support Proposal A and 25% support Proposal B. No voter supports both proposals (they are mutually exclusive positions). What is the probability that a randomly selected voter supports Proposal A or Proposal B?
+## 13.1 What is a Binomial Distribution? - Solution for Practice 1
+1. A fair coin is flipped 10 times, and we count the number of heads.
 
 ### Solution
 
-Since no voter can support both proposals, supporting Proposal A and supporting Proposal B are **mutually exclusive** events. This means we can use the simplified addition rule:
+Check the four requirements:
+- Fixed number of trials: yes, $n=10$ flips are set in advance.
+- Two outcomes: yes, each flip is heads (success) or tails (failure).
+- Constant probability: yes, each flip has the same probability of heads, since the coin doesn't change between flips.
+- Independent trials: yes, the outcome of one flip has no effect on any other flip.
 
-$$P(A \text{ or } B) = P(A) + P(B)$$
+All four requirements are met, so this **is a binomial experiment**.
 
-We're given:
+$$n = 10 \qquad p = 0.5 \qquad q = 1-0.5 = 0.5$$
 
-$$P(A) = 0.40 \qquad P(B) = 0.25$$
-
-$$P(A \text{ or } B) = 0.40 + 0.25 = 0.65$$
-
-There is a **65% chance** that a randomly selected voter supports Proposal A or Proposal B.
-
-[Return to lesson](https://drolsonmi.github.io/math1040/Lesson13/13_1_ORProbabilities.html#practice)
+[Return to lesson](https://drolsonmi.github.io/math1040/Lesson13/13_1_WhatIsBinomial.html#practice)

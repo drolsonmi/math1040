@@ -14,79 +14,75 @@ MathJax = {
 # Lesson 13.2 Binomial Probabilities
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
-* 4.3 Binomial distribution (pages 149-158)
+* 3.3.1 Understanding the formula (pages 111-112)
+* 3.3.2 When and how to apply the formula (pages 112-114)
+* 3.3.3 Calculator: binomial probabilities (pages 114-115)
 
 ## Lesson
-A __binomial experiment__ is a specific type of repeated trial that shows up constantly in statistics. An experiment qualifies as binomial if it meets **all four** of the following conditions:
+Now that we can recognize a binomial experiment, we want to actually calculate the probability of getting __exactly__ $r$ successes out of $n$ trials.
 
-1. There is a **fixed number of trials**, $n$.
-2. Each trial has only **two possible outcomes**: "success" or "failure."
-3. The **probability of success**, $p$, is the **same on every trial**.
-4. The trials are **independent** of one another (the outcome of one trial doesn't affect another).
+### Where the Formula Comes From
 
-Think of flipping a coin 10 times and counting how many land on heads, or surveying 50 people and counting how many support a new policy. Both fit this pattern.
+Think about flipping a coin ($p=0.5$) 3 times and wanting exactly 2 heads. One way this could happen is HHT. Using the multiplication rule for independent events, the probability of that *specific order* is $P(HHT) = p \cdot p \cdot q = p^2q$. But HHT isn't the only way to get 2 heads out of 3 flips — HTH and THH also work. There are ${}_3C_2=3$ different orders that give exactly 2 heads, and each order has the same probability $p^2q$. So:
+
+$$P(2 \text{ heads}) = {}_3C_2 p^2 q^1$$
+
+This is the idea behind the __binomial probability formula__: count how many *ways* (orders) we can arrange $x$ successes among $n$ trials, using combinations, and multiply by the probability of any *one* of those specific orders.
 
 ### The Binomial Probability Formula
 
-If a binomial experiment has $n$ trials, each with probability of success $p$, then the probability of getting **exactly** $k$ successes is:
+$$P(X = r) = {}_nC_r p^r q^{n-r} = {}_nC_r p^r (1-p)^{n-r}\tag{Binomial Probability}$$
 
-$$P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}\tag{Binomial Probability Formula}$$
+where
+- $n$ = number of trials
+- $r$ = number of successes we want
+- $p$ = probability of success on a single trial
+- $q = 1-p$ = probability of failure on a single trial
+- ${}_nC_r = \dfrac{n!}{r!(n-r)!}$ = the number of ways to arrange $r$ successes among $n$ trials
 
-Let's break this formula down piece by piece:
+### Worked Example
 
-- $\binom{n}{k} = \dfrac{n!}{k!(n-k)!}$ is the **combination** from lesson 11 — it counts the number of different *orders* in which the $k$ successes could occur among the $n$ trials.
-- $p^k$ is the probability that all $k$ of the successes happen, since the trials are independent (recall the "AND" rule from lesson 10: independent probabilities multiply).
-- $(1-p)^{n-k}$ is the probability that the remaining $n-k$ trials are all failures.
+Suppose 30% of customers who enter a store make a purchase ($p=0.30$), and 8 independent customers enter the store ($n=8$). What is the probability that **exactly 3** of them make a purchase?
 
-Here's the connection back to lesson 13.1: each specific *order* of $k$ successes and $n-k$ failures is equally likely, and has probability $p^k(1-p)^{n-k}$. Since there are $\binom{n}{k}$ such orders, and getting the successes in *this* order or *that* order are mutually exclusive outcomes, we **add** the probability $p^k(1-p)^{n-k}$ to itself $\binom{n}{k}$ times — which is the same as multiplying by $\binom{n}{k}$.
+$$P(3) = \binom{8}{3}(0.30)^3(0.70)^5$$
 
-### Example
+$$\binom{8}{3} = 56, \qquad (0.30)^3 = 0.027, \qquad (0.70)^5 \approx 0.16807$$
 
-Suppose 30% of customers at a coffee shop order a specialty drink. If 5 customers are selected at random, what is the probability that exactly 2 of them ordered a specialty drink?
+$$P(3) = 56(0.027)(0.16807) \approx 0.2541$$
 
-Here, $n=5$, $p=0.3$, and we want $k=2$.
+There is about a **25.4%** chance that exactly 3 of the 8 customers make a purchase.
 
-$$P(X=2) = \binom{5}{2}(0.3)^2(0.7)^3$$
-
-$$P(X=2) = 10 \times 0.09 \times 0.343 = 0.3087$$
-
-There is about a **30.9% chance** that exactly 2 of the 5 customers ordered a specialty drink.
-
-<!-- Insert lesson video here -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8idr1WZ1A7Q?si=lHqQ0_Fh1jvxU9tJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
-1. A fair coin is flipped 8 times. What is the probability of getting exactly 5 heads?
+1. A fair coin is flipped 6 times. Find the probability of getting exactly 4 heads.
   - [After solving on your own, see solution here](./Solutions/13_2_Solution1.html)
-2. A multiple-choice quiz has 10 questions, each with 4 answer choices. A student guesses randomly on every question. What is the probability that the student gets exactly 3 questions correct?
+2. A multiple-choice quiz has 10 questions, each with 4 answer choices. A student guesses randomly on every question. Find the probability that the student gets exactly 3 questions correct.
   - [After solving on your own, see solution here](./Solutions/13_2_Solution2.html)
-3. Historically, 85% of flights at a small airport depart on time. If 6 flights are selected at random, what is the probability that exactly 4 of them departed on time?
+3. A manufacturer knows that 5% of the light bulbs it produces are defective. In a random sample of 12 bulbs, find the probability that exactly 2 are defective.
   - [After solving on your own, see solution here](./Solutions/13_2_Solution3.html)
+4. According to a survey, 65% of adults in a city support a new recycling program. If 9 adults are randomly and independently selected, find the probability that exactly 6 of them support the program.
+  - [After solving on your own, see solution here](./Solutions/13_2_Solution4.html)
 
 ## Technology
 
 ### TI-83/84
-The calculator's binomial probability function finds $P(X=k)$ directly, without needing to compute the combination and powers by hand.
-
 1. Press **2ND**, then **VARS** to open the **DISTR** (distributions) menu.
-2. Scroll down and select **binompdf(** (binomial probability density function).
-3. Enter the three values, separated by commas: `binompdf(n, p, k)`
-  - $n$ = number of trials
-  - $p$ = probability of success
-  - $k$ = number of successes you want the probability of
-4. Press **ENTER** to calculate.
+2. Scroll down to **binompdf(** (probability density function — this gives the probability of an *exact* number of successes) and press **ENTER**.
+3. Enter the values in order: `binompdf(n, p, x)`, where $n$ is the number of trials, $p$ is the probability of success, and $x$ is the exact number of successes you want.
+4. Press **ENTER** to see the probability.
 
-For the coffee shop example above, you would enter `binompdf(5, 0.3, 2)`, which returns 0.3087.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N8Kfw2E9ONc?si=B5uYQoxg1uUEr2Y6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Excel
 1. Click on an empty cell where you want the result to appear.
 2. Type the following formula, then press Enter:
-  - `=BINOM.DIST(k, n, p, FALSE)`
-  - $k$ = number of successes, $n$ = number of trials, $p$ = probability of success
-  - The **FALSE** tells Excel you want the probability of *exactly* $k$ successes (not cumulative).
-3. For the coffee shop example, you would type `=BINOM.DIST(2, 5, 0.3, FALSE)`, which returns 0.3087.
+  - `=BINOM.DIST(x, n, p, FALSE)`
+3. Here, $x$ is the exact number of successes, $n$ is the number of trials, and $p$ is the probability of success. The **FALSE** tells Excel you want the probability of *exactly* $x$ successes (not cumulative).
+4. For example, to find the probability of exactly 3 successes out of 8 trials with $p=0.30$: `=BINOM.DIST(3, 8, 0.3, FALSE)`
 
 ### Desmos
-Desmos doesn't have a single built-in binomial command, but it can calculate the formula directly using `nCr` (or `nCk`, depending on your Desmos update) for the combination.
-
-1. In a blank expression line, type: `nCr(n,k)*p^k*(1-p)^(n-k)`, substituting your actual values of $n$, $p$, and $k$.
-2. For the coffee shop example, type `nCr(5,2)*0.3^2*(1-0.3)^(5-2)`. Desmos will display the result, 0.3087, immediately.
+Desmos doesn't have a dedicated binomial probability button, but it can compute the formula directly since it has a built-in combinations function.
+1. In a blank expression line, type: `nCr(n,x) * p^x * (1-p)^(n-x)`, replacing $n$, $p$, and $x$ with your values.
+  - For example, for the store example above: `nCr(8,3)*0.3^3*0.7^5`
+2. Press **Enter**, and Desmos will evaluate the expression for you.

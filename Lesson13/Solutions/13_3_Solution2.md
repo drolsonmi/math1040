@@ -11,33 +11,32 @@ MathJax = {
 <title>Solution for practice 13.3.2</title>
 </head>
 
-## 13.3 Binomial Probability Distribution - Solution for Practice 2
-2. A manufacturer finds that 10% of the widgets it produces are defective. In a random sample of 6 widgets, what is the probability that **at most 2** are defective?
+## 13.3 Binomial Distributions - Solution for Practice 2
+2. In a certain city, 20% of drivers run a red light at a particular intersection. For a random sample of 5 independent drivers passing through the intersection, build the complete binomial distribution for $x$ = number who run the red light. Then find the mean and standard deviation using the shortcut formulas.
 
 ### Solution
 
-**Step 1: Identify $n$ and $p$, and translate "at most 2."**
+Here $n=5$, $p=0.2$, $q=0.8$, and $x$ can be $0,1,2,3,4,5$.
 
-- $n = 6$
-- $p = 0.10$ (probability a widget is defective)
-- "At most 2" means $X=0$, $X=1$, or $X=2$
+$$P(0) = \binom{5}{0}(0.2)^0(0.8)^5 = 1(1)(0.32768) = 0.3277$$
+$$P(1) = \binom{5}{1}(0.2)^1(0.8)^4 = 5(0.2)(0.4096) = 0.4096$$
+$$P(2) = \binom{5}{2}(0.2)^2(0.8)^3 = 10(0.04)(0.512) = 0.2048$$
+$$P(3) = \binom{5}{3}(0.2)^3(0.8)^2 = 10(0.008)(0.64) = 0.0512$$
+$$P(4) = \binom{5}{4}(0.2)^4(0.8)^1 = 5(0.0016)(0.8) = 0.0064$$
+$$P(5) = \binom{5}{5}(0.2)^5(0.8)^0 = 1(0.00032)(1) = 0.0003$$
 
-Since getting exactly 0, exactly 1, and exactly 2 defective widgets are mutually exclusive outcomes, we can use the addition rule from lesson 13.1:
+| $x$ | 0 | 1 | 2 | 3 | 4 | 5 |
+| --- | --- | --- | --- | --- | --- | --- |
+| $P(x)$ | 0.3277 | 0.4096 | 0.2048 | 0.0512 | 0.0064 | 0.0003 |
 
-$$P(X \le 2) = P(X=0)+P(X=1)+P(X=2)$$
+**Check:** $0.3277+0.4096+0.2048+0.0512+0.0064+0.0003 = 1.0000\checkmark$
 
-**Step 2: Calculate each individual probability.**
+**Mean and standard deviation**, using the shortcut formulas:
 
-$$P(X=0) = \binom{6}{0}(0.1)^0(0.9)^6 = 1 \times 1 \times 0.531441 = 0.531441$$
+$$\mu = np = 5(0.2) = 1$$
 
-$$P(X=1) = \binom{6}{1}(0.1)^1(0.9)^5 = 6 \times 0.1 \times 0.59049 = 0.354294$$
+$$\sigma = \sqrt{npq} = \sqrt{5(0.2)(0.8)} = \sqrt{0.8} \approx 0.894$$
 
-$$P(X=2) = \binom{6}{2}(0.1)^2(0.9)^4 = 15 \times 0.01 \times 0.6561 = 0.098415$$
-
-**Step 3: Add the probabilities together.**
-
-$$P(X \le 2) = 0.531441+0.354294+0.098415 = 0.984150$$
-
-There is about a **98.4% chance** that at most 2 of the 6 widgets are defective. This is a high probability, which makes sense since the defect rate is only 10% and we're sampling a small number of widgets — getting 3 or more defective would be unusual.
+On average, we expect 1 out of every 5 drivers to run the red light, with a standard deviation of about 0.894 drivers.
 
 [Return to lesson](https://drolsonmi.github.io/math1040/Lesson13/13_3_BinomialDistribution.html#practice)

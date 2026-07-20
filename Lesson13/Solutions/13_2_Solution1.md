@@ -12,32 +12,26 @@ MathJax = {
 </head>
 
 ## 13.2 Binomial Probabilities - Solution for Practice 1
-1. A fair coin is flipped 8 times. What is the probability of getting exactly 5 heads?
+1. A fair coin is flipped 6 times. Find the probability of getting exactly 4 heads.
 
 ### Solution
 
-**Step 1: Identify $n$, $p$, and $k$.**
+Identify the values: $n=6$, $p=0.5$, $q=0.5$, $x=4$.
 
-- $n = 8$ (8 flips)
-- $p = 0.5$ (probability of heads on a fair coin)
-- $k = 5$ (we want exactly 5 heads)
+$$P(4) = \binom{6}{4}(0.5)^4(0.5)^2$$
 
-**Step 2: Set up the binomial probability formula.**
+**Step 1: Find the combination.**
 
-$$P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}$$
+$$\binom{6}{4} = \frac{6!}{4!2!} = 15$$
 
-$$P(X=5) = \binom{8}{5}(0.5)^5(0.5)^3$$
+**Step 2: Find the probability powers.**
 
-**Step 3: Calculate the combination.**
+$$(0.5)^4 = 0.0625 \qquad (0.5)^2 = 0.25$$
 
-$$\binom{8}{5} = \frac{8!}{5!\,3!} = 56$$
+**Step 3: Multiply everything together.**
 
-**Step 4: Calculate the powers and multiply.**
+$$P(4) = 15(0.0625)(0.25) = 0.2344$$
 
-$$P(X=5) = 56 \times (0.5)^5 \times (0.5)^3 = 56 \times 0.03125 \times 0.125$$
-
-$$P(X=5) = 56 \times 0.00390625 \approx 0.2188$$
-
-There is about a **21.9% chance** of getting exactly 5 heads in 8 flips.
+The probability of getting exactly 4 heads in 6 flips is about **23.44%**.
 
 [Return to lesson](https://drolsonmi.github.io/math1040/Lesson13/13_2_BinomialProbabilities.html#practice)

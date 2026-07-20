@@ -11,31 +11,19 @@ MathJax = {
 <title>Solution for practice 13.1.3</title>
 </head>
 
-## 13.1 Review of "OR" Probabilities - Solution for Practice 3
-3. A die is rolled once. Let event $A$ = "rolling an even number" and event $B$ = "rolling a number greater than 4." Are $A$ and $B$ mutually exclusive? Find $P(A \text{ or } B)$.
+## 13.1 What is a Binomial Distribution? - Solution for Practice 3
+3. Historically, 8% of emails sent by a marketing company are marked as spam by the recipient's inbox. The company sends a new campaign to 500 independent recipients, and we count how many mark it as spam.
 
 ### Solution
 
-**Step 1: List the outcomes in each event.**
+Check the four requirements:
+- Fixed number of trials: yes, $n=500$ emails.
+- Two outcomes: yes, each email is either marked as spam (success) or not (failure).
+- Constant probability: yes, each recipient has the same 8% historical probability of marking the email as spam.
+- Independent trials: yes, the problem tells us the recipients are independent, so one person's action doesn't affect another's.
 
-$$A = \{2, 4, 6\} \qquad B = \{5, 6\}$$
+All four requirements are met, so this **is a binomial experiment**.
 
-**Step 2: Check whether $A$ and $B$ are mutually exclusive.**
+$$n = 500 \qquad p = 0.08 \qquad q = 1-0.08 = 0.92$$
 
-The number 6 appears in *both* $A$ and $B$ — it's even, and it's greater than 4. Since $A$ and $B$ share an outcome, they are **not mutually exclusive**. This means we must use the *general* addition rule, not the simplified version.
-
-**Step 3: Find each probability.**
-
-$$P(A) = \frac{3}{6} \qquad P(B) = \frac{2}{6} \qquad P(A \text{ and } B) = \frac{1}{6}$$
-
-($A$ and $B$ overlap only on the outcome $\{6\}$, so $P(A \text{ and } B) = \frac{1}{6}$.)
-
-**Step 4: Apply the general addition rule.**
-
-$$P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B)$$
-
-$$P(A \text{ or } B) = \frac{3}{6} + \frac{2}{6} - \frac{1}{6} = \frac{4}{6} = \frac{2}{3} \approx 0.667$$
-
-Notice that if we had mistakenly treated $A$ and $B$ as mutually exclusive and just added $\frac{3}{6}+\frac{2}{6} = \frac{5}{6}$, we would have **double-counted** the outcome 6. This is exactly why it's important to check for mutual exclusivity before choosing which version of the addition rule to use.
-
-[Return to lesson](https://drolsonmi.github.io/math1040/Lesson13/13_1_ORProbabilities.html#practice)
+[Return to lesson](https://drolsonmi.github.io/math1040/Lesson13/13_1_WhatIsBinomial.html#practice)

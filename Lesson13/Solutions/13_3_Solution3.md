@@ -11,32 +11,29 @@ MathJax = {
 <title>Solution for practice 13.3.3</title>
 </head>
 
-## 13.3 Binomial Probability Distribution - Solution for Practice 3
-3. A call center finds that 25% of incoming calls result in a sale. Out of 15 randomly selected calls, what is the probability that **6, 7, or 8** of them result in a sale?
+## 13.3 Binomial Distributions - Solution for Practice 3
+3. A pharmaceutical trial shows that a new medication is effective for 60% of patients. For a group of 4 independent patients, build the complete binomial distribution for $x$ = number for whom the medication is effective. Use the distribution to find $P(x \geq 3)$.
 
 ### Solution
 
-**Step 1: Identify $n$ and $p$.**
+Here $n=4$, $p=0.6$, $q=0.4$, and $x$ can be $0,1,2,3,4$.
 
-- $n = 15$
-- $p = 0.25$ (probability a call results in a sale)
+$$P(0) = \binom{4}{0}(0.6)^0(0.4)^4 = 1(1)(0.0256) = 0.0256$$
+$$P(1) = \binom{4}{1}(0.6)^1(0.4)^3 = 4(0.6)(0.064) = 0.1536$$
+$$P(2) = \binom{4}{2}(0.6)^2(0.4)^2 = 6(0.36)(0.16) = 0.3456$$
+$$P(3) = \binom{4}{3}(0.6)^3(0.4)^1 = 4(0.216)(0.4) = 0.3456$$
+$$P(4) = \binom{4}{4}(0.6)^4(0.4)^0 = 1(0.1296)(1) = 0.1296$$
 
-We need $P(X=6)+P(X=7)+P(X=8)$, since these three outcomes are mutually exclusive.
+| $x$ | 0 | 1 | 2 | 3 | 4 |
+| --- | --- | --- | --- | --- | --- |
+| $P(x)$ | 0.0256 | 0.1536 | 0.3456 | 0.3456 | 0.1296 |
 
-**Step 2: Calculate each individual probability.**
+**Check:** $0.0256+0.1536+0.3456+0.3456+0.1296 = 1.0000\checkmark$
 
-$$P(X=6) = \binom{15}{6}(0.25)^6(0.75)^9 = 5005 \times 0.000244140625 \times 0.075084686\ldots \approx 0.09175$$
+To find $P(x \geq 3)$, we add the probabilities of the outcomes that satisfy $x \geq 3$, namely $x=3$ and $x=4$:
 
-$$P(X=7) = \binom{15}{7}(0.25)^7(0.75)^8 = 6435 \times 0.00006103515625 \times 0.100112915\ldots \approx 0.03932$$
+$$P(x\geq 3) = P(3) + P(4) = 0.3456 + 0.1296 = 0.4752$$
 
-$$P(X=8) = \binom{15}{8}(0.25)^8(0.75)^7 = 6435 \times 0.0000152587890625 \times 0.133483887\ldots \approx 0.01311$$
-
-**Step 3: Add the probabilities together.**
-
-$$P(6 \le X \le 8) = 0.09175+0.03932+0.01311 \approx 0.1442$$
-
-There is about a **14.4% chance** that 6, 7, or 8 out of the 15 calls result in a sale.
-
-Note that the average (expected) number of sales here is $n\cdot p = 15 \times 0.25 = 3.75$, so 6, 7, and 8 are all noticeably above average — which is why this combined probability is relatively small. If you'd like to check this answer quickly, try it with your calculator's cumulative binomial function (`binomcdf(15, 0.25, 8) - binomcdf(15, 0.25, 5)`), covered in the Technology section of the lesson.
+There is about a **47.52%** chance that the medication is effective for at least 3 of the 4 patients.
 
 [Return to lesson](https://drolsonmi.github.io/math1040/Lesson13/13_3_BinomialDistribution.html#practice)

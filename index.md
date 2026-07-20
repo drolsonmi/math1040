@@ -96,14 +96,14 @@ MathJax = {
 * [12.3 Expected Value](./Lesson12/12_3_ExpectedValue.md)
 
 [13: Binomial Distributions](./Lesson13/index.md)
-* [13.1 Review of OR Probabilities](./Lesson13/13_1_ORProbabilities.md)
-* [13.2 Binomial Probabilities](./Lesson13/13_2_BinomialProbabilities.md)
-* [13.3 Binomial Distributions](./Lesson13/13_3_BinomialDistribution.md)
+- [13.1 What is a Binomial Distribution?](./13_1_WhatIsBinomial.md)
+- [13.2 Binomial Probabilities](./13_2_BinomialProbabilities.md)
+- [13.3 Binomial Distributions](./13_3_BinomialDistribution.md)
 
 [14: More on Binomial Distributions](./Lesson14/index.md)
-* []()
-* []()
-* []()
+- [14.1 Review of OR Probabilities](./14_1_ORProbabilities.md)
+- [14.2 Cumulative Probabilities from any Discrete Probability Distribution](./14_2_CumulativeProbabilities.md)
+- [14.3 Cumulative Binomial Probabilities](./14_3_CumulativeBinomialProbabilities.md)
 
 ## Segment 4: The Central Limit Theorem
 [15: Normal Distributions](./Lesson15/index.md)
