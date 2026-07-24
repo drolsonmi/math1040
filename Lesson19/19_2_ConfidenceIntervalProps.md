@@ -119,10 +119,10 @@ $$E = \frac{\text{Upper Bound} - \text{Lower Bound}}{2}$$
 ### Desmos
 To compute the confidence interval in [Desmos](www.desmos.com/calculator), you can calculate the margin of error directly and add/subtract it from $$\hat{p}$$:
 
-* Lower bound: $$\hat{p} - z_c\sqrt{\tfrac{\hat{p}\hat{q}}{n}}$$
-* Upper bound: $$\hat{p} + z_c\sqrt{\tfrac{\hat{p}\hat{q}}{n}}$$
+* Lower bound: $\hat{p} - z_c\sqrt{\tfrac{\hat{p}\hat{q}}{n}}$
+* Upper bound: $\hat{p} + z_c\sqrt{\tfrac{\hat{p}\hat{q}}{n}}$
 
-For example, for the practice problem above with $$\hat{p} = 0.65$$, $$n = 200$$, and $$z_c = 1.96$$, type:
+For example, for the practice problem above with $\hat{p} = 0.65$, $n = 200$, and $z_c = 1.96$, type:
 
 $$0.65 - 1.96\sqrt{\frac{0.65 \times 0.35}{200}}$$
 

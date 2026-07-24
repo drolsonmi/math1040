@@ -29,9 +29,9 @@ Recall the example problem from 18.3. We'll modify the question a bit to show wh
 > 
 > What sample size is needed if you want the margin of error to be 1.5 with a 90% confidence level?
 
-* Confidence level is 90%, so $$z_c = 1.645$$
-* The population standard deviation is $$\sigma = 15$$
-* The desired Margin of Error is $$E = 1.5$$
+* Confidence level is 90%, so $z_c = 1.645$
+* The population standard deviation is $\sigma = 15$
+* The desired Margin of Error is $E = 1.5$
 
 $$n = \left(\frac{z_c\sigma}{E}\right)^2 = \left(\frac{1.645\cdot 15}{1.5}\right)^2 = \left(\frac{24.675}{1.5}\right)^2 = 16.45^2 = 270.60$$
 

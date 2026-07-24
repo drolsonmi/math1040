@@ -24,7 +24,7 @@ Consider this problem:
 > 
 > Construct a 95% confidence interval for the true mean number of hours of sleep college students get on weeknights.
 
-Notice that in this case, we do not have a population standard deviation ($$\sigma$$). So, our Margin of Error calculation won't work.
+Notice that in this case, we do not have a population standard deviation ($\sigma$). So, our Margin of Error calculation won't work.
 
 Fortunately, we have a solution. The normal distribution depends on the population. Another distribution that we call the __t-distribution__ depends instead on the sample. This is a good approximation of the normal distribution.
 
@@ -33,21 +33,22 @@ With the t-distribution, we find a critical value from t-scores and use the samp
 $$E = t_c\frac{s}{\sqrt{n}}$$
 
 However, since the t-distribution relies on the sample, we also have to consider one more variable:
-* The __Degrees of Freedom__ is calculated as $$DF = n-1$$
-* As $$n$$ increases, the t-distribution becomes a better approximation of the normal distribution.
+* The __Degrees of Freedom__ is calculated as $DF = n-1$
+* As $n$ increases, the t-distribution becomes a better approximation of the normal distribution.
 
 <img src="images/Fig18_5a_tDistributions.png?raw=true" width="500" alt="T-Distributions with varying degrees of freedom">
 
 To find the critical t-score, use a [T-Table](../Resources/T-Table.pdf) or a calculator (Note that the TI-83 will not work for this step, so be familiar with the table). In the problem above, 
-* The Sample Size is $$n=25$$
-* There are $$DF = n-1 = 24$$ degrees of freedom
+* The Sample Size is $n=25$
+* There are $DF = n-1 = 24$ degrees of freedom
 * The confidence level is 95%
 
-Using these on the T-Table, we get a critical t-score of $$t_c = 2.064$$
+Using these on the T-Table, we get a critical t-score of $t_c = 2.064$
 
 <img src="images/Fig18_5b_tTable.png?raw=true" width="500" alt="T-Distributions with varying degrees of freedom">
 
 Other than that, the calculations for the Margin of Error and the Confidence Interval are exactly the same.
+
 $$E = t_c\frac{s}{\sqrt{n}} \qquad \mu = \bar{x} \pm SE$$
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OEGcLdttb4g?si=1JgpZCyLc6NQJMvn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -60,10 +61,10 @@ Here is the problem from earlier:
 
 Here is the information given from the problem.
 * Confidence Level is 95%
-* Sample Size is $$n = 25$$
-* Degrees of Freedom is $$DF = n-1 = 24$$
-* Sample mean is $$\bar{x} = 6.8$$
-* Sample standard deviation is $$s = 1.2$$
+* Sample Size is $n = 25$
+* Degrees of Freedom is $DF = n-1 = 24$
+* Sample mean is $\bar{x} = 6.8$
+* Sample standard deviation is $s = 1.2$
 
 __Before we do anything, we must verify that the Central Limit Theorem holds.__
 * Is the sample random? __Yes__ (stated in the problem)
@@ -72,7 +73,7 @@ __Before we do anything, we must verify that the Central Limit Theorem holds.__
 
 So, the Central Limit Theorem holds.
 
-Using the T-Table or the TI-84 with a confidence level of 95% and 24 degrees of freedom, we get a critical value of $$t_c = 2.064$$.
+Using the T-Table or the TI-84 with a confidence level of 95% and 24 degrees of freedom, we get a critical value of $t_c = 2.064$.
 
 $$E = t_c\frac{s}{\sqrt{n}} = 2.064\frac{1.2}{\sqrt{25}} = 0.495$$
 
@@ -122,3 +123,35 @@ To find the t-score:
 * "Paste" and then press "Enter" again
 
 <img src="images/Fig18_5e_TI84_invT.png?raw=true" width="250" alt="Menu for calculating Critical t-score on TI-84"> <img src="images/Fig18_5f_TI84_invT.png?raw=true" width="250" alt="Finding Critical t-score on TI-84">
+
+### Excel
+#### Confidence Interval with t-values
+1. Click on an empty cell where you want the margin of error to appear.
+2. Type `=CONFIDENCE.T(alpha, s, n)` and press Enter, where:
+    * `alpha` is 1 minus the confidence level, written as a decimal (for a 95% confidence level, alpha = 0.05)
+    * `s` is the sample standard deviation
+    * `n` is the sample size
+3. This returns the margin of error ($E$).
+4. In two more cells, add and subtract $E$ from the sample mean ($\bar{x}$) to find the boundaries of the confidence interval.
+For example, with $s=1.2$, $n=25$, and a 95% confidence level, `=CONFIDENCE.T(0.05,1.2,25)` returns approximately 0.495, matching the margin of error found in the example above.
+ 
+#### Finding a t-value
+1. Click on an empty cell.
+2. Type `=T.INV(area, df)`, replacing `area` with the area of the left tail and `df` with the degrees of freedom ($n-1$), then press Enter.
+3. This returns the critical t-value on the left of the distribution. Because the t-distribution is symmetric, the critical value on the right is the same value made positive.
+For example, with a 95% confidence level and 24 degrees of freedom, `=T.INV(0.025,24)` returns approximately -2.064, so the critical value is $\pm 2.064$.
+ 
+### Desmos
+#### Confidence Interval with t-values
+Let Desmos do the arithmetic for you:
+* Define your values as variables, for example: `s = 1.2`, `n = 25`, `t_c = 2.064`
+* Type `E = t_c * s / sqrt(n)` to calculate the margin of error
+* Type `xbar + E` and `xbar - E` (with `xbar` defined as your sample mean) to find the boundaries of the confidence interval
+#### Finding a t-value
+* Type `tdist(df)` in one cell, replacing `df` with your degrees of freedom
+  * Optional: Click the magnifying glass in the small panel left of the cell to view the full t-distribution
+* Click the arrow next to "Cumulative Probability"
+* Select the `REGION` as "Left"
+* Select the `COMPUTE` as "Bounds"
+* After the `$P(x \le \dots) = $` line, type the area of the left tail
+After doing this, the space will auto-fill with the critical t-value.

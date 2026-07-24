@@ -14,7 +14,7 @@ MathJax = {
 # Lesson 18.3 Confidence Interval when you know $$\sigma$$
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
-* 7.1.1 Using the z-distribution for inference when $$\mu$$ is unknown and $$\sigma$$ is known (pages 277)
+* 7.1.1 Using the z-distribution for inference when $\mu$ is unknown and $\sigma$ is known (pages 277)
 
 ## Lesson
 To find a confidence interval, these are the steps you need to follow:
@@ -38,7 +38,7 @@ These are the two requirements needed to satisfy the Central Limit Theorem:
     * The problem states that the sample is random, so *this is satisfied*
 2. __The sample must be large enough__
     * Since we are dealing with quantitative data and means, we want the sample to be at least 30
-    * The sample size in the problem is $$n=40$$. Since $$n\ge 30$$, *this is satisfied*
+    * The sample size in the problem is $n=40$. Since $n\ge 30$, *this is satisfied*
 
 Since __both__ conditions are satisfied, __the central limit theorem passes, and we can continue with this problem__.
 
@@ -48,10 +48,10 @@ We are given a confidence level of 90%.
 * The z-scores that separate the two tails are $$\pm$$1.645.
 
 #### 3. Find the Margin of Error
-The equation for the margin of error is $$E = z_c\tfrac{\sigma}{\sqrt{n}}$$.
-* $$z_c = \pm 1.645$$ is the critical value
-* $$\sigma = 15$$ is the population standard deviation
-* $$n = 40$$ is the sample size
+The equation for the margin of error is $E = z_c\tfrac{\sigma}{\sqrt{n}}$.
+* $z_c = \pm 1.645$ is the critical value
+* $\sigma = 15$ is the population standard deviation
+* $n = 40$ is the sample size
 
 Plugging these in,
 $$\begin{align*}
@@ -63,8 +63,8 @@ E &= z_c\frac{\sigma}{\sqrt{n}} \\
 
 #### 4. Find the Confidence Interval
 The boundaries to our confidence interval are the sample mean ($$\bar{x}$$) plus or minus the margin of error ($$E$$).
-* $$\bar{x} = 106.3$$ is the sample mean
-* $$E = 3.9$$ is the standard error
+* $\bar{x} = 106.3$ is the sample mean
+* $E = 3.9$ is the standard error
 
 $$\bar{x} + E = 106.3 + 3.9 = 110.20$$
 
@@ -110,3 +110,23 @@ To calculate the Confidence Interval on a TI-83/84,
 <img src="images/Fig18_3a_TI84Input.png?raw=true" width="500" alt="TI-84 Confidence Interval Calculation"> <img src="images/Fig18_3b_TI84Results.png?raw=true" width="500" alt="TI-84 Confidence Interval Results">
 
 Alternatively, you can put your data into a List, then under "Inpt" select "Data". Indicate the list your data is in, and it will calculate $$\bar{x}$$ and $$n$$ for you. (You will still need to indicate $$\sigma$$ and the confidence level.)
+
+### Excel
+To calculate the Confidence Interval in Excel,
+1. Click on an empty cell where you want the margin of error to appear.
+2. Type `=CONFIDENCE.NORM(alpha, sigma, n)` and press Enter, where:
+    * `alpha` is 1 minus the confidence level, written as a decimal (for a 90% confidence level, alpha = 0.10)
+    * `sigma` is the population standard deviation
+    * `n` is the sample size
+3. This returns the margin of error ($E$).
+4. In two more cells, add and subtract $E$ from the sample mean ($\bar{x}$) to find the upper and lower boundaries of the confidence interval.
+For example, with $\bar{x}=106.3$, $\sigma=15$, $n=40$, and a 90% confidence level, `=CONFIDENCE.NORM(0.1,15,40)` returns approximately 3.90. Adding and subtracting this from $\bar{x}$ gives the confidence interval (102.4, 110.2).
+ 
+### Desmos
+You can use Desmos the same way as in [18.1](18_1_CriticalValues.md) to find the critical value, then calculate the margin of error and the confidence interval boundaries by hand using the equations from this lesson.
+ 
+Alternatively, you can let Desmos do the arithmetic for you:
+* Define your values as variables, for example: `xbar = 106.3`, `sigma = 15`, `n = 40`, `z_c = 1.645`
+* Type `E = z_c * sigma / sqrt(n)` to calculate the margin of error
+* Type `xbar + E` and `xbar - E` to find the upper and lower boundaries of the confidence interval
+Desmos will calculate and display each of these values as soon as they are typed in.

@@ -27,7 +27,7 @@ Before we can do that, we need to verify that the Central Limit Theorem applies,
 
 ### Setting Up: The Sample Proportion
 
-The first thing we need is the __sample proportion__ ($$\hat{p}$$, read "p-hat"), which is the proportion observed in our sample.
+The first thing we need is the __sample proportion__ ($\hat{p}$, read "p-hat"), which is the proportion observed in our sample.
 
 $$\hat{p} = \frac{x}{n}$$
 
@@ -35,7 +35,7 @@ where $$x$$ is the number of individuals in the sample with the characteristic o
 
 $$\hat{p} = \frac{130}{200} = 0.65$$
 
-It is also useful to define $$\hat{q}$$, which is the proportion of the sample *without* the characteristic:
+It is also useful to define $\hat{q}$, which is the proportion of the sample *without* the characteristic:
 
 $$\hat{q} = 1 - \hat{p} = 1 - 0.65 = 0.35$$
 
@@ -44,14 +44,14 @@ $$\hat{q} = 1 - \hat{p} = 1 - 0.65 = 0.35$$
 Just as we needed the sample to be large enough when working with means, we need to verify two conditions before constructing a confidence interval for a proportion:
 
 * __The sample must be random__, and
-* __The sample must be large enough__. For proportions, we require both $$n\hat{p} \ge 10$$ __and__ $$n\hat{q} \ge 10$$.
+* __The sample must be large enough__. For proportions, we require both $n\hat{p} \ge 10$ __and__ $n\hat{q} \ge 10$.
 
 The second condition ensures that there are enough observed "successes" and "failures" for the normal approximation to be reliable.
 
 For our scenario:
 * The sample is stated to be random — *this is satisfied*
-* $$n\hat{p} = 200(0.65) = 130 \ge 10$$ — *this is satisfied*
-* $$n\hat{q} = 200(0.35) = 70 \ge 10$$ — *this is satisfied*
+* $n\hat{p} = 200(0.65) = 130 \ge 10$ — *this is satisfied*
+* $n\hat{q} = 200(0.35) = 70 \ge 10$ — *this is satisfied*
 
 Since both conditions are satisfied, the Central Limit Theorem applies and we can proceed.
 
@@ -61,11 +61,11 @@ The critical value for a proportion confidence interval is the same z-score we u
 
 | Confidence Level | Critical Value |
 | :--------------: | :------------: |
-|     90%          |  $$\pm 1.645$$ |
-|     95%          |  $$\pm 1.96$$  |
-|     99%          |  $$\pm 2.58$$  |
+|     90%          |  $\pm 1.645$   |
+|     95%          |  $\pm 1.96$    |
+|     99%          |  $\pm 2.58$    |
 
-We will use a 95% confidence level for our scenario, so $$z_c = \pm 1.96$$.
+We will use a 95% confidence level for our scenario, so $z_c = \pm 1.96$.
 
 ### Margin of Error
 
@@ -73,7 +73,7 @@ The __margin of error__ for a proportion is:
 
 $$E = z_c\sqrt{\frac{\hat{p}\hat{q}}{n}} = z_c\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
 
-This formula is analogous to the margin of error for a mean ($$E = z_c \cdot \sigma/\sqrt{n}$$) — the critical value multiplied by the standard error. The key difference is that the error is now computed from $$\hat{p}$$ instead of a known population standard deviation.
+This formula is analogous to the margin of error for a mean ($E = z_c \cdot \sigma/\sqrt{n}$) — the critical value multiplied by the standard error. The key difference is that the error is now computed from $\hat{p}$ instead of a known population standard deviation.
 
 For our scenario at the 95% confidence level,
 
@@ -114,4 +114,4 @@ To compute the margin of error directly, you can type the formula into Desmos:
 
 $$E = 1.96\sqrt{\frac{0.65 \times 0.35}{200}}$$
 
-Replace the values of $$z_c$$, $$\hat{p}$$, $$\hat{q}$$, and $$n$$ with those from your problem.
+Replace the values of $z_c$, $\hat{p}$, $\hat{q}$, and $$n$$ with those from your problem.
