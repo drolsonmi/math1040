@@ -72,3 +72,22 @@ We can now look up this probability. (This z-score actually won't be on a z-tabl
 $$P(\bar{x} < 800) = P(z < -3.73) = 0.000097 = 0.0097\%$$
 
 So, the probability that a single individual cartridge printing fewer than 800 copies is 4.75%. On the other hand, the probability that the average of 5 random cartridges is 0.0097%. This is exactly what we expected before we started our calculations.
+
+## Practice
+For each problem below, first check that the conditions for the Central Limit Theorem are satisfied, then calculate the probability for a single value **and** the probability for the sample mean. Compare the two results.
+ 
+1. A brand of batteries has a mean lifetime of 500 hours with a standard deviation of 50 hours. The lifetime of these batteries follows a normal distribution. A quality control inspector randomly selects a sample of 9 batteries.
+  a. What is the probability that a single battery, chosen at random, lasts less than 460 hours?
+  b. Check that the Central Limit Theorem applies here, then find the probability that the mean lifetime of the sample of 9 batteries is less than 460 hours.
+    - [After completing this on your own, check the solution here](./Solutions/17_4_Solution1.html)
+
+2. A cereal company's boxes are labeled as containing 16 ounces of cereal. The actual weight of cereal in each box is normally distributed with a mean of 16 ounces and a standard deviation of 0.5 ounces. A grocery store manager randomly selects a sample of 25 boxes.
+  a. What is the probability that a single box, chosen at random, weighs more than 16.3 ounces?
+  b. Check that the Central Limit Theorem applies here, then find the probability that the mean weight of the sample of 25 boxes is more than 16.3 ounces.
+    - [After completing this on your own, check the solution here](./Solutions/17_4_Solution2.html)
+
+3. The reaction time of frogs to a particular stimulus has a mean of 250 milliseconds with a standard deviation of 40 milliseconds. The shape of this population's distribution is unknown. A biologist randomly selects a sample of 50 frogs.
+  a. What is the probability that a single frog, chosen at random, reacts in less than 235 milliseconds?
+  b. Check that the Central Limit Theorem applies here, then find the probability that the mean reaction time of the sample of 50 frogs is less than 235 milliseconds.
+    - [After completing this on your own, check the solution here](./Solutions/17_4_Solution3.html)
+ 

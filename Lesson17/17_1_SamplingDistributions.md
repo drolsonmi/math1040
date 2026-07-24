@@ -12,26 +12,6 @@ MathJax = {
 
 # 17.1 Sampling Distributions
 
-## Outline
-Up to this point in the course, we have learned about samples.
-* Segment 1: Variables, Sampling Methods, Study Design, Graphing
-* Segment 2: Analysis of Quantitative Variables
-* Segment 3: Analysis of Categorical Variables using Probabilities
-
-In lesson 15, we learned about Normal Distributions. This will be a critical tool moving forward. In lesson 17, we are going to use normal distributions to learn about the crux of statistics: the __Central Limit Theorem__.
-
-Imagine you are doing a study on the average height of American females, which is 5 feet 3.5 inches (this would be a population mean).
-
-If you were to randomly select one woman, the chance of her height being near 5 feet 3.5 inches (the population mean) is pretty high. The chance of her height being over 6 feet is low. Not really low, but definitely less probable than a height near the population mean.
-
-Now, if you instead randomly select 4 women, the chances of their mean height (the sample mean) being 6 feet tall or higher is quite low.
-
-Randomly selecting 10 women whose sample mean height is over 6 feet tall is so extremely small it is nearly impossible. 
-
-Larger samples lead to lower probabilities that the sample mean is an extreme value, and more likely that the sample mean is near the population mean.
-
-This is the principle of the __Central Limit Theorem__. If we can create sample large enough, then our sample can more accurately approximate the population. In Lesson 17, we will study more about how the Central Limit Theorem works, then begin implementing it in lessons 18 and 19.
-
 ## Reading
 
 ## Lesson
@@ -72,3 +52,15 @@ __If the sample size is large enough, the sampling distribution becomes normal__
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/g8POH1oAB5Q?si=wd_PLG_XohudkZLW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+
+## Practice
+These problems are conceptual - they're designed to check your understanding of what a sampling distribution is, before we start calculating with them in lesson 17.2.
+ 
+1. A fair six-sided die is rolled one time. In a separate experiment, a fair six-sided die is rolled 40 times, and the average of those 40 rolls is recorded. Which of these two values - the single roll, or the average of 40 rolls - is more likely to land close to the population mean of 3.5? Explain your reasoning using what you learned about sampling distributions in this lesson.
+  - [After solving on your own, see solution here](./Solutions/17_1_Solution1.html)
+2. Two fair coins are flipped at the same time, and the number of heads (0, 1, or 2) is recorded. This is repeated many times to build a sampling distribution of "number of heads in 2 flips."
+    - List all the possible outcomes of flipping 2 coins, and use them to find the probability of getting 0 heads, 1 head, and 2 heads.
+    - Is the resulting distribution symmetric, right-skewed, or left-skewed?
+  - [After solving on your own, see solution here](./Solutions/17_1_Solution2.html)
+3. A statistics instructor builds two sampling distributions of the average of several dice rolls, using the same number of trials for each. One sampling distribution is built from samples of size 5, and the other from samples of size 40. One of the resulting histograms is smooth and bell-shaped, while the other is jagged and angular. Which sample size produced the smooth, bell-shaped histogram? Explain your answer using what you know about the Central Limit Theorem.
+  - [After solving on your own, see solution here](./Solutions/17_1_Solution3.html)
