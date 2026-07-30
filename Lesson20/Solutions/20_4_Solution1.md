@@ -8,15 +8,15 @@
 
 ## Solution
 From the problem we get the following information:
-* Null value: $$\mu_0 = 4$$
-* Sample size: $$n = 35$$, $$DF = 34$$
-* Sample mean: $$\bar{x} = 4.6$$
-* Sample standard deviation: $$s = 1.2$$
-* Significance level: $$\alpha = 0.05$$
+* Null value: $\mu_0 = 4$
+* Sample size: $n = 35$, $DF = 34$
+* Sample mean: $\bar{x} = 4.6$
+* Sample standard deviation: $s = 1.2$
+* Significance level: $\alpha = 0.05$
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random? **Yes**
-* Is $$n \ge 30$$? **Yes**
+* Is $n \ge 30$? **Yes**
 
 The CLT holds.
 
@@ -30,17 +30,17 @@ $$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{4.6 - 4}{1.2/\sqrt{35}} = \frac
 
 **Step 4 — Find the p-value**
 
-For a right-tailed t-test with $$t = 2.958$$ and $$DF = 34$$:
+For a right-tailed t-test with $t = 2.958$ and $DF = 34$:
 
 $$p = P(T > 2.958) \approx 0.0028$$
 
-On the TI-84: `tcdf(2.958, 1E99, 34)` $$\approx 0.0028$$
+On the TI-84: `tcdf(2.958, 1E99, 34)` $\approx 0.0028$
 
 **Step 5 — Make a decision**
 
 $$p = 0.0028 \le \alpha = 0.05$$
 
-We **reject $$H_0$$**.
+We **reject $H_0$**.
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to support the claim that the average wait time for customers is more than 4 minutes.
 

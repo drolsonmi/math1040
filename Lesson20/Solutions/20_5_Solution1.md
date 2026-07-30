@@ -8,15 +8,15 @@
 
 ## Solution
 From the problem we get the following information:
-* Null value: $$\mu_0 = 4$$
-* Sample size: $$n = 35$$, $$DF = 34$$
-* Sample mean: $$\bar{x} = 4.6$$
-* Sample standard deviation: $$s = 1.2$$
-* Significance level: $$\alpha = 0.05$$
+* Null value: $\mu_0 = 4$
+* Sample size: $n = 35$, $DF = 34$
+* Sample mean: $\bar{x} = 4.6$
+* Sample standard deviation: $s = 1.2$
+* Significance level: $\alpha = 0.05$
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random? **Yes** (stated in the problem)
-* Is $$n \ge 30$$? **Yes** ($$n = 35$$)
+* Is $n \ge 30$? **Yes** ($n = 35$)
 
 The CLT holds.
 
@@ -34,13 +34,13 @@ $$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{4.6 - 4}{1.2/\sqrt{35}} = \frac
 
 **Step 4 — Critical Value and P-Value**
 
-* Critical value (right-tailed, $$\alpha = 0.05$$, $$DF = 34$$): $$t_c = 1.691$$
-* P-value: `tcdf(2.958, 1E99, 34)` $$\approx 0.0028$$
+* Critical value (right-tailed, $\alpha = 0.05$, $DF = 34$): $t_c = 1.691$
+* P-value: `tcdf(2.958, 1E99, 34)` $\approx 0.0028$
 
 **Step 5 — Decision and Conclusion**
 
-* Critical region: $$t = 2.958 > t_c = 1.691$$ → **Reject $$H_0$$**
-* P-value: $$p = 0.0028 \le \alpha = 0.05$$ → **Reject $$H_0$$**
+* Critical region: $t = 2.958 > t_c = 1.691$ → **Reject $H_0$**
+* P-value: $p = 0.0028 \le \alpha = 0.05$ → **Reject $H_0$**
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to support the claim that the average wait time for customers to receive their orders is more than 4 minutes.
 

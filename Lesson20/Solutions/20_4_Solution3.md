@@ -8,15 +8,15 @@
 
 ## Solution
 From the problem we get the following information:
-* Null value: $$\mu_0 = 75$$
-* Sample size: $$n = 40$$, $$DF = 39$$
-* Sample mean: $$\bar{x} = 78.2$$
-* Sample standard deviation: $$s = 6.3$$
-* Significance level: $$\alpha = 0.05$$
+* Null value: $\mu_0 = 75$
+* Sample size: $n = 40$, $DF = 39$
+* Sample mean: $\bar{x} = 78.2$
+* Sample standard deviation: $s = 6.3$
+* Significance level: $\alpha = 0.05$
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random? **Yes**
-* Is $$n \ge 30$$? **Yes**
+* Is $n \ge 30$? **Yes**
 
 The CLT holds.
 
@@ -30,17 +30,17 @@ $$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{78.2 - 75}{6.3/\sqrt{40}} = \fr
 
 **Step 4 — Find the p-value**
 
-For a two-tailed t-test with $$|t| = 3.212$$ and $$DF = 39$$:
+For a two-tailed t-test with $|t| = 3.212$ and $DF = 39$:
 
 $$p = 2 \times P(T > 3.212) \approx 2 \times 0.0013 = 0.0026$$
 
-On the TI-84: `2 × tcdf(3.212, 1E99, 39)` $$\approx 0.0026$$
+On the TI-84: `2 × tcdf(3.212, 1E99, 39)` $\approx 0.0026$
 
 **Step 5 — Make a decision**
 
 $$p = 0.0026 \le \alpha = 0.05$$
 
-We **reject $$H_0$$**.
+We **reject $H_0$**.
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to conclude that the new teaching method leads to a different average score than 75.
 

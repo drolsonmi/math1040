@@ -8,15 +8,15 @@
 
 ## Solution
 From the problem we get the following information:
-* Null value: $$\mu_0 = 20$$
-* Sample size: $$n = 55$$, $$DF = 54$$
-* Sample mean: $$\bar{x} = 18.7$$
-* Sample standard deviation: $$s = 2.5$$
-* Significance level: $$\alpha = 0.01$$
+* Null value: $\mu_0 = 20$
+* Sample size: $n = 55$, $DF = 54$
+* Sample mean: $\bar{x} = 18.7$
+* Sample standard deviation: $s = 2.5$
+* Significance level: $\alpha = 0.01$
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random? **Yes** (stated in the problem)
-* Is $$n \ge 30$$? **Yes** ($$n = 55$$)
+* Is $n \ge 30$? **Yes** ($n = 55$)
 
 The CLT holds.
 
@@ -32,13 +32,13 @@ $$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{18.7 - 20}{2.5/\sqrt{55}} = \fr
 
 **Step 4 — Critical Value and P-Value**
 
-* Critical value (left-tailed, $$\alpha = 0.01$$, $$DF = 54$$): $$t_c = -2.397$$
-* P-value: `tcdf(-1E99, -3.858, 54)` $$\approx 0.0002$$
+* Critical value (left-tailed, $\alpha = 0.01$, $DF = 54$): $t_c = -2.397$
+* P-value: `tcdf(-1E99, -3.858, 54)` $\approx 0.0002$
 
 **Step 5 — Decision and Conclusion**
 
-* Critical region: $$t = -3.858 < t_c = -2.397$$ → **Reject $$H_0$$**
-* P-value: $$p = 0.0002 \le \alpha = 0.01$$ → **Reject $$H_0$$**
+* Critical region: $t = -3.858 < t_c = -2.397$ → **Reject $H_0$**
+* P-value: $p = 0.0002 \le \alpha = 0.01$ → **Reject $H_0$**
 
 **Conclusion:** There is sufficient evidence at the 1% significance level to support the claim that the average battery life of the new phone model is less than the advertised 20 hours.
 

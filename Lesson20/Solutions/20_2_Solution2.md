@@ -8,10 +8,10 @@
 
 ## Solution
 From the problem we get the following information:
-* Null value: $$\mu_0 = 20$$
-* Sample size: $$n = 55$$
-* Sample mean: $$\bar{x} = 18.7$$
-* Sample standard deviation: $$s = 2.5$$
+* Null value: $\mu_0 = 20$
+* Sample size: $n = 55$
+* Sample mean: $\bar{x} = 18.7$
+* Sample standard deviation: $$s = 2.5$
 * Confidence level: 98%
 
 We will follow these steps:
@@ -22,7 +22,7 @@ We will follow these steps:
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random? **Yes** (stated in the problem)
-* Is the sample large enough? **Yes** ($$n = 55 \ge 30$$)
+* Is the sample large enough? **Yes** ($n = 55 \ge 30$)
 
 The Central Limit Theorem holds.
 
@@ -32,13 +32,13 @@ $$H_0: \mu = 20 \qquad\qquad H_A: \mu < 20$$
 
 **Step 3 — Confidence Interval**
 
-Since we do not have a population standard deviation ($$\sigma$$), we use the t-distribution with the `TInterval` function on the TI-84. With $$\bar{x} = 18.7$$, $$s = 2.5$$, $$n = 55$$, and a 98% confidence level, the calculator gives:
+Since we do not have a population standard deviation ($\sigma$), we use the t-distribution with the `TInterval` function on the TI-84. With $\bar{x} = 18.7$, $s = 2.5$, $n = 55$, and a 98% confidence level, the calculator gives:
 
 $$(17.892,\ 19.508)$$
 
 **Step 4 — Compare to the null value**
 
-The null value $$\mu_0 = 20$$ is **not** inside the confidence interval. Therefore, we can **reject the null hypothesis**.
+The null value $\mu_0 = 20$ is **not** inside the confidence interval. Therefore, we can **reject the null hypothesis**.
 
 **Conclusion:** There is enough evidence at the 1% significance level to support the claim that the average battery life is less than 20 hours.
 

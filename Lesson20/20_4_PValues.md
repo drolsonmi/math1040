@@ -1,4 +1,5 @@
 <head>
+<title>20.4 P-Values</title>
 <script>
 MathJax = {
   tex: {
@@ -14,15 +15,14 @@ MathJax = {
 ## Reading
 
 ## Lesson
-## Lesson
 In Lesson 20.3, we made our decision by comparing a __test statistic__ to a __critical region__. There is a second, closely related way to make the same decision: the __p-value__.
 
-#### What is a P-value?
+### What is a P-value?
 The __p-value__ is the probability, *assuming the null hypothesis is true*, of getting a test statistic as extreme as (or more extreme than) the one we actually calculated from our sample.
 
 In other words, the p-value answers the question: *"If the null hypothesis really is true, how unusual is our sample result?"* A __small__ p-value means our sample result would be very unusual if $H_0$ were true — which is evidence against $H_0$. A __large__ p-value means our sample result is not unusual at all under $H_0$ — which gives us no reason to doubt it.
 
-#### Making a Decision with the P-value
+### Making a Decision with the P-value
 We compare the p-value directly to our level of significance, $\alpha$:
 
 * If $p\text{-value} \le \alpha$, we __reject the null hypothesis__ — the result is unusual enough to count as evidence against $H_0$.
@@ -30,7 +30,7 @@ We compare the p-value directly to our level of significance, $\alpha$:
 
 This is the exact same decision the critical region gives us — it's just expressed as a probability instead of a value on the number line. In fact, one always leads to the same conclusion as the other, because the critical value and the p-value are found from the exact same tail area, just used in opposite directions: the critical value converts $\alpha$ into a test statistic, while the p-value converts the test statistic into an area.
 
-#### Calculating the P-value
+### Calculating the P-value
 The way we calculate the p-value depends on the type of test:
 
 * __Right-tailed test__ ($H_A: \mu > \mu_0$): the p-value is the area to the *right* of the test statistic
@@ -45,7 +45,7 @@ $$p = P(Z < z)$$
 
 $$p = 2 \times P(Z > |z|)$$
 
-#### Example
+### Example
 Let's return to the Snow College IQ example from Lesson 20.3:
 
 > American mental abilities are often measured by an IQ test. The IQ distribution is normal with a mean of 100 and a population standard deviation of 15. A random sample of 40 Snow College students is taken and they have an average IQ of 106.3. Can we say with a 5% level of significance that the true average IQ of Snow College students is higher than the nation?

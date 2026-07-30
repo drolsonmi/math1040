@@ -8,15 +8,15 @@
 
 ## Solution
 From the problem we get the following information:
-* Null value: $$\mu_0 = 20$$
-* Sample size: $$n = 55$$, $$DF = 54$$
-* Sample mean: $$\bar{x} = 18.7$$
-* Sample standard deviation: $$s = 2.5$$
-* Significance level: $$\alpha = 0.01$$
+* Null value: $\mu_0 = 20$
+* Sample size: $n = 55$, $DF = 54$
+* Sample mean: $\bar{x} = 18.7$
+* Sample standard deviation: $s = 2.5$
+* Significance level: $\alpha = 0.01$
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random? **Yes**
-* Is $$n \ge 30$$? **Yes**
+* Is $n \ge 30$? **Yes**
 
 The CLT holds.
 
@@ -30,17 +30,17 @@ $$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{18.7 - 20}{2.5/\sqrt{55}} = \fr
 
 **Step 4 — Find the p-value**
 
-For a left-tailed t-test with $$t = -3.858$$ and $$DF = 54$$:
+For a left-tailed t-test with $t = -3.858$ and $DF = 54$:
 
 $$p = P(T < -3.858) \approx 0.0002$$
 
-On the TI-84: `tcdf(-1E99, -3.858, 54)` $$\approx 0.0002$$
+On the TI-84: `tcdf(-1E99, -3.858, 54)` $\approx 0.0002$
 
 **Step 5 — Make a decision**
 
 $$p = 0.0002 \le \alpha = 0.01$$
 
-We **reject $$H_0$$**.
+We **reject $H_0$**.
 
 **Conclusion:** There is sufficient evidence at the 1% significance level to support the claim that the average battery life is less than 20 hours.
 

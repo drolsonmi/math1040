@@ -1,4 +1,5 @@
 <head>
+<title>20.3 Critical Regions</title>
 <script>
 MathJax = {
   tex: {

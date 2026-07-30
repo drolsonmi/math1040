@@ -1,4 +1,5 @@
 <head>
+<title>20.2 How Confidence Intervals fit in</title>
 <script>
 MathJax = {
   tex: {

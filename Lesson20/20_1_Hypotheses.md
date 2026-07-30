@@ -1,4 +1,5 @@
 <head>
+<title>20.1 Hypotheses</title>
 <script>
 MathJax = {
   tex: {
@@ -30,7 +31,7 @@ This is actually a good picture of what we are doing with __hypothesis testing__
 
 We then gather data and use statistics to determine if the null value fits with the data or not.
 
-#### The Null Hypothesis
+### The Null Hypothesis
 Our default assumption in statistics is that the true value (the population mean for quantitative data) has not changed. It is the same as the null value. This is known as a __Null Hypothesis__.
 
 $$H_0: \mu = \mu_0\text{ for Quantitative variables} \qquad\qquad H_0: p = p_0\text{ for Categorical variables}$$
@@ -51,7 +52,7 @@ So, our __Null Hypothesis__, or our default assumption, is that the average IQ o
 
 $$H_0: \mu = 100$$
 
-#### The Alternate Hypothesis
+### The Alternate Hypothesis
 What if the null hypothesis isn't true? We need to establish a second hypothesis, known as an __Alternate Hypothesis__, which will be our assumption if the null hypothesis fails. The alternate hypothesis is based on what we want to show in our question. There are 3 different possible alternate hypothesis:
 * The true value is greater than the null value
 

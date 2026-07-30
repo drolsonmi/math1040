@@ -8,15 +8,15 @@
 
 ## Solution
 From the problem we get the following information:
-* Null value: $$\mu_0 = 3.5$$
-* Sample size: $$n = 45$$, $$DF = 44$$
-* Sample mean: $$\bar{x} = 3.9$$
-* Sample standard deviation: $$s = 1.1$$
-* Significance level: $$\alpha = 0.05$$
+* Null value: $\mu_0 = 3.5$
+* Sample size: $n = 45$, $DF = 44$
+* Sample mean: $\bar{x} = 3.9$
+* Sample standard deviation: $s = 1.1$
+* Significance level: $\alpha = 0.05$
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random? **Yes** (stated in the problem)
-* Is $$n \ge 30$$? **Yes** ($$n = 45$$)
+* Is $n \ge 30$? **Yes** ($n = 45$)
 
 The CLT holds.
 
@@ -32,13 +32,13 @@ $$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{3.9 - 3.5}{1.1/\sqrt{45}} = \fr
 
 **Step 4 — Critical Value and P-Value**
 
-* Critical value (two-tailed, $$\alpha = 0.05$$, $$DF = 44$$): $$t_c = \pm 2.015$$
-* P-value: `2 × tcdf(2.439, 1E99, 44)` $$\approx 2 \times 0.0092 = 0.0184$$
+* Critical value (two-tailed, $\alpha = 0.05$, $DF = 44$): $t_c = \pm 2.015$
+* P-value: `2 × tcdf(2.439, 1E99, 44)` $\approx 2 \times 0.0092 = 0.0184$
 
 **Step 5 — Decision and Conclusion**
 
-* Critical region: $$|t| = 2.439 > t_c = 2.015$$ → **Reject $$H_0$$**
-* P-value: $$p = 0.0184 \le \alpha = 0.05$$ → **Reject $$H_0$$**
+* Critical region: $|t| = 2.439 > t_c = 2.015$ → **Reject $H_0$**
+* P-value: $p = 0.0184 \le \alpha = 0.05$ → **Reject $H_0$**
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to conclude that the average length of hospital stay after routine surgery is different from the claimed 3.5 days.
 

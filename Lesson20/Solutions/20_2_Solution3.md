@@ -8,10 +8,10 @@
 
 ## Solution
 From the problem we get the following information:
-* Null value: $$\mu_0 = 75$$
-* Sample size: $$n = 40$$
-* Sample mean: $$\bar{x} = 78.2$$
-* Sample standard deviation: $$s = 6.3$$
+* Null value: $\mu_0 = 75$
+* Sample size: $n = 40$
+* Sample mean: $\bar{x} = 78.2$
+* Sample standard deviation: $s = 6.3$
 * Confidence level: 95%
 
 We will follow these steps:
@@ -22,7 +22,7 @@ We will follow these steps:
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random? **No** — the problem describes a class (a convenience sample), not a random sample.
-* Is the sample large enough? **Yes** ($$n = 40 \ge 30$$)
+* Is the sample large enough? **Yes** ($n = 40 \ge 30$)
 
 <font color='red'>The Central Limit Theorem does **not** fully hold because the sample is not random. Technically, we should stop here.</font> However, for practice purposes we will proceed anyway.
 
@@ -32,13 +32,13 @@ $$H_0: \mu = 75 \qquad\qquad H_A: \mu \ne 75$$
 
 **Step 3 — Confidence Interval**
 
-Since we do not have a population standard deviation ($$\sigma$$), we use the t-distribution with the `TInterval` function on the TI-84. With $$\bar{x} = 78.2$$, $$s = 6.3$$, $$n = 40$$, and a 95% confidence level, the calculator gives:
+Since we do not have a population standard deviation ($\sigma$), we use the t-distribution with the `TInterval` function on the TI-84. With $\bar{x} = 78.2$, $s = 6.3$, $n = 40$, and a 95% confidence level, the calculator gives:
 
 $$(76.185,\ 80.215)$$
 
 **Step 4 — Compare to the null value**
 
-The null value $$\mu_0 = 75$$ is **not** inside the confidence interval. Therefore, we **reject the null hypothesis**.
+The null value $\mu_0 = 75$ is **not** inside the confidence interval. Therefore, we **reject the null hypothesis**.
 
 **Conclusion:** Assuming the CLT held, there would be enough evidence at the 5% significance level to suggest that the new teaching method leads to a different average score than 75.
 
