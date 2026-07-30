@@ -145,9 +145,9 @@ MathJax = {
 * [20.5 Full Hypothesis Test with 1 Sample of Quantitative Data (Means)](./Lesson20/20_5_HypTest1SampleMeans.md)
 
 [21: Hypothesis Testing with 1 Sample Proportions](./Lesson21/index.md)
-* []()
-* []()
-* []()
+* [21.1 Categorical Hypotheses](./Lesson21/21_1_CatHypotheses.md)
+* [21.2 Critical Values and P-Values](./Lesson21/21_2_CatCriticalAndP.md)
+* [21.3 Full Categorical Hypothesis Test](./Lesson21/21_3_FullCatHypTests.md)
 
 [22: Inference of 2 Independent samples (Means)](./Lesson22/index.md)
 * 22.1 Reminder of Dependent vs. Independent samples
