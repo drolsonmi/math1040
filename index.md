@@ -167,6 +167,5 @@ MathJax = {
 * [24.4 Hypothesis Test for the Mean Difference](./Lesson24/24_4_HypothesisTest.md)
 
 [25: Inference with Correlation](./Lesson25/index.md)
-* []()
-* []()
-* []()
+* [25.1 Hypotheses for a Correlation Test](./Lesson25/25_1_Hypotheses.md)
+* [25.2 Testing the Correlation Coefficient](./Lesson25/25_2_TestingCorrelation.md)
