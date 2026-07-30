@@ -161,9 +161,10 @@ MathJax = {
 * [23.3 Hypothesis Test of 2 Independent Samples](./Lesson23/23_3_HypothesisTest.md)
 
 [24: Inference of 2 Dependent samples (Means)](./Lesson24/index.md)
-* []()
-* []()
-* []()
+* [24.1 Reminder of Dependent Samples & the Difference Variable](./Lesson24/24_1_DifferenceVariable.md)
+* [24.2 Hypotheses for Paired Data](./Lesson24/24_2_Hypotheses.md)
+* [24.3 Confidence Interval for the Mean Difference](./Lesson24/24_3_ConfidenceIntervals.md)
+* [24.4 Hypothesis Test for the Mean Difference](./Lesson24/24_4_HypothesisTest.md)
 
 [25: Inference with Correlation](./Lesson25/index.md)
 * []()
