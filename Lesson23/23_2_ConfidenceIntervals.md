@@ -68,11 +68,11 @@ $$(-0.007, \ 0.171)$$
 
 ## Practice
 1. A marketing team wants to know if customer satisfaction differs between two products. A random sample of 180 Product A customers found 126 satisfied. An independent random sample of 165 Product B customers found 90 satisfied. Build a 95% confidence interval for $p_1 - p_2$.
-    * [After solving on your own, see solution here](Solutions/23_2_Solution1.md)
+    * [After solving on your own, see solution here](./Solutions/23_2_Solution1.md)
 2. A public health department wants to know if a new smoking cessation program has a higher success rate than the standard program. A random sample of 140 participants in the new program found that 42 successfully quit smoking. An independent random sample of 150 participants in the standard program found that 27 successfully quit. Build a 98% confidence interval for $p_1 - p_2$.
-    * [After solving on your own, see solution here](Solutions/23_2_Solution2.md)
+    * [After solving on your own, see solution here](./Solutions/23_2_Solution2.md)
 3. A quality control manager wants to know if Machine A has a lower defect rate than Machine B. A random sample of 200 items from Machine A found 14 defective. An independent random sample of 220 items from Machine B found 24 defective. Build a 90% confidence interval for $p_1 - p_2$.
-    * [After solving on your own, see solution here](Solutions/23_2_Solution3.md)
+    * [After solving on your own, see solution here](./Solutions/23_2_Solution3.md)
 
 ## Technology
 ### TI-83/84

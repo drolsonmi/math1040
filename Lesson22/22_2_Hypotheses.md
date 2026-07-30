@@ -67,8 +67,8 @@ All conditions are satisfied, so we can proceed with a hypothesis test in Lesson
 For each of the following questions, identify the two sample statistics, state both hypotheses, and verify the conditions of the central limit theorem are satisfied.
 
 1. An education researcher wants to know if there is a difference in average test scores between School A and School B. A random sample of 40 students at School A had an average score of 78.4 with a standard deviation of 8.2. An independent random sample of 38 students at School B had an average score of 74.9 with a standard deviation of 7.5. Test at the 5% significance level.
-    * [After solving on your own, see solution here](Solutions/22_2_Solution1.md)
+    * [After solving on your own, see solution here](./Solutions/22_2_Solution1.md)
 2. A fitness researcher wants to know if Program X leads to greater average weight loss than Program Y. A random sample of 25 participants using Program X lost an average of 12.3 lbs with a standard deviation of 3.1 lbs. An independent random sample of 28 participants using Program Y lost an average of 9.8 lbs with a standard deviation of 2.8 lbs. Test at the 1% significance level.
-    * [After solving on your own, see solution here](Solutions/22_2_Solution2.md)
+    * [After solving on your own, see solution here](./Solutions/22_2_Solution2.md)
 3. A transit planner wants to know if Bus Route 1 has a shorter average travel time than Bus Route 2. A random sample of 30 trips on Route 1 averaged 22.5 minutes with a standard deviation of 4.0 minutes. An independent random sample of 32 trips on Route 2 averaged 25.1 minutes with a standard deviation of 4.6 minutes. Test at the 5% significance level.
-    * [After solving on your own, see solution here](Solutions/22_2_Solution3.md)
+    * [After solving on your own, see solution here](./Solutions/22_2_Solution3.md)
