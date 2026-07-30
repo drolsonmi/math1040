@@ -16,6 +16,6 @@ MathJax = {
 ### Outcomes
 
 ### Topics in this lesson
-* [21.1 Categorical Hypotheses](./Lesson21/21_1_CatHypotheses.md)
-* [21.2 Critical Values and P-Values](./Lesson21/21_2_CatCriticalAndP.md)
-* [21.3 Full Categorical Hypothesis Test](./Lesson21/21_3_FullCatHypTests.md)
+* [21.1 Categorical Hypotheses](./21_1_CatHypotheses.md)
+* [21.2 Critical Values and P-Values](./21_2_CatCriticalAndP.md)
+* [21.3 Full Categorical Hypothesis Test](./21_3_FullCatHypTests.md)
