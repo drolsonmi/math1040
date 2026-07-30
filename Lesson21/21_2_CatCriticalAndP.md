@@ -20,55 +20,55 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 
 Now that we know how to set up a hypothesis test for a proportion, we need to calculate the **test statistic**, then use it to find the **critical value** or **p-value**. The procedure mirrors what we did for means in Lessons 20.3–20.4, but uses a different test statistic formula.
 
-#### The Standard Error of a Proportion
+### The Standard Error of a Proportion
 
-When testing a proportion, we assume $$H_0$$ is true, so we use $$p_0$$ (not $$\hat{p}$$) to calculate the **standard error**:
+When testing a proportion, we assume $H_0$ is true, so we use $p_0$ (not $\hat{p}$) to calculate the **standard error**:
 
 $$SE = \sqrt{\frac{p_0(1-p_0)}{n}}$$
 
-#### The Test Statistic
+### The Test Statistic
 
-The test statistic for a proportion is always a **z-score** (not a t-score), because we are using the normal approximation to the sampling distribution of $$\hat{p}$$:
+The test statistic for a proportion is always a **z-score** (not a t-score), because we are using the normal approximation to the sampling distribution of $\hat{p}$:
 
 $$z = \frac{\hat{p} - p_0}{SE} = \frac{\hat{p} - p_0}{\sqrt{\dfrac{p_0(1-p_0)}{n}}}$$
 
-#### Critical Values
+### Critical Values
 
 Because we always use the z-distribution for proportions, the critical values come from the standard normal table:
 
-| Test Type | Critical Value |
-|---|---|
-| Right-tailed | $$z_c$$ such that $$P(Z > z_c) = \alpha$$ |
-| Left-tailed | $$-z_c$$ such that $$P(Z < -z_c) = \alpha$$ |
-| Two-tailed | $$\pm z_c$$ such that $$P(Z > z_c) = \alpha/2$$ |
+| Test Type    | Critical Value                              |
+| :----------- | :------------------------------------------ |
+| Right-tailed | $z_c$ such that $P(Z > z_c) = \alpha$       |
+| Left-tailed  | $-z_c$ such that $P(Z < -z_c) = \alpha$     |
+| Two-tailed   | $\pm z_c$ such that $P(Z > z_c) = \alpha/2$ |
 
 Common critical values:
 
-| $$\alpha$$ | Right/Left-tailed $$z_c$$ | Two-tailed $$z_c$$ |
-|---|---|---|
-| 0.10 | 1.282 | 1.645 |
-| 0.05 | 1.645 | 1.960 |
-| 0.01 | 2.326 | 2.576 |
+| $\alpha$ | Right/Left-tailed $z_c$ | Two-tailed $z_c$ |
+| :------: | :---------------------: | :--------------: |
+| 0.10     | 1.282                   | 1.645            |
+| 0.05     | 1.645                   | 1.960            |
+| 0.01     | 2.326                   | 2.576            |
 
-#### P-Values
+### P-Values
 
 As with the t-test, the p-value is the tail area beyond the observed test statistic:
 
-| Test Type | P-value |
-|---|---|
-| Right-tailed | $$P(Z > z)$$ |
-| Left-tailed | $$P(Z < z)$$ |
-| Two-tailed | $$2 \times P(Z > \vert z\vert)$$ |
+| Test Type    | P-value                        |
+| :----------- | :----------------------------- |
+| Right-tailed | $P(Z > z)$                     |
+| Left-tailed  | $P(Z < z)$                     |
+| Two-tailed   | $2 \times P(Z > \vert z\vert)$ |
 
 On the TI-84, use `normalcdf` since we are always working with the z-distribution.
 
-#### Example
+### Example
 
 > A polling organization reports that 45% of U.S. adults support a particular new policy. An advocacy group surveys a random sample of 200 city residents and finds that 102 support the policy. At the 5% significance level, is there evidence that city support is higher than 45%?
 
 From Lesson 21.1:
-* $$p_0 = 0.45$$, $$n = 200$$, $$\hat{p} = 0.51$$
-* $$H_0: p = 0.45 \qquad H_A: p > 0.45$$ (right-tailed)
+* $p_0 = 0.45$, $n = 200$, $\hat{p} = 0.51$
+* $H_0: p = 0.45 \qquad H_A: p > 0.45$ (right-tailed)
 * CLT verified ✓
 
 **Standard Error:**
@@ -79,13 +79,13 @@ $$SE = \sqrt{\frac{0.45(0.55)}{200}} = \sqrt{\frac{0.2475}{200}} = \sqrt{0.00123
 
 $$z = \frac{0.51 - 0.45}{0.03518} = \frac{0.06}{0.03518} = 1.706$$
 
-**Critical Value** (right-tailed, $$\alpha = 0.05$$): $$z_c = 1.645$$
+**Critical Value** (right-tailed, $\alpha = 0.05$): $z_c = 1.645$
 
-**P-value:** `normalcdf(1.706, 1E99, 0, 1)` $$\approx 0.0440$$
+**P-value:** `normalcdf(1.706, 1E99, 0, 1)` $\approx 0.0440$
 
 **Decision:**
-* $$z = 1.706 > z_c = 1.645$$ → **Reject $$H_0$$**
-* $$p = 0.0440 \le \alpha = 0.05$$ → **Reject $$H_0$$**
+* $z = 1.706 > z_c = 1.645$ → **Reject $H_0$**
+* $p = 0.0440 \le \alpha = 0.05$ → **Reject $H_0$**
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to conclude that support in the city is higher than the national rate of 45%.
 
@@ -110,8 +110,45 @@ Because the test statistic for proportions is a z-score, use `normalcdf`:
 #### Running a Full 1-Proportion Z-Test directly
 * `STAT` → `[TESTS]`
 * `5:1-PropZTest`
-* Enter $$p_0$$, $$x$$ (count of successes), and $$n$$
-* Select the direction of $$H_A$$ ($$\ne$$, $$<$$, or $$>$$)
+* Enter $p_0$, $x$ (count of successes), and $n$
+* Select the direction of $H_A$ ($\ne$, $<$, or $>$)
 * Select `Calculate`
 
 The calculator returns the z-test statistic and the p-value directly.
+
+### Excel
+Excel doesn't have a single "1-Proportion Z-Test" function, so we build the standard error, test statistic, critical value, and p-value from their pieces — the same approach we used for means in Lesson 20.
+
+__Standard Error:__
+* In a cell, type `=SQRT(` followed by the cell with $p_0$, `*(1-`, the cell with $p_0$ again, `)/`, the cell with $n$, `)`
+  * For example, if $p_0$ is in B1 and $n$ is in B2, type `=SQRT(B1*(1-B1)/B2)`
+
+__Test Statistic:__
+* In another cell, type `=(` followed by the cell with $\hat{p}$, `-`, the cell with $p_0$, `)/`, the cell with your standard error
+  * For example, if $\hat{p}$ is in B3 and the standard error is in B4, type `=(B3-B1)/B4`
+
+__Critical Value:__ use `NORM.S.INV`, entering the area to the *left* of the critical value you want (just as in Lesson 20.3).
+* Right-tailed, $\alpha = 0.05$: `=NORM.S.INV(0.95)`
+* Two-tailed, $\alpha = 0.05$: `=NORM.S.INV(0.975)`
+
+__P-value:__ use `NORM.S.DIST`, exactly as we did for means (Lesson 20.4), since the test statistic for a proportion is always a z-score.
+* Right-tailed: `=1-NORM.S.DIST(z,TRUE)`
+* Left-tailed: `=NORM.S.DIST(z,TRUE)`
+* Two-tailed: `=2*(1-NORM.S.DIST(ABS(z),TRUE))`
+
+Replace `z` in each formula with the cell that contains your test statistic.
+
+### Desmos
+In [Desmos](www.desmos.com/calculator), you can type each formula directly, replacing the values with those from your problem.
+
+Standard error and test statistic:
+
+$$SE = \sqrt{\frac{0.45(1-0.45)}{200}} \qquad\qquad z = \frac{0.51-0.45}{SE}$$
+
+Critical value: use the same inverse-normal method described in Lesson 18.1, using $\alpha$ (or $\alpha/2$ for a two-tailed test) in place of $1-\text{confidence level}$.
+
+P-value: use the cumulative normal distribution, as described in Lesson 20.4:
+
+$$p = 1 - \text{normaldist}(0,1).\text{cdf}(1.706)$$
+
+Adjust for a left-tailed test (use `.cdf(z)` directly) or a two-tailed test (double the one-tailed result) as needed.

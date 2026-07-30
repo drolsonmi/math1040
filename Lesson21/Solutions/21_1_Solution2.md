@@ -1,5 +1,12 @@
 <head>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
@@ -8,10 +15,10 @@
 
 ## Solution
 **Identifying the information:**
-* Null value: $$p_0 = 0.30$$
-* Sample size: $$n = 250$$
-* Number of successes: $$x = 85$$
-* Sample proportion: $$\hat{p} = 85/250 = 0.34$$
+* Null value: $p_0 = 0.30$
+* Sample size: $n = 250$
+* Number of successes: $x = 85$
+* Sample proportion: $\hat{p} = 85/250 = 0.34$
 
 **Hypotheses:**
 
@@ -22,9 +29,9 @@ $$H_0: p = 0.30 \qquad\qquad H_A: p \ne 0.30 \quad \text{(two-tailed)}$$
 **Verify the Central Limit Theorem:**
 * Random sample? **Yes** (stated in the problem)
 * Success-failure condition:
-  * $$np_0 = 250(0.30) = 75 \ge 10$$ ✓
-  * $$n(1-p_0) = 250(0.70) = 175 \ge 10$$ ✓
-* Independence: A university has far more than $$250 \times 10 = 2{,}500$$ students ✓
+  * $np_0 = 250(0.30) = 75 \ge 10$ ✓
+  * $n(1-p_0) = 250(0.70) = 175 \ge 10$ ✓
+* Independence: A university has far more than $250 \times 10 = 2{,}500$ students ✓
 
 The Central Limit Theorem holds. We can proceed with the hypothesis test.
 

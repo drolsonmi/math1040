@@ -20,11 +20,11 @@ Reading sections are from the [Introductory Statistics Textbook](../Resources/Op
 
 We now combine everything from Lessons 21.1 and 21.2 into a complete five-step hypothesis test for a single categorical variable. The structure is identical to the quantitative test in Lesson 20.5 — only the formula for the test statistic and the verification conditions change.
 
-#### The Five Steps for a Proportion Test
+### The Five Steps for a Proportion Test
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random?
-* Is $$np_0 \ge 10$$ and $$n(1-p_0) \ge 10$$?
+* Is $np_0 \ge 10$ and $n(1-p_0) \ge 10$?
 * Is the sample independent (less than 10% of the population)?
 
 **Step 2 — State the Hypotheses**
@@ -37,27 +37,27 @@ $$z = \frac{\hat{p} - p_0}{\sqrt{\dfrac{p_0(1-p_0)}{n}}}$$
 
 **Step 4 — Find the Critical Value and/or P-Value**
 
-| Test Type | Critical value | P-value |
-|---|---|---|
-| Right-tailed | $$z_c$$ | `normalcdf(z, 1E99, 0, 1)` |
-| Left-tailed | $$-z_c$$ | `normalcdf(-1E99, z, 0, 1)` |
-| Two-tailed | $$\pm z_c$$ | `2 × normalcdf(|z|, 1E99, 0, 1)` |
+| Test Type    | Critical value | P-value                          |
+| :----------- | :------------: | :------------------------------- |
+| Right-tailed | $z_c$          | `normalcdf(z, 1E99, 0, 1)`       |
+| Left-tailed  | $-z_c$         | `normalcdf(-1E99, z, 0, 1)`      |
+| Two-tailed   | $\pm z_c$      | `2 × normalcdf(|z|, 1E99, 0, 1)` |
 
 **Step 5 — Make a Decision and Write a Conclusion**
 
-* Reject $$H_0$$ if the test statistic is in the critical region, or if $$p\text{-value} \le \alpha$$.
+* Reject $H_0$ if the test statistic is in the critical region, or if $p\text{-value} \le \alpha$.
 * Write a plain-language conclusion that directly answers the original question.
 
 ---
 
-#### Example
+### Example
 
 > According to a national survey, 55% of teenagers say they use social media for more than 3 hours per day. A school counselor believes the rate at their school is different. They survey a random sample of 120 students and find that 78 use social media for more than 3 hours daily. Test at the 5% significance level.
 
 **Step 1 — Verify the CLT**
 * Random? **Yes**
-* $$np_0 = 120(0.55) = 66 \ge 10$$ ✓ and $$n(1-p_0) = 120(0.45) = 54 \ge 10$$ ✓
-* Independence: The school has far more than $$120 \times 10 = 1{,}200$$ students ✓
+* $np_0 = 120(0.55) = 66 \ge 10$ ✓ and $n(1-p_0) = 120(0.45) = 54 \ge 10$ ✓
+* Independence: The school has far more than $120 \times 10 = 1{,}200$ students ✓
 
 **Step 2 — Hypotheses**
 
@@ -75,13 +75,13 @@ $$z = \frac{0.65 - 0.55}{0.04541} = \frac{0.10}{0.04541} = 2.202$$
 
 **Step 4 — Critical Value and P-Value**
 
-* Critical value (two-tailed, $$\alpha = 0.05$$): $$z_c = \pm 1.960$$
-* P-value: `2 × normalcdf(2.202, 1E99, 0, 1)` $$\approx 2 \times 0.0138 = 0.0276$$
+* Critical value (two-tailed, $\alpha = 0.05$): $z_c = \pm 1.960$
+* P-value: `2 × normalcdf(2.202, 1E99, 0, 1)` $\approx 2 \times 0.0138 = 0.0276$
 
 **Step 5 — Decision and Conclusion**
 
-* $$|z| = 2.202 > z_c = 1.960$$ → **Reject $$H_0$$**
-* $$p = 0.0276 \le \alpha = 0.05$$ → **Reject $$H_0$$**
+* $|z| = 2.202 > z_c = 1.960$ → **Reject $H_0$**
+* $p = 0.0276 \le \alpha = 0.05$ → **Reject $H_0$**
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to conclude that the proportion of students at this school who use social media more than 3 hours per day is different from the national rate of 55%.
 
@@ -103,10 +103,35 @@ $$z = \frac{0.65 - 0.55}{0.04541} = \frac{0.10}{0.04541} = 2.202$$
 * `STAT` → `[TESTS]`
 * `5:1-PropZTest`
 * Enter:
-  * $$p_0$$: the null value
-  * $$x$$: count of successes in the sample
-  * $$n$$: sample size
-* Select the direction of $$H_A$$
+  * $p_0$: the null value
+  * $x$: count of successes in the sample
+  * $n$: sample size
+* Select the direction of $H_A$
 * Select `Calculate`
 
-The output shows the z-statistic, the p-value, $$\hat{p}$$, and $$n$$. Compare the p-value to $$\alpha$$ to make your decision.
+The output shows the z-statistic, the p-value, $\hat{p}$, and $n$. Compare the p-value to $\alpha$ to make your decision.
+
+### Excel
+Set up your worksheet with $p_0$, $x$, and $n$ in their own cells, then work through the full test the same way we did in Lesson 21.2.
+
+1. Find $\hat{p}$: `=x/n` (e.g., `=B2/B3`)
+2. Find the standard error: `=SQRT(p0*(1-p0)/n)` (e.g., `=SQRT(B1*(1-B1)/B3)`)
+3. Find the test statistic: `=(phat-p0)/SE` (e.g., `=(B4-B1)/B5)`)
+4. Find the critical value: `=NORM.S.INV(area to the left of z_c)`
+    * Right/left-tailed at $\alpha$: use $1-\alpha$
+    * Two-tailed at $\alpha$: use $1-\alpha/2$
+5. Find the p-value using `NORM.S.DIST`:
+    * Right-tailed: `=1-NORM.S.DIST(z,TRUE)`
+    * Left-tailed: `=NORM.S.DIST(z,TRUE)`
+    * Two-tailed: `=2*(1-NORM.S.DIST(ABS(z),TRUE))`
+
+Once you have the test statistic (or p-value) and the critical value, compare them exactly as you would by hand to make your decision: reject $H_0$ if the test statistic falls in the critical region, or if the p-value is less than or equal to $\alpha$.
+
+### Desmos
+In [Desmos](www.desmos.com/calculator), you can carry out the whole test by typing each formula in sequence, replacing the numbers with those from your problem:
+
+$$\hat{p} = \frac{78}{120}$$
+$$SE = \sqrt{\frac{0.55(1-0.55)}{120}}$$
+$$z = \frac{\hat{p}-0.55}{SE}$$
+
+Find the critical value using the inverse-normal method from Lesson 18.1 (using $\alpha$ or $\alpha/2$ in place of $1-\text{confidence level}$), and find the p-value using the cumulative normal distribution method from Lesson 20.4. Compare the results to make your decision, exactly as in the example above.
