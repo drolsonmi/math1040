@@ -107,6 +107,26 @@ The calculator will return the lower and upper bounds of the confidence interval
 
 $$E = \frac{\text{Upper Bound} - \text{Lower Bound}}{2}$$
 
+### Excel
+Excel doesn't have a single built-in function for the margin of error of a proportion, so we'll build it from a few pieces, just like we built other formulas by hand.
+
+__Step 1: Find the sample proportion__
+* In a cell, type `=130/200` (or point to the cells that hold your values of $$x$$ and $n$) and press `Enter`
+* This gives you $\hat{p}$
+* In another cell, find $\hat{q}$ by typing `=1-` and clicking the cell with $\hat{p}$, then press `Enter`
+
+__Step 2: Find the critical value__
+* In another cell, type `=NORM.S.INV(` followed by the area to the *left* of the critical value you want, then close the parenthesis and press `Enter`
+  * For a 95% confidence level, the middle 95% leaves 2.5% in each tail, so the area to the left of the upper critical value is 0.975. You would type `=NORM.S.INV(0.975)`
+* This returns the positive critical value, $$z_c$$
+
+__Step 3: Find the margin of error__
+* In another cell, type `=` and click the cell with $$z_c$$, then type `*SQRT(`, click the cell with $\hat{p}$, type `*`, click the cell with $\hat{q}$, type `/`, click the cell with $$n$$, and close the parenthesis with `)`
+  * For example, if $$z_c$$ is in cell B1, $\hat{p}$ is in cell B2, $\hat{q}$ is in cell B3, and $$n$$ is in cell B4, you would type `=B1*SQRT(B2*B3/B4)`
+* Press `Enter`
+
+The result is your margin of error.
+
 ### Desmos
 To find critical values in [Desmos](www.desmos.com/calculator), follow the same steps described in Lesson 18.1 — the critical values come from the same standard normal distribution regardless of whether you are working with means or proportions.
 

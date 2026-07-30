@@ -116,6 +116,17 @@ The calculator will display the confidence interval bounds, the sample proportio
 
 $$E = \frac{\text{Upper Bound} - \text{Lower Bound}}{2}$$
 
+### Excel
+Just like the margin of error, Excel doesn't have one function that spits out a confidence interval for a proportion. Instead, we use the pieces we already calculated in [Lesson 19.1](19_1_CriticalValues.md).
+
+* First, find $$\hat{p}$$, the critical value $$z_c$$, and the margin of error $$E$$ using the steps from Lesson 19.1
+* In a new cell, find the __lower boundary__ by typing `=` , clicking the cell with $$\hat{p}$$, typing `-`, and clicking the cell with $$E$$, then press `Enter`
+* In another cell, find the __upper boundary__ by typing `=`, clicking the cell with $$\hat{p}$$, typing `+`, and clicking the cell with $$E$$, then press `Enter`
+
+For example, if $$\hat{p}$$ is in cell B2 and $$E$$ is in cell B5, you would type `=B2-B5` for the lower boundary and `=B2+B5` for the upper boundary.
+
+The two results are the lower and upper boundaries of your confidence interval.
+
 ### Desmos
 To compute the confidence interval in [Desmos](www.desmos.com/calculator), you can calculate the margin of error directly and add/subtract it from $$\hat{p}$$:
 

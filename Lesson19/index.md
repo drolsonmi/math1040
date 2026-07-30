@@ -30,7 +30,16 @@ Since we are 99% confident that the overall proportion of Utah citizens that vot
 
 Next presidential election, watch the news when polls close. You'll see that they will declare Utah as republican before they count a single vote. This is because the confidence interval is so clearly in the majority.
 
+## Outcomes
+By the end of this lesson, you should be able to:
+* Calculate a sample proportion ($\hat{p}$) and its complement ($\hat{q}$) from a categorical dataset
+* Verify that the Central Limit Theorem applies to a proportion (random sample, $n\hat{p}\ge 10$ and $n\hat{q}\ge 10$)
+* Find the critical value ($z_c$) for a given confidence level
+* Calculate the margin of error for a proportion
+* Construct a confidence interval for a proportion
+* Interpret a confidence interval for a proportion, including whether it suggests a majority or minority
+
 ## Topics in this lecture
-So, in this lesson, we'll learn how to find the confidence interval for categorical data using proportions.
+In this lesson, we'll learn how to find the confidence interval for categorical data using proportions.
 * [19.1 Critical Values](./19_1_CriticalValues.md)
 * [19.2 Confidence Intervals with 1 Sample Proportions](./19_2_ConfidenceIntervalProps.md)
