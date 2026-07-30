@@ -150,15 +150,15 @@ MathJax = {
 * [21.3 Full Categorical Hypothesis Test](./Lesson21/21_3_FullCatHypTests.md)
 
 [22: Inference of 2 Independent samples (Means)](./Lesson22/index.md)
-* 22.1 Reminder of Dependent vs. Independent samples
-* 22.2 Hypotheses of 2 Independent samples
-* 22.3 Confidence Intervals for 2 Independent Samples
-* 22.4 Hypothesis Test of 2 Independent Samples
+* [22.1 Reminder of Dependent vs. Independent samples](./Lesson22/22_1_DependentVsIndependent.md)
+* [22.2 Hypotheses of 2 Independent samples](./Lesson22/22_2_Hypotheses.md)
+* [22.3 Confidence Intervals for 2 Independent Samples](./Lesson22/22_3_ConfidenceIntervals.md)
+* [22.4 Hypothesis Test of 2 Independent Samples](./Lesson22/22_4_HypothesisTest.md)
 
 [23: Inference of 2 Independent samples (Proportions)](./Lesson23/index.md)
-* 23.1 Hypotheses of 2 Independent samples
-* 23.2 Confidence Intervals for 2 Independent Samples
-* 23.3 Hypothesis Test of 2 Independent Samples
+* [23.1 Hypotheses of 2 Independent samples](./Lesson23/23_1_Hypotheses.md)
+* [23.2 Confidence Intervals for 2 Independent Samples](./Lesson23/23_2_ConfidenceIntervals.md)
+* [23.3 Hypothesis Test of 2 Independent Samples](./Lesson23/23_3_HypothesisTest.md)
 
 [24: Inference of 2 Dependent samples (Means)](./Lesson24/index.md)
 * []()
