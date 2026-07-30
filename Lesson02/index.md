@@ -9,7 +9,6 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<title>Lesson 2 Overview</title>
 </head>
 
 # Lesson 2 Sampling Methods
