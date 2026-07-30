@@ -10,7 +10,18 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-# Lesson 20: Hypothesis Testing with 1 Sample Proportions
+# Lesson 20: Hypothesis Testing with 1 Sample Means
+
+## Outcomes
+By the end of this lesson, you should be able to:
+* Explain the purpose of a hypothesis test and how it relates to a confidence interval
+* Write the null and alternate hypotheses for a given claim
+* Identify a hypothesis test as left-tailed, right-tailed, or two-tailed
+* Find the critical region for a hypothesis test at a given level of significance
+* Calculate a test statistic and use it, together with the critical region, to make a decision
+* Calculate a p-value and use it to make a decision
+* Carry out a complete hypothesis test for a population mean, from hypotheses to conclusion
+
 ## What is a Hypothesis Test?
 So far, whenever we wanted to say something about a population, we built a __confidence interval__ — a range of values where we believe the true population parameter (a mean or a proportion) is likely to fall. A confidence interval answers the question, *"What is the true value, roughly?"*
 
@@ -33,19 +44,9 @@ To answer this, we start with the assumption that there is __no difference__ —
 
 We'll use this same example throughout the rest of this lesson to walk through each piece of a hypothesis test, from writing the hypotheses to reaching a final conclusion.
 
-## Outcomes
-By the end of this lesson, you should be able to:
-* Explain the purpose of a hypothesis test and how it relates to a confidence interval
-* Write the null and alternate hypotheses for a given claim
-* Identify a hypothesis test as left-tailed, right-tailed, or two-tailed
-* Find the critical region for a hypothesis test at a given level of significance
-* Calculate a test statistic and use it, together with the critical region, to make a decision
-* Calculate a p-value and use it to make a decision
-* Carry out a complete hypothesis test for a population mean, from hypotheses to conclusion
-
 ## Topics in this lecture
 * [20.1 Hypotheses](20_1_Hypotheses.md)
 * [20.2 How Confidence Intervals fit in](20_2_HypTestAndConfInt.md)
 * [20.3 Critical Regions](20_3_CriticalRegions.md)
 * [20.4 P-values](20_4_PValues.md)
-* [20.5 Hypothesis Test with 1 Sample Proportions](20_5_HypTest1SampleMeans.md)
+* [20.5 Hypothesis Test with 1 Sample Means](20_5_HypTest1SampleMeans.md)

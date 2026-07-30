@@ -8,15 +8,15 @@
 
 ## Solution
 From the problem we get the following information:
-* Null value: $$\mu_0 = 20$$
-* Sample size: $$n = 55$$
-* Sample mean: $$\bar{x} = 18.7$$
-* Sample standard deviation: $$s = 2.5$$
-* Significance level: $$\alpha = 0.01$$
+* Null value: $\mu_0 = 20$
+* Sample size: $n = 55$
+* Sample mean: $\bar{x} = 18.7$
+* Sample standard deviation: $s = 2.5$
+* Significance level: $\alpha = 0.01$
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random? **Yes** (stated in the problem)
-* Is the sample large enough? **Yes** ($$n = 55 \ge 30$$)
+* Is the sample large enough? **Yes** ($n = 55 \ge 30$)
 
 The Central Limit Theorem holds.
 
@@ -28,7 +28,7 @@ $$H_0: \mu = 20 \qquad\qquad H_A: \mu < 20 \quad \text{(left-tailed)}$$
 
 **Step 3 — Find the critical value**
 
-For a left-tailed test with $$\alpha = 0.01$$ and $$DF = n - 1 = 54$$ degrees of freedom, the critical t-value is:
+For a left-tailed test with $\alpha = 0.01$ and $DF = n - 1 = 54$ degrees of freedom, the critical t-value is:
 
 $$t_c = -2.397$$
 
@@ -40,7 +40,7 @@ $$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{18.7 - 20}{2.5/\sqrt{55}} = \fr
 
 $$t = -3.858 < t_c = -2.397$$
 
-The test statistic falls in the critical region, so we **reject $$H_0$$**.
+The test statistic falls in the critical region, so we **reject $H_0$**.
 
 **Conclusion:** There is sufficient evidence at the 1% significance level to support the claim that the average battery life is less than 20 hours.
 

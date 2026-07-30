@@ -8,15 +8,15 @@
 
 ## Solution
 From the problem we get the following information:
-* Null value: $$\mu_0 = 4$$
-* Sample size: $$n = 35$$
-* Sample mean: $$\bar{x} = 4.6$$
-* Sample standard deviation: $$s = 1.2$$
-* Significance level: $$\alpha = 0.05$$
+* Null value: $\mu_0 = 4$
+* Sample size: $n = 35$
+* Sample mean: $\bar{x} = 4.6$
+* Sample standard deviation: $s = 1.2$
+* Significance level: $\alpha = 0.05$
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random? **Yes** (stated in the problem)
-* Is the sample large enough? **Yes** ($$n = 35 \ge 30$$)
+* Is the sample large enough? **Yes** ($n = 35 \ge 30$)
 
 The Central Limit Theorem holds.
 
@@ -28,7 +28,7 @@ $$H_0: \mu = 4 \qquad\qquad H_A: \mu > 4 \quad \text{(right-tailed)}$$
 
 **Step 3 — Find the critical value**
 
-For a right-tailed test with $$\alpha = 0.05$$ and $$DF = n - 1 = 34$$ degrees of freedom, the critical t-value is:
+For a right-tailed test with $\alpha = 0.05$ and $DF = n - 1 = 34$ degrees of freedom, the critical t-value is:
 
 $$t_c = 1.691$$
 
@@ -42,7 +42,7 @@ $$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{4.6 - 4}{1.2/\sqrt{35}} = \frac
 
 $$t = 2.958 > t_c = 1.691$$
 
-The test statistic falls in the critical region, so we **reject $$H_0$$**.
+The test statistic falls in the critical region, so we **reject $H_0$**.
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to support the claim that the average wait time is more than 4 minutes.
 

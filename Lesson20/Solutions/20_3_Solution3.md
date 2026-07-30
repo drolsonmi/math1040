@@ -8,15 +8,15 @@
 
 ## Solution
 From the problem we get the following information:
-* Null value: $$\mu_0 = 75$$
-* Sample size: $$n = 40$$
-* Sample mean: $$\bar{x} = 78.2$$
-* Sample standard deviation: $$s = 6.3$$
-* Significance level: $$\alpha = 0.05$$
+* Null value: $\mu_0 = 75$
+* Sample size: $n = 40$
+* Sample mean: $\bar{x} = 78.2$
+* Sample standard deviation: $s = 6.3$
+* Significance level: $\alpha = 0.05$
 
 **Step 1 — Verify the Central Limit Theorem**
 * Is the sample random? **Yes** (stated in this version of the problem)
-* Is the sample large enough? **Yes** ($$n = 40 \ge 30$$)
+* Is the sample large enough? **Yes** ($n = 40 \ge 30$)
 
 The Central Limit Theorem holds.
 
@@ -28,7 +28,7 @@ $$H_0: \mu = 75 \qquad\qquad H_A: \mu \ne 75 \quad \text{(two-tailed)}$$
 
 **Step 3 — Find the critical value**
 
-For a two-tailed test with $$\alpha = 0.05$$ and $$DF = n - 1 = 39$$ degrees of freedom, each tail contains $$\alpha/2 = 0.025$$. The critical t-value is:
+For a two-tailed test with $\alpha = 0.05$ and $DF = n - 1 = 39$ degrees of freedom, each tail contains $\alpha/2 = 0.025$. The critical t-value is:
 
 $$t_c = \pm 2.023$$
 
@@ -40,7 +40,7 @@ $$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{78.2 - 75}{6.3/\sqrt{40}} = \fr
 
 $$|t| = 3.212 > t_c = 2.023$$
 
-The test statistic falls in the critical region, so we **reject $$H_0$$**.
+The test statistic falls in the critical region, so we **reject $H_0$**.
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to conclude that the new teaching method leads to a different average score than 75.
 
