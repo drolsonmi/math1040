@@ -11,7 +11,7 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-# Lesson 21.2 Calculating Critical Regions and P-Values for Proportions
+# Lesson 21.2 Critical Regions and P-Values for Proportions
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 6.1.2 Hypothesis testing for a proportion (pages 237–241)

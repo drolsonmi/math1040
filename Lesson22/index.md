@@ -10,7 +10,7 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-# Lesson 22: Hypothesis Testing with 2 Independent Samples (Means)
+# Lesson 22: Inference of 2 Independent Quantitative Samples
 
 ## Overview
 So far, every confidence interval and hypothesis test we've built has compared a single sample to a claimed value ($\mu_0$ or $p_0$). Many real questions instead ask us to compare **two groups** to each other: Do two teaching methods lead to different average scores? Does one fertilizer produce taller plants than another? Is the average commute time on one bus route shorter than another?
@@ -28,6 +28,6 @@ By the end of this lesson, you should be able to:
 
 ## Topics in this lesson
 * [22.1 Reminder of Dependent vs. Independent Samples](./22_1_DependentVsIndependent.md)
-* [22.2 Hypotheses of 2 Independent Samples](./22_2_Hypotheses.md)
-* [22.3 Confidence Intervals for 2 Independent Samples](./22_3_ConfidenceIntervals.md)
-* [22.4 Hypothesis Test of 2 Independent Samples](./22_4_HypothesisTest.md)
+* [22.2 Hypotheses of 2 Independent Quantitative Samples](./22_2_Hypotheses.md)
+* [22.3 Confidence Intervals for 2 Independent Quantitative Samples](./22_3_ConfidenceIntervals.md)
+* [22.4 Hypothesis Test of 2 Independent Quantitative Samples](./22_4_HypothesisTest.md)

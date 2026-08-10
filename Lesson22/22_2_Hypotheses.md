@@ -11,7 +11,7 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-# Lesson 22.2 Hypotheses of 2 Independent Samples
+# Lesson 22.2 Hypotheses of 2 Independent Quantitative Samples
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 5.4.2 Setting up hypotheses for a difference of means (pages 210-211)

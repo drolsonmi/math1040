@@ -11,7 +11,7 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-# Lesson 21.3 Full Hypothesis Tests with 1 Sample of Categorical Data
+# Lesson 21.3 Hypothesis Testing with 1 Sample of Categorical Data
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 6.1.2 Hypothesis testing for a proportion (pages 237–241)

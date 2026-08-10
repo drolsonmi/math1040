@@ -28,6 +28,6 @@ By the end of this lesson, you should be able to:
 * Perform each of these calculations using a TI-83/84 calculator, Excel, and Desmos
 
 ## Topics in this lesson
-* [23.1 Hypotheses of 2 Independent Samples](./23_1_Hypotheses.md)
-* [23.2 Confidence Intervals for 2 Independent Samples](./23_2_ConfidenceIntervals.md)
-* [23.3 Hypothesis Test of 2 Independent Samples](./23_3_HypothesisTest.md)
+* [23.1 Hypotheses of 2 Independent Categorical Samples](./23_1_Hypotheses.md)
+* [23.2 Confidence Intervals for 2 Independent Categorical Samples](./23_2_ConfidenceIntervals.md)
+* [23.3 Hypothesis Test of 2 Independent Categorical Samples](./23_3_HypothesisTest.md)

@@ -31,6 +31,6 @@ By the end of this lesson, you should be able to:
 * Perform each of these calculations using a TI-83/84 calculator, Excel, and Desmos
 
 ### Topics in this lesson
-* [21.1 Categorical Hypotheses](./21_1_CatHypotheses.md)
-* [21.2 Critical Values and P-Values](./21_2_CatCriticalAndP.md)
-* [21.3 Full Categorical Hypothesis Test](./21_3_FullCatHypTests.md)
+* [21.1 Setup of Hypothesis Tests with 1 Sample of Categorical Data](./21_1_CatHypotheses.md)
+* [21.2 Critical Regions and P-Values for Proportions](./21_2_CatCriticalAndP.md)
+* [21.3 Hypothesis Testing with 1 Sample of Categorical Data](./21_3_FullCatHypTests.md)

@@ -11,7 +11,7 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-# Lesson 23.2 Confidence Intervals for 2 Independent Samples
+# Lesson 23.2 Confidence Intervals for 2 Independent Categorical Samples
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 6.2.2 Confidence interval for a difference of proportions (pages 244-246)

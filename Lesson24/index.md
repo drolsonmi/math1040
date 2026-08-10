@@ -10,7 +10,7 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-# Lesson 24: Hypothesis Testing with 2 Dependent Samples (Means)
+# Lesson 24: Inference of 2 Dependent Quantitative Samples
 
 ## Overview
 Lesson 22 covered hypothesis tests comparing two **independent** samples. This lesson covers the other case from Lesson 22.1: **dependent (paired)** samples, where each observation in one group is matched to exactly one observation in the other group (before/after measurements, matched pairs, twins, left hand/right hand, and so on).
@@ -29,7 +29,7 @@ By the end of this lesson, you should be able to:
 * Perform each of these calculations using a TI-83/84 calculator, Excel, and Desmos
 
 ## Topics in this lesson
-* [24.1 Reminder of Dependent Samples & the Difference Variable](24_1_DifferenceVariable.md)
+* [24.1 Dependent Samples](24_1_DifferenceVariable.md)
 * [24.2 Hypotheses for Paired Data](24_2_Hypotheses.md)
 * [24.3 Confidence Interval for the Mean Difference](24_3_ConfidenceIntervals.md)
 * [24.4 Hypothesis Test for the Mean Difference](24_4_HypothesisTest.md)

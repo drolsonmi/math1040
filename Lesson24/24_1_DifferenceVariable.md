@@ -11,7 +11,7 @@ MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
-# Lesson 24.1 Reminder of Dependent Samples & the Difference Variable
+# Lesson 24.1 Dependent Samples
 ## Reading
 Reading sections are from the [Introductory Statistics Textbook](../Resources/OpenIntroTextbook.pdf)
 * 5.4.1 Paired data (page 209)
