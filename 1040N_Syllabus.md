@@ -1,6 +1,7 @@
 # MATH 1040N Syllabus - Fall 2026
 
 ## Contact Information
+
 | __Instructor__      | __Dr. Michael E. Olson__                                           |
 | :------------------ | :----------------------------------------------------------------- |
 | __Email__           | michael.olson2@snow.edu                                            |
@@ -147,73 +148,3 @@ Click the links below for college-wide policies.
 * [Religious Observance](https://snow.instructure.com/courses/474797#religious-observances). How to navigate a religious holiday interfering with your classes.
 * [Safety and Title IX](https://snow.instructure.com/courses/474797#safety). Safety and sexual discrimination and assault.
 * [Sensitive Course Content](https://snow.instructure.com/courses/474797#content). How to handle difficult course material.
-
-
-
-------------------------------------------------------------------------------------
-# Simple Syllabus
-## Contact Information
-(See the contact information above)
-
-## Prerequisites
-Math 850 or Math 1010 with a C or better course grade, ACT math score 22 or higher or appropriate placement test score.
-
-## Required Materials
-See (Required Materials) in the syllabus above 
-
-## Additional Readings (optional)
-
-## Additional Materials (optional)
-See (Optional Materials) in the syllabus above
-
-## Course Description (optional)
-This course will provide students with an introductory look at basic principles of statistics while emphasizing collaboration, critical thinking, and problem solving within practical contexts. Topics covered will include: designing studies, organizing data, finding measures center and variation, computing probability, using discrete and continuous probability distributions, estimating sample size, hypothesis testing, finding confidence intervals for one and two populations, and running a correlation and regression analysis.
-
-## Course Student Learning Outcomes
-The __Introduction to Statistics__ course is a General Education course and satisfies the Quantitative Literacy requirement for graduation. As such, you can expect to learn the following:
-
-__General Education Outcomes__:
-1. Fundamental knowledge of human cultures and the natural world
-2. How to read and research in the physics discipline
-3. How to draw from other subjects and answer questions using physics
-4. Thinking analytically, critically, and creatively
-5. Communication through writing and speaking
-6. Reasoning mathematically
-
-__Quantitative Literacy Outcomes__:
-1. Interpret various graphs and charts
-2. Convert information into mathematical forms (such as equations, graphs, tables, etc.)
-3. Complete basic calculations to solve problems
-4. Problem solve across multiple disciplines using quantitative reasoning and quantitative literacy
-5. Use evidence to support a claim
-
-__Student Learning Outcomes__:
-1. Understand and apply elements of quality study design.
-2. Be familiar with many common graphs and charts and will be able to create an appropriate graph or chart for a given data set.
-3. Understand the meaning of statistical measures (mean, median, proportion, standard deviation) and be able to calculate each of them for a given data set.
-4. Be able to take a given problem and, as appropriate, complete a hypothesis test or compute a confidence interval.
-5. Be able to make an appropriate real world conclusion based on the results from the hypothesis test or confidence interval.
-
-## Using AI in this class
-See (Using AI in this class) in syllabus above
-
-## Snow College Policies (Auto-populated)
-
-## Class Policies (optional)
-My classroom policies can be summarized by three points:
-* Be honest.
-* Be courteous to other students.
-* Be dedicated to your education.
-
-When you sit down to study, your focus is to learn. The following will help you succeed in the courses,
-1. put away all cell phones, headphones, and anything that takes your attention from your studies
-2. plan ahead: look at the course schedule, then complete all assignments by the due date and discuss conflicts with me ahead of time
-
-## Overview of Course Units
-See (Overview of Course Units) in syllabus above
-
-## Assignment Overview
-See (Assignment Overview) in syllabus above 
-
-## Course Assignment Schedule (optional)
-

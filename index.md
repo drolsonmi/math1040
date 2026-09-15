@@ -13,6 +13,8 @@ MathJax = {
 
 # MATH 1040 - Introduction to Statistics
 
+* [Syllabus](./1040N_Syllabus.md)
+
 ### Textbook and Resources
 * [OpenIntro Textbook](Resources/OpenIntroTextbook.pdf)
 * [Reading from Textbook](Resources/TextbookSections.md)
