@@ -13,7 +13,7 @@ MathJax = {
 
 ## 10.2 Mutually Exclusive Events - Solution for Practice 3
 
-1. For each pair of events below, determine whether they are mutually exclusive. Explain your reasoning for each.
+3. For each pair of events below, determine whether they are mutually exclusive. Explain your reasoning for each.
   - Drawing a card that is a Heart, or drawing a card that is a King.
   - Rolling an even number on a die, or rolling an odd number on a die.
   - A randomly selected student owns a car, or that same student has a part-time job.

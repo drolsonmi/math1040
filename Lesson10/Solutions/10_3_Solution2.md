@@ -13,7 +13,7 @@ MathJax = {
 
 ## 10.3 Conditional Probabilities - Solution for Practice 2
 
-1. Find $P(\text{has a job} \mid \text{no car})$, and compare it to $P(\text{job})$.
+2. Find $P(\text{has a job} \mid \text{no car})$, and compare it to $P(\text{job})$.
 
 | | Has a Job | No Job | Total |
 | --- | --- | --- | --- |

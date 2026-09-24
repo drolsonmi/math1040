@@ -13,7 +13,7 @@ MathJax = {
 
 ## 10.1 OR Probabilities - Solution for Practice 3
 
-1. A fair six-sided die is rolled once. Find $P(\text{rolling an even number OR rolling a number greater than 4})$.
+3. A fair six-sided die is rolled once. Find $P(\text{rolling an even number OR rolling a number greater than 4})$.
 
 ### Solution
 

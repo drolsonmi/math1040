@@ -13,7 +13,7 @@ MathJax = {
 
 ## 10.5 Independent Events - Solution for Practice 3
 
-1. Compare drawing two cards **with replacement** vs. **without replacement**, and explain why one produces independent events while the other does not.
+3. Compare drawing two cards **with replacement** vs. **without replacement**, and explain why one produces independent events while the other does not.
 
 ### Solution
 

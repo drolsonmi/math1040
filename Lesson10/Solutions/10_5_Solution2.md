@@ -13,7 +13,7 @@ MathJax = {
 
 ## 10.5 Independent Events - Solution for Practice 2
 
-1. A fair coin is flipped, and a fair six-sided die is rolled. Show that these two events are independent by comparing $P(\text{6})$ to $P(\text{6} \mid \text{heads})$, then use the simplified multiplication rule to find $P(\text{tails AND rolling a 3})$.
+2. A fair coin is flipped, and a fair six-sided die is rolled. Show that these two events are independent by comparing $P(\text{6})$ to $P(\text{6} \mid \text{heads})$, then use the simplified multiplication rule to find $P(\text{tails AND rolling a 3})$.
 
 ### Solution
 

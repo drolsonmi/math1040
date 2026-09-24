@@ -13,7 +13,7 @@ MathJax = {
 
 ## 10.4 AND Probabilities - Solution for Practice 2
 
-1. A bag contains 5 red marbles and 3 blue marbles. Two marbles are drawn **without replacement**. Find $P(\text{first is blue AND second is red})$.
+2. A bag contains 5 red marbles and 3 blue marbles. Two marbles are drawn **without replacement**. Find $P(\text{first is blue AND second is red})$.
 
 ### Solution
 

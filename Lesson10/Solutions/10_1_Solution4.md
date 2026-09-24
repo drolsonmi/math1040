@@ -13,7 +13,7 @@ MathJax = {
 
 ## 10.1 OR Probabilities - Solution for Practice 4
 
-1. A factory inspects 300 items for two types of defects. 40 items have Defect A, 50 items have Defect B, and 15 items have both defects. Find the probability that a randomly selected item has **Defect A OR Defect B**.
+4. A factory inspects 300 items for two types of defects. 40 items have Defect A, 50 items have Defect B, and 15 items have both defects. Find the probability that a randomly selected item has **Defect A OR Defect B**.
 
 ### Solution
 

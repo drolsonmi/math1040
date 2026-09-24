@@ -13,7 +13,7 @@ MathJax = {
 
 ## 10.1 OR Probabilities - Solution for Practice 2
 
-1. Using the survey table from the lesson (200 college students, car ownership vs. part-time job), find the probability that a randomly selected student **owns a car OR does not have a job**.
+2. Using the survey table from the lesson (200 college students, car ownership vs. part-time job), find the probability that a randomly selected student **owns a car OR does not have a job**.
 
 | | Has a Job | No Job | Total |
 | --- | --- | --- | --- |
