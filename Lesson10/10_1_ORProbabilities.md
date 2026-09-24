@@ -36,11 +36,11 @@ $$P(\text{King or Heart}) = P(\text{King}) + P(\text{Heart}) - P(\text{King and 
  
 A **two-way table** (sometimes called a contingency table) is a useful way to organize compound probability problems, since it shows every combination of two categorical variables at once. For example, suppose we surveyed 200 college students about whether they own a car and whether they have a part-time job:
  
-| | Has a Job | No Job | Total |
-| --- | --- | --- | --- |
-| **Owns a Car** | 60 | 40 | 100 |
-| **No Car** | 50 | 50 | 100 |
-| **Total** | 110 | 90 | 200 |
+|                | Has a Job | No Job | Total |
+| :------------- | :-------: | :----: | :---: |
+| **Owns a Car** | 60        | 40     | 100   |
+| **No Car**     | 50        | 50     | 100   |
+| **Total**      | 110       | 90     | 200   |
  
 To find $P(\text{owns a car OR has a job})$, we can read the needed values directly from the table:
  
@@ -53,17 +53,21 @@ We'll use this same table again in the next few sections, since two-way tables m
 ## Practice
 1. A single card is drawn from a standard 52-card deck. Find $P(\text{Jack OR Spade})$.
   - [After solving on your own, see solution here](./Solutions/10_1_Solution1.html)
+
 2. Using the survey table from the lesson (200 college students, car ownership vs. part-time job):
-    | | Has a Job | No Job | Total |
-    | --- | --- | --- | --- |
-    | **Owns a Car** | 60 | 40 | 100 |
-    | **No Car** | 50 | 50 | 100 |
-    | **Total** | 110 | 90 | 200 |
+
+    |                | Has a Job | No Job | Total |
+    | :------------- | :-------: | :----: | :---: |
+    | **Owns a Car** | 60        | 40     | 100   |
+    | **No Car**     | 50        | 50     | 100   |
+    | **Total**      | 110       | 90     | 200   |
  
   - Find the probability that a randomly selected student **owns a car OR does not have a job**.
   - [After solving on your own, see solution here](./Solutions/10_1_Solution2.html)
+
 3. A fair six-sided die is rolled once. Find $P(\text{rolling an even number OR rolling a number greater than 4})$.
   - [After solving on your own, see solution here](./Solutions/10_1_Solution3.html)
+
 4. A factory inspects 300 items for two types of defects. 40 items have Defect A, 50 items have Defect B, and 15 items have both defects. Find the probability that a randomly selected item has **Defect A OR Defect B**.
   - [After solving on your own, see solution here](./Solutions/10_1_Solution4.html)
  
