@@ -14,6 +14,7 @@ MathJax = {
 ## 10.4 AND Probabilities - Solution for Practice 3
 
 3. Two cards are drawn **without replacement** from a standard 52-card deck. Find $P(\text{both cards are Kings})$.
+{:start="3"}
 
 ### Solution
 

@@ -14,6 +14,7 @@ MathJax = {
 ## 10.4 AND Probabilities - Solution for Practice 4
 
 4. A fair coin is flipped, and a fair six-sided die is rolled. These two events don't affect each other at all. Find $P(\text{coin shows heads AND die shows a 6})$.
+{:start="4"}
 
 ### Solution
 

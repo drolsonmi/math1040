@@ -14,6 +14,7 @@ MathJax = {
 ## 10.3 Conditional Probabilities - Solution for Practice 4
 
 4. A bag contains 5 red marbles and 3 blue marbles. Two marbles are drawn **without replacement**. Find $P(\text{second marble is blue} \mid \text{first marble is red})$.
+{:start="4"}
 
 ### Solution
 

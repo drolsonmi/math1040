@@ -14,6 +14,7 @@ MathJax = {
 ## 10.3 Conditional Probabilities - Solution for Practice 3
 
 3. A single card is drawn from a standard 52-card deck. There are 12 face cards (Jacks, Queens, and Kings) in the deck. Find $P(\text{King} \mid \text{face card})$.
+{:start="3"}
 
 ### Solution
 

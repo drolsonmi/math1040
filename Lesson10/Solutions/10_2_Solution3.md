@@ -17,6 +17,7 @@ MathJax = {
   - Drawing a card that is a Heart, or drawing a card that is a King.
   - Rolling an even number on a die, or rolling an odd number on a die.
   - A randomly selected student owns a car, or that same student has a part-time job.
+{:start="3"}
 
 ### Solution
 

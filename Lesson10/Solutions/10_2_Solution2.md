@@ -14,6 +14,7 @@ MathJax = {
 ## 10.2 Mutually Exclusive Events - Solution for Practice 2
 
 2. A fair six-sided die is rolled once. Find $P(\text{rolling a 1 OR rolling a 6})$.
+{:start="2"}
 
 ### Solution
 
