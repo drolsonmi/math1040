@@ -32,7 +32,9 @@ Suppose 30% of customers who enter a store make a purchase ($p=0.30$), and $n=8$
 $$P(x\leq 2) = P(0)+P(1)+P(2)$$
 
 $$P(0) = \binom{8}{0}(0.3)^0(0.7)^8 \approx 0.0576$$
+
 $$P(1) = \binom{8}{1}(0.3)^1(0.7)^7 \approx 0.1977$$
+
 $$P(2) = \binom{8}{2}(0.3)^2(0.7)^6 \approx 0.2965$$
 
 $$P(x\leq 2) \approx 0.0576+0.1977+0.2965 = 0.5518$$

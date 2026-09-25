@@ -54,13 +54,15 @@ $$P(\text{even or} >4) = \frac{3}{6}+\frac{2}{6}-\frac{1}{6} = \frac{4}{6} = \fr
 ## Practice
 1. A standard deck of 52 cards is shuffled, and one card is drawn. Find the probability that the card is a King **or** a Queen.
   - [After solving on your own, see solution here](./Solutions/14_1_Solution1.html)
+  
 2. A standard deck of 52 cards is shuffled, and one card is drawn. Find the probability that the card is a Heart **or** a Face card (Jack, Queen, or King).
   - [After solving on your own, see solution here](./Solutions/14_1_Solution2.html)
+
 3. A discrete random variable $x$ has the probability distribution below.
 
-| $x$ | 1 | 2 | 3 | 4 | 5 |
-| --- | --- | --- | --- | --- | --- |
-| $P(x)$ | 0.10 | 0.25 | 0.30 | 0.20 | 0.15 |
+    | $x$    | 1     | 2     | 3     | 4     | 5     |
+    | :----: | :---: | :---: | :---: | :---: | :---: |
+    | $P(x)$ | 0.10  | 0.25  | 0.30  | 0.20  | 0.15  |
 
-  Find $P(x=2 \text{ or } x=4)$. Explain why you are able to simply add the two probabilities.
-  - [After solving on your own, see solution here](./Solutions/14_1_Solution3.html)
+    Find $P(x=2 \text{ or } x=4)$. Explain why you are able to simply add the two probabilities.
+    - [After solving on your own, see solution here](./Solutions/14_1_Solution3.html)

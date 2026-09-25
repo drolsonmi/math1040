@@ -116,16 +116,18 @@ And there you have it! We have found the average of a categorical variable.
 
 ## Practice
 1. A game costs $5 to play. There is a 30% chance of winning $20 (a net gain of $15 after paying to play), and a 70% chance of winning nothing (a net loss of $5). Find the expected value of playing this game, and explain what it means.
-  - [After solving on your own, see solution here](./Solutions/12_3_Solution1.html)
+    - [After solving on your own, see solution here](./Solutions/12_3_Solution1.html)
+
 2. A company surveys 100 customers about their satisfaction with a new product, using the categories Very Unsatisfied, Unsatisfied, Neutral, Satisfied, and Very Satisfied:
     | Category | Very Unsatisfied | Unsatisfied | Neutral | Satisfied | Very Satisfied |
-    | --- | --- | --- | --- | --- | --- |
-    | Count | 5 | 10 | 20 | 40 | 25 |
+    | :------- | :--------------: | :---------: | :-----: | :-------: | :------------: |
+    | Count    | 5                | 10          | 20      | 40        | 25             |
  
-  - Assign a numerical value to each category (0 through 4, in order), find the expected value, and interpret what it means.
-  - [After solving on your own, see solution here](./Solutions/12_3_Solution2.html)
+    - Assign a numerical value to each category (0 through 4, in order), find the expected value, and interpret what it means.
+    - [After solving on your own, see solution here](./Solutions/12_3_Solution2.html)
+
 3. An insurance company sells a policy for $200 per year. Based on past data, there is a 2% chance a policyholder will file a claim for $5,000 in a given year, and a 98% chance no claim is filed. Find the insurance company's expected payout per policy, and find the company's expected profit per policy.
-  - [After solving on your own, see solution here](./Solutions/12_3_Solution3.html)
+    - [After solving on your own, see solution here](./Solutions/12_3_Solution3.html)
  
 
 ## Technology
