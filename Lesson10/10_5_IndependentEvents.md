@@ -61,6 +61,7 @@ A helpful way to build intuition: drawing cards or marbles **with replacement** 
 
 ## Practice
 1. Using the survey table below, determine whether "owns a car" and "has a job" are independent events. Show your work by comparing $P(\text{car})$ to $P(\text{car} \mid \text{job})$.
+
     |                | Has a Job | No Job | Total |
     | :------------- | :-------: | :----: | :---: |
     | **Owns a Car** | 60        | 40     | 100   |
