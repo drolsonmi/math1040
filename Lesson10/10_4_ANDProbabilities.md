@@ -27,7 +27,7 @@ In words: to find the probability of two events happening together, multiply the
  
 ### Why We Need the Conditional Piece
  
-It's tempting to just multiply $P(A) \cdot P(B)$ directly, but that's only correct when $A$ and $B$ are **independent** (we'll define this precisely in 10.5). Whenever one event affects the probability of the other — like drawing cards or marbles **without replacement** — we have to use the conditional probability $P(B|A)$, not the plain probability $P(B)$.
+It's tempting to just multiply $P(A) \cdot P(B)$ directly, but that's only correct when $A$ and $B$ are **independent** (we'll define this precisely in 10.5). Whenever one event affects the probability of the other — like drawing cards or marbles **without replacement** — we have to use the conditional probability $P(B\lvert A)$, not the plain probability $P(B)$.
  
 ### Example: Marbles Without Replacement
  
@@ -57,17 +57,21 @@ This matches exactly what we'd get by reading the table directly: $\frac{60}{200
 
 ## Practice
 1. Using the survey table below, we know $P(\text{no car}) = 0.5$ and $P(\text{no job} \mid \text{no car}) = 0.5$. Use the multiplication rule to find $P(\text{no car and no job})$, then check your answer against the table.
-    | | Has a Job | No Job | Total |
-    | --- | --- | --- | --- |
-    | **Owns a Car** | 60 | 40 | 100 |
-    | **No Car** | 50 | 50 | 100 |
-    | **Total** | 110 | 90 | 200 |
+
+    |                | Has a Job | No Job | Total |
+    | :------------- | :-------: | :----: | :---: |
+    | **Owns a Car** | 60        | 40     | 100   |
+    | **No Car**     | 50        | 50     | 100   |
+    | **Total**      | 110       | 90     | 200   |
  
-  - [After solving on your own, see solution here](./Solutions/10_4_Solution1.html)
+    - [After solving on your own, see solution here](./Solutions/10_4_Solution1.html)
+
 2. A bag contains 5 red marbles and 3 blue marbles. Two marbles are drawn **without replacement**. Find $P(\text{first is blue AND second is red})$.
-  - [After solving on your own, see solution here](./Solutions/10_4_Solution2.html)
+    - [After solving on your own, see solution here](./Solutions/10_4_Solution2.html)
+
 3. Two cards are drawn **without replacement** from a standard 52-card deck. Find $P(\text{both cards are Kings})$.
-  - [After solving on your own, see solution here](./Solutions/10_4_Solution3.html)
+    - [After solving on your own, see solution here](./Solutions/10_4_Solution3.html)
+    
 4. A fair coin is flipped, and a fair six-sided die is rolled. These two events don't affect each other at all. Find $P(\text{coin shows heads AND die shows a 6})$.
-  - [After solving on your own, see solution here](./Solutions/10_4_Solution4.html)
+    - [After solving on your own, see solution here](./Solutions/10_4_Solution4.html)
  

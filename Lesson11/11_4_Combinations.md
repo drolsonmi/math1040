@@ -36,16 +36,25 @@ But notice that 3! = 6. Does this work if we take the top 4 runners instead? If 
 * CABD, CADB, CBAD, CBDA, CDAB, CDBA
 * DABC, DACB, DBAC, DBCA, DCAB, DCBA
 
-This makes $$4\times 6 = 24$$ different arrangements. Notice that this is $$4\times 6 = 4\times 3! = 4!$$. So, again we divide by 24 (or by $$4!$$).
+This makes $$4\times 6 = 24$$ different arrangements. Notice that this is $4\times 6 = 4\times 3! = 4!$. So, again we divide by 24 (or by $4!$).
 
-We call this a __Combination__. We often write a combination as ${}_nC_r$. However, another common way (including in your textbook) is $\begin{pmatrix}n \\ r\end{pmatrix}$. Know that *both notations mean exactly the same thing*. When we see either of these, we often say this out loud as "n Choose r".
+We call this a __Combination__. We often write a combination as 
+
+$${}_nC_r$$
+
+However, another common way (including in your textbook) is 
+
+$$\begin{pmatrix}n \\ r\end{pmatrix}$$
+
+Know that *both notations mean exactly the same thing*. When we see either of these, we often say this out loud as "n Choose r".
 
 A Combination is the number of ways to select r items from a pool of n. To calculate it, we take our permutation equation and divide by r!.
 
 $${}_nC_r = \frac{{}_nP_r}{r!}$$
 
 Think of it this way:
-* The \\({}n_P_r = n!/(n-r)!\\)$ counts the arrangements of the first r places (our permutation)
+
+* The ${}n_P_r = n!/(n-r)!$ counts the arrangements of the first r places (our permutation)
 * Dividing by $$r!$$ eliminates duplicate arrangements when the order doesn't matter (ABC vs. CBA)
 
 Back to our runners example, how many ways can 3 people from a 13-runner race qualify for the final round? We have 13 runners, and we are choosing 3. So, 13 Choose 3 is the number of permutations ($${}_{13}P_3 = 1716$$) divided by the number of ways they can be rearranged ($$3! = 6$$), which gives 286 different combinations:
