@@ -51,7 +51,11 @@ $$\mu = np \qquad \sigma = \sqrt{npq}\tag{Binomial Mean and Standard Deviation}$
 
 For the free-throw example: $\mu = 4(0.7) = 2.8$ makes and $\sigma = \sqrt{4(0.7)(0.3)} \approx 0.917$.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gCiu-o1e4rI?si=T3fCkYtIPh0DwlBv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kqMfLcUE404?si=Qu2C0xJdzk3o2qp6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+In the following video, I do an example of calculations with binomial probabilities. I recommend that you try the problem on your own first based on what you learned in the previous video.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Fk43m7LKKs8?si=1XFD9kuEt90F_AT3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
 1. A fair coin is flipped 3 times. Build the complete binomial probability distribution for $x$ = number of heads, and verify that the probabilities sum to 1.

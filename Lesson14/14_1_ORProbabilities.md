@@ -49,7 +49,9 @@ $$P(\text{even}) = \frac{3}{6}, \qquad P(>4) = \frac{2}{6}, \qquad P(\text{even 
 
 $$P(\text{even or} >4) = \frac{3}{6}+\frac{2}{6}-\frac{1}{6} = \frac{4}{6} = \frac{2}{3}$$
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6xfyeixdz2E?si=uVvT4qU3ye_oz2h9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+As a reminder, here is the video from Lesson 10 on OR probabilities:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FcCjfTRqCIk?si=3Ev9WyxYx-8tWb5R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
 1. A standard deck of 52 cards is shuffled, and one card is drawn. Find the probability that the card is a King **or** a Queen.

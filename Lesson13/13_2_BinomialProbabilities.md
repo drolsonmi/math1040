@@ -52,7 +52,11 @@ $$P(3) = 56(0.027)(0.16807) \approx 0.2541$$
 
 There is about a **25.4%** chance that exactly 3 of the 8 customers make a purchase.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8idr1WZ1A7Q?si=lHqQ0_Fh1jvxU9tJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ki2VKu3xoDA?si=BFRjsmfZvIj1Qvmk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+In the following video, I do an example of calculations with binomial probabilities. I recommend that you try the problem on your own first based on what you learned in the previous video.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ORC8-GLCcn0?si=kAJyo92jI82jyPT3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
 1. A fair coin is flipped 6 times. Find the probability of getting exactly 4 heads.

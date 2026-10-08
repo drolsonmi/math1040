@@ -47,7 +47,11 @@ For example, suppose 30% of customers who enter a store make a purchase, and we 
 
 Condition 4 (independence) is the one students most often overlook. If we are drawing from a small population *without replacement*, the probability of success can change from trial to trial, which breaks independence, and the process is technically **not** binomial. In practice, if the population is very large compared to the sample (a common rule of thumb is that the sample is less than 10% of the population), the change in probability from trial to trial is so small that we treat the process as approximately binomial anyway.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/J8jNoF-K8E8?si=Vv3nZ54nTOoOLZ0d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oiZgoOvumug?si=fTlOk_mK0qxB2DrA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+In case you need it, here is the video from Lesson 10 on AND probabilities:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dfyN2HU3ZSs?si=P2HS4iB4tDZWOEd5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
 For each scenario, decide whether the process describes a binomial experiment. If it does, identify $n$, $p$, and $q$. If it does not, explain which requirement is not met.
