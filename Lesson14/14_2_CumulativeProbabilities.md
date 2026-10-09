@@ -57,7 +57,7 @@ $$P(x\geq 3) = 1-P(x\leq 2) = 1-0.65 = 0.35 \checkmark$$
 
 Both methods agree, as they should.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xxKW1a1kUxU?si=SefEEZOpV3F0nB9x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9nUo_vv3zGI?si=BfrLBPS0tZZ7tN53" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
 A small college's IT help desk keeps track of how many support tickets, $x$, come in per hour. The probability distribution is given below.

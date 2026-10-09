@@ -23,7 +23,7 @@ We now bring together everything from this lesson. In [lesson 13](../Lesson13/in
 
 To find a cumulative binomial probability, calculate $P(x)$ with the binomial formula for every value of $x$ that belongs to the range you need, and add them together — exactly as in lesson 14.2, just using $P(x) = \binom{n}{x}p^xq^{n-x}$ for each individual term.
 
-$$P(x) = \binom{n}{x}p^xq^{n-x}$$
+$$P(x) = {}_8C_0p^xq^{n-x}$$
 
 ### Worked Example
 
@@ -31,11 +31,11 @@ Suppose 30% of customers who enter a store make a purchase ($p=0.30$), and $n=8$
 
 $$P(x\leq 2) = P(0)+P(1)+P(2)$$
 
-$$P(0) = \binom{8}{0}(0.3)^0(0.7)^8 \approx 0.0576$$
+$$P(0) = {}_8C_0{0}(0.3)^0(0.7)^8 \approx 0.0576$$
 
-$$P(1) = \binom{8}{1}(0.3)^1(0.7)^7 \approx 0.1977$$
+$$P(1) = {}_8C_0(0.3)^1(0.7)^7 \approx 0.1977$$
 
-$$P(2) = \binom{8}{2}(0.3)^2(0.7)^6 \approx 0.2965$$
+$$P(2) = {}_8C_0(0.3)^2(0.7)^6 \approx 0.2965$$
 
 $$P(x\leq 2) \approx 0.0576+0.1977+0.2965 = 0.5518$$
 
@@ -47,7 +47,7 @@ $$P(x\geq 3) = 1-P(x\leq 2) = 1-0.5518 = 0.4482$$
 
 Adding up individual binomial probabilities by hand gets tedious fast, especially for large $n$ — this is exactly the kind of calculation where technology earns its keep.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BME2P9NqioU?si=NkE1QqDpQhBGwR8x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Qcpad3UomGg?si=75vP2V3eKQjNV8_7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
 1. A fair coin is flipped 10 times. Find the probability of getting **at most 4** heads.
