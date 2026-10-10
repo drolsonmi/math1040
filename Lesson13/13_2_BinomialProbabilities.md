@@ -76,7 +76,7 @@ In the following video, I do an example of calculations with binomial probabilit
 3. Enter the values in order: `binompdf(n, p, x)`, where $n$ is the number of trials, $p$ is the probability of success, and $x$ is the exact number of successes you want.
 4. Press **ENTER** to see the probability.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/N8Kfw2E9ONc?si=B5uYQoxg1uUEr2Y6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uJ4z70TVBqw?si=zgCbdYRbcMG2IV_y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Excel
 1. Click on an empty cell where you want the result to appear.

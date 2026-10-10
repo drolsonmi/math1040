@@ -70,7 +70,7 @@ Adding up individual binomial probabilities by hand gets tedious fast, especiall
   - For "between $a$ and $b$" (inclusive), subtract two cumulative probabilities: `binomcdf(n, p, b) - binomcdf(n, p, a - 1)`.
 4. Press **ENTER** to see the probability.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/g2X1XyF9Sso?si=6bR-3Z1PPh2Pua-K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_imFYrL-D0M?si=e3r2ZvKLv_DzfUJX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Excel
 1. Click on an empty cell where you want the result to appear.

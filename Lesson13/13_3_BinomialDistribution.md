@@ -64,3 +64,18 @@ In the following video, I do an example of calculations with binomial probabilit
   - [After solving on your own, see solution here](./Solutions/13_3_Solution2.html)
 3. A pharmaceutical trial shows that a new medication is effective for 60% of patients. For a group of 4 independent patients, build the complete binomial distribution for $r$ = number for whom the medication is effective. Use the distribution to find $P(X \geq 3)$.
   - [After solving on your own, see solution here](./Solutions/13_3_Solution3.html)
+
+
+## Technology
+
+### TI-83/84
+1. Press **STAT**, then **EDIT...**
+2. Choose a list and put all the values 0, 1, 2, ... $n$ into that list
+3. Choose another list and push up until you highlight the list title (**L2**, for example)
+4. While having the other list selected, press **2ND**, then **VARS** to open the **DISTR** (distributions) menu.
+5. Scroll down to **binompdf(** (probability density function — this gives the probability of an *exact* number of successes) and press **ENTER**.
+6. Enter the values in order: `binompdf(n, p, x)`, where $n$ is the number of trials, $p$ is the probability of success, and $x$ is the exact number of successes you want.
+7. Press **ENTER** to see the probability.
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ioMeo7PdGDE?si=t1GVXCCuutKxORYv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
