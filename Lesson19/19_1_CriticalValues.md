@@ -86,6 +86,10 @@ E &= z_c\sqrt{\frac{\hat{p}\hat{q}}{n}} = z_c\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
 
 The margin of error is approximately **0.066**, or **6.6 percentage points**. We will use this in the next lesson to construct the full confidence interval.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OedaqWIIlmI?si=fOKnq97dmDKMbvMT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OFQz1y4LIGU?si=933yFCpA8fg47oNK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Practice
 1. A poll asks whether registered voters plan to vote in the upcoming election. In a random sample of 150 voters, 96 say they plan to vote. Find the margin of error at the 90% confidence level.
     * [After solving on your own, see solution here](Solutions/19_1_Solution1.md)

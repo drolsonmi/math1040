@@ -23,6 +23,8 @@ While interpreting categorical confidence intervals, there is an additional aspe
 * If both of the boundaries of our confidence interval are above 0.50, then we are quite confident that we have a majority. 
 * Likewise, if both of the boundaries of our confidence interval are below 0.50, then we are quite confident that we have a minority
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xPD_rKlvfPU?si=OxAAFhofMeuE-gFR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Quick example
 Presidential elections are a great example of this. Election committees often put out surveys to see if citizens in a state will vote for a given candidate. Let's say that in Utah, a survey to determine whether citizens vote republican or not shows a 99% confidence interval of (0.65, 0.8).
 

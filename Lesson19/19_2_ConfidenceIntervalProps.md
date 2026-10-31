@@ -93,6 +93,16 @@ Here is a proper interpretation of the confidence interval:
 
 Notice that it is common and natural to express the confidence interval as percentages when the variable is a proportion or a percentage.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9uPeELI7bZw?si=LjFRjylJzTas-F4Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GwVhhyN0Kjc?si=tCz8_ILj1vS7D5r2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/15O1J1iO-vU?si=7EUxzfUw51enn-8v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Here is a second example of doing a confidence interval for categorical data from beginning to finish:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3_T5zLhyiN0?si=8ITqubYduwEVsqSz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Practice
 1. A local news station surveys a random sample of 300 residents and finds that 174 support a proposed new park. Construct a 95% confidence interval for the true proportion of residents who support the new park.
     * [After solving on your own, see solution here](Solutions/19_2_Solution1.md)
@@ -111,6 +121,8 @@ To calculate the Confidence Interval for a proportion on a TI-83/84,
 * Select `A:1-PropZInt...`
 * Enter $$x$$ (number of successes), $$n$$ (sample size), and the confidence level (C-Level)
 * Select "Calculate"
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9z3MLtNuris?si=1DQV96RAVxoFPed-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The calculator will display the confidence interval bounds, the sample proportion $$\hat{p}$$, and the sample size $$n$$. You can verify your margin of error by computing half the width of the interval:
 
