@@ -61,6 +61,8 @@ The __critical region__ (also called the __rejection region__) is the set of tes
 
 The critical value itself is found the same way we found it for confidence intervals, using the level of significance instead of $$1 -$$ confidence level to find the appropriate area.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cCNMFO9MiZ8?si=2Q5-KoCOfanFwYkb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### Using the Test Statistic and the Critical Region
 Once we know the critical region, we calculate a __test statistic__ from our sample. The test statistic measures how many standard errors our sample result is away from the null value:
 
@@ -74,6 +76,7 @@ Once we've calculated the test statistic, the decision is simple:
 
 Notice that we never say we "accept" the null hypothesis. Just like the jury in Lesson 20.1 doesn't declare someone "innocent" — only "not guilty" (not enough evidence to convict) — we don't declare $$H_0$$ true. We only ever say we don't have enough evidence to reject it.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WashX6l-_2g?si=5gEszTwflbaKXrxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Example
 Let's revisit and solve the example brought up in 20.1:

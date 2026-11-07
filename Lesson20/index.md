@@ -24,6 +24,10 @@ Hypothesis tests and confidence intervals are two sides of the same coin. In fac
 
 The rest of this course is built around hypothesis testing, so it's worth taking the time now to understand exactly what a hypothesis test is doing and why.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d635eTUIaFo?si=H7E-i2eKFUTkWwh-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xWchFVT1jfY?si=6jM1_XodEMvKbfvv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Quick example
 American mental abilities are often measured by an IQ test. The IQ distribution is normal with a mean of 100 and a population standard deviation of 15. Suppose a random sample of 40 Snow College students has an average IQ of 106.3.
 

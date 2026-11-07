@@ -72,6 +72,8 @@ $$H_0: \mu = 100 \qquad\qquad H_A: \mu > 100$$
 
 The rest of the lesson will look at how to determine which hypothesis we accept.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NWj611emyxY?si=h-od08NkG5E_zjVx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Practice
 For each of the following questions, establish both the Null Hypothesis and the Alternate Hypothesis
 1. A coffee shop claims that the average wait time for a customer to receive their order is no more than 4 minutes. A customer advocacy group believes the wait time is longer. A random sample of 35 customers had an average wait time of 4.6 minutes with a standard deviation of 1.2 minutes. At the 5% significance level, test the claim that the average wait time is greater than 4 minutes.

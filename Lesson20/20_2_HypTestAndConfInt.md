@@ -45,6 +45,8 @@ In this case, the null value of 100 is inside of the confidence interval. That m
 
 When doing hypothesis testing, we don't actually look at confidence intervals. However, the method of hypothesis testing is actually closely related to confidence intervals. So, when I go through the hypothesis testing process in the next pages, I will include the confidence interval so that you can see that this works.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pdOoJaKMHac?si=P_9GVvS4rvQfhDJB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Practice
 For each of the following questions, find the confidence interval and compare it to the null value. (Note that I give you the confidence level. We'll discuss the significance level in the next page.)
 1. A coffee shop claims that the average wait time for a customer to receive their order is no more than 4 minutes. A customer advocacy group believes the wait time is longer. A random sample of 35 customers had an average wait time of 4.6 minutes with a standard deviation of 1.2 minutes. At the 5% significance level (90% confidence level), test the claim that the average wait time is greater than 4 minutes.
