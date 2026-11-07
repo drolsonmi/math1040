@@ -52,6 +52,9 @@ Each of these corresponds to a different shape for our test, based on where the 
 
 This is exactly the same idea we used with confidence intervals — a confidence interval is always "two-tailed" because it looks for values both above and below the sample statistic. A one-tailed hypothesis test, on the other hand, only worries about evidence in one direction, so the *entire* level of significance is placed in that one tail. This is why the critical values you find for a one-tailed test at a given $\alpha$ are not the same as the ones you found for a confidence interval at $1-\alpha$ confidence — the confidence interval splits its "leftover" area into both tails, while a one-tailed test does not.
 
+<!-- Types of Hypothesis Tests -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xWchFVT1jfY?si=6jM1_XodEMvKbfvv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### The Critical Region
 The __critical region__ (also called the __rejection region__) is the set of test statistic values that are unusual enough, assuming the null hypothesis is true, that we would reject $H_0$ in favor of $H_A$. The boundary of the critical region is marked by the __critical value__ — the same type of z-score (or t-score) we used to build confidence intervals.
 
@@ -61,6 +64,7 @@ The __critical region__ (also called the __rejection region__) is the set of tes
 
 The critical value itself is found the same way we found it for confidence intervals, using the level of significance instead of $$1 -$$ confidence level to find the appropriate area.
 
+<!-- Critical Region -->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cCNMFO9MiZ8?si=2Q5-KoCOfanFwYkb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Using the Test Statistic and the Critical Region
@@ -76,6 +80,7 @@ Once we've calculated the test statistic, the decision is simple:
 
 Notice that we never say we "accept" the null hypothesis. Just like the jury in Lesson 20.1 doesn't declare someone "innocent" — only "not guilty" (not enough evidence to convict) — we don't declare $$H_0$$ true. We only ever say we don't have enough evidence to reject it.
 
+<!-- Critical Values and Test Statistics -->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WashX6l-_2g?si=5gEszTwflbaKXrxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Example

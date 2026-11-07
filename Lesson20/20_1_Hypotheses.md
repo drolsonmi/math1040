@@ -31,6 +31,9 @@ This is actually a good picture of what we are doing with __hypothesis testing__
 
 We then gather data and use statistics to determine if the null value fits with the data or not.
 
+<!-- Courtroom -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d635eTUIaFo?si=H7E-i2eKFUTkWwh-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### The Null Hypothesis
 Our default assumption in statistics is that the true value (the population mean for quantitative data) has not changed. It is the same as the null value. This is known as a __Null Hypothesis__.
 
@@ -72,6 +75,7 @@ $$H_0: \mu = 100 \qquad\qquad H_A: \mu > 100$$
 
 The rest of the lesson will look at how to determine which hypothesis we accept.
 
+<!-- Example of setting up a Hypothesis Test -->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NWj611emyxY?si=h-od08NkG5E_zjVx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice

@@ -45,6 +45,7 @@ In this case, the null value of 100 is inside of the confidence interval. That m
 
 When doing hypothesis testing, we don't actually look at confidence intervals. However, the method of hypothesis testing is actually closely related to confidence intervals. So, when I go through the hypothesis testing process in the next pages, I will include the confidence interval so that you can see that this works.
 
+<!-- How Confidence intervals fit in -->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pdOoJaKMHac?si=P_9GVvS4rvQfhDJB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
