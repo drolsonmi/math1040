@@ -80,7 +80,7 @@ $$z = \frac{0.65 - 0.55}{0.04541} = \frac{0.10}{0.04541} = 2.202$$
 
 **Step 5 — Decision and Conclusion**
 
-* $|z| = 2.202 > z_c = 1.960$ → **Reject $H_0$**
+* $\lvert z\lvert = 2.202 > z_c = 1.960$ → **Reject $H_0$**
 * $p = 0.0276 \le \alpha = 0.05$ → **Reject $H_0$**
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to conclude that the proportion of students at this school who use social media more than 3 hours per day is different from the national rate of 55%.

@@ -68,12 +68,15 @@ The critical value for a proportion confidence interval is the same z-score we u
 We will use a 95% confidence level for our scenario, so $z_c = \pm 1.96$.
 
 ### Margin of Error
+The standard deviation (more commonly known as a __standard error__) for the proportional sample distribution is
+
+$$\sigma_\hat{p} = SE = \sqrt{\frac{\hat{p}\hat{q}}{n}} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
 
 The __margin of error__ for a proportion is:
 
-$$E = z_c\sqrt{\frac{\hat{p}\hat{q}}{n}} = z_c\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
+$$E = z_c SE = z_c\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
 
-This formula is analogous to the margin of error for a mean ($E = z_c \cdot \sigma/\sqrt{n}$) — the critical value multiplied by the standard error. The key difference is that the error is now computed from $\hat{p}$ instead of a known population standard deviation.
+This formula is analogous to the margin of error for a mean ($E = z_c \cdot \sigma/\sqrt{n}$) — the critical value multiplied by the standard error. The key difference is that the error is now computed from $\hat{p}$ instead of a known population standard error.
 
 For our scenario at the 95% confidence level,
 
