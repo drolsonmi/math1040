@@ -171,3 +171,7 @@ MathJax = {
 [25: Inference with Correlation](./Lesson25/index.md)
 * [25.1 Hypotheses for a Correlation Test](./Lesson25/25_1_Hypotheses.md)
 * [25.2 Testing the Correlation Coefficient](./Lesson25/25_2_TestingCorrelation.md)
+
+## Calculators
+* [Descriptive 1-variable Statistics](./calculator/descriptive-stats.html)
+* [1-sample Quantitative Confidence Interval](./calculator/confint-1sample-quantitative.html)
