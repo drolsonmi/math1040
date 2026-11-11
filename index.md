@@ -175,3 +175,4 @@ MathJax = {
 ## Calculators
 * [Descriptive 1-variable Statistics](./calculator/descriptive-stats.html)
 * [1-sample Quantitative Confidence Interval](./calculator/confint-1sample-quantitative.html)
+* [1-sample Quantitative Hypothesis Test](./calculator/hyptest-1sample-quantitative.html)
