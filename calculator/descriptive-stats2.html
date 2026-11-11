@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1E376C">
+<title>Descriptive Statistics Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Spectral:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F1F3F8;
+  --sheet: #FFFFFF;
+  --ink: #14233F;
+  --muted: #5B6478;
+  --line: #CDD3E0;
+  --grid: rgba(30,55,108,.06);
+  --accent: #1E376C;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #FDE7CC;
+  --key: #F6F7FB;
+  --box: #F47920;
+  --box-fill: rgba(250,166,52,.3);
+  --error: #B03A2E;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1A30; --sheet: #17243F; --ink: #E8ECF5; --muted: #A3AEC6;
+    --line: #2C3B5A; --grid: rgba(143,169,221,.06); --accent: #8FA9DD;
+    --accent-ink: #0F1A30; --accent-soft: #4A3220; --key: #1F2E4D;
+    --box: #F47920; --box-fill: rgba(250,166,52,.22); --error: #F08A7E;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F1A30; --sheet: #17243F; --ink: #E8ECF5; --muted: #A3AEC6;
+  --line: #2C3B5A; --grid: rgba(143,169,221,.06); --accent: #8FA9DD;
+  --accent-ink: #0F1A30; --accent-soft: #4A3220; --key: #1F2E4D;
+  --box: #F47920; --box-fill: rgba(250,166,52,.22); --error: #F08A7E;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+main {
+  max-width: 1120px; margin: 0 auto;
+  padding: 2rem max(1.25rem, env(safe-area-inset-right, 0px)) 3rem max(1.25rem, env(safe-area-inset-left, 0px));
+}
+h1 {
+  font-family: "Spectral", Georgia, "Times New Roman", serif;
+  font-weight: 700; font-size: clamp(1.6rem, 6vw, 2.4rem);
+  line-height: 1.15; margin: 0 0 .4rem; color: var(--accent);
+}
+.lede { color: var(--muted); margin: 0 0 1.5rem; max-width: 64ch; }
+h2 {
+  font-family: "Spectral", Georgia, serif; font-weight: 500;
+  font-size: 1.3rem; margin: 0 0 .7rem;
+}
+
+/* ---------- layout: desktop ---------- */
+.tabs { display: none; }
+.pager {
+  display: grid; gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  grid-template-areas: "data res" "graph graph";
+  align-items: start;
+}
+.panel-data { grid-area: data; }
+.panel-results { display: contents; }
+.res-top { grid-area: res; }
+.res-graph { grid-area: graph; }
+.see-results { display: none; }
+
+/* ---------- data entry ---------- */
+.entry {
+  background: var(--sheet); border: 1px solid var(--line);
+  border-top: 5px solid var(--box);
+  border-radius: 12px; padding: 1.25rem;
+}
+label.field { display: block; font-weight: 700; margin-bottom: .45rem; }
+textarea {
+  width: 100%; min-height: 180px; resize: vertical;
+  font: inherit; font-size: 1.1rem; color: var(--ink);
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: 8px; padding: .75rem;
+}
+textarea:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 2px;
+}
+.hint { font-size: .9rem; color: var(--muted); margin: .4rem 0 0; }
+.error { color: var(--error); font-size: .95rem; margin: .3rem 0 0; min-height: 1.4em; }
+.check { display: flex; align-items: center; gap: .5rem; font-size: .95rem; color: var(--muted); margin-top: .3rem; }
+.check input { width: 1.1rem; height: 1.1rem; accent-color: var(--accent); flex: none; }
+
+.keypad {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: .45rem;
+  max-width: 380px; margin-top: .75rem;
+}
+.entry.no-keypad .keypad { display: none; }
+.keypad button {
+  min-height: 52px; font: inherit; font-size: 1.3rem; font-weight: 700;
+  border-radius: 10px; border: 1px solid var(--line);
+  background: var(--key); color: var(--ink); cursor: pointer;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+  user-select: none; -webkit-user-select: none;
+}
+.keypad button:active { background: var(--accent-soft); }
+.keypad .op { color: var(--accent); }
+.keypad .next {
+  grid-row: span 2; background: var(--accent); color: var(--accent-ink);
+  border-color: var(--accent); font-size: 1rem;
+}
+.keypad .next:active { filter: brightness(.9); background: var(--accent); }
+.keypad .zero { grid-column: span 2; }
+
+.controls { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; margin-top: 1rem; }
+.btn {
+  font: inherit; font-weight: 700; cursor: pointer; min-height: 44px;
+  border-radius: 8px; padding: .5rem .95rem;
+  border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink);
+  touch-action: manipulation;
+}
+.btn.ghost { background: transparent; color: var(--accent); }
+.opt { display: flex; align-items: center; justify-content: space-between; gap: .6rem; font-size: .95rem; color: var(--muted); width: 100%; }
+.opts { display: grid; gap: .5rem; margin-top: 1rem; }
+select {
+  font: inherit; font-size: 1rem; color: var(--ink); background: var(--paper);
+  border: 1px solid var(--line); border-radius: 8px; padding: .4rem .45rem; min-height: 40px;
+  max-width: 100%; flex: 0 1 auto;
+}
+
+/* ---------- results ---------- */
+.stats {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1px; background: var(--line); border: 1px solid var(--line);
+  border-radius: 12px; overflow: hidden;
+}
+.stat { background: var(--sheet); padding: 1rem 1.1rem; }
+.sym { font-family: "Spectral", Georgia, serif; font-style: italic; font-size: 1.2rem; color: var(--accent); }
+.name { font-size: .88rem; color: var(--muted); display: block; }
+.val {
+  font-size: 1.6rem; font-weight: 700; margin-top: .2rem;
+  font-variant-numeric: tabular-nums; overflow-wrap: anywhere;
+}
+.val.empty { color: var(--line); }
+.xbar { text-decoration: overline; text-decoration-thickness: 1.5px; }
+.res-top h2 + .stats { margin-bottom: 1.5rem; }
+
+.five {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  border: 1px solid var(--line); border-radius: 12px;
+  background: var(--sheet); overflow: hidden;
+}
+.five .stat { border-right: 1px solid var(--line); text-align: center; padding: .9rem .3rem; }
+.five .stat:last-child { border-right: 0; }
+.five .val { font-size: 1.25rem; }
+
+.plot {
+  background: var(--sheet); border: 1px solid var(--line);
+  border-radius: 12px; padding: .75rem 1rem 1rem;
+}
+.plot .check { color: var(--ink); margin: 0 0 .5rem; }
+.plot svg { display: block; width: 100%; height: auto; }
+.plot text { font-family: "Atkinson Hyperlegible", system-ui, sans-serif; font-size: 14px; fill: var(--muted); }
+.outinfo { font-size: .92rem; color: var(--muted); margin: .4rem 0 0; font-variant-numeric: tabular-nums; min-height: 1.4em; }
+.sorted-block { margin-top: 1.5rem; }
+.sorted { font-variant-numeric: tabular-nums; color: var(--muted); font-size: .95rem; margin: 0; overflow-wrap: anywhere; }
+details { margin-top: 1.5rem; }
+summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
+.formulas p { margin: .6rem 0; max-width: 72ch; }
+.formulas .eq { font-family: "Spectral", Georgia, serif; font-style: italic; font-size: 1.1rem; }
+
+/* ---------- layout: phone, two swipeable screens ---------- */
+@media (max-width: 760px) {
+  main { padding-top: 1.25rem; padding-left: 0; padding-right: 0; }
+  header { padding: 0 max(1rem, env(safe-area-inset-left, 0px)); }
+  .lede { margin-bottom: 1rem; }
+
+  body::before {
+    content: ""; position: fixed; inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper);
+  }
+  .tabs {
+    display: flex; gap: .35rem; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+    margin: 0 max(1rem, env(safe-area-inset-left, 0px)) 1rem;
+    padding: .3rem; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .tabs button {
+    flex: 1; font: inherit; font-weight: 700; min-height: 44px; cursor: pointer;
+    border: 0; border-radius: 9px; background: transparent; color: var(--muted);
+    touch-action: manipulation;
+  }
+  .tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); }
+
+  .pager {
+    display: flex; gap: 0; align-items: flex-start;
+    overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    scrollbar-width: none; position: relative;
+  }
+  .pager::-webkit-scrollbar { display: none; }
+  .panel-data, .panel-results {
+    display: block; flex: 0 0 100%; min-width: 0;
+    scroll-snap-align: start; scroll-snap-stop: always;
+    padding: 0 max(1rem, env(safe-area-inset-right, 0px)) 0 max(1rem, env(safe-area-inset-left, 0px));
+  }
+  .res-graph { margin-top: 1.5rem; }
+  .see-results { display: block; width: 100%; margin-top: 1rem; }
+  textarea { min-height: 110px; }
+  .keypad { max-width: none; }
+  .keypad button { min-height: 56px; }
+}
+@media (max-width: 560px) {
+  .entry { padding: 1rem; }
+  .val { font-size: 1.35rem; }
+  .stat { padding: .85rem .9rem; }
+  .five { grid-template-columns: 1fr; }
+  .five .stat {
+    display: flex; justify-content: space-between; align-items: baseline;
+    text-align: left; border-right: 0; border-bottom: 1px solid var(--line);
+    padding: .7rem 1rem;
+  }
+  .five .stat:last-child { border-bottom: 0; }
+  .five .name { font-size: 1rem; color: var(--ink); }
+  .five .val { font-size: 1.2rem; margin: 0; }
+  .plot { padding: .6rem .6rem .8rem; }
+}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Descriptive Statistics Calculator</h1>
+    <p class="lede">Enter your data and get the sample size, mean, both standard deviations, and the five-number summary with a box plot. Results update as you go.</p>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Screens">
+    <button type="button" role="tab" aria-selected="true" aria-controls="panel-data" data-go="0">Data</button>
+    <button type="button" role="tab" aria-selected="false" aria-controls="panel-results" data-go="1">Results</button>
+  </nav>
+
+  <div class="pager" id="pager">
+    <!-- screen 1: data -->
+    <section class="panel-data panel" id="panel-data" aria-label="Data entry">
+      <div class="entry">
+        <label class="field" for="data">Data values</label>
+        <textarea id="data" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="e.g. 12, 15, 9, 22, 17, 15, 30"></textarea>
+        <p class="hint">To enter data, use the keypad, paste data into the box, or type values separated by commas, spaces, or new lines.</p>
+        <label class="check"><input type="checkbox" id="usekbd"> Use my device’s keyboard</label>
+        <p class="error" id="error" role="status" aria-live="polite"></p>
+
+        <div class="keypad" role="group" aria-label="Number keypad">
+          <button type="button" data-k="7">7</button>
+          <button type="button" data-k="8">8</button>
+          <button type="button" data-k="9">9</button>
+          <button type="button" data-k="back" class="op" aria-label="Delete">⌫</button>
+          <button type="button" data-k="4">4</button>
+          <button type="button" data-k="5">5</button>
+          <button type="button" data-k="6">6</button>
+          <button type="button" data-k="-" class="op" aria-label="Negative sign">−</button>
+          <button type="button" data-k="1">1</button>
+          <button type="button" data-k="2">2</button>
+          <button type="button" data-k="3">3</button>
+          <button type="button" data-k="next" class="next">Next value</button>
+          <button type="button" data-k="0" class="zero">0</button>
+          <button type="button" data-k="." aria-label="Decimal point">.</button>
+        </div>
+
+        <div class="controls">
+          <button type="button" class="btn" id="sample">Load example</button>
+          <button type="button" class="btn ghost" id="clear">Clear</button>
+        </div>
+        <div class="opts">
+          <label class="opt">Decimals
+            <select id="dec"><option>2</option><option selected>4</option><option>6</option></select>
+          </label>
+          <label class="opt">Quartiles
+            <select id="qmethod">
+              <option value="exclusive" selected>Median of halves (TI-84)</option>
+              <option value="inclusive">Include median in halves</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <button type="button" class="btn see-results" data-go="1">See results</button>
+    </section>
+
+    <!-- screen 2: results -->
+    <section class="panel-results panel" id="panel-results" aria-label="Results">
+      <div class="res-top">
+        <h2>Measures</h2>
+        <div class="stats">
+          <div class="stat"><span class="sym">n</span><span class="name">Sample size</span><div class="val empty" id="n">—</div></div>
+          <div class="stat"><span class="sym xbar">x</span><span class="name">Mean</span><div class="val empty" id="mean">—</div></div>
+          <div class="stat"><span class="sym">σ</span><span class="name">Population std. deviation</span><div class="val empty" id="sigma">—</div></div>
+          <div class="stat"><span class="sym">s</span><span class="name">Sample std. deviation</span><div class="val empty" id="s">—</div></div>
+        </div>
+        <h2>Five-number summary</h2>
+        <div class="five">
+          <div class="stat"><span class="name">Min</span><div class="val empty" id="min">—</div></div>
+          <div class="stat"><span class="name">Q1</span><div class="val empty" id="q1">—</div></div>
+          <div class="stat"><span class="name">Median</span><div class="val empty" id="med">—</div></div>
+          <div class="stat"><span class="name">Q3</span><div class="val empty" id="q3">—</div></div>
+          <div class="stat"><span class="name">Max</span><div class="val empty" id="max">—</div></div>
+        </div>
+      </div>
+
+      <div class="res-graph">
+        <h2>Box plot</h2>
+        <div class="plot" aria-label="Box plot of the data">
+          <label class="check"><input type="checkbox" id="outliers"> Show outliers (modified box plot, 1.5 × IQR rule)</label>
+          <svg id="box" viewBox="0 0 600 140" role="img" aria-label="Box plot"></svg>
+          <p class="outinfo" id="outinfo" aria-live="polite"></p>
+        </div>
+        <div class="sorted-block">
+          <h2>Sorted data</h2>
+          <p class="sorted" id="sorted">Enter values to see them in order.</p>
+        </div>
+        <details class="formulas">
+          <summary>How these are calculated</summary>
+          <p><span class="eq">x̄ = Σx ⁄ n</span> is the sum of the values divided by how many there are.</p>
+          <p><span class="eq">σ = √( Σ(x − x̄)² ⁄ n )</span> treats the data as the whole population, so it divides by n.</p>
+          <p><span class="eq">s = √( Σ(x − x̄)² ⁄ (n − 1) )</span> treats the data as a sample, so it divides by n − 1. It needs at least two values.</p>
+          <p>The median is the middle value of the sorted data (or the average of the two middle values). With “Median of halves,” Q1 and Q3 are the medians of the lower and upper halves, leaving out the median itself when n is odd — the method TI-83/84 calculators and most intro stats courses use. “Include median in halves” keeps it in both halves when n is odd, so results can differ slightly.</p>
+          <p>With outliers shown, any value below Q1 − 1.5 × IQR or above Q3 + 1.5 × IQR is marked with an “x,” and the whiskers stop at the most extreme values inside those fences.</p>
+        </details>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+  const input = $('data'), errEl = $('error'), decSel = $('dec'), qSel = $('qmethod'), kbd = $('usekbd');
+  const svg = $('box'), outBox = $('outliers'), outInfo = $('outinfo');
+  const NS = 'http://www.w3.org/2000/svg';
+  let last = { sorted: [], q: null };
+
+  /* ---------- two-screen pager (phone) ---------- */
+  const pager = $('pager');
+  const panels = [$('panel-data'), $('panel-results')];
+  const tabs = [...document.querySelectorAll('.tabs button')];
+  const phone = window.matchMedia('(max-width: 760px)');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let current = 0;
+
+  function markTab(i) {
+    current = i;
+    tabs.forEach((t, j) => {
+      t.setAttribute('aria-selected', j === i ? 'true' : 'false');
+      t.tabIndex = j === i ? 0 : -1;
+    });
+  }
+  function toTop() {
+    const tabsEl = document.querySelector('.tabs');
+    const top = pager.getBoundingClientRect().top + window.scrollY - tabsEl.offsetHeight - 24;
+    if (window.scrollY > top) window.scrollTo({ top, behavior: reduce.matches ? 'auto' : 'smooth' });
+  }
+  function go(i) {
+    if (!phone.matches) return;
+    pager.scrollTo({ left: panels[i].offsetLeft, behavior: reduce.matches ? 'auto' : 'smooth' });
+    markTab(i);
+    toTop();
+  }
+  document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => go(+b.dataset.go)));
+  document.querySelector('.tabs').addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      const i = e.key === 'ArrowRight' ? 1 : 0;
+      go(i); tabs[i].focus();
+    }
+  });
+  let settle;
+  pager.addEventListener('scroll', () => {
+    if (!phone.matches) return;
+    clearTimeout(settle);
+    settle = setTimeout(() => {
+      const i = Math.round(pager.scrollLeft / pager.clientWidth);
+      if (i !== current) { markTab(i); toTop(); }
+      if (i === 1) drawBox(last.sorted, last.q);
+    }, 120);
+  }, { passive: true });
+  phone.addEventListener('change', () => { if (phone.matches) pager.scrollLeft = panels[current].offsetLeft; });
+
+  /* ---------- keyboard mode ---------- */
+  const touch = window.matchMedia('(pointer: coarse)').matches;
+  kbd.checked = !touch;
+  function applyKbd() {
+    document.querySelector('.entry').classList.toggle('no-keypad', kbd.checked);
+    if (kbd.checked) input.removeAttribute('inputmode');
+    else input.setAttribute('inputmode', 'none');
+  }
+  kbd.addEventListener('change', () => { applyKbd(); if (kbd.checked) input.focus(); });
+  applyKbd();
+
+  /* ---------- keypad ---------- */
+  function caret() {
+    const s = input.selectionStart, e = input.selectionEnd, len = input.value.length;
+    return document.activeElement === input || s !== e || s !== 0 ? [s, e] : [len, len];
+  }
+  function insert(text) {
+    const [s, e] = caret(), v = input.value;
+    input.value = v.slice(0, s) + text + v.slice(e);
+    const pos = s + text.length;
+    input.setSelectionRange(pos, pos);
+    update();
+  }
+  document.querySelector('.keypad').addEventListener('click', ev => {
+    const b = ev.target.closest('button');
+    if (!b) return;
+    const k = b.dataset.k, v = input.value;
+    if (k === 'back') {
+      const [s, e] = caret();
+      if (s !== e) { input.value = v.slice(0, s) + v.slice(e); input.setSelectionRange(s, s); }
+      else if (s > 0) {
+        const cut = v.slice(0, s).endsWith(', ') ? 2 : 1;
+        input.value = v.slice(0, s - cut) + v.slice(s);
+        input.setSelectionRange(s - cut, s - cut);
+      }
+      update();
+    } else if (k === 'next') {
+      const before = v.slice(0, caret()[0]).trimEnd();
+      if (before && !before.endsWith(',')) insert(', ');
+    } else {
+      insert(k);
+    }
+    if (!kbd.checked) input.focus({ preventScroll: true });
+  });
+
+  /* ---------- statistics ---------- */
+  function median(arr) {
+    const m = arr.length;
+    if (!m) return NaN;
+    const h = Math.floor(m / 2);
+    return m % 2 ? arr[h] : (arr[h - 1] + arr[h]) / 2;
+  }
+  function fmt(x) {
+    if (!isFinite(x)) return '—';
+    const d = +decSel.value;
+    let v = Number(x.toFixed(d));
+    if (Object.is(v, -0)) v = 0;
+    return v.toLocaleString(undefined, { maximumFractionDigits: d });
+  }
+  function set(id, val) {
+    const el = $(id);
+    el.textContent = val;
+    el.classList.toggle('empty', val === '—');
+  }
+  function el(tag, attrs) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  /* ---------- box plot (drawn at the plot's real width so text stays readable) ---------- */
+  function drawBox(sorted, q) {
+    const measured = Math.round(svg.getBoundingClientRect().width);
+    const W = Math.max(320, measured || 600), H = 140;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.innerHTML = '';
+    if (!sorted.length) {
+      const t = el('text', { x: W / 2, y: 70, 'text-anchor': 'middle' });
+      t.textContent = 'The box plot appears once you enter data.';
+      svg.appendChild(t);
+      outInfo.textContent = '';
+      return;
+    }
+    const min = q.min, max = q.max;
+
+    // number line with a "nice" interval (1, 2, 2.5, 5 × 10^k)
+    const target = Math.min(10, Math.max(4, Math.round(W / 90)));
+    const raw = ((max - min) || Math.abs(min) || 1) / target;
+    const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= raw * 0.999);
+    let a0 = Math.floor(min / step) * step, a1 = Math.ceil(max / step) * step;
+    if (a1 - a0 < step / 2) { a0 -= step; a1 += step; }
+    const L = 30, R = W - 30;
+    const X = v => L + (v - a0) / (a1 - a0) * (R - L);
+    const cy = 40, bh = 36, ay = 106, stroke = 'var(--ink)';
+
+    svg.appendChild(el('line', { x1: L, x2: R, y1: ay, y2: ay, stroke: 'var(--muted)', 'stroke-width': 1.2 }));
+    const nTicks = Math.round((a1 - a0) / step);
+    for (let i = 0; i <= nTicks; i++) {
+      const v = a0 + i * step, x = X(v);
+      svg.appendChild(el('line', { x1: x, x2: x, y1: ay, y2: ay + 6, stroke: 'var(--muted)', 'stroke-width': 1.2 }));
+      const t = el('text', { x, y: ay + 24, 'text-anchor': 'middle' });
+      t.textContent = Number(v.toFixed(10)).toLocaleString(undefined, { maximumFractionDigits: 6 });
+      svg.appendChild(t);
+    }
+
+    let lo = min, hi = max, outliers = [];
+    if (outBox.checked) {
+      const iqr = q.q3 - q.q1;
+      const lf = q.q1 - 1.5 * iqr, uf = q.q3 + 1.5 * iqr;
+      const inside = sorted.filter(v => v >= lf && v <= uf);
+      lo = inside.length ? inside[0] : q.q1;
+      hi = inside.length ? inside[inside.length - 1] : q.q3;
+      outliers = sorted.filter(v => v < lf || v > uf);
+      const fences = `IQR = ${fmt(iqr)}. Fences: ${fmt(lf)} and ${fmt(uf)}.`;
+      outInfo.textContent = outliers.length
+        ? `${outliers.length === 1 ? 'Outlier' : outliers.length + ' outliers'}: ${outliers.map(fmt).join(', ')}. ${fences}`
+        : `No outliers. ${fences}`;
+    } else {
+      outInfo.textContent = '';
+    }
+
+    svg.appendChild(el('line', { x1: X(lo), x2: X(q.q1), y1: cy, y2: cy, stroke, 'stroke-width': 1.5 }));
+    svg.appendChild(el('line', { x1: X(q.q3), x2: X(hi), y1: cy, y2: cy, stroke, 'stroke-width': 1.5 }));
+    [lo, hi].forEach(v => svg.appendChild(el('line', { x1: X(v), x2: X(v), y1: cy - 12, y2: cy + 12, stroke, 'stroke-width': 1.5 })));
+    outliers.forEach(v => {
+      const x = X(v), d = 5.5;
+      svg.appendChild(el('line', { x1: x - d, x2: x + d, y1: cy - d, y2: cy + d, stroke: 'var(--accent)', 'stroke-width': 2.4, 'stroke-linecap': 'round' }));
+      svg.appendChild(el('line', { x1: x - d, x2: x + d, y1: cy + d, y2: cy - d, stroke: 'var(--accent)', 'stroke-width': 2.4, 'stroke-linecap': 'round' }));
+    });
+    svg.appendChild(el('rect', { x: X(q.q1), y: cy - bh / 2, width: Math.max(X(q.q3) - X(q.q1), 1), height: bh,
+      fill: 'var(--box-fill)', stroke: 'var(--box)', 'stroke-width': 2, rx: 3 }));
+    svg.appendChild(el('line', { x1: X(q.med), x2: X(q.med), y1: cy - bh / 2, y2: cy + bh / 2, stroke: 'var(--box)', 'stroke-width': 3.5 }));
+
+    const counts = new Map();
+    sorted.forEach(v => {
+      const k = Math.round(X(v));
+      const c = counts.get(k) || 0;
+      counts.set(k, c + 1);
+      svg.appendChild(el('circle', { cx: X(v), cy: 70 + Math.min(c, 4) * 5, r: 2.8, fill: 'var(--accent)', opacity: .8 }));
+    });
+  }
+
+  function update() {
+    const raw = input.value.trim();
+    const tokens = raw ? raw.split(/[\s,;]+/).filter(Boolean) : [];
+    const bad = [], data = [];
+    tokens.forEach(t => {
+      const v = Number(t.replace('−', '-'));
+      if (isFinite(v)) data.push(v); else bad.push(t);
+    });
+    errEl.textContent = bad.length
+      ? `Ignored ${bad.length === 1 ? 'an entry that isn’t a number' : bad.length + ' entries that aren’t numbers'}: ${bad.slice(0, 5).join(', ')}${bad.length > 5 ? ', …' : ''}`
+      : '';
+
+    const n = data.length;
+    if (!n) {
+      ['n', 'mean', 'sigma', 's', 'min', 'q1', 'med', 'q3', 'max'].forEach(id => set(id, '—'));
+      $('sorted').textContent = 'Enter values to see them in order.';
+      last = { sorted: [], q: null };
+      drawBox([], null);
+      return;
+    }
+
+    const sorted = data.slice().sort((a, b) => a - b);
+    const mean = data.reduce((a, b) => a + b, 0) / n;
+    const ss = data.reduce((a, x) => a + (x - mean) ** 2, 0);
+    const sigma = Math.sqrt(ss / n);
+    const s = n > 1 ? Math.sqrt(ss / (n - 1)) : NaN;
+
+    const med = median(sorted), h = Math.floor(n / 2);
+    let lower, upper;
+    if (n === 1) { lower = upper = sorted; }
+    else if (qSel.value === 'inclusive' && n % 2) { lower = sorted.slice(0, h + 1); upper = sorted.slice(h); }
+    else { lower = sorted.slice(0, h); upper = sorted.slice(n % 2 ? h + 1 : h); }
+    const q = { min: sorted[0], q1: median(lower), med, q3: median(upper), max: sorted[n - 1] };
+
+    set('n', n.toLocaleString());
+    set('mean', fmt(mean));
+    set('sigma', fmt(sigma));
+    set('s', n > 1 ? fmt(s) : '—');
+    set('min', fmt(q.min)); set('q1', fmt(q.q1)); set('med', fmt(q.med));
+    set('q3', fmt(q.q3)); set('max', fmt(q.max));
+
+    $('sorted').textContent = sorted.map(v => v.toLocaleString(undefined, { maximumFractionDigits: 10 })).join(', ')
+      + (n === 1 ? ' (s needs at least two values)' : '');
+    last = { sorted, q };
+    drawBox(sorted, q);
+  }
+
+  input.addEventListener('input', update);
+  decSel.addEventListener('change', update);
+  qSel.addEventListener('change', update);
+  outBox.addEventListener('change', update);
+  $('sample').addEventListener('click', () => {
+    input.value = '12, 15, 9, 22, 17, 15, 30, 11, 19, 24, 15, 8, 27';
+    input.setSelectionRange(input.value.length, input.value.length);
+    update();
+  });
+  $('clear').addEventListener('click', () => { input.value = ''; update(); });
+
+  // redraw the plot when its width changes (rotation, window resize)
+  let lastW = 0;
+  new ResizeObserver(entries => {
+    const w = Math.round(entries[0].contentRect.width);
+    if (w && w !== lastW) { lastW = w; drawBox(last.sorted, last.q); }
+  }).observe(svg);
+
+  update();
+})();
+</script>
+</body>
+</html>
