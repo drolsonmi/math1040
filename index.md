@@ -174,5 +174,6 @@ MathJax = {
 
 ## Calculators
 * [Descriptive 1-variable Statistics](./calculator/descriptive-stats.html)
+* [Normal Distribution: Z-Score](./calculator/normal-zscore.html)
 * [1-sample Quantitative Confidence Interval](./calculator/confint-1sample-quantitative.html)
 * [1-sample Quantitative Hypothesis Test](./calculator/hyptest-1sample-quantitative.html)

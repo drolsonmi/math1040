@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Normal Distribution Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Spectral:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1E376C; --orange:#F47920; --lorange:#FAA634;
+    --bg:#f6f7fa; --grid:rgba(30,55,108,.07); --panel:#ffffff; --text:#1c2333; --muted:#596377;
+    --border:#d8dde6; --btntext:#ffffff; --soft:#eef1f7; --err:#b42318;
+    --serif:"Spectral",Georgia,"Times New Roman",serif;
+    --sans:"Atkinson Hyperlegible",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --blue:#8FA9DD; --bg:#111725; --grid:rgba(143,169,221,.07); --panel:#1a2133; --text:#e4e8f1; --muted:#9aa6bd;
+      --border:#2f3a52; --btntext:#111725; --soft:#232c42; --err:#ff8a7a;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background-color:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.45;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:20px 20px}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px}
+  h1,h2,h3{font-family:var(--serif);color:var(--blue);font-weight:600;margin:0}
+  h1{font-size:26px;line-height:1.2}
+  .subtitle{color:var(--muted);margin:2px 0 14px;font-size:15px}
+  h2{font-size:20px;margin-bottom:10px}
+  h3{font-size:17px;margin-bottom:8px}
+  .sym{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue)}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;min-width:0}
+  .hidden{display:none !important}
+
+  /* ---------- Layout ---------- */
+  .tabs{display:none}
+  .screens{display:grid;grid-template-columns:minmax(300px,5fr) 7fr;gap:16px;align-items:start;
+    grid-template-areas:"data results" "graph graph" "how how"}
+  .screen{display:contents}
+  #dataPanel{grid-area:data;border-top:5px solid var(--orange)}
+  #resultsPanel{grid-area:results}
+  #graphPanel{grid-area:graph}
+  #howPanel{grid-area:how}
+  .see-results{display:none}
+
+  @media (max-width:760px){
+    .wrap{padding:12px 10px}
+    h1{font-size:22px}
+    .tabs{display:flex;position:sticky;top:0;z-index:10;background:var(--bg);padding:6px 0 8px;margin-bottom:6px}
+    .tabs button{flex:1;border:1px solid var(--blue);background:var(--panel);color:var(--blue);font:700 15px var(--sans);padding:9px 0;cursor:pointer}
+    .tabs button:first-child{border-radius:8px 0 0 8px}
+    .tabs button:last-child{border-radius:0 8px 8px 0;border-left:none}
+    .tabs button.on{background:var(--blue);color:var(--btntext)}
+    .screens{display:flex;gap:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;align-items:flex-start;
+      scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .screens::-webkit-scrollbar{display:none}
+    .screen{display:flex;flex-direction:column;gap:12px;flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;padding:0 1px}
+    .see-results{display:block}
+  }
+
+  /* ---------- Controls ---------- */
+  label,.lbl{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+  input[type=text],select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:7px;
+    font:16px var(--sans);color:var(--text);background:var(--panel)}
+  #val{font-size:22px;font-weight:700;padding:10px 12px;font-variant-numeric:tabular-nums}
+  input[type=text]:focus,select:focus{outline:2px solid var(--lorange);outline-offset:0;border-color:var(--orange)}
+  .hint{font-size:13px;color:var(--muted);margin:6px 0 0}
+  .seg{display:flex;border:1px solid var(--blue);border-radius:8px;overflow:hidden;margin-bottom:12px}
+  .seg button{flex:1;border:none;background:var(--panel);color:var(--blue);padding:8px 6px;font:700 14px var(--sans);cursor:pointer;line-height:1.25}
+  .seg button+button{border-left:1px solid var(--blue)}
+  .seg button.on{background:var(--blue);color:var(--btntext)}
+  .seg .ico{display:block;margin:0 auto 3px}
+  .seg .ico path.fill{fill:var(--lorange)}
+  .seg .ico path.curve{fill:none;stroke:currentColor;stroke-width:1.6}
+  .seg .ico line{stroke:currentColor;stroke-width:1.2}
+  .btn{border:1px solid var(--blue);background:var(--blue);color:var(--btntext);border-radius:7px;padding:8px 14px;font:700 14px var(--sans);cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--blue)}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .toolbar .dec{margin-left:auto;display:flex;align-items:center;gap:6px}
+  .toolbar .dec label{margin:0}
+  .toolbar .dec select{width:auto;padding:6px 8px}
+  .check{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text);margin-top:10px;cursor:pointer}
+  .check input{width:18px;height:18px;accent-color:var(--blue)}
+  hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+  .msg{font-size:14px;margin-top:8px;color:var(--muted)}
+  .err{color:var(--err);font-size:14px;margin-top:8px}
+  .see-results{width:100%;margin-top:16px;padding:12px;font-size:16px}
+
+  /* keypad */
+  .keypad{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px;user-select:none;-webkit-user-select:none}
+  .key{border:1px solid var(--border);background:var(--soft);color:var(--blue);border-radius:8px;padding:11px 0;
+    font:700 19px var(--sans);cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .key:active,.key.tap{background:var(--lorange);color:#1E376C;border-color:var(--lorange)}
+  .key.next{grid-row:span 2;background:var(--blue);color:var(--btntext);border-color:var(--blue);font-size:15px;line-height:1.2}
+  .key.next:active,.key.next.tap{background:var(--lorange);color:#1E376C}
+  .key.zero{grid-column:span 2}
+
+  /* ---------- Results ---------- */
+  .placeholder{color:var(--muted);font-style:italic;padding:20px 0;text-align:center}
+  .ans-card{border:1px solid var(--border);border-left:5px solid var(--blue);border-radius:8px;padding:12px 14px;background:var(--soft)}
+  .ans-card .lbl{margin:0}
+  .ans-val{font-size:28px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1.25;margin:2px 0 4px;overflow-wrap:anywhere}
+  .ans-val .sym{font-size:30px}
+  .formula{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+  .interp{font-size:14px;margin-top:8px}
+  .measures{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+  .m{border:1px solid var(--border);border-radius:8px;padding:8px 12px;min-width:0}
+  .m .top{display:flex;align-items:baseline;gap:8px}
+  .m .sym{font-size:20px;white-space:nowrap}
+  .m .name{font-size:13px;color:var(--muted)}
+  .m .val{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+  #plotBox{width:100%;margin-top:6px}
+  #plotBox svg{display:block;cursor:ew-resize;touch-action:pan-y}
+  .slider-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .slider-top label{margin:0}
+  .slider-top strong{font-size:20px;color:var(--blue);font-variant-numeric:tabular-nums;white-space:nowrap}
+  input[type=range]{width:100%;accent-color:var(--orange);margin:6px 0 0;touch-action:pan-y}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;font-size:13px;color:var(--muted);margin-top:6px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{display:inline-block}
+  .sw.area{width:16px;height:11px;background:var(--lorange);border:1.5px solid var(--orange);opacity:.85}
+  .sw.zl{width:3px;height:14px;background:var(--orange)}
+  .sw.cv{width:18px;height:3px;background:var(--blue)}
+
+  details summary{cursor:pointer;font-family:var(--serif);font-weight:600;font-size:20px;color:var(--blue)}
+  details[open] summary{margin-bottom:8px}
+  .how p{margin:10px 0}
+  .how .eq{font-family:var(--serif);font-size:18px;color:var(--blue);margin:2px 0}
+  .how .num{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+  @media (max-width:560px){
+    .ans-val{font-size:24px}
+    .toolbar .dec{margin-left:0}
+    .seg button{font-size:13px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Normal Distribution Calculator</h1>
+  <p class="subtitle">Standard normal · <span class="sym">z</span>-score ↔ probability (area)</p>
+
+  <div class="tabs" role="tablist">
+    <button id="tabData" class="on" role="tab">Data</button>
+    <button id="tabRes" role="tab">Results</button>
+  </div>
+
+  <div class="screens" id="screens">
+    <!-- ========== SCREEN 1: DATA ========== -->
+    <div class="screen" id="screenData">
+      <div class="panel" id="dataPanel">
+        <h2>Data</h2>
+        <h3>I know the…</h3>
+        <div class="seg" id="dirSeg">
+          <button data-v="z" class="on"><span class="sym" style="color:inherit">z</span>-score<br><span style="font-weight:400;font-size:12px">find the probability</span></button>
+          <button data-v="p">Probability<br><span style="font-weight:400;font-size:12px">find the <i>z</i>-score</span></button>
+        </div>
+
+        <h3>Area</h3>
+        <div class="seg" id="regSeg">
+          <button data-v="left" class="on"><svg class="ico" width="44" height="20" viewBox="0 0 44 20" aria-hidden="true"><path class="fill" d="M2 18 L2 17.6 C8 17 12 13 16 7 L16 18 Z"/><path class="curve" d="M2 17.6 C8 17 12 13 16 7 C19 2.5 25 2.5 28 7 C32 13 36 17 42 17.6"/><line x1="2" y1="18.4" x2="42" y2="18.4"/></svg>Left tail</button>
+          <button data-v="center"><svg class="ico" width="44" height="20" viewBox="0 0 44 20" aria-hidden="true"><path class="fill" d="M14 18 L14 9.5 C17 4 19 2.4 22 2.4 C25 2.4 27 4 30 9.5 L30 18 Z"/><path class="curve" d="M2 17.6 C8 17 12 13 16 7 C19 2.5 25 2.5 28 7 C32 13 36 17 42 17.6"/><line x1="2" y1="18.4" x2="42" y2="18.4"/></svg>Center</button>
+          <button data-v="right"><svg class="ico" width="44" height="20" viewBox="0 0 44 20" aria-hidden="true"><path class="fill" d="M28 7 C32 13 36 17 42 17.6 L42 18 L28 18 Z"/><path class="curve" d="M2 17.6 C8 17 12 13 16 7 C19 2.5 25 2.5 28 7 C32 13 36 17 42 17.6"/><line x1="2" y1="18.4" x2="42" y2="18.4"/></svg>Right tail</button>
+        </div>
+
+        <hr>
+        <label for="val" id="valLabel">z-score</label>
+        <input type="text" id="val" class="kp" autocomplete="off" spellcheck="false">
+        <p class="hint" id="valHint"></p>
+
+        <div class="keypad" id="keypad">
+          <button class="key" data-k="7">7</button><button class="key" data-k="8">8</button><button class="key" data-k="9">9</button><button class="key" data-k="back" aria-label="Backspace">⌫</button>
+          <button class="key" data-k="4">4</button><button class="key" data-k="5">5</button><button class="key" data-k="6">6</button><button class="key" data-k="-" aria-label="Minus">−</button>
+          <button class="key" data-k="1">1</button><button class="key" data-k="2">2</button><button class="key" data-k="3">3</button><button class="key next" data-k="next">Done</button>
+          <button class="key zero" data-k="0">0</button><button class="key" data-k=".">.</button>
+        </div>
+        <label class="check"><input type="checkbox" id="useKb"> Use my device's keyboard</label>
+
+        <div class="toolbar">
+          <button class="btn" id="exampleBtn">Load example</button>
+          <button class="btn ghost" id="clearBtn">Clear</button>
+          <div class="dec"><label for="dp">Decimals</label>
+            <select id="dp"><option>2</option><option selected>4</option><option>6</option></select></div>
+        </div>
+        <div class="err" id="err"></div>
+
+        <button class="btn see-results" id="seeRes">See results →</button>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 2: RESULTS ========== -->
+    <div class="screen" id="screenRes">
+      <div class="panel" id="resultsPanel">
+        <h2>Results</h2>
+        <div class="placeholder" id="empty">Enter a z-score to see the probability.</div>
+        <div id="res" class="hidden">
+          <div class="ans-card">
+            <div class="lbl" id="ansLabel"></div>
+            <div class="ans-val" id="ansText"></div>
+            <div class="formula" id="formula"></div>
+          </div>
+          <div class="interp" id="interp"></div>
+          <div class="measures" id="measures"></div>
+        </div>
+      </div>
+
+      <div class="panel hidden" id="graphPanel">
+        <h2>Standard normal curve</h2>
+        <div class="slider-top"><label for="zSlider">Slide (or drag on the graph) to move the <span class="sym">z</span>-score</label><strong id="zSliderVal"></strong></div>
+        <input type="range" id="zSlider" min="-4" max="4" step="0.01" value="0" aria-label="z-score">
+        <div id="plotBox"></div>
+        <div class="legend">
+          <span><i class="sw area"></i>Shaded area (probability)</span>
+          <span><i class="sw zl"></i><span><span class="sym">z</span>-score</span></span>
+          <span><i class="sw cv"></i><span>Normal curve, <span class="sym">μ</span> = 0, <span class="sym">σ</span> = 1</span></span>
+        </div>
+      </div>
+
+      <div class="panel" id="howPanel">
+        <details>
+          <summary>How these are calculated</summary>
+          <div class="how" id="how"></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  // ================= Statistical functions =================
+  // Standard normal CDF, Hart (1968) double-precision algorithm (accurate to ~1e-15).
+  function Phi(x){
+    var a=Math.abs(x), c;
+    if(a>37) c=0;
+    else{
+      var e=Math.exp(-a*a/2), b;
+      if(a<7.07106781186547){
+        b=3.52624965998911e-02*a+0.700383064443688;
+        b=b*a+6.37396220353165; b=b*a+33.912866078383; b=b*a+112.079291497871;
+        b=b*a+221.213596169931; b=b*a+220.206867912376;
+        c=e*b;
+        b=8.83883476483184e-02*a+1.75566716318264;
+        b=b*a+16.064177579207; b=b*a+86.7807322029461; b=b*a+296.564248779674;
+        b=b*a+637.333633378831; b=b*a+793.826512519948; b=b*a+440.413735824752;
+        c=c/b;
+      } else {
+        b=a+0.65; b=a+4/b; b=a+3/b; b=a+2/b; b=a+1/b;
+        c=e/b/2.506628274631;
+      }
+    }
+    return x>0?1-c:c;
+  }
+  function pdf(x){ return Math.exp(-x*x/2)/2.5066282746310002; }
+  // Inverse standard normal CDF: Acklam's approximation + Newton refinement.
+  function PhiInv(p){
+    var a=[-3.969683028665376e+01,2.209460984245205e+02,-2.759285104469687e+02,1.383577518672690e+02,-3.066479806614716e+01,2.506628277459239e+00],
+        b=[-5.447609879822406e+01,1.615858368580409e+02,-1.556989798598866e+02,6.680131188771972e+01,-1.328068155288572e+01],
+        c=[-7.784894002430293e-03,-3.223964580411365e-01,-2.400758277161838e+00,-2.549732539343734e+00,4.374664141464968e+00,2.938163982698783e+00],
+        d=[7.784695709041462e-03,3.224671290700398e-01,2.445134137142996e+00,3.754408661907416e+00];
+    var pl=0.02425,q,r,x;
+    if(p<pl){q=Math.sqrt(-2*Math.log(p));x=(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+    else if(p<=1-pl){q=p-0.5;r=q*q;x=(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);}
+    else{q=Math.sqrt(-2*Math.log(1-p));x=-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+    for(var i=0;i<2;i++){
+      var e = p<0.5 ? Phi(x)-p : (1-p)-Phi(-x); // Phi(x)-p, computed in the more accurate tail
+      var u=e*Math.sqrt(2*Math.PI)*Math.exp(x*x/2);
+      x=x-u/(1+x*u/2);
+    }
+    return x;
+  }
+
+  // ================= State =================
+  var $=function(id){return document.getElementById(id);};
+  var dir='z', region='left', last=null;
+  var store={z:'',p:''};
+  var EXAMPLES={z:{left:'1.96',center:'1.96',right:'1.96'},p:{left:'0.95',center:'0.95',right:'0.05'}};
+
+  function fmt(x,dp){ if(!isFinite(x)) return '—'; var v=Math.abs(x)<0.5*Math.pow(10,-dp)?0:x; return v.toFixed(dp).replace(/^-/,'−'); }
+  var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+  function sci(x){
+    var s=x.toExponential(2).split('e'), ex=String(parseInt(s[1],10)).split('').map(function(ch){return SUP[ch];}).join('');
+    return s[0]+' × 10'+ex;
+  }
+  // probability formatter: shows tiny areas in scientific notation instead of 0.0000
+  function fmtP(p,dp){
+    if(!isFinite(p)) return '—';
+    var tiny=0.5*Math.pow(10,-dp);
+    if(p>0 && p<tiny) return sci(p);
+    if(p<1 && 1-p<tiny) return '> 0.'+new Array(dp+1).join('9');
+    return p.toFixed(dp);
+  }
+  function readVal(){ var t=$('val').value.trim().replace(/−/g,'-'); return t===''?null:(/^[-+]?(\d+\.?\d*|\.\d+)$/.test(t)?Number(t):NaN); }
+
+  // ================= Segmented toggles =================
+  function setupSeg(id,cb){
+    var btns=$(id).querySelectorAll('button');
+    btns.forEach(function(b){ b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); cb(b.getAttribute('data-v')); update();
+    });});
+  }
+  setupSeg('dirSeg',function(v){ store[dir]=$('val').value; dir=v; $('val').value=store[dir]; });
+  setupSeg('regSeg',function(v){ region=v; });
+
+  // ================= Keypad =================
+  var isTouch=window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  $('useKb').checked=!isTouch;
+  function applyKb(){
+    var kb=$('useKb').checked;
+    $('keypad').classList.toggle('hidden',kb);
+    $('val').setAttribute('inputmode', kb?'decimal':'none');
+    syncHeight();
+  }
+  $('useKb').addEventListener('change',applyKb);
+  function setVal(el,v,pos){ el.value=v; try{el.setSelectionRange(pos,pos);}catch(e){} el.dispatchEvent(new Event('input',{bubbles:true})); }
+  function press(k){
+    var el=$('val');
+    if(k==='next'){ el.blur(); if(mq.matches) go(1); return; }
+    if(document.activeElement!==el){ el.focus({preventScroll:true}); try{el.setSelectionRange(el.value.length,el.value.length);}catch(e){} }
+    var v=el.value, s=el.selectionStart==null?v.length:el.selectionStart, e=el.selectionEnd==null?v.length:el.selectionEnd;
+    if(k==='back'){
+      if(s!==e) setVal(el,v.slice(0,s)+v.slice(e),s);
+      else if(s>0) setVal(el,v.slice(0,s-1)+v.slice(s),s-1);
+    } else {
+      setVal(el,v.slice(0,s)+k+v.slice(e),s+1);
+    }
+  }
+  document.querySelectorAll('.key').forEach(function(b){
+    b.addEventListener('pointerdown',function(ev){ ev.preventDefault(); b.classList.add('tap'); });
+    ['pointerup','pointerleave','pointercancel'].forEach(function(t){ b.addEventListener(t,function(){ b.classList.remove('tap'); }); });
+    b.addEventListener('mousedown',function(ev){ ev.preventDefault(); });
+    b.addEventListener('click',function(){ press(b.getAttribute('data-k')); });
+  });
+
+  // ================= Buttons & inputs =================
+  $('exampleBtn').addEventListener('click',function(){ $('val').value=EXAMPLES[dir][region]; update(); });
+  $('clearBtn').addEventListener('click',function(){ $('val').value=''; update(); });
+  $('val').addEventListener('input',update);
+  $('dp').addEventListener('change',update);
+
+  var REG_WORD={left:'left tail',center:'center',right:'right tail'};
+
+  // ================= Main update =================
+  function update(){
+    var dp=parseInt($('dp').value,10), err='', x=readVal(), note='';
+    // labels & hints
+    if(dir==='z'){
+      $('valLabel').innerHTML='<span class="sym">z</span>-score';
+      $('valHint').textContent = region==='center'
+        ? 'Enter z. The center area runs from −|z| to |z|.'
+        : 'Enter any z-score, such as 1.96 or −0.5.';
+      $('empty').textContent='Enter a z-score to see the probability.';
+    } else {
+      $('valLabel').innerHTML='Probability (area in the '+REG_WORD[region]+')';
+      $('valHint').textContent='Enter a decimal between 0 and 1, such as 0.95.';
+      $('empty').textContent='Enter a probability to find the z-score.';
+    }
+
+    var ready=false, z, area;
+    if(x!=null){
+      if(!isFinite(x)) err = dir==='z' ? 'The z-score must be a number.' : 'The probability must be a number between 0 and 1.';
+      else if(dir==='p' && !(x>0 && x<1)){
+        err = (x>1 && x<100) ? 'Enter the probability as a decimal between 0 and 1 (for example, 95% is 0.95).'
+                             : 'The probability must be strictly between 0 and 1.';
+      } else ready=true;
+    }
+    $('err').textContent=err;
+    $('empty').classList.toggle('hidden',ready);
+    $('res').classList.toggle('hidden',!ready);
+    $('graphPanel').classList.toggle('hidden',!ready);
+    if(!ready){ last=null; renderHow(null); syncHeight(); return; }
+
+    if(dir==='z'){
+      z=x;
+      if(region==='center'){ if(z<0) note='The center area uses |z|, so −'+fmt(-z,dp).replace('−','')+' is treated as '+fmt(-z,dp)+'.'; z=Math.abs(z); area=1-2*Phi(-z); }
+      else if(region==='left') area=Phi(z);
+      else area=Phi(-z);
+    } else {
+      area=x;
+      if(region==='left') z=PhiInv(area);
+      else if(region==='right') z=-PhiInv(area);
+      else z=PhiInv((1+area)/2);
+    }
+    var left=Phi(z), right=Phi(-z), tail=Phi(-Math.abs(z));
+    var zs=fmt(z,dp), zAbs=fmt(Math.abs(z),dp), A=fmtP(area,dp);
+    var pct = area*100, pctS = (area>0.0001&&area<0.9999)? ' ('+(+pct.toFixed(Math.max(0,dp-2))).toString()+'%)':'';
+
+    // headline
+    var zi='<span class="sym">z</span>', Zi='<span class="sym">Z</span>', phi='<span class="sym">N</span>';
+    var formula, interp, label, ans;
+    if(dir==='z'){
+      label='Probability (shaded area)';
+      if(region==='left'){
+        ans='P('+Zi+' &lt; '+zs+') = '+A;
+        formula='P('+Zi+' &lt; '+zs+') = '+phi+'('+zs+') = '+A;
+        interp='The area under the standard normal curve to the <b>left</b> of '+zi+' = '+zs+' is '+A+pctS+'.';
+      } else if(region==='right'){
+        ans='P('+Zi+' &gt; '+zs+') = '+A;
+        var Ls=fmtP(left,dp);
+        formula='P('+Zi+' &gt; '+zs+') = 1 − '+phi+'('+zs+')'+(Ls.charAt(0)==='>'?'':' = 1 − '+Ls)+' = '+A;
+        interp='The area under the standard normal curve to the <b>right</b> of '+zi+' = '+zs+' is '+A+pctS+'.';
+      } else {
+        ans='P(−'+zAbs+' &lt; '+Zi+' &lt; '+zAbs+') = '+A;
+        formula=phi+'('+zAbs+') − '+phi+'(−'+zAbs+') = '+fmtP(Phi(Math.abs(z)),dp)+' − '+fmtP(tail,dp)+' = '+A;
+        interp='The area under the standard normal curve <b>between</b> '+zi+' = −'+zAbs+' and '+zi+' = '+zAbs+' is '+A+pctS+'.';
+      }
+    } else {
+      label= region==='center' ? 'z-scores that bound the center area' : 'z-score';
+      var As=fmtP(area,dp);
+      if(region==='left'){
+        ans=zi+' = '+zs;
+        formula=zi+' = '+phi+'<sup>−1</sup>('+As+') = '+zs;
+        interp='An area of '+As+pctS+' lies to the <b>left</b> of '+zi+' = '+zs+'.';
+      } else if(region==='right'){
+        ans=zi+' = '+zs;
+        formula=zi+' = '+phi+'<sup>−1</sup>(1 − '+As+') = '+phi+'<sup>−1</sup>('+fmtP(1-area,dp)+') = '+zs;
+        interp='An area of '+As+pctS+' lies to the <b>right</b> of '+zi+' = '+zs+'.';
+      } else {
+        ans=zi+' = ±'+zAbs;
+        formula=zi+' = '+phi+'<sup>−1</sup>((1 + '+As+') / 2) = '+phi+'<sup>−1</sup>('+fmtP((1+area)/2,dp)+') = '+zAbs;
+        interp='An area of '+As+pctS+' lies <b>between</b> '+zi+' = −'+zAbs+' and '+zi+' = '+zAbs+', leaving '+fmtP(tail,dp)+' in each tail.';
+      }
+    }
+    if(note) interp+=' <span class="msg">'+note+'</span>';
+    $('ansLabel').textContent=label;
+    $('ansText').innerHTML=ans;
+    $('formula').innerHTML=formula;
+    $('interp').innerHTML=interp;
+
+    var M;
+    if(region==='center'){
+      M=[['−z','Lower z-score',fmt(-Math.abs(z),dp)],['z','Upper z-score',zAbs],
+         ['P','Center (shaded) area',A],['α/2','Area in each tail',fmtP(tail,dp)]];
+    } else {
+      M=[['z','z-score',zs],['P','Shaded area',A],
+         ['N(z)','Area to the left of z',fmtP(left,dp)],['1 − N(z)','Area to the right of z',fmtP(right,dp)]];
+    }
+    $('measures').innerHTML=M.map(function(r){
+      return '<div class="m"><div class="top"><span class="sym">'+r[0]+'</span><span class="name">'+r[1]+'</span></div><div class="val">'+r[2]+'</div></div>';
+    }).join('');
+
+    last={z:z,area:area,region:region,dp:dp};
+    syncSlider(z);
+    drawPlot();
+    renderHow({z:z,area:area,left:left,tail:tail,dp:dp});
+    syncHeight();
+  }
+
+  // ================= z-score slider & graph dragging =================
+  var dragging=false;
+  function syncSlider(z){
+    var sl=$('zSlider'), lim=Math.max(4,Math.ceil(Math.abs(z)));
+    sl.min = -lim; sl.max = lim;
+    if(!dragging) sl.value = region==='center' ? Math.abs(z) : z;
+    $('zSliderVal').innerHTML = region==='center' ? '<span class="sym">z</span> = ±'+fmt(Math.abs(z),2) : '<span class="sym">z</span> = '+fmt(z,2);
+  }
+  // Move the z-score: writes the matching value into the input box, then recalculates.
+  function setFromZ(z){
+    z=Math.round(z*100)/100; if(region==='center') z=Math.abs(z);
+    var v;
+    if(dir==='z') v=z.toFixed(2);
+    else {
+      var area = region==='left' ? Phi(z) : region==='right' ? Phi(-z) : 1-2*Phi(-z);
+      v=area.toFixed(Math.max(4,parseInt($('dp').value,10)));
+      if(!(+v>0 && +v<1)) return;
+    }
+    if($('val').value!==v){ $('val').value=v; update(); }
+  }
+  $('zSlider').addEventListener('input',function(){ dragging=true; setFromZ(+this.value); dragging=false; });
+  function zFromPointer(ev){
+    if(!last || !last.geom) return null;
+    var g=last.geom, rect=$('plotBox').getBoundingClientRect(), x=ev.clientX-rect.left;
+    var z=(x-g.L)/(g.Rx-g.L)*2*g.R-g.R;
+    return Math.max(-g.R,Math.min(g.R,z));
+  }
+  var svgDrag=false;
+  $('plotBox').addEventListener('pointerdown',function(ev){
+    var z=zFromPointer(ev); if(z==null) return;
+    svgDrag=true; try{ $('plotBox').setPointerCapture(ev.pointerId); }catch(e){}
+    ev.preventDefault(); setFromZ(z);
+  });
+  $('plotBox').addEventListener('pointermove',function(ev){ if(!svgDrag) return; var z=zFromPointer(ev); if(z!=null) setFromZ(z); });
+  ['pointerup','pointercancel'].forEach(function(t){ $('plotBox').addEventListener(t,function(){ svgDrag=false; }); });
+
+  // ================= "How" section =================
+  function renderHow(r){
+    var dp=r?r.dp:4, h='';
+    h+='<p>All areas come from the <strong>standard normal distribution</strong> (mean <i>μ</i> = 0, standard deviation <i>σ</i> = 1). The total area under the curve is 1.</p>';
+    h+='<p><strong>Normal CDF</strong> — <i>N</i>(<i>z</i>) is the area to the <b>left</b> of <i>z</i>.</p><div class="eq"><i>N</i>(<i>z</i>) = P(<i>Z</i> &lt; <i>z</i>)</div>';
+    h+='<p><strong>Finding a probability from <i>z</i></strong></p>';
+    h+='<div class="eq">Left tail: P(<i>Z</i> &lt; <i>z</i>) = <i>N</i>(<i>z</i>)</div>';
+    h+='<div class="eq">Right tail: P(<i>Z</i> &gt; <i>z</i>) = 1 − <i>N</i>(<i>z</i>)</div>';
+    h+='<div class="eq">Center: P(−<i>z</i> &lt; <i>Z</i> &lt; <i>z</i>) = <i>N</i>(<i>z</i>) − <i>N</i>(−<i>z</i>)</div>';
+    h+='<p><strong>Finding <i>z</i> from a probability <i>P</i></strong> (inverse normal) — <i>N</i><sup>−1</sup>(<i>p</i>) is the <i>z</i>-score with area <i>p</i> to its left.</p>';
+    h+='<div class="eq">Left tail: <i>z</i> = <i>N</i><sup>−1</sup>(<i>P</i>)</div>';
+    h+='<div class="eq">Right tail: <i>z</i> = <i>N</i><sup>−1</sup>(1 − <i>P</i>)</div>';
+    h+='<div class="eq">Center: <i>z</i> = ±<i>N</i><sup>−1</sup>((1 + <i>P</i>) / 2)</div>';
+    h+='<p class="num">For the center, the leftover area 1 − <i>P</i> is split evenly between the two tails, so the area to the left of the upper <i>z</i> is <i>P</i> + (1 − <i>P</i>)/2 = (1 + <i>P</i>)/2.</p>';
+    if(r) h+='<p class="num">Your values: <i>z</i> = '+fmt(r.z,dp)+', <i>N</i>(<i>z</i>) = '+fmtP(r.left,dp)+', shaded area = '+fmtP(r.area,dp)+'.</p>';
+    h+='<p class="num">Very small areas are shown in scientific notation (for example 2.87 × 10⁻⁷) instead of rounding to zero. Values are rounded for display only; all calculations use full precision.</p>';
+    $('how').innerHTML=h;
+  }
+
+  // ================= Normal curve (SVG at true width) =================
+  function niceStep(range,maxTicks){
+    var raw=range/maxTicks, mag=Math.pow(10,Math.floor(Math.log10(raw))), opts=[1,2,2.5,5,10];
+    for(var i=0;i<opts.length;i++) if(opts[i]*mag>=raw) return opts[i]*mag;
+    return 10*mag;
+  }
+  function decimalsOf(step){ var d=0; while(d<10 && Math.abs(Math.round(step*Math.pow(10,d))-step*Math.pow(10,d))>1e-7) d++; return d; }
+  function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+
+  function drawPlot(){
+    if(!last) return;
+    var box=$('plotBox'), W=Math.max(260,Math.floor(box.clientWidth||600));
+    var H=Math.round(Math.max(240,Math.min(330,W*0.36)));
+    var blue=cssVar('--blue'), orange=cssVar('--orange'), lor=cssVar('--lorange'), muted=cssVar('--muted'), panel=cssVar('--panel'), text=cssVar('--text');
+    var pad=Math.max(16,Math.min(40,W*0.04)), L=pad, Rx=W-pad;
+    var dark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var z=last.z, reg=last.region, dp=last.dp, fs=13;
+    var R=Math.max(4,Math.min(8,Math.ceil(Math.abs(z)+0.75)));
+    var top=40, axisY=H-62, yTick=axisY+20, yZ=axisY+44;
+    var X=function(v){ return L+(v+R)/(2*R)*(Rx-L); };
+    var peak=pdf(0), Y=function(d){ return axisY-d/peak*(axisY-top); };
+    var clampV=function(v){ return Math.max(-R,Math.min(R,v)); };
+    last.geom={L:L,Rx:Rx,R:R};
+    var g='';
+
+    // shaded region
+    var a,b;
+    if(reg==='left'){ a=-R; b=clampV(z); }
+    else if(reg==='right'){ a=clampV(z); b=R; }
+    else { a=clampV(-Math.abs(z)); b=clampV(Math.abs(z)); }
+    if(b>a){
+      var n=Math.max(8,Math.ceil((b-a)/(2*R)*200)), d='M'+X(a).toFixed(2)+' '+axisY;
+      for(var i=0;i<=n;i++){ var t=a+(b-a)*i/n; d+=' L'+X(t).toFixed(2)+' '+Y(pdf(t)).toFixed(2); }
+      d+=' L'+X(b).toFixed(2)+' '+axisY+' Z';
+      g+='<path d="'+d+'" fill="'+lor+'" fill-opacity="'+(dark?'.85':'.6')+'" stroke="none"/>';
+    }
+
+    // curve
+    var cp='', N=240;
+    for(var j=0;j<=N;j++){ var tt=-R+2*R*j/N; cp+=(j?' L':'M')+X(tt).toFixed(2)+' '+Y(pdf(tt)).toFixed(2); }
+    g+='<path d="'+cp+'" fill="none" stroke="'+blue+'" stroke-width="2.5" stroke-linejoin="round"/>';
+
+    // axis + ticks
+    g+='<line x1="'+L+'" y1="'+axisY+'" x2="'+Rx+'" y2="'+axisY+'" stroke="'+muted+'" stroke-width="1.3"/>';
+    var maxTicks=Math.max(4,Math.min(10,Math.floor(W/70)));
+    var step=niceStep(2*R,maxTicks), td=decimalsOf(step), first=Math.ceil((-R-1e-9)/step);
+    for(var k=first; k*step<=R+1e-9; k++){
+      var tv=k*step, x=X(tv);
+      g+='<line x1="'+x+'" y1="'+(axisY-5)+'" x2="'+x+'" y2="'+(axisY+5)+'" stroke="'+muted+'" stroke-width="1.2"/>';
+      g+='<text x="'+x+'" y="'+yTick+'" font-size="'+fs+'" text-anchor="middle" fill="'+muted+'">'+(Math.abs(tv)<step/1e6?'0':tv.toFixed(td).replace(/^-/,'−'))+'</text>';
+    }
+
+    // z lines + labels
+    var zvals = reg==='center' ? [-Math.abs(z),Math.abs(z)] : [z];
+    var cw=fs*0.62;
+    var clampX=function(x,w){ return Math.max(w/2+2,Math.min(W-w/2-2,x)); };
+    var labs=zvals.map(function(v){
+      var txt='z = '+fmt(v,dp); return {v:v,txt:txt,w:txt.length*cw,x:X(clampV(v))};
+    });
+    labs.forEach(function(o){
+      if(Math.abs(o.v)<=R){
+        var yTop=Y(pdf(o.v));
+        g+='<line x1="'+o.x+'" y1="'+(axisY+8)+'" x2="'+o.x+'" y2="'+yTop+'" stroke="'+orange+'" stroke-width="2.5"/>';
+      }
+    });
+    if(labs.length===2){
+      var need=(labs[0].w+labs[1].w)/2+10;
+      if(labs[1].x-labs[0].x<need){ var mid=(labs[0].x+labs[1].x)/2; labs[0].x=mid-need/2; labs[1].x=mid+need/2; }
+    }
+    labs.forEach(function(o){
+      var lx=clampX(o.x,o.w), off = Math.abs(o.v)>R ? (o.v>0?' →':'← ') : '';
+      var t = off===' →' ? o.txt+off : off+o.txt;
+      g+='<text x="'+lx+'" y="'+yZ+'" font-size="'+(fs+1)+'" font-weight="700" text-anchor="middle" fill="'+blue+'">'+t+'</text>';
+    });
+
+    // area label
+    var Aa = reg==='center'? -Math.abs(z) : (reg==='left'? -Infinity : z);
+    var Bb = reg==='center'?  Math.abs(z) : (reg==='left'? z : Infinity);
+    var mass=Phi(Bb===Infinity?40:Bb)-Phi(Aa===-Infinity?-40:Aa);
+    var xc = mass>1e-300 ? (pdf(Aa===-Infinity?40:Aa)-pdf(Bb===Infinity?40:Bb))/mass : (reg==='left'?-R:R);
+    // keep label inside the visible shaded part
+    if(b>a) xc=Math.max(a+(b-a)*0.02,Math.min(b-(b-a)*0.02,clampV(xc)));
+    else xc = reg==='left'? -R : R;
+    var aTxt='Area = '+fmtP(last.area,dp), aw=aTxt.length*(fs+1)*0.6;
+    var curveH=axisY-Y(pdf(xc)), px=X(xc), lxA, lyA;
+    var regionW = b>a ? X(b)-X(a) : 0;
+    if(curveH>70 && regionW>aw*0.8){
+      lxA=clampX(px,aw); lyA=axisY-curveH*0.38;
+    } else {
+      // outside, above the curve with a leader line
+      var yc=Y(pdf(xc));
+      lyA=Math.max(top-18,Math.min(yc-26,axisY-60));
+      lxA=clampX(px+(xc<0?-1:1)*Math.min(60,W*0.08),aw);
+      g+='<line x1="'+px+'" y1="'+(Math.min(axisY-4,yc+(curveH>12?curveH*0.5:0)))+'" x2="'+lxA+'" y2="'+(lyA+5)+'" stroke="'+orange+'" stroke-width="1.3"/>';
+      g+='<circle cx="'+px+'" cy="'+(Math.min(axisY-4,yc+(curveH>12?curveH*0.5:0)))+'" r="2.5" fill="'+orange+'"/>';
+    }
+    var inside = curveH>70 && regionW>aw*0.8;
+    g+= inside
+      ? '<text x="'+lxA+'" y="'+lyA+'" font-size="'+(fs+1)+'" font-weight="700" text-anchor="middle" fill="#1E376C">'+aTxt+'</text>'
+      : '<text x="'+lxA+'" y="'+lyA+'" font-size="'+(fs+1)+'" font-weight="700" text-anchor="middle" fill="'+text+'" stroke="'+panel+'" stroke-width="4" paint-order="stroke" stroke-linejoin="round">'+aTxt+'</text>';
+
+    box.innerHTML='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Standard normal curve with shaded area '+fmtP(last.area,dp)+' and z = '+fmt(z,dp)+'" font-family="Atkinson Hyperlegible, Arial, sans-serif">'+g+'</svg>';
+  }
+
+  // ================= Phone screens =================
+  var mq=window.matchMedia('(max-width:760px)');
+  var screensEl=$('screens'), screenEls=[$('screenData'),$('screenRes')], cur=0;
+  function setTabs(){ $('tabData').classList.toggle('on',cur===0); $('tabRes').classList.toggle('on',cur===1); }
+  function syncHeight(){
+    if(mq.matches) screensEl.style.height=screenEls[cur].scrollHeight+'px';
+    else screensEl.style.height='';
+  }
+  function go(i){
+    cur=i; setTabs(); syncHeight();
+    screensEl.scrollTo({left:i*screensEl.clientWidth,behavior:'smooth'});
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(i===1) setTimeout(drawPlot,50);
+  }
+  $('tabData').addEventListener('click',function(){ go(0); });
+  $('tabRes').addEventListener('click',function(){ go(1); });
+  $('seeRes').addEventListener('click',function(){ go(1); });
+  var scrollT;
+  screensEl.addEventListener('scroll',function(){
+    clearTimeout(scrollT);
+    scrollT=setTimeout(function(){
+      if(!mq.matches) return;
+      var i=Math.round(screensEl.scrollLeft/screensEl.clientWidth);
+      if(i!==cur){ cur=i; setTabs(); syncHeight(); window.scrollTo({top:0,behavior:'smooth'}); }
+    },90);
+  });
+  function onLayout(){ if(!mq.matches){ cur=0; setTabs(); screensEl.scrollLeft=0; } syncHeight(); drawPlot(); }
+  if(mq.addEventListener) mq.addEventListener('change',onLayout); else mq.addListener(onLayout);
+  if(window.ResizeObserver){
+    var ro=new ResizeObserver(function(){ syncHeight(); });
+    screenEls.forEach(function(el){ ro.observe(el); });
+    document.querySelectorAll('.screen > .panel').forEach(function(el){ ro.observe(el); });
+    var lastW=0;
+    new ResizeObserver(function(){ var w=$('plotBox').clientWidth; if(w!==lastW){ lastW=w; drawPlot(); } }).observe($('plotBox'));
+  } else window.addEventListener('resize',onLayout);
+  if(window.matchMedia){ var dm=window.matchMedia('(prefers-color-scheme: dark)'); if(dm.addEventListener) dm.addEventListener('change',drawPlot); }
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ drawPlot(); syncHeight(); });
+
+  // expose for testing
+  window.__normal={Phi:Phi,PhiInv:PhiInv};
+  applyKb();
+  update();
+})();
+</script>
+</body>
+</html>
