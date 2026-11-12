@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confidence Interval for a Proportion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Spectral:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1E376C; --orange:#F47920; --lorange:#FAA634;
+    --bg:#f6f7fa; --grid:rgba(30,55,108,.07); --panel:#ffffff; --text:#1c2333; --muted:#596377;
+    --border:#d8dde6; --btntext:#ffffff; --soft:#eef1f7; --err:#b42318; --ok:#1d7a46;
+    --serif:"Spectral",Georgia,"Times New Roman",serif;
+    --sans:"Atkinson Hyperlegible",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --blue:#8FA9DD; --bg:#111725; --grid:rgba(143,169,221,.07); --panel:#1a2133; --text:#e4e8f1; --muted:#9aa6bd;
+      --border:#2f3a52; --btntext:#111725; --soft:#232c42; --err:#ff8a7a; --ok:#6fd39b;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background-color:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.45;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:20px 20px}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px}
+  h1,h2,h3{font-family:var(--serif);color:var(--blue);font-weight:600;margin:0}
+  h1{font-size:26px;line-height:1.2}
+  .subtitle{color:var(--muted);margin:2px 0 14px;font-size:15px}
+  h2{font-size:20px;margin-bottom:10px}
+  h3{font-size:17px;margin-bottom:8px}
+  .sym{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue)}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;min-width:0}
+  .hidden{display:none !important}
+
+  /* ---------- Layout ---------- */
+  .tabs{display:none}
+  .screens{display:grid;grid-template-columns:minmax(300px,5fr) 7fr;gap:16px;align-items:start;
+    grid-template-areas:"data results" "graph graph" "how how"}
+  .screen{display:contents}
+  #dataPanel{grid-area:data;border-top:5px solid var(--orange)}
+  #resultsPanel{grid-area:results}
+  #graphPanel{grid-area:graph}
+  #howPanel{grid-area:how}
+  .see-results{display:none}
+
+  @media (max-width:760px){
+    .wrap{padding:12px 10px}
+    h1{font-size:22px}
+    .tabs{display:flex;position:sticky;top:0;z-index:10;background:var(--bg);padding:6px 0 8px;margin-bottom:6px}
+    .tabs button{flex:1;border:1px solid var(--blue);background:var(--panel);color:var(--blue);font:700 15px var(--sans);padding:9px 0;cursor:pointer}
+    .tabs button:first-child{border-radius:8px 0 0 8px}
+    .tabs button:last-child{border-radius:0 8px 8px 0;border-left:none}
+    .tabs button.on{background:var(--blue);color:var(--btntext)}
+    .screens{display:flex;gap:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;align-items:flex-start;
+      scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .screens::-webkit-scrollbar{display:none}
+    .screen{display:flex;flex-direction:column;gap:12px;flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;padding:0 1px}
+    .see-results{display:block}
+  }
+
+  /* ---------- Controls ---------- */
+  label,.lbl{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+  input[type=text],select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:7px;
+    font:16px var(--sans);color:var(--text);background:var(--panel)}
+  input[type=text]:focus,select:focus{outline:2px solid var(--lorange);outline-offset:0;border-color:var(--orange)}
+  .hint{font-size:13px;color:var(--muted);margin:6px 0 0}
+  .seg{display:flex;border:1px solid var(--blue);border-radius:8px;overflow:hidden;margin-bottom:12px}
+  .seg button{flex:1;border:none;background:var(--panel);color:var(--blue);padding:8px 10px;font:700 14px var(--sans);cursor:pointer}
+  .seg button+button{border-left:1px solid var(--blue)}
+  .seg button.on{background:var(--blue);color:var(--btntext)}
+  .btn{border:1px solid var(--blue);background:var(--blue);color:var(--btntext);border-radius:7px;padding:8px 14px;font:700 14px var(--sans);cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--blue)}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .toolbar .dec{margin-left:auto;display:flex;align-items:center;gap:6px}
+  .toolbar .dec label{margin:0}
+  .toolbar .dec select{width:auto;padding:6px 8px}
+  .check{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text);margin-top:10px;cursor:pointer}
+  .check input{width:18px;height:18px;accent-color:var(--blue)}
+  .fields2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+  .err{color:var(--err);font-size:14px;margin-top:8px}
+  .see-results{width:100%;margin-top:16px;padding:12px;font-size:16px}
+
+  /* keypad */
+  .keypad{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px;user-select:none;-webkit-user-select:none}
+  .key{border:1px solid var(--border);background:var(--soft);color:var(--blue);border-radius:8px;padding:11px 0;
+    font:700 19px var(--sans);cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .key:active,.key.tap{background:var(--lorange);color:#1E376C;border-color:var(--lorange)}
+  .key.next{grid-row:span 2;background:var(--blue);color:var(--btntext);border-color:var(--blue);font-size:15px;line-height:1.2}
+  .key.next:active,.key.next.tap{background:var(--lorange);color:#1E376C}
+  .key.zero{grid-column:span 2}
+
+  /* ---------- Results ---------- */
+  .placeholder{color:var(--muted);font-style:italic;padding:20px 0;text-align:center}
+  .ci-card{border:1px solid var(--border);border-left:5px solid var(--blue);border-radius:8px;padding:12px 14px;background:var(--soft)}
+  .ci-card .lbl{margin:0}
+  .ci-val{font-size:28px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1.25;margin:2px 0 4px}
+  .formula{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .interp{font-size:14px;margin-top:8px}
+  .cond{font-size:14px;margin-top:10px;padding:8px 12px;border-radius:8px;border:1px solid var(--border);font-variant-numeric:tabular-nums}
+  .cond .mark{font-weight:700;margin-right:4px}
+  .cond.ok .mark{color:var(--ok)}
+  .cond.bad{border-color:var(--orange)}
+  .cond.bad .mark{color:var(--orange)}
+  .nw{white-space:nowrap}
+  .measures{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+  .m{border:1px solid var(--border);border-radius:8px;padding:8px 12px;min-width:0}
+  .m .top{display:flex;align-items:baseline;gap:8px}
+  .m .sym{font-size:20px}
+  .m .name{font-size:13px;color:var(--muted)}
+  .m .val{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+
+  /* slider */
+  .slider-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .slider-top strong{font-size:20px;color:var(--blue);font-variant-numeric:tabular-nums}
+  input[type=range]{width:100%;accent-color:var(--orange);margin:6px 0 0}
+  .ticks{position:relative;height:18px;font-size:12px;color:var(--muted);margin:0 9px}
+  .ticks span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+  .ticks span:first-child{transform:none;margin-left:-9px}
+  .ticks span:last-child{transform:translateX(-100%);margin-left:9px}
+  #plotBox{width:100%;margin-top:10px}
+  #plotBox svg{display:block}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;font-size:13px;color:var(--muted);margin-top:4px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{display:inline-block}
+  .sw.mean{width:11px;height:11px;border-radius:50%;background:var(--orange)}
+  .sw.ci{width:18px;height:4px;background:var(--blue)}
+  .sw.r99{width:18px;height:10px;background:var(--lorange);opacity:.35;border:1px dashed var(--orange)}
+
+  details summary{cursor:pointer;font-family:var(--serif);font-weight:600;font-size:20px;color:var(--blue)}
+  details[open] summary{margin-bottom:8px}
+  .how p{margin:10px 0}
+  .how .eq{font-family:var(--serif);font-size:18px;color:var(--blue);margin:2px 0}
+  .how .num{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+  @media (max-width:560px){
+    .ci-val{font-size:24px}
+    .toolbar .dec{margin-left:0}
+    .ticks .t90,.ticks .t99{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Confidence Interval for a Proportion</h1>
+  <p class="subtitle">Categorical data · one sample · <span class="sym">z</span>-interval</p>
+
+  <div class="tabs" role="tablist">
+    <button id="tabData" class="on" role="tab">Data</button>
+    <button id="tabRes" role="tab">Results</button>
+  </div>
+
+  <div class="screens" id="screens">
+    <!-- ========== SCREEN 1: DATA ========== -->
+    <div class="screen" id="screenData">
+      <div class="panel" id="dataPanel">
+        <h2>Data</h2>
+        <div class="seg" id="modeSeg">
+          <button data-v="count" class="on">Enter count</button>
+          <button data-v="prop">Enter proportion</button>
+        </div>
+
+        <div class="fields2">
+          <div id="xBox"><label for="x">Number of successes, <span class="sym">x</span></label><input type="text" id="x" class="kp" autocomplete="off"></div>
+          <div id="phatBox" class="hidden"><label for="phat">Sample proportion, <span class="sym">p̂</span></label><input type="text" id="phat" class="kp" autocomplete="off"></div>
+          <div><label for="n">Sample size, <span class="sym">n</span></label><input type="text" id="n" class="kp" autocomplete="off"></div>
+        </div>
+        <p class="hint">A “success” is an individual in the category of interest. Enter <span class="sym">p̂</span> as a decimal (0.42) or a percent (42).</p>
+
+        <hr>
+        <h3>Method</h3>
+        <div class="fields2">
+          <div><label for="conf">Confidence level (%)</label><input type="text" id="conf" class="kp" value="95" autocomplete="off"></div>
+        </div>
+
+        <div class="keypad" id="keypad">
+          <button class="key" data-k="7">7</button><button class="key" data-k="8">8</button><button class="key" data-k="9">9</button><button class="key" data-k="back" aria-label="Backspace">⌫</button>
+          <button class="key" data-k="4">4</button><button class="key" data-k="5">5</button><button class="key" data-k="6">6</button><button class="key" data-k="-" aria-label="Minus">−</button>
+          <button class="key" data-k="1">1</button><button class="key" data-k="2">2</button><button class="key" data-k="3">3</button><button class="key next" data-k="next">Next<br>value</button>
+          <button class="key zero" data-k="0">0</button><button class="key" data-k=".">.</button>
+        </div>
+        <label class="check"><input type="checkbox" id="useKb"> Use my device's keyboard</label>
+
+        <div class="toolbar">
+          <button class="btn" id="exampleBtn">Load example</button>
+          <button class="btn ghost" id="clearBtn">Clear</button>
+          <div class="dec"><label for="dp">Decimals</label>
+            <select id="dp"><option>2</option><option selected>4</option><option>6</option></select></div>
+        </div>
+        <div class="err" id="err"></div>
+
+        <button class="btn see-results" id="seeRes">See results →</button>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 2: RESULTS ========== -->
+    <div class="screen" id="screenRes">
+      <div class="panel" id="resultsPanel">
+        <h2>Results</h2>
+        <div class="placeholder" id="empty">Enter the number of successes (or the sample proportion) and the sample size <span class="sym">n</span> to see the confidence interval.</div>
+        <div id="res" class="hidden">
+          <div class="ci-card">
+            <div class="lbl" id="ciLabel">95% confidence interval</div>
+            <div class="ci-val" id="ciText"></div>
+            <div class="formula" id="formula"></div>
+          </div>
+          <div class="interp" id="interp"></div>
+          <div class="cond" id="cond"></div>
+          <div class="measures" id="measures"></div>
+        </div>
+      </div>
+
+      <div class="panel hidden" id="graphPanel">
+        <h2>Number line</h2>
+        <div class="slider-top"><label for="slider" style="margin:0">Drag to change the confidence level</label><strong id="sliderVal">95%</strong></div>
+        <input type="range" id="slider" min="50" max="99" step="0.5" value="95" aria-label="Confidence level">
+        <div class="ticks" id="sliderTicks"></div>
+        <div id="plotBox"></div>
+        <div class="legend">
+          <span><i class="sw mean"></i>Sample proportion <span class="sym">p̂</span></span>
+          <span><i class="sw ci"></i>Confidence interval</span>
+          <span><i class="sw r99"></i>99% interval (reference)</span>
+        </div>
+      </div>
+
+      <div class="panel" id="howPanel">
+        <details>
+          <summary>How these are calculated</summary>
+          <div class="how" id="how"></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  // ================= Normal distribution =================
+  function normcdf(x){
+    var z=Math.abs(x)/Math.SQRT2,t=1/(1+0.5*z);
+    var r=t*Math.exp(-z*z-1.26551223+t*(1.00002368+t*(0.37409196+t*(0.09678418+t*(-0.18628806+t*(0.27886807+t*(-1.13520398+t*(1.48851587+t*(-0.82215223+t*0.17087277)))))))));
+    return x>=0?1-r/2:r/2;
+  }
+  function zinv(p){
+    var a=[-3.969683028665376e+01,2.209460984245205e+02,-2.759285104469687e+02,1.383577518672690e+02,-3.066479806614716e+01,2.506628277459239e+00],
+        b=[-5.447609879822406e+01,1.615858368580409e+02,-1.556989798598866e+02,6.680131188771972e+01,-1.328068155288572e+01],
+        c=[-7.784894002430293e-03,-3.223964580411365e-01,-2.400758277161838e+00,-2.549732539343734e+00,4.374664141464968e+00,2.938163982698783e+00],
+        d=[7.784695709041462e-03,3.224671290700398e-01,2.445134137142996e+00,3.754408661907416e+00];
+    var pl=0.02425,q,r,x;
+    if(p<pl){q=Math.sqrt(-2*Math.log(p));x=(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+    else if(p<=1-pl){q=p-0.5;r=q*q;x=(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);}
+    else{q=Math.sqrt(-2*Math.log(1-p));x=-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+    var e=normcdf(x)-p,u=e*Math.sqrt(2*Math.PI)*Math.exp(x*x/2);
+    return x-u/(1+x*u/2);
+  }
+
+  // ================= State =================
+  var $=function(id){return document.getElementById(id);};
+  var mode='count', last=null;
+  var EXAMPLE_COUNT={x:'112',n:'200'};
+  var EXAMPLE_PROP={phat:'0.34',n:'400'};
+
+  function fmt(x,dp){ if(!isFinite(x)) return '—'; var v=Math.abs(x)<0.5*Math.pow(10,-dp)?0:x; return v.toFixed(dp); }
+  function trimNum(x){ return String(+x.toFixed(10)); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function readNum(id){ var t=$(id).value.trim().replace(/−/g,'-').replace(/%$/,''); return t===''?null:(isFinite(Number(t))?Number(t):NaN); }
+  // proportions: values above 1 are read as percents (42 → 0.42)
+  function readProp(id){ var v=readNum(id); if(v==null||!isFinite(v)) return v; return v>1 ? v/100 : v; }
+  function isWhole(v){ return Math.abs(v-Math.round(v))<1e-9; }
+  function pct(v,dp){ return fmt(v*100,Math.max(0,dp-2))+'%'; }
+
+  // ================= Segmented toggle =================
+  var btns=$('modeSeg').querySelectorAll('button');
+  btns.forEach(function(b){ b.addEventListener('click',function(){
+    btns.forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
+    mode=b.getAttribute('data-v');
+    $('xBox').classList.toggle('hidden',mode!=='count'); $('phatBox').classList.toggle('hidden',mode!=='prop');
+    target = mode==='count' ? $('x') : $('phat');
+    update();
+  });});
+
+  // ================= Keypad =================
+  var target=$('x');
+  var isTouch=window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  $('useKb').checked=!isTouch;
+  function applyKb(){
+    var kb=$('useKb').checked;
+    $('keypad').classList.toggle('hidden',kb);
+    document.querySelectorAll('.kp').forEach(function(el){ el.setAttribute('inputmode', kb?'decimal':'none'); });
+    syncHeight();
+  }
+  $('useKb').addEventListener('change',applyKb);
+  document.querySelectorAll('.kp').forEach(function(el){ el.addEventListener('focus',function(){ target=el; }); });
+
+  function fieldOrder(){ return [mode==='count'?'x':'phat','n','conf'].map($); }
+  function setVal(el,v,pos){ el.value=v; try{el.setSelectionRange(pos,pos);}catch(e){} el.dispatchEvent(new Event('input',{bubbles:true})); }
+  function press(k){
+    var el=target||$('x');
+    if(document.activeElement!==el){ el.focus({preventScroll:true}); try{el.setSelectionRange(el.value.length,el.value.length);}catch(e){} }
+    var v=el.value, s=el.selectionStart==null?v.length:el.selectionStart, e=el.selectionEnd==null?v.length:el.selectionEnd;
+    if(k==='back'){
+      if(s!==e) setVal(el,v.slice(0,s)+v.slice(e),s);
+      else if(s>0) setVal(el,v.slice(0,s-1)+v.slice(s),s-1);
+    } else if(k==='next'){
+      var f=fieldOrder(), i=f.indexOf(el), nx=f[(i+1)%f.length];
+      nx.focus({preventScroll:true}); target=nx; try{nx.setSelectionRange(nx.value.length,nx.value.length);}catch(err){}
+    } else {
+      setVal(el,v.slice(0,s)+k+v.slice(e),s+1);
+    }
+  }
+  document.querySelectorAll('.key').forEach(function(b){
+    b.addEventListener('pointerdown',function(ev){ ev.preventDefault(); b.classList.add('tap'); });
+    ['pointerup','pointerleave','pointercancel'].forEach(function(t){ b.addEventListener(t,function(){ b.classList.remove('tap'); }); });
+    b.addEventListener('mousedown',function(ev){ ev.preventDefault(); });
+    b.addEventListener('click',function(){ press(b.getAttribute('data-k')); });
+  });
+
+  // ================= Buttons & inputs =================
+  $('exampleBtn').addEventListener('click',function(){
+    if(mode==='count'){ $('x').value=EXAMPLE_COUNT.x; $('n').value=EXAMPLE_COUNT.n; }
+    else { $('phat').value=EXAMPLE_PROP.phat; $('n').value=EXAMPLE_PROP.n; }
+    update();
+  });
+  $('clearBtn').addEventListener('click',function(){ $('x').value=''; $('phat').value=''; $('n').value=''; update(); });
+  ['x','phat','n'].forEach(function(id){ $(id).addEventListener('input',update); });
+  $('dp').addEventListener('change',update);
+  $('conf').addEventListener('input',function(){
+    var c=readNum('conf'); if(c!=null && isFinite(c) && c>=50) $('slider').value=Math.min(c,99);
+    update();
+  });
+  $('slider').addEventListener('input',function(){ $('conf').value=trimNum(+$('slider').value); update(); });
+
+  $('sliderTicks').innerHTML=[50,80,90,95,99].map(function(v){
+    return '<span'+(v===90?' class="t90"':v===99?' class="t99"':'')+' style="left:'+((v-50)/49*100).toFixed(2)+'%">'+v+'%</span>';
+  }).join('');
+
+  function critical(conf){ return zinv(1-(1-conf/100)/2); }
+
+  // ================= Main update =================
+  function update(){
+    var err='', x=null, phat=null;
+    var dp=parseInt($('dp').value,10);
+    var n=readNum('n');
+    if(n!=null && (!isFinite(n)||n<1||!isWhole(n))) err='Sample size n must be a whole number of at least 1.';
+
+    if(mode==='count'){
+      x=readNum('x');
+      if(!err && x!=null){
+        if(!isFinite(x)||x<0||!isWhole(x)) err='Number of successes x must be a whole number of at least 0.';
+        else if(n!=null && x>n) err='Number of successes x cannot be larger than the sample size n.';
+      }
+      if(!err && x!=null && n!=null) phat=x/n;
+    } else {
+      phat=readProp('phat');
+      if(!err && phat!=null && (!isFinite(phat)||phat<0||phat>1)) err='Sample proportion p̂ must be between 0 and 1 (or 0% and 100%).';
+      if(!err && phat!=null && n!=null) x=phat*n;
+    }
+    var conf=readNum('conf');
+    if(!err && $('conf').value.trim()!=='' && !(conf>=50 && conf<=99.9)) err='Confidence level must be between 50 and 99.9.';
+
+    var ready=!err && n!=null && phat!=null && isFinite(phat) && conf!=null;
+    if(ready && (phat===0 || phat===1)){ err='When p̂ is 0 or 1, the standard error is 0, so this method gives an interval with no width. A larger sample (or a different method) is needed.'; ready=false; }
+    $('err').textContent=err;
+
+    $('empty').classList.toggle('hidden',ready);
+    $('res').classList.toggle('hidden',!ready);
+    $('graphPanel').classList.toggle('hidden',!ready);
+    if(!ready){ last=null; renderHow(null); syncHeight(); return; }
+
+    var se=Math.sqrt(phat*(1-phat)/n), crit=critical(conf), me=crit*se, lo=phat-me, hi=phat+me;
+    var me99=critical(99)*se, confStr=trimNum(conf)+'%';
+    var xTxt = isWhole(x) ? String(Math.round(x)) : fmt(x,2);
+
+    $('ciLabel').textContent=confStr+' confidence interval';
+    $('ciText').textContent='('+fmt(lo,dp)+', '+fmt(hi,dp)+')';
+    $('formula').innerHTML='<span class="sym">p̂</span> ± <span class="sym">z*</span>·SE = '+fmt(phat,dp)+' ± '+fmt(crit,dp)+' × '+fmt(se,dp)+' = '+fmt(phat,dp)+' ± '+fmt(me,dp);
+    var outside = lo<0 || hi>1;
+    $('interp').innerHTML='We are '+confStr+' confident that the population proportion <span class="sym">p</span> is between '+fmt(lo,dp)+' and '+fmt(hi,dp)+
+      ' <span class="nw">('+pct(lo,dp)+' to '+pct(hi,dp)+')</span>.'+
+      (outside?' <em>Part of this interval falls '+(lo<0?'below 0':'above 1')+', which is impossible for a proportion—a sign the sample is too small for this method.</em>':'');
+    $('sliderVal').textContent=confStr;
+
+    // success–failure condition (observed successes and failures)
+    var s1=n*phat, s2=n*(1-phat), condOk=s1>=10 && s2>=10;
+    $('cond').className='cond '+(condOk?'ok':'bad');
+    $('cond').innerHTML='<span class="mark">'+(condOk?'✓':'!')+'</span>'+
+      (condOk?'Success–failure condition met: ':'Success–failure condition <strong>not</strong> met: ')+
+      '<span class="nw"><span class="sym">n</span><span class="sym">p̂</span> = '+trimNum(+s1.toFixed(4))+(s1>=10?' ≥ ':' &lt; ')+'10</span> and '+
+      '<span class="nw"><span class="sym">n</span>(1 − <span class="sym">p̂</span>) = '+trimNum(+s2.toFixed(4))+(s2>=10?' ≥ ':' &lt; ')+'10</span>.'+
+      (condOk?'':' The normal approximation may not be reliable, so interpret this interval with caution.');
+
+    var M=[
+      ['n','Sample size',String(n)],
+      ['x','Number of successes',xTxt],
+      ['p̂','Sample proportion = x/n',fmt(phat,dp)],
+      ['z*','Critical value',fmt(crit,dp)],
+      ['SE','Standard error = √(p̂(1 − p̂)/n)',fmt(se,dp)],
+      ['ME','Margin of error = z*·SE',fmt(me,dp)]
+    ];
+    $('measures').innerHTML=M.map(function(r){
+      return '<div class="m"><div class="top"><span class="sym">'+r[0]+'</span><span class="name">'+r[1]+'</span></div><div class="val">'+r[2]+'</div></div>';
+    }).join('');
+
+    last={phat:phat,lo:lo,hi:hi,half:Math.max(me99,me),dp:dp};
+    drawPlot();
+    renderHow({n:n,x:x,xTxt:xTxt,phat:phat,se:se,crit:crit,me:me,lo:lo,hi:hi,conf:conf,dp:dp,s1:s1,s2:s2,condOk:condOk});
+    syncHeight();
+  }
+
+  // ================= "How" section =================
+  function renderHow(r){
+    var dp=r?r.dp:4, h='';
+    h+='<p><strong>Sample proportion</strong> — the fraction of the sample in the category of interest.</p><div class="eq"><i>p̂</i> = <i>x</i> / <i>n</i></div>';
+    if(r) h+='<div class="num">= '+r.xTxt+' / '+r.n+' = '+fmt(r.phat,dp)+'</div>';
+    h+='<p><strong>Success–failure condition</strong> — the normal approximation is reasonable when the sample has at least 10 successes and 10 failures.</p>';
+    h+='<div class="eq"><i>n p̂</i> ≥ 10 &nbsp;and&nbsp; <i>n</i>(1 − <i>p̂</i>) ≥ 10</div>';
+    if(r) h+='<div class="num">'+r.n+' × '+fmt(r.phat,dp)+' = '+trimNum(+r.s1.toFixed(4))+' &nbsp;and&nbsp; '+r.n+' × '+fmt(1-r.phat,dp)+' = '+trimNum(+r.s2.toFixed(4))+' → '+(r.condOk?'condition met':'condition not met')+'</div>';
+    h+='<p><strong>Standard error</strong> — how much sample proportions typically vary from sample to sample. With no null value to assume, the interval uses <i>p̂</i> as the best estimate of <i>p</i>.</p>';
+    h+='<div class="eq">SE = √[ <i>p̂</i>(1 − <i>p̂</i>) / <i>n</i> ]</div>';
+    if(r) h+='<div class="num">= √( '+fmt(r.phat,dp)+' × '+fmt(1-r.phat,dp)+' / '+r.n+' ) = '+fmt(r.se,dp)+'</div>';
+    h+='<p><strong>Critical value</strong> — the value <i>z*</i> from the standard normal distribution that leaves the confidence level <i>C</i> in the middle and (1 − <i>C</i>)/2 in each tail.</p>';
+    if(r) h+='<div class="num">C = '+trimNum(r.conf)+'%, tail area = '+trimNum((100-r.conf)/2)+'% → <i>z*</i> = '+fmt(r.crit,dp)+'</div>';
+    h+='<p><strong>Margin of error</strong></p><div class="eq">ME = <i>z*</i> · SE</div>';
+    if(r) h+='<div class="num">= '+fmt(r.crit,dp)+' × '+fmt(r.se,dp)+' = '+fmt(r.me,dp)+'</div>';
+    h+='<p><strong>Confidence interval</strong></p><div class="eq"><i>p̂</i> ± ME</div>';
+    if(r) h+='<div class="num">= '+fmt(r.phat,dp)+' ± '+fmt(r.me,dp)+' = ('+fmt(r.lo,dp)+', '+fmt(r.hi,dp)+')</div>';
+    h+='<p class="num">Intermediate values are rounded for display only; all calculations use full precision.</p>';
+    $('how').innerHTML=h;
+  }
+
+  // ================= Number line (SVG at true width) =================
+  function niceStep(range,maxTicks){
+    var raw=range/maxTicks, mag=Math.pow(10,Math.floor(Math.log10(raw))), opts=[1,2,2.5,5,10];
+    for(var i=0;i<opts.length;i++) if(opts[i]*mag>=raw) return opts[i]*mag;
+    return 10*mag;
+  }
+  function decimalsOf(step){ var d=0; while(d<10 && Math.abs(Math.round(step*Math.pow(10,d))-step*Math.pow(10,d))>1e-7) d++; return d; }
+  function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+
+  function drawPlot(){
+    if(!last) return;
+    var box=$('plotBox'), W=Math.max(260,Math.floor(box.clientWidth||600)), H=124;
+    var blue=cssVar('--blue'), orange=cssVar('--orange'), lor=cssVar('--lorange'), muted=cssVar('--muted'), panel=cssVar('--panel'), text=cssVar('--text');
+    var pad=Math.max(16,Math.min(40,W*0.04)), L=pad, R=W-pad;
+    var ph=last.phat, half=last.half*1.15, dmin=ph-half, dmax=ph+half;
+    var X=function(v){ return L+(v-dmin)/(dmax-dmin)*(R-L); };
+    var maxTicks=Math.max(4,Math.min(10,Math.floor(W/75)));
+    var step=niceStep(dmax-dmin,maxTicks), td=decimalsOf(step);
+    var dp=last.dp, fs=13;
+    var yMeanLab=18, yBar=44, yCiLab=70, axisY=92, yTick=111;
+    var g='';
+    // impossible region (outside 0–1), if visible
+    if(dmin<0) g+='<rect x="'+L+'" y="'+(yBar-16)+'" width="'+(X(0)-L)+'" height="'+(axisY-yBar+16)+'" fill="'+muted+'" fill-opacity=".12"/>';
+    if(dmax>1) g+='<rect x="'+X(1)+'" y="'+(yBar-16)+'" width="'+(R-X(1))+'" height="'+(axisY-yBar+16)+'" fill="'+muted+'" fill-opacity=".12"/>';
+    // 99% reference band
+    var a99=X(ph-last.half), b99=X(ph+last.half);
+    g+='<rect x="'+a99+'" y="'+(yBar-12)+'" width="'+(b99-a99)+'" height="24" fill="'+lor+'" fill-opacity=".22" stroke="'+orange+'" stroke-opacity=".6" stroke-dasharray="4 3" rx="3"/>';
+    // axis + ticks
+    g+='<line x1="'+L+'" y1="'+axisY+'" x2="'+R+'" y2="'+axisY+'" stroke="'+muted+'" stroke-width="1.3"/>';
+    var first=Math.ceil((dmin-1e-9)/step);
+    for(var k=first; k*step<=dmax+1e-9; k++){
+      var t=k*step, x=X(t);
+      g+='<line x1="'+x+'" y1="'+(axisY-5)+'" x2="'+x+'" y2="'+(axisY+5)+'" stroke="'+muted+'" stroke-width="1.2"/>';
+      g+='<text x="'+x+'" y="'+yTick+'" font-size="'+fs+'" text-anchor="middle" fill="'+muted+'">'+(Math.abs(t)<step/1e6?0:t).toFixed(td)+'</text>';
+    }
+    // CI shading on axis + bracket
+    var a=X(last.lo), b=X(last.hi), m=X(ph);
+    g+='<rect x="'+a+'" y="'+(axisY-3)+'" width="'+(b-a)+'" height="6" fill="'+blue+'" fill-opacity=".3"/>';
+    g+='<line x1="'+a+'" y1="'+yBar+'" x2="'+b+'" y2="'+yBar+'" stroke="'+blue+'" stroke-width="4"/>';
+    g+='<line x1="'+a+'" y1="'+(yBar-9)+'" x2="'+a+'" y2="'+(yBar+9)+'" stroke="'+blue+'" stroke-width="3"/>';
+    g+='<line x1="'+b+'" y1="'+(yBar-9)+'" x2="'+b+'" y2="'+(yBar+9)+'" stroke="'+blue+'" stroke-width="3"/>';
+    g+='<line x1="'+a+'" y1="'+(yBar+9)+'" x2="'+a+'" y2="'+axisY+'" stroke="'+blue+'" stroke-opacity=".35" stroke-dasharray="2 3"/>';
+    g+='<line x1="'+b+'" y1="'+(yBar+9)+'" x2="'+b+'" y2="'+axisY+'" stroke="'+blue+'" stroke-opacity=".35" stroke-dasharray="2 3"/>';
+    g+='<circle cx="'+m+'" cy="'+yBar+'" r="7" fill="'+orange+'" stroke="'+panel+'" stroke-width="2"/>';
+    // labels (avoid overlap / edges)
+    var loTxt=fmt(last.lo,dp), hiTxt=fmt(last.hi,dp), mTxt='p̂ = '+fmt(ph,dp);
+    var cw=fs*0.6, wlo=loTxt.length*cw, whi=hiTxt.length*cw, wm=mTxt.length*cw;
+    var clamp=function(x,w){ return Math.max(w/2+2,Math.min(W-w/2-2,x)); };
+    var la=a, lb=b, need=(wlo+whi)/2+10;
+    if(lb-la<need){ var mid=(a+b)/2; la=mid-need/2; lb=mid+need/2; }
+    la=clamp(la,wlo); lb=clamp(lb,whi);
+    g+='<text x="'+la+'" y="'+yCiLab+'" font-size="'+fs+'" font-weight="700" text-anchor="middle" fill="'+blue+'">'+esc(loTxt)+'</text>';
+    g+='<text x="'+lb+'" y="'+yCiLab+'" font-size="'+fs+'" font-weight="700" text-anchor="middle" fill="'+blue+'">'+esc(hiTxt)+'</text>';
+    g+='<text x="'+clamp(m,wm)+'" y="'+yMeanLab+'" font-size="'+fs+'" font-weight="700" text-anchor="middle" fill="'+text+'">'+esc(mTxt)+'</text>';
+    box.innerHTML='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Number line showing the sample proportion and confidence interval" font-family="Atkinson Hyperlegible, Arial, sans-serif">'+g+'</svg>';
+  }
+
+  // ================= Phone screens =================
+  var mq=window.matchMedia('(max-width:760px)');
+  var screensEl=$('screens'), screenEls=[$('screenData'),$('screenRes')], cur=0;
+  function setTabs(){ $('tabData').classList.toggle('on',cur===0); $('tabRes').classList.toggle('on',cur===1); }
+  function syncHeight(){
+    if(mq.matches) screensEl.style.height=screenEls[cur].scrollHeight+'px';
+    else screensEl.style.height='';
+  }
+  function go(i){
+    cur=i; setTabs(); syncHeight();
+    screensEl.scrollTo({left:i*screensEl.clientWidth,behavior:'smooth'});
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  $('tabData').addEventListener('click',function(){ go(0); });
+  $('tabRes').addEventListener('click',function(){ go(1); });
+  $('seeRes').addEventListener('click',function(){ go(1); });
+  var scrollT;
+  screensEl.addEventListener('scroll',function(){
+    clearTimeout(scrollT);
+    scrollT=setTimeout(function(){
+      if(!mq.matches) return;
+      var i=Math.round(screensEl.scrollLeft/screensEl.clientWidth);
+      if(i!==cur){ cur=i; setTabs(); syncHeight(); window.scrollTo({top:0,behavior:'smooth'}); }
+    },90);
+  });
+  function onLayout(){ if(!mq.matches){ cur=0; setTabs(); screensEl.scrollLeft=0; } syncHeight(); drawPlot(); }
+  if(mq.addEventListener) mq.addEventListener('change',onLayout); else mq.addListener(onLayout);
+  if(window.ResizeObserver){
+    var ro=new ResizeObserver(function(){ syncHeight(); });
+    screenEls.forEach(function(el){ ro.observe(el); });
+    document.querySelectorAll('.screen > .panel').forEach(function(el){ ro.observe(el); });
+    var lastW=0;
+    new ResizeObserver(function(){ var w=$('plotBox').clientWidth; if(w!==lastW){ lastW=w; drawPlot(); } }).observe($('plotBox'));
+  } else window.addEventListener('resize',onLayout);
+  var dmq=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+  if(dmq && dmq.addEventListener) dmq.addEventListener('change',drawPlot);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ drawPlot(); syncHeight(); });
+
+  applyKb();
+  update();
+})();
+</script>
+</body>
+</html>

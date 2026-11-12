@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hypothesis Test for a Proportion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Spectral:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1E376C; --orange:#F47920; --lorange:#FAA634;
+    --bg:#f6f7fa; --grid:rgba(30,55,108,.07); --panel:#ffffff; --text:#1c2333; --muted:#596377;
+    --border:#d8dde6; --btntext:#ffffff; --soft:#eef1f7; --err:#b42318; --ok:#1d7a46;
+    --serif:"Spectral",Georgia,"Times New Roman",serif;
+    --sans:"Atkinson Hyperlegible",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --blue:#8FA9DD; --bg:#111725; --grid:rgba(143,169,221,.07); --panel:#1a2133; --text:#e4e8f1; --muted:#9aa6bd;
+      --border:#2f3a52; --btntext:#111725; --soft:#232c42; --err:#ff8a7a; --ok:#6fd39b;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background-color:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.45;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:20px 20px}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px}
+  h1,h2,h3{font-family:var(--serif);color:var(--blue);font-weight:600;margin:0}
+  h1{font-size:26px;line-height:1.2}
+  .subtitle{color:var(--muted);margin:2px 0 14px;font-size:15px}
+  h2{font-size:20px;margin-bottom:10px}
+  h3{font-size:17px;margin-bottom:8px}
+  .sym{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue)}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;min-width:0}
+  .hidden{display:none !important}
+
+  /* ---------- Layout ---------- */
+  .tabs{display:none}
+  .screens{display:grid;grid-template-columns:minmax(300px,5fr) 7fr;gap:16px;align-items:start;
+    grid-template-areas:"data results" "graph graph" "how how"}
+  .screen{display:contents}
+  #dataPanel{grid-area:data;border-top:5px solid var(--orange)}
+  #resultsPanel{grid-area:results}
+  #graphPanel{grid-area:graph}
+  #howPanel{grid-area:how}
+  .see-results{display:none}
+
+  @media (max-width:760px){
+    .wrap{padding:12px 10px}
+    h1{font-size:22px}
+    .tabs{display:flex;position:sticky;top:0;z-index:10;background:var(--bg);padding:6px 0 8px;margin-bottom:6px}
+    .tabs button{flex:1;border:1px solid var(--blue);background:var(--panel);color:var(--blue);font:700 15px var(--sans);padding:9px 0;cursor:pointer}
+    .tabs button:first-child{border-radius:8px 0 0 8px}
+    .tabs button:last-child{border-radius:0 8px 8px 0;border-left:none}
+    .tabs button.on{background:var(--blue);color:var(--btntext)}
+    .screens{display:flex;gap:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;align-items:flex-start;
+      scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .screens::-webkit-scrollbar{display:none}
+    .screen{display:flex;flex-direction:column;gap:12px;flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;padding:0 1px}
+    .see-results{display:block}
+  }
+
+  /* ---------- Controls ---------- */
+  label,.lbl{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+  input[type=text],select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:7px;
+    font:16px var(--sans);color:var(--text);background:var(--panel)}
+  input[type=text]:focus,select:focus{outline:2px solid var(--lorange);outline-offset:0;border-color:var(--orange)}
+  .hint{font-size:13px;color:var(--muted);margin:6px 0 0}
+  .seg{display:flex;border:1px solid var(--blue);border-radius:8px;overflow:hidden;margin-bottom:12px}
+  .seg button{flex:1;border:none;background:var(--panel);color:var(--blue);padding:8px 6px;font:700 14px var(--sans);cursor:pointer;line-height:1.25}
+  .seg button+button{border-left:1px solid var(--blue)}
+  .seg button.on{background:var(--blue);color:var(--btntext)}
+  .seg .op{font-family:var(--serif);font-size:17px;font-weight:600}
+  .btn{border:1px solid var(--blue);background:var(--blue);color:var(--btntext);border-radius:7px;padding:8px 14px;font:700 14px var(--sans);cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--blue)}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .toolbar .dec{margin-left:auto;display:flex;align-items:center;gap:6px}
+  .toolbar .dec label{margin:0}
+  .toolbar .dec select{width:auto;padding:6px 8px}
+  .check{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text);margin-top:10px;cursor:pointer}
+  .check input{width:18px;height:18px;accent-color:var(--blue)}
+  .fields2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+  .msg{font-size:14px;margin-top:8px;color:var(--muted)}
+  .err{color:var(--err);font-size:14px;margin-top:8px}
+  .see-results{width:100%;margin-top:16px;padding:12px;font-size:16px}
+  .hyp{display:flex;flex-wrap:wrap;gap:4px 22px;font-family:var(--serif);font-size:18px;color:var(--blue);
+    background:var(--soft);border-radius:8px;padding:8px 12px;margin-top:10px}
+  .hyp i{font-weight:600}
+
+  /* keypad */
+  .keypad{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px;user-select:none;-webkit-user-select:none}
+  .key{border:1px solid var(--border);background:var(--soft);color:var(--blue);border-radius:8px;padding:11px 0;
+    font:700 19px var(--sans);cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .key:active,.key.tap{background:var(--lorange);color:#1E376C;border-color:var(--lorange)}
+  .key.next{grid-row:span 2;background:var(--blue);color:var(--btntext);border-color:var(--blue);font-size:15px;line-height:1.2}
+  .key.next:active,.key.next.tap{background:var(--lorange);color:#1E376C}
+  .key.zero{grid-column:span 2}
+
+  /* ---------- Results ---------- */
+  .placeholder{color:var(--muted);font-style:italic;padding:20px 0;text-align:center}
+  .dec-card{border:1px solid var(--border);border-left:5px solid var(--blue);border-radius:8px;padding:12px 14px;background:var(--soft)}
+  .dec-card.reject{border-left-color:var(--orange)}
+  .dec-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+  .dec-main{font-size:24px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1.25}
+  .formula{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;margin-top:6px}
+  .formula .nw{white-space:nowrap}
+  .interp{font-size:14px;margin-top:8px}
+  .cond{font-size:14px;margin-top:10px;padding:8px 12px;border-radius:8px;border:1px solid var(--border);font-variant-numeric:tabular-nums}
+  .cond .mark{font-weight:700;margin-right:4px}
+  .cond.ok .mark{color:var(--ok)}
+  .cond.bad{border-color:var(--orange)}
+  .cond.bad .mark{color:var(--orange)}
+  .measures{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+  .m{border:1px solid var(--border);border-radius:8px;padding:8px 12px;min-width:0}
+  .m.key2{border-color:var(--blue);border-width:2px;padding:7px 11px}
+  .m .top{display:flex;align-items:baseline;gap:8px}
+  .m .sym{font-size:20px}
+  .m .name{font-size:13px;color:var(--muted)}
+  .m .val{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+
+  /* slider */
+  .slider-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:nowrap}
+  .slider-top label{flex:1 1 auto;min-width:0}
+  .slider-top strong{flex:0 0 auto;min-width:220px;text-align:right;white-space:nowrap;font-size:20px;color:var(--blue);font-variant-numeric:tabular-nums}
+  .slider-top small{font-size:14px;color:var(--muted);font-weight:400}
+  @media (max-width:760px){
+    .slider-top{flex-direction:column;align-items:flex-start;gap:2px}
+    .slider-top strong{min-width:0;text-align:left}
+  }
+  input[type=range]{width:100%;accent-color:var(--orange);margin:6px 0 0}
+  .ticks{position:relative;height:18px;font-size:12px;color:var(--muted);margin:0 9px}
+  .ticks span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+  .ticks span:first-child{transform:none;margin-left:-9px}
+  .ticks span:last-child{transform:translateX(-100%);margin-left:9px}
+  #plotBox{width:100%;margin-top:10px}
+  #plotBox svg{display:block}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;font-size:13px;color:var(--muted);margin-top:6px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{display:inline-block}
+  .sw.rej{width:18px;height:12px;background:var(--lorange);opacity:.75;border:1px solid var(--orange)}
+  .sw.pv{width:18px;height:12px;border:1px solid var(--blue);
+    background:repeating-linear-gradient(45deg,var(--blue) 0 2px,transparent 2px 5px)}
+  .sw.ts{width:3px;height:14px;background:var(--blue)}
+  .caption{font-size:13px;color:var(--muted);text-align:center;margin-top:4px}
+
+  details summary{cursor:pointer;font-family:var(--serif);font-weight:600;font-size:20px;color:var(--blue)}
+  details[open] summary{margin-bottom:8px}
+  .how p{margin:10px 0}
+  .how .eq{font-family:var(--serif);font-size:18px;color:var(--blue);margin:2px 0}
+  .how .num{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+  @media (max-width:560px){
+    .dec-main{font-size:20px}
+    .toolbar .dec{margin-left:0}
+    .ticks .t25{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Hypothesis Test for a Proportion</h1>
+  <p class="subtitle">Categorical data · one sample · <span class="sym">z</span>-test</p>
+
+  <div class="tabs" role="tablist">
+    <button id="tabData" class="on" role="tab">Data</button>
+    <button id="tabRes" role="tab">Results</button>
+  </div>
+
+  <div class="screens" id="screens">
+    <!-- ========== SCREEN 1: DATA ========== -->
+    <div class="screen" id="screenData">
+      <div class="panel" id="dataPanel">
+        <h2>Data</h2>
+        <div class="seg" id="modeSeg">
+          <button data-v="count" class="on">Enter count</button>
+          <button data-v="prop">Enter proportion</button>
+        </div>
+
+        <div class="fields2">
+          <div id="xBox"><label for="x">Number of successes, <span class="sym">x</span></label><input type="text" id="x" class="kp" autocomplete="off"></div>
+          <div id="phatBox" class="hidden"><label for="phat">Sample proportion, <span class="sym">p̂</span></label><input type="text" id="phat" class="kp" autocomplete="off"></div>
+          <div><label for="n">Sample size, <span class="sym">n</span></label><input type="text" id="n" class="kp" autocomplete="off"></div>
+        </div>
+        <p class="hint" id="dataHint">A “success” is an individual in the category of interest.</p>
+
+        <div class="keypad" id="keypad">
+          <button class="key" data-k="7">7</button><button class="key" data-k="8">8</button><button class="key" data-k="9">9</button><button class="key" data-k="back" aria-label="Backspace">⌫</button>
+          <button class="key" data-k="4">4</button><button class="key" data-k="5">5</button><button class="key" data-k="6">6</button><button class="key" data-k="-" aria-label="Minus">−</button>
+          <button class="key" data-k="1">1</button><button class="key" data-k="2">2</button><button class="key" data-k="3">3</button><button class="key next" data-k="next">Next<br>value</button>
+          <button class="key zero" data-k="0">0</button><button class="key" data-k=".">.</button>
+        </div>
+        <label class="check"><input type="checkbox" id="useKb"> Use my device's keyboard</label>
+
+        <hr>
+        <h3>Hypotheses</h3>
+        <div class="seg" id="tailSeg">
+          <button data-v="two" class="on">Two-tailed<br><span class="op">≠</span></button>
+          <button data-v="left">Left-tailed<br><span class="op">&lt;</span></button>
+          <button data-v="right">Right-tailed<br><span class="op">&gt;</span></button>
+        </div>
+        <div class="fields2">
+          <div><label for="p0">Null value, <span class="sym">p</span>₀</label><input type="text" id="p0" class="kp" autocomplete="off"></div>
+          <div><label for="alpha">Significance level, <span class="sym">α</span> (%)</label><input type="text" id="alpha" class="kp" value="5" autocomplete="off"></div>
+        </div>
+        <p class="hint">Enter proportions and <span class="sym">α</span> as a decimal (0.05) or a percent (5).</p>
+        <div class="hyp" id="hyp"></div>
+
+        <div class="toolbar">
+          <button class="btn" id="exampleBtn">Load example</button>
+          <button class="btn ghost" id="clearBtn">Clear</button>
+          <div class="dec"><label for="dp">Decimals</label>
+            <select id="dp"><option>2</option><option selected>4</option><option>6</option></select></div>
+        </div>
+        <div class="err" id="err"></div>
+
+        <button class="btn see-results" id="seeRes">See results →</button>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 2: RESULTS ========== -->
+    <div class="screen" id="screenRes">
+      <div class="panel" id="resultsPanel">
+        <h2>Results</h2>
+        <div class="placeholder" id="empty">Enter the number of successes (or the sample proportion), the sample size <span class="sym">n</span>, and a null value <span class="sym">p</span>₀ to run the test.</div>
+        <div id="res" class="hidden">
+          <div class="dec-card" id="decCard">
+            <div class="dec-top"><span class="dec-main" id="decMain"></span></div>
+            <div class="formula" id="formula"></div>
+          </div>
+          <div class="interp" id="interp"></div>
+          <div class="cond" id="cond"></div>
+          <div class="measures" id="measures"></div>
+        </div>
+      </div>
+
+      <div class="panel hidden" id="graphPanel">
+        <h2>Standard normal (<span class="sym">z</span>) distribution</h2>
+        <div class="slider-top"><label for="slider" style="margin:0">Drag to change the significance level <span class="sym">α</span></label>
+          <strong id="sliderVal">5%</strong></div>
+        <input type="range" id="slider" min="1" max="10" step="0.5" value="5" aria-label="Significance level">
+        <div class="ticks" id="sliderTicks"></div>
+        <div id="plotBox"></div>
+        <div class="legend">
+          <span><i class="sw rej"></i>Rejection region (area = <span class="sym">α</span>)</span>
+          <span><i class="sw pv"></i>p-value area</span>
+          <span><i class="sw ts"></i>Test statistic</span>
+        </div>
+        <div class="caption" id="caption"></div>
+      </div>
+
+      <div class="panel" id="howPanel">
+        <details>
+          <summary>How these are calculated</summary>
+          <div class="how" id="how"></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  // ================= Normal distribution =================
+  function nupper(x){ // P(Z > x) for x >= 0
+    var z=x/Math.SQRT2,t=1/(1+0.5*z);
+    return t*Math.exp(-z*z-1.26551223+t*(1.00002368+t*(0.37409196+t*(0.09678418+t*(-0.18628806+t*(0.27886807+t*(-1.13520398+t*(1.48851587+t*(-0.82215223+t*0.17087277)))))))))/2;
+  }
+  function normcdf(x){ var p=nupper(Math.abs(x)); return x>=0?1-p:p; }
+  function npdf(x){ return Math.exp(-x*x/2)/Math.sqrt(2*Math.PI); }
+  function zinv(p){
+    var a=[-3.969683028665376e+01,2.209460984245205e+02,-2.759285104469687e+02,1.383577518672690e+02,-3.066479806614716e+01,2.506628277459239e+00],
+        b=[-5.447609879822406e+01,1.615858368580409e+02,-1.556989798598866e+02,6.680131188771972e+01,-1.328068155288572e+01],
+        c=[-7.784894002430293e-03,-3.223964580411365e-01,-2.400758277161838e+00,-2.549732539343734e+00,4.374664141464968e+00,2.938163982698783e+00],
+        d=[7.784695709041462e-03,3.224671290700398e-01,2.445134137142996e+00,3.754408661907416e+00];
+    var pl=0.02425,q,r,x;
+    if(p<pl){q=Math.sqrt(-2*Math.log(p));x=(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+    else if(p<=1-pl){q=p-0.5;r=q*q;x=(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);}
+    else{q=Math.sqrt(-2*Math.log(1-p));x=-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+    var e=normcdf(x)-p,u=e*Math.sqrt(2*Math.PI)*Math.exp(x*x/2);
+    return x-u/(1+x*u/2);
+  }
+
+  // ================= State =================
+  var $=function(id){return document.getElementById(id);};
+  var mode='count', tail='two', last=null;
+  var EXAMPLE_COUNT={x:'112',n:'200',p0:'0.5'};
+  var EXAMPLE_PROP={phat:'0.34',n:'400',p0:'0.3'};
+  var OP={two:'≠',left:'<',right:'>'};
+
+  function fmt(x,dp){ if(!isFinite(x)) return '—'; var v=Math.abs(x)<0.5*Math.pow(10,-dp)?0:x; return v.toFixed(dp); }
+  function fmtP(p,dp){ var lim=Math.pow(10,-dp); return p<lim ? '< '+lim.toFixed(dp) : p.toFixed(dp); }
+  function trimNum(x){ return String(+x.toFixed(10)); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function readNum(id){ var t=$(id).value.trim().replace(/−/g,'-').replace(/%$/,''); return t===''?null:(isFinite(Number(t))?Number(t):NaN); }
+  // proportions: values above 1 are read as percents (42 → 0.42)
+  function readProp(id){ var v=readNum(id); if(v==null||!isFinite(v)) return v; return v>1 ? v/100 : v; }
+  // α as a percent; values below 1 are read as proportions (0.05 → 5%)
+  function readAlphaPct(){ var a=readNum('alpha'); if(a==null||!isFinite(a)) return a; return a<1 ? a*100 : a; }
+
+  // ================= Segmented toggles =================
+  function setupSeg(id,cb){
+    var btns=$(id).querySelectorAll('button');
+    btns.forEach(function(b){ b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); cb(b.getAttribute('data-v')); update();
+    });});
+  }
+  function setSeg(id,v){ $(id).querySelectorAll('button').forEach(function(b){ b.classList.toggle('on',b.getAttribute('data-v')===v); }); }
+  setupSeg('modeSeg',function(v){
+    mode=v; $('xBox').classList.toggle('hidden',v!=='count'); $('phatBox').classList.toggle('hidden',v!=='prop');
+    target = v==='count' ? $('x') : $('phat');
+  });
+  setupSeg('tailSeg',function(v){ tail=v; });
+
+  // ================= Keypad =================
+  var target=$('x');
+  var isTouch=window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  $('useKb').checked=!isTouch;
+  function applyKb(){
+    var kb=$('useKb').checked;
+    $('keypad').classList.toggle('hidden',kb);
+    document.querySelectorAll('.kp').forEach(function(el){ el.setAttribute('inputmode', kb?'decimal':'none'); });
+    syncHeight();
+  }
+  $('useKb').addEventListener('change',applyKb);
+  document.querySelectorAll('.kp').forEach(function(el){ el.addEventListener('focus',function(){ target=el; }); });
+
+  function fieldOrder(){ return [mode==='count'?'x':'phat','n','p0','alpha'].map($); }
+  function setVal(el,v,pos){ el.value=v; try{el.setSelectionRange(pos,pos);}catch(e){} el.dispatchEvent(new Event('input',{bubbles:true})); }
+  function press(k){
+    var el=target||$('x');
+    if(document.activeElement!==el){ el.focus({preventScroll:true}); try{el.setSelectionRange(el.value.length,el.value.length);}catch(e){} }
+    var v=el.value, s=el.selectionStart==null?v.length:el.selectionStart, e=el.selectionEnd==null?v.length:el.selectionEnd;
+    if(k==='back'){
+      if(s!==e) setVal(el,v.slice(0,s)+v.slice(e),s);
+      else if(s>0) setVal(el,v.slice(0,s-1)+v.slice(s),s-1);
+    } else if(k==='next'){
+      var f=fieldOrder(), i=f.indexOf(el), nx=f[(i+1)%f.length];
+      nx.focus({preventScroll:true}); target=nx; try{nx.setSelectionRange(nx.value.length,nx.value.length);}catch(err){}
+    } else {
+      setVal(el,v.slice(0,s)+k+v.slice(e),s+1);
+    }
+  }
+  document.querySelectorAll('.key').forEach(function(b){
+    b.addEventListener('pointerdown',function(ev){ ev.preventDefault(); b.classList.add('tap'); });
+    ['pointerup','pointerleave','pointercancel'].forEach(function(t){ b.addEventListener(t,function(){ b.classList.remove('tap'); }); });
+    b.addEventListener('mousedown',function(ev){ ev.preventDefault(); });
+    b.addEventListener('click',function(){ press(b.getAttribute('data-k')); });
+  });
+
+  // ================= Buttons & inputs =================
+  $('exampleBtn').addEventListener('click',function(){
+    if(mode==='count'){ $('x').value=EXAMPLE_COUNT.x; $('n').value=EXAMPLE_COUNT.n; $('p0').value=EXAMPLE_COUNT.p0; }
+    else { $('phat').value=EXAMPLE_PROP.phat; $('n').value=EXAMPLE_PROP.n; $('p0').value=EXAMPLE_PROP.p0; }
+    tail='two'; setSeg('tailSeg','two');
+    update();
+  });
+  $('clearBtn').addEventListener('click',function(){
+    $('x').value=''; $('phat').value=''; $('n').value=''; $('p0').value=''; update();
+  });
+  ['x','phat','n','p0'].forEach(function(id){ $(id).addEventListener('input',update); });
+  $('dp').addEventListener('change',update);
+  $('alpha').addEventListener('input',function(){
+    var a=readAlphaPct(); if(a!=null && isFinite(a) && a>0) $('slider').value=Math.max(1,Math.min(10,a));
+    update();
+  });
+  $('slider').addEventListener('input',function(){ $('alpha').value=trimNum(+$('slider').value); update(); });
+
+  $('sliderTicks').innerHTML=[1,2.5,5,7.5,10].map(function(v){
+    return '<span'+(v===2.5||v===7.5?' class="t25"':'')+' style="left:'+((v-1)/9*100).toFixed(2)+'%">'+v+'%</span>';
+  }).join('');
+
+  function critFor(a,tl){ return zinv(tl==='two' ? 1-a/2 : 1-a); }
+  function pvalue(z){
+    if(tail==='two') return Math.min(1,2*nupper(Math.abs(z)));
+    if(tail==='left') return normcdf(z);
+    return z>=0 ? nupper(z) : 1-nupper(-z);
+  }
+
+  function renderHyp(p0){
+    var m = (p0==null||!isFinite(p0)) ? '<i>p</i>₀' : trimNum(p0);
+    $('hyp').innerHTML='<span>H₀: <i>p</i> = '+m+'</span><span>Hₐ: <i>p</i> '+OP[tail]+' '+m+'</span>';
+  }
+  function isWhole(v){ return Math.abs(v-Math.round(v))<1e-9; }
+
+  // ================= Main update =================
+  function update(){
+    var err='', x=null, phat=null;
+    var dp=parseInt($('dp').value,10);
+    var n=readNum('n');
+    if(n!=null && (!isFinite(n)||n<1||!isWhole(n))) err='Sample size n must be a whole number of at least 1.';
+
+    if(mode==='count'){
+      x=readNum('x');
+      if(!err && x!=null){
+        if(!isFinite(x)||x<0||!isWhole(x)) err='Number of successes x must be a whole number of at least 0.';
+        else if(n!=null && x>n) err='Number of successes x cannot be larger than the sample size n.';
+      }
+      if(!err && x!=null && n!=null) phat=x/n;
+    } else {
+      phat=readProp('phat');
+      if(!err && phat!=null && (!isFinite(phat)||phat<0||phat>1)) err='Sample proportion p̂ must be between 0 and 1 (or 0% and 100%).';
+      if(!err && phat!=null && n!=null) x=phat*n;
+    }
+    var p0=readProp('p0');
+    if(!err && p0!=null && (!isFinite(p0)||p0<=0||p0>=1)) err='The null value p₀ must be strictly between 0 and 1 (or 0% and 100%).';
+    renderHyp(p0);
+    var aPct=readAlphaPct();
+    if(!err && aPct!=null && !(aPct>0 && aPct<50)) err='Significance level must be between 0 and 50% (e.g., 5 or 0.05).';
+
+    var ready=!err && n!=null && phat!=null && isFinite(phat) && p0!=null && aPct!=null && isFinite(aPct);
+    $('err').textContent=err;
+
+    $('empty').classList.toggle('hidden',ready);
+    $('res').classList.toggle('hidden',!ready);
+    $('graphPanel').classList.toggle('hidden',!ready);
+    if(!ready){ last=null; renderHow(null); syncHeight(); return; }
+
+    var alpha=aPct/100, se=Math.sqrt(p0*(1-p0)/n), z=(phat-p0)/se;
+    var crit=critFor(alpha,tail), p=pvalue(z), reject=p<=alpha;
+    var aStr=trimNum(aPct)+'%', aDec=trimNum(alpha);
+    var critTxt = tail==='two' ? '±'+fmt(crit,dp) : (tail==='left' ? fmt(-crit,dp) : fmt(crit,dp));
+    var pTxt=fmtP(p,dp);
+    var inRegion = tail==='two' ? Math.abs(z)>=crit : (tail==='left' ? z<=-crit : z>=crit);
+    var xTxt = isWhole(x) ? String(Math.round(x)) : fmt(x,2);
+
+    $('decCard').classList.toggle('reject',reject);
+    $('decMain').innerHTML='<span class="sym">z</span> = '+fmt(z,dp)+',&nbsp; p '+(pTxt.charAt(0)==='<'?'':'= ')+pTxt;
+    $('formula').innerHTML='<div>p-value '+(pTxt.charAt(0)==='<'?pTxt:'= '+pTxt)+(reject?' ≤ ':' &gt; ')+'<span class="sym">α</span> = '+aDec+'</div>'+
+      '<div>test statistic '+(inRegion?'is':'is not')+' in the rejection region '+
+      '<span class="nw">('+(tail==='two'?'|z| ≥ '+fmt(crit,dp):'z'+(tail==='left'?' ≤ ':' ≥ ')+critTxt)+')</span></div>';
+    var dir = tail==='two'?'different from':(tail==='left'?'less than':'greater than');
+    $('interp').innerHTML = 'At the '+aStr+' significance level, there '+(reject?'<strong>is</strong>':'is <strong>not</strong>')+
+      ' sufficient evidence to conclude that the population proportion <span class="sym">p</span> is '+dir+' '+trimNum(p0)+'.';
+
+    // success–failure condition
+    var e1=n*p0, e2=n*(1-p0), condOk=e1>=10 && e2>=10;
+    $('cond').className='cond '+(condOk?'ok':'bad');
+    $('cond').innerHTML='<span class="mark">'+(condOk?'✓':'!')+'</span>'+
+      (condOk?'Success–failure condition met: ':'Success–failure condition <strong>not</strong> met: ')+
+      '<span class="nw"><span class="sym">n</span><span class="sym">p</span>₀ = '+trimNum(+e1.toFixed(4))+(e1>=10?' ≥ ':' &lt; ')+'10</span> and '+
+      '<span class="nw"><span class="sym">n</span>(1 − <span class="sym">p</span>₀) = '+trimNum(+e2.toFixed(4))+(e2>=10?' ≥ ':' &lt; ')+'10</span>.'+
+      (condOk?'':' The normal approximation may not be reliable, so interpret these results with caution.');
+
+    $('sliderVal').innerHTML=aStr+' <small>(confidence '+trimNum(100-aPct)+'%)</small>';
+
+    var M=[
+      ['n','Sample size',String(n),0],
+      ['x','Number of successes',xTxt,0],
+      ['p̂','Sample proportion = x/n',fmt(phat,dp),0],
+      ['p₀','Null value',trimNum(p0),0],
+      ['SE','Standard error = √(p₀(1 − p₀)/n)',fmt(se,dp),0],
+      ['z*','Critical value',critTxt,0],
+      ['z','Test statistic = (p̂ − p₀)/SE',fmt(z,dp),1],
+      ['p','p-value ('+(tail==='two'?'two':tail==='left'?'left':'right')+'-tailed)',pTxt,1]
+    ];
+    $('measures').innerHTML=M.map(function(r){
+      return '<div class="m'+(r[3]?' key2':'')+'"><div class="top"><span class="sym">'+r[0]+'</span><span class="name">'+r[1]+'</span></div><div class="val">'+r[2]+'</div></div>';
+    }).join('');
+
+    var critMax=Math.max(crit,critFor(0.01,tail));
+    var rg=Math.max(4,Math.min(8,Math.max(critMax*1.08,Math.abs(z)*1.1)));
+    rg=Math.ceil(rg*2)/2;
+    last={ts:z,crit:crit,p:p,rg:rg,dp:dp,tail:tail,alpha:alpha};
+    $('caption').innerHTML='Horizontal axis: <span class="sym">z</span>-score. 0 corresponds to <span class="sym">p</span>₀ = '+trimNum(p0)+'; the sample proportion <span class="sym">p̂</span> = '+fmt(phat,dp)+' is at <span class="sym">z</span> = '+fmt(z,dp)+'.';
+    drawPlot();
+    renderHow({n:n,x:x,xTxt:xTxt,phat:phat,p0:p0,se:se,z:z,crit:crit,critTxt:critTxt,p:p,pTxt:pTxt,alpha:alpha,reject:reject,dp:dp,e1:e1,e2:e2,condOk:condOk});
+    syncHeight();
+  }
+
+  // ================= "How" section =================
+  function renderHow(r){
+    var dp=r?r.dp:4, h='';
+    h+='<p><strong>Hypotheses</strong></p><div class="eq">H₀: <i>p</i> = <i>p</i>₀ &nbsp;&nbsp; Hₐ: <i>p</i> '+OP[tail]+' <i>p</i>₀</div>';
+    h+='<p><strong>Sample proportion</strong> — the fraction of the sample in the category of interest.</p><div class="eq"><i>p̂</i> = <i>x</i> / <i>n</i></div>';
+    if(r) h+='<div class="num">= '+r.xTxt+' / '+r.n+' = '+fmt(r.phat,dp)+'</div>';
+    h+='<p><strong>Success–failure condition</strong> — the normal approximation is reasonable when we expect at least 10 successes and 10 failures under H₀.</p>';
+    h+='<div class="eq"><i>n p</i>₀ ≥ 10 &nbsp;and&nbsp; <i>n</i>(1 − <i>p</i>₀) ≥ 10</div>';
+    if(r) h+='<div class="num">'+r.n+' × '+trimNum(r.p0)+' = '+trimNum(+r.e1.toFixed(4))+' &nbsp;and&nbsp; '+r.n+' × '+trimNum(+(1-r.p0).toFixed(10))+' = '+trimNum(+r.e2.toFixed(4))+' → '+(r.condOk?'condition met':'condition not met')+'</div>';
+    h+='<p><strong>Standard error</strong> — how much sample proportions typically vary from sample to sample <em>if H₀ is true</em>. Because the test assumes H₀, it uses <i>p</i>₀ (not <i>p̂</i>).</p>';
+    h+='<div class="eq">SE = √[ <i>p</i>₀(1 − <i>p</i>₀) / <i>n</i> ]</div>';
+    if(r) h+='<div class="num">= √( '+trimNum(r.p0)+' × '+trimNum(+(1-r.p0).toFixed(10))+' / '+r.n+' ) = '+fmt(r.se,dp)+'</div>';
+    h+='<p><strong>Test statistic</strong> — how many standard errors the sample proportion is from the null value.</p>';
+    h+='<div class="eq"><i>z</i> = (<i>p̂</i> − <i>p</i>₀) / SE</div>';
+    if(r) h+='<div class="num">= ('+fmt(r.phat,dp)+' − '+trimNum(r.p0)+') / '+fmt(r.se,dp)+' = '+fmt(r.z,dp)+'</div>';
+    var tailWord = tail==='two' ? 'split equally between both tails (<i>α</i>/2 in each)' : 'all in the '+(tail==='left'?'left':'right')+' tail';
+    h+='<p><strong>Critical value</strong> — the cutoff from the standard normal distribution that leaves an area of <i>α</i> in the rejection region, '+tailWord+'.</p>';
+    if(r) h+='<div class="num"><i>α</i> = '+trimNum(r.alpha)+' → <i>z*</i> = '+r.critTxt+'</div>';
+    h+='<p><strong>p-value</strong> — the probability, assuming H₀ is true, of getting a test statistic at least as extreme as the one observed.</p>';
+    h+='<div class="eq">'+(tail==='two'?'p = 2 · P(<i>Z</i> ≥ |<i>z</i>|)':tail==='left'?'p = P(<i>Z</i> ≤ <i>z</i>)':'p = P(<i>Z</i> ≥ <i>z</i>)')+'</div>';
+    if(r) h+='<div class="num">'+(tail==='two'?'= 2 · P(Z ≥ '+fmt(Math.abs(r.z),dp)+')':tail==='left'?'= P(Z ≤ '+fmt(r.z,dp)+')':'= P(Z ≥ '+fmt(r.z,dp)+')')+' = '+r.pTxt+'</div>';
+    h+='<p><strong>Decision</strong> — reject H₀ if p-value ≤ <i>α</i> (equivalently, if the test statistic falls in the rejection region). Otherwise, fail to reject H₀.</p>';
+    if(r) h+='<div class="num">'+r.pTxt+(r.reject?' ≤ ':' > ')+trimNum(r.alpha)+' → '+(r.reject?'reject H₀':'fail to reject H₀')+'</div>';
+    h+='<p class="num">Intermediate values are rounded for display only; all calculations use full precision.</p>';
+    $('how').innerHTML=h;
+  }
+
+  // ================= Distribution graph (SVG at true width) =================
+  function niceStep(range,maxTicks){
+    var raw=range/maxTicks, mag=Math.pow(10,Math.floor(Math.log10(raw))), opts=[1,2,2.5,5,10];
+    for(var i=0;i<opts.length;i++) if(opts[i]*mag>=raw) return opts[i]*mag;
+    return 10*mag;
+  }
+  function decimalsOf(step){ var d=0; while(d<10 && Math.abs(Math.round(step*Math.pow(10,d))-step*Math.pow(10,d))>1e-7) d++; return d; }
+  function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+
+  function drawPlot(){
+    if(!last) return;
+    var box=$('plotBox'), W=Math.max(260,Math.floor(box.clientWidth||600)), H=236;
+    var blue=cssVar('--blue'), orange=cssVar('--orange'), lor=cssVar('--lorange'), muted=cssVar('--muted'), panel=cssVar('--panel'), text=cssVar('--text');
+    var pad=Math.max(16,Math.min(40,W*0.04)), Lx=pad, Rx=W-pad;
+    var rg=last.rg, dp=Math.min(last.dp,3);
+    var pdf=npdf;
+    var topY=34, axisY=176, fs=13;
+    var ymax=pdf(0);
+    var X=function(v){ return Lx+(v+rg)/(2*rg)*(Rx-Lx); };
+    var Y=function(d){ return axisY-d/ymax*(axisY-topY); };
+    var clampV=function(v){ return Math.max(-rg,Math.min(rg,v)); };
+    function area(a,b){
+      a=clampV(a); b=clampV(b); if(b-a<=1e-9) return '';
+      var N=Math.max(8,Math.ceil((b-a)/(2*rg)*240)), d='M'+X(a).toFixed(2)+','+axisY;
+      for(var i=0;i<=N;i++){ var x=a+(b-a)*i/N; d+=' L'+X(x).toFixed(2)+','+Y(pdf(x)).toFixed(2); }
+      return d+' L'+X(b).toFixed(2)+','+axisY+' Z';
+    }
+    var g='<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'+
+      '<line x1="0" y1="0" x2="0" y2="6" stroke="'+blue+'" stroke-width="2.4"/></pattern></defs>';
+
+    var c=last.crit, tl=last.tail, rej=[];
+    if(tl==='two'||tl==='left') rej.push(area(-rg,-c));
+    if(tl==='two'||tl==='right') rej.push(area(c,rg));
+    rej.forEach(function(d){ if(d) g+='<path d="'+d+'" fill="'+lor+'" fill-opacity=".6" stroke="none"/>'; });
+
+    var ts=last.ts, pv=[];
+    if(tl==='two'){ pv.push(area(-rg,-Math.abs(ts))); pv.push(area(Math.abs(ts),rg)); }
+    else if(tl==='left') pv.push(area(-rg,ts));
+    else pv.push(area(ts,rg));
+    pv.forEach(function(d){ if(d) g+='<path d="'+d+'" fill="'+blue+'" fill-opacity=".1"/><path d="'+d+'" fill="url(#hatch)" fill-opacity=".55"/>'; });
+
+    var cd='', N=300;
+    for(var i=0;i<=N;i++){ var x=-rg+2*rg*i/N; cd+=(i?' L':'M')+X(x).toFixed(2)+','+Y(pdf(x)).toFixed(2); }
+    g+='<path d="'+cd+'" fill="none" stroke="'+blue+'" stroke-width="2.2"/>';
+
+    g+='<line x1="'+Lx+'" y1="'+axisY+'" x2="'+Rx+'" y2="'+axisY+'" stroke="'+muted+'" stroke-width="1.3"/>';
+    var maxTicks=Math.max(4,Math.min(10,Math.floor(W/70)));
+    var step=niceStep(2*rg,maxTicks), td=decimalsOf(step);
+    var first=Math.ceil((-rg-1e-9)/step);
+    for(var k=first; k*step<=rg+1e-9; k++){
+      var t=k*step, tx=X(t);
+      g+='<line x1="'+tx+'" y1="'+(axisY-4)+'" x2="'+tx+'" y2="'+(axisY+5)+'" stroke="'+muted+'" stroke-width="1.2"/>';
+      g+='<text x="'+tx+'" y="'+(axisY+20)+'" font-size="'+fs+'" text-anchor="middle" fill="'+muted+'">'+(Math.abs(t)<step/1e6?0:t).toFixed(td)+'</text>';
+    }
+
+    var clampX=function(x,w){ return Math.max(w/2+2,Math.min(W-w/2-2,x)); };
+    var cw=fs*0.6;
+
+    var critPts=[]; if(tl==='two'||tl==='left') critPts.push(-c); if(tl==='two'||tl==='right') critPts.push(c);
+    critPts.forEach(function(v){
+      var lab='z* = '+fmt(v,dp), off=Math.abs(v)>rg;
+      if(!off){
+        var cx=X(v);
+        g+='<line x1="'+cx+'" y1="'+(axisY+6)+'" x2="'+cx+'" y2="'+Y(pdf(v))+'" stroke="'+orange+'" stroke-width="2"/>';
+      } else lab = (v<0?'← ':'')+lab+(v>0?' →':'');
+      var w=lab.length*cw;
+      g+='<text x="'+clampX(X(clampV(v)),w)+'" y="'+(axisY+40)+'" font-size="'+fs+'" font-weight="700" text-anchor="middle" fill="'+orange+'">'+esc(lab)+'</text>';
+    });
+
+    if(tl==='two' && Math.abs(ts)<=rg && Math.abs(ts)>1e-9){
+      var mx=X(-ts);
+      g+='<line x1="'+mx+'" y1="'+axisY+'" x2="'+mx+'" y2="'+(topY-4)+'" stroke="'+blue+'" stroke-width="1.5" stroke-dasharray="4 4" stroke-opacity=".6"/>';
+    }
+    var tsOff=Math.abs(ts)>rg, tx2=X(clampV(ts));
+    var tlab='z = '+fmt(ts,dp); if(tsOff) tlab=(ts<0?'← ':'')+tlab+(ts>0?' →':'');
+    if(!tsOff){
+      g+='<line x1="'+tx2+'" y1="'+axisY+'" x2="'+tx2+'" y2="'+(topY-4)+'" stroke="'+blue+'" stroke-width="3"/>';
+      g+='<path d="M'+(tx2-6)+','+(axisY+9)+' L'+(tx2+6)+','+(axisY+9)+' L'+tx2+','+(axisY+1)+' Z" fill="'+blue+'"/>';
+    }
+    var tw=tlab.length*cw+4;
+    g+='<text x="'+clampX(tx2,tw)+'" y="'+(topY-12)+'" font-size="'+(fs+1)+'" font-weight="700" text-anchor="middle" fill="'+blue+'" stroke="'+panel+'" stroke-width="4" paint-order="stroke">'+esc(tlab)+'</text>';
+
+    var pl=fmtP(last.p,last.dp);
+    var pLab='p-value '+(pl.charAt(0)==='<'?pl:'= '+pl)+'   ·   α = '+trimNum(last.alpha);
+    g+='<text x="'+(W/2)+'" y="'+(axisY+58)+'" font-size="'+fs+'" text-anchor="middle" fill="'+text+'">'+esc(pLab)+'</text>';
+
+    box.innerHTML='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Standard normal distribution with the rejection region, the test statistic, and the p-value area shaded" font-family="Atkinson Hyperlegible, Arial, sans-serif">'+g+'</svg>';
+  }
+
+  // ================= Phone screens =================
+  var mq=window.matchMedia('(max-width:760px)');
+  var screensEl=$('screens'), screenEls=[$('screenData'),$('screenRes')], cur=0;
+  function setTabs(){ $('tabData').classList.toggle('on',cur===0); $('tabRes').classList.toggle('on',cur===1); }
+  function syncHeight(){
+    if(mq.matches) screensEl.style.height=screenEls[cur].scrollHeight+'px';
+    else screensEl.style.height='';
+  }
+  function go(i){
+    cur=i; setTabs(); syncHeight();
+    screensEl.scrollTo({left:i*screensEl.clientWidth,behavior:'smooth'});
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  $('tabData').addEventListener('click',function(){ go(0); });
+  $('tabRes').addEventListener('click',function(){ go(1); });
+  $('seeRes').addEventListener('click',function(){ go(1); });
+  var scrollT;
+  screensEl.addEventListener('scroll',function(){
+    clearTimeout(scrollT);
+    scrollT=setTimeout(function(){
+      if(!mq.matches) return;
+      var i=Math.round(screensEl.scrollLeft/screensEl.clientWidth);
+      if(i!==cur){ cur=i; setTabs(); syncHeight(); window.scrollTo({top:0,behavior:'smooth'}); }
+    },90);
+  });
+  function onLayout(){ if(!mq.matches){ cur=0; setTabs(); screensEl.scrollLeft=0; } syncHeight(); drawPlot(); }
+  if(mq.addEventListener) mq.addEventListener('change',onLayout); else mq.addListener(onLayout);
+  if(window.ResizeObserver){
+    var ro=new ResizeObserver(function(){ syncHeight(); });
+    screenEls.forEach(function(el){ ro.observe(el); });
+    document.querySelectorAll('.screen > .panel').forEach(function(el){ ro.observe(el); });
+    var lastW=0;
+    new ResizeObserver(function(){ var w=$('plotBox').clientWidth; if(w!==lastW){ lastW=w; drawPlot(); } }).observe($('plotBox'));
+  } else window.addEventListener('resize',onLayout);
+  var dmq=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+  if(dmq && dmq.addEventListener) dmq.addEventListener('change',drawPlot);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ drawPlot(); syncHeight(); });
+
+  applyKb();
+  update();
+})();
+</script>
+</body>
+</html>
