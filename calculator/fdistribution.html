@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F-Distribution Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Spectral:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1E376C; --orange:#F47920; --lorange:#FAA634;
+    --bg:#f6f7fa; --grid:rgba(30,55,108,.07); --panel:#ffffff; --text:#1c2333; --muted:#596377;
+    --border:#d8dde6; --btntext:#ffffff; --soft:#eef1f7; --err:#b42318;
+    --serif:"Spectral",Georgia,"Times New Roman",serif;
+    --sans:"Atkinson Hyperlegible",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --blue:#8FA9DD; --bg:#111725; --grid:rgba(143,169,221,.07); --panel:#1a2133; --text:#e4e8f1; --muted:#9aa6bd;
+      --border:#2f3a52; --btntext:#111725; --soft:#232c42; --err:#ff8a7a;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  html{scrollbar-gutter:stable}  /* a scrollbar appearing/disappearing can't change the width and re-wrap text */
+  body{background-color:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.45;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:20px 20px}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px}
+  h1,h2,h3{font-family:var(--serif);color:var(--blue);font-weight:600;margin:0}
+  h1{font-size:26px;line-height:1.2}
+  .subtitle{color:var(--muted);margin:2px 0 14px;font-size:15px}
+  h2{font-size:20px;margin-bottom:10px}
+  h3{font-size:17px;margin-bottom:8px}
+  .sym{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue)}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;min-width:0}
+  .hidden{display:none !important}
+
+  /* ---------- Layout ---------- */
+  .tabs{display:none}
+  .screens{display:grid;grid-template-columns:minmax(300px,5fr) 7fr;gap:16px;align-items:start;
+    grid-template-areas:"data results" "graph graph" "how how"}
+  .screen{display:contents}
+  #dataPanel{grid-area:data;border-top:5px solid var(--orange)}
+  #resultsPanel{grid-area:results}
+  #graphPanel{grid-area:graph}
+  #howPanel{grid-area:how}
+  .see-results{display:none}
+
+  @media (max-width:760px){
+    .wrap{padding:12px 10px}
+    h1{font-size:22px}
+    .tabs{display:flex;position:sticky;top:0;z-index:10;background:var(--bg);padding:6px 0 8px;margin-bottom:6px}
+    .tabs button{flex:1;border:1px solid var(--blue);background:var(--panel);color:var(--blue);font:700 15px var(--sans);padding:9px 0;cursor:pointer}
+    .tabs button:first-child{border-radius:8px 0 0 8px}
+    .tabs button:last-child{border-radius:0 8px 8px 0;border-left:none}
+    .tabs button.on{background:var(--blue);color:var(--btntext)}
+    .screens{display:flex;gap:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;align-items:flex-start;
+      scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .screens::-webkit-scrollbar{display:none}
+    .screen{display:flex;flex-direction:column;gap:12px;flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;padding:0 1px}
+    .see-results{display:block}
+  }
+
+  /* ---------- Controls ---------- */
+  label,.lbl{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+  input[type=text],select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:7px;
+    font:16px var(--sans);color:var(--text);background:var(--panel)}
+  #val{font-size:22px;font-weight:700;padding:10px 12px;font-variant-numeric:tabular-nums}
+  input[type=text]:focus,select:focus{outline:2px solid var(--lorange);outline-offset:0;border-color:var(--orange)}
+  .hint{font-size:13px;color:var(--muted);margin:6px 0 0}
+  .seg{display:flex;border:1px solid var(--blue);border-radius:8px;overflow:hidden;margin-bottom:12px}
+  .seg button{flex:1;border:none;background:var(--panel);color:var(--blue);padding:8px 6px;font:700 14px var(--sans);cursor:pointer;line-height:1.25}
+  .seg button+button{border-left:1px solid var(--blue)}
+  .seg button.on{background:var(--blue);color:var(--btntext)}
+  .seg .ico{display:block;margin:0 auto 3px}
+  .seg .ico path.fill{fill:var(--lorange)}
+  .seg .ico path.curve{fill:none;stroke:currentColor;stroke-width:1.6}
+  .seg .ico line{stroke:currentColor;stroke-width:1.2}
+  .btn{border:1px solid var(--blue);background:var(--blue);color:var(--btntext);border-radius:7px;padding:8px 14px;font:700 14px var(--sans);cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--blue)}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .toolbar .dec{margin-left:auto;display:flex;align-items:center;gap:6px}
+  .toolbar .dec label{margin:0}
+  .toolbar .dec select{width:auto;padding:6px 8px}
+  .check{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text);margin-top:10px;cursor:pointer}
+  .check input{width:18px;height:18px;accent-color:var(--blue)}
+  hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+  .msg{font-size:14px;margin-top:8px;color:var(--muted)}
+  .err{color:var(--err);font-size:14px;margin-top:8px}
+  .see-results{width:100%;margin-top:16px;padding:12px;font-size:16px}
+
+  /* keypad */
+  .keypad{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px;user-select:none;-webkit-user-select:none}
+  .key{border:1px solid var(--border);background:var(--soft);color:var(--blue);border-radius:8px;padding:11px 0;
+    font:700 19px var(--sans);cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .key:active,.key.tap{background:var(--lorange);color:#1E376C;border-color:var(--lorange)}
+  .key.next{grid-row:span 2;background:var(--blue);color:var(--btntext);border-color:var(--blue);font-size:15px;line-height:1.2}
+  .key.next:active,.key.next.tap{background:var(--lorange);color:#1E376C}
+  .key.zero{grid-column:span 2}
+
+  /* ---------- Results ---------- */
+  .placeholder{color:var(--muted);font-style:italic;padding:20px 0;text-align:center}
+  .ans-card{border:1px solid var(--border);border-left:5px solid var(--blue);border-radius:8px;padding:12px 14px;background:var(--soft)}
+  .ans-card .lbl{margin:0}
+  .ans-val{font-size:28px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1.25;margin:2px 0 4px;overflow-wrap:anywhere}
+  .ans-val .sym{font-size:30px}
+  .formula{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+  /* Reserve two lines so wrapping never shifts the boxes below */
+  .interp{font-size:14px;line-height:1.45;margin-top:8px;min-height:calc(2 * 1.45em)}
+  .mbr{display:none}
+  @media (max-width:760px){ .mbr{display:inline} .ans-val{font-size:clamp(20px,6vw,28px)} }
+  /* On phone widths the first half of the sentence itself wraps, so reserve a third line */
+  @media (max-width:520px){ .interp{min-height:calc(3 * 1.45em)} }
+  .measures{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+  .m{border:1px solid var(--border);border-radius:8px;padding:8px 12px;min-width:0}
+  .m .top{display:flex;align-items:baseline;gap:8px}
+  .m .sym{font-size:20px;white-space:nowrap}
+  .m .name{font-size:13px;color:var(--muted)}
+  .m .val{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+  #plotBox{width:100%;margin-top:6px}
+  #plotBox svg{display:block;cursor:ew-resize;touch-action:pan-y}
+  .slider-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .slider-top label{margin:0}
+  .slider-top strong{font-size:20px;color:var(--blue);font-variant-numeric:tabular-nums;white-space:nowrap}
+  input[type=range]{width:100%;accent-color:var(--orange);margin:6px 0 0;touch-action:pan-y}
+  input[type=range].dfs{accent-color:var(--blue)}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;font-size:13px;color:var(--muted);margin-top:6px}
+  .legend > span{display:inline-flex;align-items:center;gap:6px}
+  .sw{display:inline-block}
+  .sw.area{width:16px;height:11px;background:var(--lorange);border:1.5px solid var(--orange);opacity:.85}
+  .sw.zl{width:3px;height:14px;background:var(--orange)}
+  .sw.cv{width:18px;height:3px;background:var(--blue)}
+  .sw.nm{width:18px;height:0;border-top:2px dashed var(--muted)}
+  .fields2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .fields3{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+  input.big{font-size:22px;font-weight:700;padding:10px 12px;font-variant-numeric:tabular-nums}
+
+  details summary{cursor:pointer;font-family:var(--serif);font-weight:600;font-size:20px;color:var(--blue)}
+  details[open] summary{margin-bottom:8px}
+  .how p{margin:10px 0}
+  .how .eq{font-family:var(--serif);font-size:18px;color:var(--blue);margin:2px 0}
+  .how .num{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+  @media (max-width:560px){
+    .ans-val{font-size:clamp(19px,5.2vw,24px)}
+    .toolbar .dec{margin-left:0}
+    .seg button{font-size:13px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1><span style="font-style:italic">F</span>-Distribution Calculator</h1>
+  <p class="subtitle"><span class="sym">F</span> value ↔ probability (area) · two degrees of freedom</p>
+
+  <div class="tabs" role="tablist">
+    <button id="tabData" class="on" role="tab">Data</button>
+    <button id="tabRes" role="tab">Results</button>
+  </div>
+
+  <div class="screens" id="screens">
+    <!-- ========== SCREEN 1: DATA ========== -->
+    <div class="screen" id="screenData">
+      <div class="panel" id="dataPanel">
+        <h2>Data</h2>
+        <h3>I know the…</h3>
+        <div class="seg" id="dirSeg">
+          <button data-v="x" class="on"><span class="sym" style="color:inherit">F</span> value<br><span style="font-weight:400;font-size:12px">find the probability</span></button>
+          <button data-v="p">Probability<br><span style="font-weight:400;font-size:12px">find the <i>F</i> value</span></button>
+        </div>
+
+        <h3>Area</h3>
+        <div class="seg" id="regSeg">
+          <button data-v="left"><svg class="ico" width="44" height="20" viewBox="0 0 44 20" aria-hidden="true"><path class="fill" d="M3 18 C5 16 7 9 10 5 L10 18 Z"/><path class="curve" d="M2 18 C5 17 7 4 13 3 C18 2.5 23 12 42 17.6"/><line x1="2" y1="18.4" x2="42" y2="18.4"/></svg>Left tail</button>
+          <button data-v="center"><svg class="ico" width="44" height="20" viewBox="0 0 44 20" aria-hidden="true"><path class="fill" d="M7 18 L7 8 C9 4 11 3 13 3 C17 2.6 20 8 25 12 L25 18 Z"/><path class="curve" d="M2 18 C5 17 7 4 13 3 C18 2.5 23 12 42 17.6"/><line x1="2" y1="18.4" x2="42" y2="18.4"/></svg>Center</button>
+          <button data-v="right" class="on"><svg class="ico" width="44" height="20" viewBox="0 0 44 20" aria-hidden="true"><path class="fill" d="M25 12 C31 15.5 36 17.2 42 17.6 L42 18 L25 18 Z"/><path class="curve" d="M2 18 C5 17 7 4 13 3 C18 2.5 23 12 42 17.6"/><line x1="2" y1="18.4" x2="42" y2="18.4"/></svg>Right tail</button>
+        </div>
+
+        <hr>
+        <div class="fields3">
+          <div><label for="val" id="valLabel">F value</label>
+            <input type="text" id="val" class="kp big" autocomplete="off" spellcheck="false"></div>
+          <div id="val2Box" class="hidden"><label for="val2" id="val2Label">Upper value</label>
+            <input type="text" id="val2" class="kp big" autocomplete="off" spellcheck="false"></div>
+        </div>
+        <div class="fields2" style="margin-top:10px">
+          <div><label for="df"><span class="sym">df</span>₁ (numerator)</label>
+            <input type="text" id="df" class="kp big" autocomplete="off" spellcheck="false"></div>
+          <div><label for="df2"><span class="sym">df</span>₂ (denominator)</label>
+            <input type="text" id="df2" class="kp big" autocomplete="off" spellcheck="false"></div>
+        </div>
+        <p class="hint" id="valHint"></p>
+
+        <div class="keypad" id="keypad">
+          <button class="key" data-k="7">7</button><button class="key" data-k="8">8</button><button class="key" data-k="9">9</button><button class="key" data-k="back" aria-label="Backspace">⌫</button>
+          <button class="key" data-k="4">4</button><button class="key" data-k="5">5</button><button class="key" data-k="6">6</button><button class="key" data-k="-" aria-label="Minus">−</button>
+          <button class="key" data-k="1">1</button><button class="key" data-k="2">2</button><button class="key" data-k="3">3</button><button class="key next" data-k="next">Next<br>value</button>
+          <button class="key zero" data-k="0">0</button><button class="key" data-k=".">.</button>
+        </div>
+        <label class="check"><input type="checkbox" id="useKb"> Use my device's keyboard</label>
+
+        <div class="toolbar">
+          <button class="btn" id="exampleBtn">Load example</button>
+          <button class="btn ghost" id="clearBtn">Clear</button>
+          <div class="dec"><label for="dp">Decimals</label>
+            <select id="dp"><option>2</option><option selected>4</option><option>6</option></select></div>
+        </div>
+        <div class="err" id="err"></div>
+
+        <button class="btn see-results" id="seeRes">See results →</button>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 2: RESULTS ========== -->
+    <div class="screen" id="screenRes">
+      <div class="panel" id="resultsPanel">
+        <h2>Results</h2>
+        <div class="placeholder" id="empty"></div>
+        <div id="res" class="hidden">
+          <div class="ans-card">
+            <div class="lbl" id="ansLabel"></div>
+            <div class="ans-val" id="ansText"></div>
+            <div class="formula" id="formula"></div>
+          </div>
+          <div class="interp" id="interp"></div>
+          <div class="measures" id="measures"></div>
+        </div>
+      </div>
+
+      <div class="panel" id="graphPanel">
+        <h2><span style="font-style:italic">F</span>-distribution curve</h2>
+        <div class="slider-top"><label for="vSlider" id="vSliderLabel"></label><strong id="vSliderVal"></strong></div>
+        <input type="range" id="vSlider" min="0" max="30" step="0.01" value="10" aria-label="F value">
+        <div id="v2Wrap" class="hidden">
+          <div class="slider-top" style="margin-top:12px"><label for="vSlider2" id="vSlider2Label"></label><strong id="vSlider2Val"></strong></div>
+          <input type="range" id="vSlider2" min="0" max="30" step="0.01" value="20" aria-label="upper F value">
+        </div>
+        <div class="slider-top" style="margin-top:12px"><label for="dfSlider">Slide to change the numerator df</label><strong id="dfSliderVal"></strong></div>
+        <input type="range" id="dfSlider" class="dfs" min="0" max="1" step="1" value="0" aria-label="numerator degrees of freedom">
+        <div class="slider-top" style="margin-top:12px"><label for="df2Slider">Slide to change the denominator df</label><strong id="df2SliderVal"></strong></div>
+        <input type="range" id="df2Slider" class="dfs" min="0" max="1" step="1" value="0" aria-label="denominator degrees of freedom">
+        <p class="hint" id="dfSliderHint"></p>
+        <div id="plotBox"></div>
+        <div class="legend">
+          <span><i class="sw area"></i>Shaded area (probability)</span>
+          <span><i class="sw zl"></i><span><span class="sym">F</span> value</span></span>
+          <span><i class="sw cv"></i><span id="legDf"></span></span>
+        </div>
+      </div>
+
+      <div class="panel" id="howPanel">
+        <details>
+          <summary>How these are calculated</summary>
+          <div class="how" id="how"></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  // ================= Statistical functions =================
+  function gammaln(x){
+    var c=[76.18009172947146,-86.50532032941677,24.01409824083091,-1.231739572450155,0.1208650973866179e-2,-0.5395239384953e-5];
+    var y=x,tmp=x+5.5; tmp-=(x+0.5)*Math.log(tmp); var ser=1.000000000190015;
+    for(var j=0;j<6;j++) ser+=c[j]/++y;
+    return -tmp+Math.log(2.5066282746310005*ser/x);
+  }
+  // Regularized incomplete gamma: series for P, continued fraction for Q (each used where it is accurate).
+  function betacf(a,b,x){
+    var MAXIT=100000,EPS=1e-16,FPMIN=1e-300,qab=a+b,qap=a+1,qam=a-1,c=1,d=1-qab*x/qap;
+    if(Math.abs(d)<FPMIN)d=FPMIN; d=1/d; var h=d;
+    for(var m=1;m<=MAXIT;m++){
+      var m2=2*m,aa=m*(b-m)*x/((qam+m2)*(a+m2));
+      d=1+aa*d; if(Math.abs(d)<FPMIN)d=FPMIN; c=1+aa/c; if(Math.abs(c)<FPMIN)c=FPMIN; d=1/d; h*=d*c;
+      aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2));
+      d=1+aa*d; if(Math.abs(d)<FPMIN)d=FPMIN; c=1+aa/c; if(Math.abs(c)<FPMIN)c=FPMIN; d=1/d;
+      var del=d*c; h*=del; if(Math.abs(del-1)<EPS)break;
+    }
+    return h;
+  }
+  // Regularized incomplete beta I_x(a,b), using the continued fraction on whichever side converges
+  function ibeta(x,a,b){
+    if(x<=0)return 0; if(x>=1)return 1;
+    var bt=Math.exp(gammaln(a+b)-gammaln(a)-gammaln(b)+a*Math.log(x)+b*Math.log(1-x));
+    return (x<(a+1)/(a+b+2)) ? bt*betacf(a,b,x)/a : 1-bt*betacf(b,a,1-x)/b;
+  }
+  // k = {d1: numerator df, d2: denominator df}. Each tail is computed directly so tiny areas keep their precision.
+  function fP(x,k){ if(x<=0) return 0; return ibeta(k.d1*x/(k.d1*x+k.d2),k.d1/2,k.d2/2); }   // area to the left of x
+  function fQ(x,k){ if(x<=0) return 1; return ibeta(k.d2/(k.d2+k.d1*x),k.d2/2,k.d1/2); }     // area to the right of x
+  function bisect(fn,target,increasing,k){
+    var lo=0,hi=1;
+    while((increasing?fn(hi,k)<target:fn(hi,k)>target) && hi<1e15) hi*=2;
+    for(var i=0;i<400;i++){
+      var mid=(lo+hi)/2, v=fn(mid,k);
+      if(increasing ? v<target : v>target) lo=mid; else hi=mid;
+      if(hi-lo<=1e-14*hi) break;
+    }
+    return (lo+hi)/2;
+  }
+  function fInvP(p,k){ return bisect(fP,p,true,k); }    // value with area p to its left
+  function fInvQ(q,k){ return bisect(fQ,q,false,k); }   // value with area q to its right
+  function invLeft(P,k){ return P<0.5 ? fInvP(P,k) : fInvQ(1-P,k); }
+  function invRight(P,k){ return P<0.5 ? fInvQ(P,k) : fInvP(1-P,k); }
+  function centerArea(a,b,k){ return fP(a,k)>=0.5 ? fQ(a,k)-fQ(b,k) : fP(b,k)-fP(a,k); }
+  var lgC={};
+  function fpdf(x,k){
+    var d1=k.d1,d2=k.d2;
+    if(x<=0) return d1<2 ? Infinity : (d1===2 ? 1 : 0);
+    var key=d1+','+d2, c=lgC[key];
+    if(c==null) c=lgC[key]=(d1/2)*Math.log(d1/d2)-(gammaln(d1/2)+gammaln(d2/2)-gammaln((d1+d2)/2));
+    return Math.exp(c+(d1/2-1)*Math.log(x)-((d1+d2)/2)*Math.log(1+d1*x/d2));
+  }
+  function dfStr(k){ return trimNum(k.d1)+', '+trimNum(k.d2); }
+
+  // ================= State =================
+  var $=function(id){return document.getElementById(id);};
+  var dir='x', region='right', last=null;
+  var store={x:['',''],p:['','']};
+  var EXAMPLES={x:{left:['0.2112',''],center:['0.1511','4.2361'],right:['3.3258','']},p:{left:['0.05',''],center:['0.95',''],right:['0.05','']}};
+
+  function fmt(x,dp){ if(!isFinite(x)) return '—'; var v=Math.abs(x)<0.5*Math.pow(10,-dp)?0:x; return v.toFixed(dp).replace(/^-/,'−'); }
+  var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+  function sci(x){
+    var s=x.toExponential(2).split('e'), ex=String(parseInt(s[1],10)).split('').map(function(ch){return SUP[ch];}).join('');
+    return s[0]+' × 10'+ex;
+  }
+  function fmtP(p,dp){
+    if(!isFinite(p)) return '—';
+    var tiny=0.5*Math.pow(10,-dp);
+    if(p>0 && p<tiny) return sci(p);
+    if(p<1 && 1-p<tiny) return '> 0.'+new Array(dp+1).join('9');
+    return p.toFixed(dp);
+  }
+  function trimNum(x){ return String(+x.toFixed(10)); }
+  function readNum(id){ var t=$(id).value.trim().replace(/−/g,'-'); return t===''?null:(/^[-+]?(\d+\.?\d*|\.\d+)$/.test(t)?Number(t):NaN); }
+  var CHI='<span class="sym">F</span>';
+
+  // ================= Segmented toggles =================
+  function setupSeg(id,cb){
+    var btns=$(id).querySelectorAll('button');
+    btns.forEach(function(b){ b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); cb(b.getAttribute('data-v')); update();
+    });});
+  }
+  setupSeg('dirSeg',function(v){ store[dir]=[$('val').value,$('val2').value]; dir=v; $('val').value=store[dir][0]; $('val2').value=store[dir][1]; });
+  setupSeg('regSeg',function(v){ region=v; });
+  function twoBoxes(){ return dir==='x' && region==='center'; }
+
+  // ================= Keypad =================
+  var target=$('val');
+  var isTouch=window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  $('useKb').checked=!isTouch;
+  function applyKb(){
+    var kb=$('useKb').checked;
+    $('keypad').classList.toggle('hidden',kb);
+    document.querySelectorAll('.kp').forEach(function(el){ el.setAttribute('inputmode', kb?'decimal':'none'); });
+    syncHeight();
+  }
+  $('useKb').addEventListener('change',applyKb);
+  document.querySelectorAll('.kp').forEach(function(el){ el.addEventListener('focus',function(){ target=el; }); });
+  function setVal(el,v,pos){ el.value=v; try{el.setSelectionRange(pos,pos);}catch(e){} el.dispatchEvent(new Event('input',{bubbles:true})); }
+  function press(k){
+    var el=target||$('val');
+    if(k==='next'){
+      var order=twoBoxes()?[$('val'),$('val2'),$('df'),$('df2')]:[$('val'),$('df'),$('df2')];
+      var i=order.indexOf(el), nx=order[(i+1)%order.length];
+      nx.focus({preventScroll:true}); target=nx; try{nx.setSelectionRange(nx.value.length,nx.value.length);}catch(e){}
+      return;
+    }
+    if(document.activeElement!==el){ el.focus({preventScroll:true}); try{el.setSelectionRange(el.value.length,el.value.length);}catch(e){} }
+    var v=el.value, s=el.selectionStart==null?v.length:el.selectionStart, e=el.selectionEnd==null?v.length:el.selectionEnd;
+    if(k==='back'){
+      if(s!==e) setVal(el,v.slice(0,s)+v.slice(e),s);
+      else if(s>0) setVal(el,v.slice(0,s-1)+v.slice(s),s-1);
+    } else setVal(el,v.slice(0,s)+k+v.slice(e),s+1);
+  }
+  document.querySelectorAll('.key').forEach(function(b){
+    b.addEventListener('pointerdown',function(ev){ ev.preventDefault(); b.classList.add('tap'); });
+    ['pointerup','pointerleave','pointercancel'].forEach(function(t){ b.addEventListener(t,function(){ b.classList.remove('tap'); }); });
+    b.addEventListener('mousedown',function(ev){ ev.preventDefault(); });
+    b.addEventListener('click',function(){ press(b.getAttribute('data-k')); });
+  });
+
+  // ================= Buttons & inputs =================
+  $('exampleBtn').addEventListener('click',function(){
+    var ex=EXAMPLES[dir][region]; $('val').value=ex[0]; $('val2').value=ex[1]; $('df').value='5'; $('df2').value='10'; update();
+  });
+  $('clearBtn').addEventListener('click',function(){ $('val').value=''; $('val2').value=''; $('df').value=''; $('df2').value=''; update(); });
+  ['val','val2','df','df2'].forEach(function(id){ $(id).addEventListener('input',update); });
+  $('dp').addEventListener('change',update);
+
+  var REG_WORD={left:'left tail',center:'center',right:'right tail'};
+
+  // Graph state from whatever valid values are in the boxes; defaults fill in the rest.
+  function graphState(k,x,x2){
+    var st={}, okX = x!=null && isFinite(x) && x>=0, okX2 = x2!=null && isFinite(x2) && x2>=0;
+    if(dir==='x'){
+      if(region==='center'){
+        var a = okX ? x : fInvP(0.025,k), b = okX2 ? x2 : fInvQ(0.025,k);
+        if(b<=a) b = okX2 && !okX ? b : a+Math.max(0.5,a);
+        if(okX2 && !okX && a>=b) a=b/2;
+        st.a=a; st.b=b; st.area=centerArea(a,b,k);
+      } else {
+        var v = okX ? x : 1;
+        st.x=v; st.area = region==='left' ? fP(v,k) : fQ(v,k);
+      }
+    } else {
+      var P = (x!=null && x>0 && x<1) ? x : null;
+      if(region==='center'){
+        var q = P!=null ? (1-P)/2 : 0.025;
+        st.a=fInvP(q,k); st.b=fInvQ(q,k); st.area = P!=null ? P : 0.95;
+      } else if(region==='left'){
+        st.x = P!=null ? invLeft(P,k) : 1; st.area = P!=null ? P : fP(1,k);
+      } else {
+        st.x = P!=null ? invRight(P,k) : 1; st.area = P!=null ? P : fQ(1,k);
+      }
+    }
+    return st;
+  }
+  function niceStep(range,maxTicks){
+    var raw=range/maxTicks, mag=Math.pow(10,Math.floor(Math.log10(raw))), opts=[1,2,2.5,5,10];
+    for(var i=0;i<opts.length;i++) if(opts[i]*mag>=raw) return opts[i]*mag;
+    return 10*mag;
+  }
+  function domain(k,vals){
+    // heavy right tails: show up to the 99.9th percentile, but no farther than 10 unless a value needs it
+    var hi=Math.min(fInvQ(1e-3,k),10), lo=fInvP(1e-4,k); hi=Math.max(hi,Math.min(3,fInvQ(1e-3,k)));
+    vals.forEach(function(v){ if(v!=null && isFinite(v)){ hi=Math.max(hi,v+(hi-lo)*0.06); lo=Math.min(lo,v-(hi-lo)*0.06); } });
+    if(lo<0.3*hi) lo=0;
+    lo=Math.max(0,lo);
+    var step=niceStep(hi-lo,8); lo=Math.floor(lo/step)*step; hi=Math.ceil(hi/step)*step;
+    return {lo:lo,hi:hi};
+  }
+
+  // ================= Main update =================
+  function update(){
+    var dp=parseInt($('dp').value,10), err='', x=readNum('val'), x2=readNum('val2'), df=readNum('df'), df2=readNum('df2');
+    var two=twoBoxes();
+    $('val2Box').classList.toggle('hidden',!two);
+    if(dir==='x'){
+      if(two){
+        $('valLabel').innerHTML='Lower '+CHI+' value'; $('val2Label').innerHTML='Upper '+CHI+' value';
+        $('valHint').textContent='Enter the lower and upper F values and both degrees of freedom. The shaded area runs between them.';
+      } else {
+        $('valLabel').innerHTML=CHI+' value';
+        $('valHint').textContent='Enter an F value (0 or more), such as 3.3258, and both degrees of freedom.';
+      }
+      $('empty').textContent='Enter '+(two?'the F values':'an F value')+' and both degrees of freedom, or use the sliders on the graph, to see the probability.';
+    } else {
+      $('valLabel').innerHTML='Probability ('+REG_WORD[region]+')';
+      $('valHint').textContent = region==='center'
+        ? 'Enter the center probability as a decimal, such as 0.95, and both degrees of freedom. The leftover area is split equally between the two tails.'
+        : 'Enter the probability as a decimal between 0 and 1, such as 0.05, and both degrees of freedom.';
+      $('empty').textContent='Enter a probability and both degrees of freedom, or use the sliders on the graph, to find the F value'+(region==='center'?'s':'')+'.';
+    }
+
+    if((df!=null && !(df>0)) || (df2!=null && !(df2>0))) err='Degrees of freedom must be numbers greater than 0.';
+    else if((df!=null && df>100000) || (df2!=null && df2>100000)) err='Degrees of freedom must be 100,000 or less.';
+    else if(dir==='x'){
+      if(x!=null && !isFinite(x)) err='The F value must be a number.';
+      else if(x!=null && x<0) err='F values cannot be negative.';
+      else if(two && x2!=null && !isFinite(x2)) err='The upper F value must be a number.';
+      else if(two && x2!=null && x2<0) err='F values cannot be negative.';
+      else if(two && x!=null && x2!=null && x2<=x) err='The upper value must be greater than the lower value.';
+    } else if(x!=null){
+      if(!isFinite(x)) err='The probability must be a number between 0 and 1.';
+      else if(!(x>0 && x<1)) err = (x>1 && x<100) ? 'Enter the probability as a decimal between 0 and 1 (for example, 95% is 0.95).'
+                                                  : 'The probability must be strictly between 0 and 1.';
+    }
+    var ready = !err && df!=null && df2!=null && x!=null && (!two || x2!=null);
+    $('err').textContent=err;
+    $('empty').classList.toggle('hidden',ready);
+    $('res').classList.toggle('hidden',!ready);
+
+    var k = { d1:(df!=null && df>0 && df<=100000) ? df : 5, d2:(df2!=null && df2>0 && df2<=100000) ? df2 : 10 };
+    var st=graphState(k,x,x2);
+    last={x:st.x,a:st.a,b:st.b,area:st.area,region:region,dp:dp,df:k,dom:domain(k,[st.x,st.a,st.b])};
+    $('legDf').innerHTML=CHI+'-curve, df = '+dfStr(k);
+    syncSliders(); syncDf(k); drawPlot();
+    if(!ready){ renderHow(null); syncHeight(); return; }
+
+    var dfS=dfStr(k), area=st.area, A=fmtP(area,dp);
+    var pct=area*100, pctS=(area>0.0001&&area<0.9999)?' ('+(+pct.toFixed(Math.max(0,dp-2))).toString()+'%)':'';
+    var F='<span class="sym">F</span><sub>'+dfS.replace(', ',',')+'</sub>';
+    var FI='<span class="sym">F</span><sub>'+dfS.replace(', ',',')+'</sub><sup>−1</sup>';
+    var CL=CHI+'<sub>L</sub>', CR=CHI+'<sub>R</sub>';
+    var BR='<br class="mbr"> ';
+    var formula, interp, label, ans, M;
+    if(dir==='x'){
+      label='Probability (shaded area), df = '+dfS;
+      if(region==='left'){
+        var xs=fmt(st.x,dp);
+        ans='P('+CHI+' &lt; '+xs+') = '+A;
+        formula='P('+CHI+' &lt; '+xs+') = '+F+'('+xs+') = '+A;
+        interp='With df = '+dfS+', the area under the '+CHI+'-curve to the <b>left</b> of'+BR+CHI+' = '+xs+' is '+A+pctS+'.';
+      } else if(region==='right'){
+        var xs2=fmt(st.x,dp), Ls=fmtP(fP(st.x,k),dp);
+        ans='P('+CHI+' &gt; '+xs2+') = '+A;
+        formula='P('+CHI+' &gt; '+xs2+') = 1 − '+F+'('+xs2+')'+(Ls.charAt(0)==='>'?'':' = 1 − '+Ls)+' = '+A;
+        interp='With df = '+dfS+', the area under the '+CHI+'-curve to the <b>right</b> of'+BR+CHI+' = '+xs2+' is '+A+pctS+'.';
+      } else {
+        var as=fmt(st.a,dp), bs=fmt(st.b,dp);
+        ans='P('+as+' &lt; '+CHI+' &lt; '+bs+') = '+A;
+        formula=F+'('+bs+') − '+F+'('+as+') = '+fmtP(fP(st.b,k),dp)+' − '+fmtP(fP(st.a,k),dp)+' = '+A;
+        interp='With df = '+dfS+', the area under the '+CHI+'-curve <b>between</b>'+BR+CHI+' = '+as+' and '+CHI+' = '+bs+' is '+A+pctS+'.';
+      }
+    } else {
+      var As=fmtP(area,dp);
+      if(region==='left'){
+        label='F value, df = '+dfS;
+        ans=CHI+' = '+fmt(st.x,dp);
+        formula=CHI+' = '+FI+'('+As+') = '+fmt(st.x,dp);
+        interp='With df = '+dfS+', an area of '+As+pctS+' lies to the <b>left</b> of'+BR+CHI+' = '+fmt(st.x,dp)+'.';
+      } else if(region==='right'){
+        label='F value, df = '+dfS;
+        ans=CHI+' = '+fmt(st.x,dp);
+        formula=CHI+' = '+FI+'(1 − '+As+') = '+FI+'('+fmtP(1-area,dp)+') = '+fmt(st.x,dp);
+        interp='With df = '+dfS+', an area of '+As+pctS+' lies to the <b>right</b> of'+BR+CHI+' = '+fmt(st.x,dp)+'.';
+      } else {
+        label='F values that bound the center area, df = '+dfS;
+        var tq=(1-area)/2;
+        ans=CL+' = '+fmt(st.a,dp)+', &nbsp;'+CR+' = '+fmt(st.b,dp);
+        formula=CL+' = '+FI+'((1 − '+As+') / 2) = '+FI+'('+fmtP(tq,dp)+') = '+fmt(st.a,dp)+'<br>'+
+                CR+' = '+FI+'((1 + '+As+') / 2) = '+FI+'('+fmtP(1-tq,dp)+') = '+fmt(st.b,dp);
+        interp='With df = '+dfS+', an area of '+As+pctS+' lies <b>between</b>'+BR+CL+' = '+fmt(st.a,dp)+' and '+CR+' = '+fmt(st.b,dp)+', leaving '+fmtP(tq,dp)+' in each tail.';
+      }
+    }
+    if(region==='center'){
+      M=[['F<sub>L</sub>','Lower value',fmt(st.a,dp)],['F<sub>R</sub>','Upper value',fmt(st.b,dp)],
+         ['P','Center (shaded) area',A],['df₁, df₂','Numerator, denominator df',dfS],
+         ['P(F &lt; F<sub>L</sub>)','Area below the lower value',fmtP(fP(st.a,k),dp)],['P(F &gt; F<sub>R</sub>)','Area above the upper value',fmtP(fQ(st.b,k),dp)]];
+    } else {
+      M=[['F','F value',fmt(st.x,dp)],['P','Shaded area',A],
+         ['P(F &lt; x)','Area to the left of the F value',fmtP(fP(st.x,k),dp)],['P(F &gt; x)','Area to the right of the F value',fmtP(fQ(st.x,k),dp)],
+         ['df₁, df₂','Numerator, denominator df',dfS],['μ','Mean = df₂ / (df₂ − 2)',k.d2>2?fmt(k.d2/(k.d2-2),dp):'undefined (df₂ ≤ 2)']];
+    }
+    $('ansLabel').textContent=label;
+    $('ansText').innerHTML=ans;
+    $('formula').innerHTML=formula;
+    $('interp').innerHTML=interp;
+    $('measures').innerHTML=M.map(function(r){
+      return '<div class="m"><div class="top"><span class="sym">'+r[0]+'</span><span class="name">'+r[1]+'</span></div><div class="val">'+r[2]+'</div></div>';
+    }).join('');
+    holdInterp();
+    renderHow({st:st,dp:dp,df:dfS,k:k});
+    syncHeight();
+  }
+
+  // Keep the results' heights from shrinking while sliding (resets when the mode, area or width changes),
+  // so a line wrapping on and off can't bounce the boxes below it.
+  var holdKey='', holdMax={};
+  function holdInterp(){
+    var key=dir+'|'+region+'|'+window.innerWidth;
+    if(key!==holdKey){ holdKey=key; holdMax={}; }
+    document.querySelectorAll('#res .ans-card, #interp').forEach(function(el,i){
+      el.style.minHeight=''; var h=el.getBoundingClientRect().height;
+      if(!(holdMax[i]>=h)) holdMax[i]=h;
+      el.style.minHeight=holdMax[i]+'px';
+    });
+  }
+  window.addEventListener('resize',function(){ if(!$('res').classList.contains('hidden')) holdInterp(); });
+
+  // ================= Sliders & graph dragging =================
+  var DF_LIST=[]; (function(){ var i; for(i=1;i<=30;i++) DF_LIST.push(i); for(i=35;i<=100;i+=5) DF_LIST.push(i);
+    [120,150,200,300,500,1000].forEach(function(v){ DF_LIST.push(v); }); })();
+  $('dfSlider').max=DF_LIST.length-1; $('df2Slider').max=DF_LIST.length-1;
+  var dragging=false;
+  function syncSliders(){
+    var D=last.dom, center=region==='center';
+    ['vSlider','vSlider2'].forEach(function(id){ $(id).min=D.lo; $(id).max=D.hi; });
+    $('v2Wrap').classList.toggle('hidden',!center);
+    if(center){
+      $('vSliderLabel').innerHTML='Slide (or drag on the graph) to move the lower value'+(dir==='p'?' (tails stay equal)':'');
+      $('vSlider2Label').innerHTML='Slide to move the upper value'+(dir==='p'?' (tails stay equal)':'');
+      if(!dragging){ $('vSlider').value=last.a; $('vSlider2').value=last.b; }
+      $('vSliderVal').innerHTML=CHI+'<sub>L</sub> = '+fmt(last.a,2);
+      $('vSlider2Val').innerHTML=CHI+'<sub>R</sub> = '+fmt(last.b,2);
+    } else {
+      $('vSliderLabel').innerHTML='Slide (or drag on the graph) to move the '+CHI+' value';
+      if(!dragging) $('vSlider').value=last.x;
+      $('vSliderVal').innerHTML=CHI+' = '+fmt(last.x,2);
+    }
+  }
+  function nearestDf(v){ var best=0; for(var i=1;i<DF_LIST.length;i++) if(Math.abs(DF_LIST[i]-v)<Math.abs(DF_LIST[best]-v)) best=i; return best; }
+  function syncDf(k){
+    $('dfSlider').value=nearestDf(k.d1); $('df2Slider').value=nearestDf(k.d2);
+    $('dfSliderVal').innerHTML='<span class="sym">df</span>₁ = '+trimNum(k.d1);
+    $('df2SliderVal').innerHTML='<span class="sym">df</span>₂ = '+trimNum(k.d2);
+    $('dfSliderHint').textContent = dir==='x'
+      ? 'The F value'+(region==='center'?'s stay':' stays')+' fixed, so watch the area change. As both df grow, the curve narrows around 1.'
+      : 'The area stays fixed, so watch the F value'+(region==='center'?'s':'')+' change. As both df grow, the curve narrows around 1.';
+  }
+  // Move a value on the graph: writes the matching numbers into the boxes (filling any empty ones), then recalculates.
+  function setFromGraph(v,which){
+    if(!last) return;
+    var k=last.df, dp=parseInt($('dp').value,10), s1, s2=null;
+    v=Math.max(0,Math.round(v*100)/100);
+    if(dir==='x'){
+      if(region==='center'){
+        var a=last.a, b=last.b;
+        if(which==='a') a=Math.min(v,b-0.01); else b=Math.max(v,a+0.01);
+        s1=Math.max(0,a).toFixed(2); s2=b.toFixed(2);
+      } else s1=v.toFixed(2);
+    } else {
+      var area;
+      if(region==='left') area=fP(v,k);
+      else if(region==='right') area=fQ(v,k);
+      else area=1-2*(which==='a' ? fP(v,k) : fQ(v,k));
+      s1=area.toFixed(Math.max(4,dp));
+      if(!(+s1>0 && +s1<1)) return;
+    }
+    var changed=false;
+    if($('df').value.trim()===''){ $('df').value=trimNum(k.d1); changed=true; }
+    if($('df2').value.trim()===''){ $('df2').value=trimNum(k.d2); changed=true; }
+    if($('val').value!==s1){ $('val').value=s1; changed=true; }
+    if(s2!=null && $('val2').value!==s2){ $('val2').value=s2; changed=true; }
+    if(changed) update();
+  }
+  $('vSlider').addEventListener('input',function(){ dragging=true; setFromGraph(+this.value,'a'); dragging=false; });
+  $('vSlider2').addEventListener('input',function(){ dragging=true; setFromGraph(+this.value,'b'); dragging=false; });
+  // df sliders: fill the other df box and any empty value boxes from the graph, then recalculate
+  function dfSliderMoved(which,idx){
+    if(last){
+      if($('df').value.trim()==='') $('df').value=trimNum(last.df.d1);
+      if($('df2').value.trim()==='') $('df2').value=trimNum(last.df.d2);
+      var d=Math.max(4,parseInt($('dp').value,10));
+      if(dir==='x'){
+        if(region==='center'){
+          if($('val').value.trim()==='') $('val').value=last.a.toFixed(2);
+          if($('val2').value.trim()==='') $('val2').value=last.b.toFixed(2);
+        } else if($('val').value.trim()==='') $('val').value=last.x.toFixed(2);
+      } else if($('val').value.trim()==='' && last.area>0 && last.area<1) $('val').value=last.area.toFixed(d);
+    }
+    $(which).value=String(DF_LIST[idx]);
+    update();
+  }
+  $('dfSlider').addEventListener('input',function(){ dfSliderMoved('df',+this.value); });
+  $('df2Slider').addEventListener('input',function(){ dfSliderMoved('df2',+this.value); });
+  function valFromPointer(ev){
+    if(!last || !last.geom) return null;
+    var g=last.geom, rect=$('plotBox').getBoundingClientRect(), x=ev.clientX-rect.left;
+    var v=g.lo+(x-g.L)/(g.Rx-g.L)*(g.hi-g.lo);
+    return Math.max(g.lo,Math.min(g.hi,v));
+  }
+  var svgDrag=false, dragWhich='a';
+  $('plotBox').addEventListener('pointerdown',function(ev){
+    var v=valFromPointer(ev); if(v==null) return;
+    dragWhich = region==='center' ? (Math.abs(v-last.a)<=Math.abs(v-last.b) ? 'a' : 'b') : 'a';
+    svgDrag=true; try{ $('plotBox').setPointerCapture(ev.pointerId); }catch(e){}
+    ev.preventDefault(); setFromGraph(v,dragWhich);
+  });
+  $('plotBox').addEventListener('pointermove',function(ev){ if(!svgDrag) return; var v=valFromPointer(ev); if(v!=null) setFromGraph(v,dragWhich); });
+  ['pointerup','pointercancel'].forEach(function(t){ $('plotBox').addEventListener(t,function(){ svgDrag=false; }); });
+
+  // ================= "How" section =================
+  function renderHow(r){
+    var h='', dp=r?r.dp:4;
+    var Fd='<i>F</i><sub><i>df</i>₁,<i>df</i>₂</sub>';
+    h+='<p>Areas come from the <strong><i>F</i>-distribution</strong> with numerator degrees of freedom <i>df</i>₁ and denominator degrees of freedom <i>df</i>₂. An <i>F</i> value is a ratio of two variances, so it is never negative. The curve is skewed to the right and has total area 1. As both <i>df</i> grow, it narrows around 1.</p>';
+    h+='<p class="num">ANOVA and tests comparing two variances use the <b>right tail</b>. The order of the degrees of freedom matters: <i>F</i> with (5, 10) df is a different curve from <i>F</i> with (10, 5) df.</p>';
+    h+='<p><strong><i>F</i> CDF</strong>: '+Fd+'(<i>x</i>) is the area to the <b>left</b> of <i>x</i>.</p><div class="eq">'+Fd+'(<i>x</i>) = P(<i>F</i> &lt; <i>x</i>)</div>';
+    h+='<p><strong>Finding a probability from <i>F</i> values</strong></p>';
+    h+='<div class="eq">Left tail: P(<i>F</i> &lt; <i>x</i>) = '+Fd+'(<i>x</i>)</div>';
+    h+='<div class="eq">Right tail: P(<i>F</i> &gt; <i>x</i>) = 1 − '+Fd+'(<i>x</i>)</div>';
+    h+='<div class="eq">Center: P(<i>a</i> &lt; <i>F</i> &lt; <i>b</i>) = '+Fd+'(<i>b</i>) − '+Fd+'(<i>a</i>)</div>';
+    h+='<p><strong>Finding <i>F</i> from a probability <i>P</i></strong> (inverse): '+Fd+'<sup>−1</sup>(<i>p</i>) is the value with area <i>p</i> to its left.</p>';
+    h+='<div class="eq">Left tail: <i>F</i> = '+Fd+'<sup>−1</sup>(<i>P</i>)</div>';
+    h+='<div class="eq">Right tail: <i>F</i> = '+Fd+'<sup>−1</sup>(1 − <i>P</i>)</div>';
+    h+='<div class="eq">Center: <i>F</i><sub>L</sub> = '+Fd+'<sup>−1</sup>((1 − <i>P</i>)/2), &nbsp;<i>F</i><sub>R</sub> = '+Fd+'<sup>−1</sup>((1 + <i>P</i>)/2)</div>';
+    h+='<p class="num">Because the curve is not symmetric, the two center values are found separately so that the leftover area 1 − <i>P</i> is split equally between the two tails. (A handy check: the lower value equals 1 divided by the upper value with the two df swapped.)</p>';
+    if(r){
+      var s=r.st;
+      if(s.x!=null) h+='<p class="num">Your values: <i>df</i> = '+r.df+', <i>F</i> = '+fmt(s.x,dp)+', P(<i>F</i> &lt; '+fmt(s.x,dp)+') = '+fmtP(fP(s.x,r.k),dp)+', shaded area = '+fmtP(s.area,dp)+'.</p>';
+      else h+='<p class="num">Your values: <i>df</i> = '+r.df+', <i>F</i><sub>L</sub> = '+fmt(s.a,dp)+', <i>F</i><sub>R</sub> = '+fmt(s.b,dp)+', shaded area = '+fmtP(s.area,dp)+'.</p>';
+    }
+    h+='<p class="num">Very small areas are shown in scientific notation (for example 2.87 × 10⁻⁷) instead of rounding to zero. Values are rounded for display only; all calculations use full precision.</p>';
+    $('how').innerHTML=h;
+  }
+
+  // ================= Curve (SVG at true width) =================
+  function decimalsOf(step){ var d=0; while(d<10 && Math.abs(Math.round(step*Math.pow(10,d))-step*Math.pow(10,d))>1e-7) d++; return d; }
+  function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+
+  function drawPlot(){
+    if(!last) return;
+    var box=$('plotBox'), W=Math.max(260,Math.floor(box.clientWidth||600));
+    var H=Math.round(Math.max(240,Math.min(330,W*0.36)));
+    var blue=cssVar('--blue'), orange=cssVar('--orange'), lor=cssVar('--lorange'), muted=cssVar('--muted'), panel=cssVar('--panel'), text=cssVar('--text');
+    var dark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var pad=Math.max(16,Math.min(40,W*0.04)), L=pad, Rx=W-pad;
+    var reg=last.region, dp=last.dp, k=last.df, D=last.dom, fs=13, i;
+    last.geom={L:L,Rx:Rx,lo:D.lo,hi:D.hi};
+    var top=40, axisY=H-62, yTick=axisY+20, yZ=axisY+44, ceil=top-14;
+    var f=function(v){ return fpdf(v,k); };
+    var X=function(v){ return L+(v-D.lo)/(D.hi-D.lo)*(Rx-L); };
+    // y-scale: tallest point of the curve, skipping the spike at 0 when df1 < 2
+    var N=300, ymax=0;
+    for(i=(k.d1<2?3:0);i<=N;i++){ var yv=f(D.lo+(D.hi-D.lo)*i/N); if(isFinite(yv) && yv>ymax) ymax=yv; }
+    var Y=function(d){ return Math.max(ceil, axisY-d/ymax*(axisY-top)); };
+    var clampV=function(v){ return Math.max(D.lo,Math.min(D.hi,v)); };
+    var g='';
+
+    // shaded region
+    var a,b;
+    if(reg==='left'){ a=D.lo; b=clampV(last.x); }
+    else if(reg==='right'){ a=clampV(last.x); b=D.hi; }
+    else { a=clampV(last.a); b=clampV(last.b); }
+    if(b>a){
+      var n=Math.max(8,Math.ceil((b-a)/(D.hi-D.lo)*N)), d='M'+X(a).toFixed(2)+' '+axisY;
+      for(i=0;i<=n;i++){ var t=a+(b-a)*i/n; d+=' L'+X(t).toFixed(2)+' '+Y(f(t)).toFixed(2); }
+      d+=' L'+X(b).toFixed(2)+' '+axisY+' Z';
+      g+='<path d="'+d+'" fill="'+lor+'" fill-opacity="'+(dark?'.85':'.6')+'" stroke="none"/>';
+    }
+    // curve
+    var cp='';
+    for(i=0;i<=N;i++){ var tt=D.lo+(D.hi-D.lo)*i/N; cp+=(i?' L':'M')+X(tt).toFixed(2)+' '+Y(f(tt)).toFixed(2); }
+    g+='<path d="'+cp+'" fill="none" stroke="'+blue+'" stroke-width="2.5" stroke-linejoin="round"/>';
+
+    // axis + ticks
+    g+='<line x1="'+L+'" y1="'+axisY+'" x2="'+Rx+'" y2="'+axisY+'" stroke="'+muted+'" stroke-width="1.3"/>';
+    var maxTicks=Math.max(4,Math.min(10,Math.floor(W/70)));
+    var step=niceStep(D.hi-D.lo,maxTicks), td=decimalsOf(step), first=Math.ceil((D.lo-1e-9)/step);
+    for(var kk=first; kk*step<=D.hi+1e-9; kk++){
+      var tv=kk*step, x=X(tv);
+      g+='<line x1="'+x+'" y1="'+(axisY-5)+'" x2="'+x+'" y2="'+(axisY+5)+'" stroke="'+muted+'" stroke-width="1.2"/>';
+      g+='<text x="'+x+'" y="'+yTick+'" font-size="'+fs+'" text-anchor="middle" fill="'+muted+'">'+(Math.abs(tv)<step/1e6?'0':tv.toFixed(td))+'</text>';
+    }
+
+    // value lines + labels
+    var vals = reg==='center' ? [last.a,last.b] : [last.x];
+    var cw=fs*0.62;
+    var clampX=function(x,w){ return Math.max(w/2+2,Math.min(W-w/2-2,x)); };
+    var labs=vals.map(function(v){ var txt='F = '+fmt(v,dp); return {v:v,txt:txt,w:txt.length*cw,x:X(clampV(v))}; });
+    labs.forEach(function(o){ g+='<line x1="'+o.x+'" y1="'+(axisY+8)+'" x2="'+o.x+'" y2="'+Y(f(o.v))+'" stroke="'+orange+'" stroke-width="2.5"/>'; });
+    if(labs.length===2){
+      var need=(labs[0].w+labs[1].w)/2+10;
+      if(labs[1].x-labs[0].x<need){ var mid=(labs[0].x+labs[1].x)/2; labs[0].x=mid-need/2; labs[1].x=mid+need/2; }
+    }
+    labs.forEach(function(o){ g+='<text x="'+clampX(o.x,o.w)+'" y="'+yZ+'" font-size="'+(fs+1)+'" font-weight="700" text-anchor="middle" fill="'+blue+'">'+o.txt+'</text>'; });
+
+    // area label at the centroid of the visible shaded region
+    var xc;
+    if(b>a){
+      var sw=0, sx=0;
+      for(i=0;i<=100;i++){ var u=a+(b-a)*(i+0.5)/101, w=Math.min(f(u),ymax*1.2); sw+=w; sx+=w*u; }
+      xc = sw>0 ? sx/sw : (a+b)/2;
+      xc=Math.max(a+(b-a)*0.02,Math.min(b-(b-a)*0.02,xc));
+    } else xc = reg==='left' ? D.lo : D.hi;
+    var aTxt='Area = '+fmtP(last.area,dp), aw=aTxt.length*(fs+1)*0.6;
+    var curveH=axisY-Y(f(xc)), px=X(xc), lxA, lyA;
+    var regionW = b>a ? X(b)-X(a) : 0;
+    var inside = curveH>70 && regionW>aw*0.8;
+    if(inside){ lxA=clampX(px,aw); lyA=axisY-curveH*0.38; }
+    else {
+      var yc=Y(f(xc)), py=Math.min(axisY-4,yc+(curveH>12?curveH*0.5:0));
+      lyA=Math.max(top-18,Math.min(yc-26,axisY-60));
+      var midX=(D.lo+D.hi)/2;
+      lxA=clampX(px+(xc<midX?1:-1)*Math.min(60,W*0.08),aw);
+      g+='<line x1="'+px+'" y1="'+py+'" x2="'+lxA+'" y2="'+(lyA+5)+'" stroke="'+orange+'" stroke-width="1.3"/>';
+      g+='<circle cx="'+px+'" cy="'+py+'" r="2.5" fill="'+orange+'"/>';
+    }
+    g+= inside
+      ? '<text x="'+lxA+'" y="'+lyA+'" font-size="'+(fs+1)+'" font-weight="700" text-anchor="middle" fill="#1E376C">'+aTxt+'</text>'
+      : '<text x="'+lxA+'" y="'+lyA+'" font-size="'+(fs+1)+'" font-weight="700" text-anchor="middle" fill="'+text+'" stroke="'+panel+'" stroke-width="4" paint-order="stroke" stroke-linejoin="round">'+aTxt+'</text>';
+
+    box.innerHTML='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="F curve with df '+dfStr(k)+' and shaded area '+fmtP(last.area,dp)+'" font-family="Atkinson Hyperlegible, Arial, sans-serif">'+g+'</svg>';
+  }
+
+  // ================= Phone screens =================
+  var mq=window.matchMedia('(max-width:760px)');
+  var screensEl=$('screens'), screenEls=[$('screenData'),$('screenRes')], cur=0;
+  function setTabs(){ $('tabData').classList.toggle('on',cur===0); $('tabRes').classList.toggle('on',cur===1); }
+  function syncHeight(){
+    if(mq.matches) screensEl.style.height=screenEls[cur].scrollHeight+'px';
+    else screensEl.style.height='';
+  }
+  function go(i){
+    cur=i; setTabs(); syncHeight();
+    screensEl.scrollTo({left:i*screensEl.clientWidth,behavior:'smooth'});
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(i===1) setTimeout(drawPlot,50);
+  }
+  $('tabData').addEventListener('click',function(){ go(0); });
+  $('tabRes').addEventListener('click',function(){ go(1); });
+  $('seeRes').addEventListener('click',function(){ go(1); });
+  var scrollT;
+  screensEl.addEventListener('scroll',function(){
+    clearTimeout(scrollT);
+    scrollT=setTimeout(function(){
+      if(!mq.matches) return;
+      var i=Math.round(screensEl.scrollLeft/screensEl.clientWidth);
+      if(i!==cur){ cur=i; setTabs(); syncHeight(); window.scrollTo({top:0,behavior:'smooth'}); }
+    },90);
+  });
+  function onLayout(){ if(!mq.matches){ cur=0; setTabs(); screensEl.scrollLeft=0; } syncHeight(); drawPlot(); }
+  if(mq.addEventListener) mq.addEventListener('change',onLayout); else mq.addListener(onLayout);
+  if(window.ResizeObserver){
+    var ro=new ResizeObserver(function(){ syncHeight(); });
+    screenEls.forEach(function(el){ ro.observe(el); });
+    document.querySelectorAll('.screen > .panel').forEach(function(el){ ro.observe(el); });
+    var lastW=0;
+    new ResizeObserver(function(){ var w=$('plotBox').clientWidth; if(w!==lastW){ lastW=w; drawPlot(); } }).observe($('plotBox'));
+  } else window.addEventListener('resize',onLayout);
+  if(window.matchMedia){ var dm=window.matchMedia('(prefers-color-scheme: dark)'); if(dm.addEventListener) dm.addEventListener('change',drawPlot); }
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ drawPlot(); syncHeight(); });
+
+  window.__f={fP:fP,fQ:fQ,fInvP:fInvP,fInvQ:fInvQ};
+  applyKb();
+  update();
+})();
+</script>
+</body>
+</html>

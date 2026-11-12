@@ -23,6 +23,7 @@
   }
   *{box-sizing:border-box}
   html,body{margin:0}
+  html{scrollbar-gutter:stable}  /* a scrollbar appearing/disappearing can't change the width and re-wrap text */
   body{background-color:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.45;
     background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
     background-size:20px 20px}
@@ -106,7 +107,12 @@
   .ans-val{font-size:28px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1.25;margin:2px 0 4px;overflow-wrap:anywhere}
   .ans-val .sym{font-size:30px}
   .formula{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
-  .interp{font-size:14px;margin-top:8px}
+  /* Reserve two lines so wrapping never shifts the boxes below */
+  .interp{font-size:14px;line-height:1.45;margin-top:8px;min-height:calc(2 * 1.45em)}
+  .mbr{display:none}
+  @media (max-width:760px){ .mbr{display:inline} .ans-val{font-size:clamp(20px,6vw,28px)} }
+  /* On phone widths the first half of the sentence itself wraps, so reserve a third line */
+  @media (max-width:520px){ .interp{min-height:calc(3 * 1.45em)} }
   .measures{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
   .m{border:1px solid var(--border);border-radius:8px;padding:8px 12px;min-width:0}
   .m .top{display:flex;align-items:baseline;gap:8px}
@@ -120,7 +126,7 @@
   .slider-top strong{font-size:20px;color:var(--blue);font-variant-numeric:tabular-nums;white-space:nowrap}
   input[type=range]{width:100%;accent-color:var(--orange);margin:6px 0 0;touch-action:pan-y}
   .legend{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;font-size:13px;color:var(--muted);margin-top:6px}
-  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend > span{display:inline-flex;align-items:center;gap:6px}
   .sw{display:inline-block}
   .sw.area{width:16px;height:11px;background:var(--lorange);border:1.5px solid var(--orange);opacity:.85}
   .sw.zl{width:3px;height:14px;background:var(--orange)}
@@ -133,7 +139,7 @@
   .how .num{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
 
   @media (max-width:560px){
-    .ans-val{font-size:24px}
+    .ans-val{font-size:clamp(19px,5.2vw,24px)}
     .toolbar .dec{margin-left:0}
     .seg button{font-size:13px}
   }
@@ -196,7 +202,7 @@
     <div class="screen" id="screenRes">
       <div class="panel" id="resultsPanel">
         <h2>Results</h2>
-        <div class="placeholder" id="empty">Enter a z-score to see the probability.</div>
+        <div class="placeholder" id="empty">Enter a z-score, or use the slider on the graph, to see the probability.</div>
         <div id="res" class="hidden">
           <div class="ans-card">
             <div class="lbl" id="ansLabel"></div>
@@ -208,7 +214,7 @@
         </div>
       </div>
 
-      <div class="panel hidden" id="graphPanel">
+      <div class="panel" id="graphPanel">
         <h2>Standard normal curve</h2>
         <div class="slider-top"><label for="zSlider">Slide (or drag on the graph) to move the <span class="sym">z</span>-score</label><strong id="zSliderVal"></strong></div>
         <input type="range" id="zSlider" min="-4" max="4" step="0.01" value="0" aria-label="z-score">
@@ -354,11 +360,11 @@
       $('valHint').textContent = region==='center'
         ? 'Enter z. The center area runs from −|z| to |z|.'
         : 'Enter any z-score, such as 1.96 or −0.5.';
-      $('empty').textContent='Enter a z-score to see the probability.';
+      $('empty').textContent='Enter a z-score, or use the slider on the graph, to see the probability.';
     } else {
       $('valLabel').innerHTML='Probability (area in the '+REG_WORD[region]+')';
       $('valHint').textContent='Enter a decimal between 0 and 1, such as 0.95.';
-      $('empty').textContent='Enter a probability to find the z-score.';
+      $('empty').textContent='Enter a probability, or use the slider on the graph, to find the z-score.';
     }
 
     var ready=false, z, area;
@@ -372,8 +378,17 @@
     $('err').textContent=err;
     $('empty').classList.toggle('hidden',ready);
     $('res').classList.toggle('hidden',!ready);
-    $('graphPanel').classList.toggle('hidden',!ready);
-    if(!ready){ last=null; renderHow(null); syncHeight(); return; }
+    if(!ready){
+      // Graph stays visible: use a valid value from the box if there is one, otherwise z = 0.
+      var zG=0;
+      if(x!=null && isFinite(x)){
+        if(dir==='z') zG = region==='center' ? Math.abs(x) : x;
+        else if(x>0 && x<1) zG = region==='left' ? PhiInv(x) : region==='right' ? -PhiInv(x) : PhiInv((1+x)/2);
+      }
+      var aG = region==='left' ? Phi(zG) : region==='right' ? Phi(-zG) : 1-2*Phi(-Math.abs(zG));
+      last={z:zG,area:aG,region:region,dp:dp};
+      syncSlider(zG); drawPlot(); renderHow(null); syncHeight(); return;
+    }
 
     if(dir==='z'){
       z=x;
@@ -398,16 +413,16 @@
       if(region==='left'){
         ans='P('+Zi+' &lt; '+zs+') = '+A;
         formula='P('+Zi+' &lt; '+zs+') = '+phi+'('+zs+') = '+A;
-        interp='The area under the standard normal curve to the <b>left</b> of '+zi+' = '+zs+' is '+A+pctS+'.';
+        interp='The area under the standard normal curve to the <b>left</b> of<br class="mbr"> '+zi+' = '+zs+' is '+A+pctS+'.';
       } else if(region==='right'){
         ans='P('+Zi+' &gt; '+zs+') = '+A;
         var Ls=fmtP(left,dp);
         formula='P('+Zi+' &gt; '+zs+') = 1 − '+phi+'('+zs+')'+(Ls.charAt(0)==='>'?'':' = 1 − '+Ls)+' = '+A;
-        interp='The area under the standard normal curve to the <b>right</b> of '+zi+' = '+zs+' is '+A+pctS+'.';
+        interp='The area under the standard normal curve to the <b>right</b> of<br class="mbr"> '+zi+' = '+zs+' is '+A+pctS+'.';
       } else {
         ans='P(−'+zAbs+' &lt; '+Zi+' &lt; '+zAbs+') = '+A;
         formula=phi+'('+zAbs+') − '+phi+'(−'+zAbs+') = '+fmtP(Phi(Math.abs(z)),dp)+' − '+fmtP(tail,dp)+' = '+A;
-        interp='The area under the standard normal curve <b>between</b> '+zi+' = −'+zAbs+' and '+zi+' = '+zAbs+' is '+A+pctS+'.';
+        interp='The area under the standard normal curve <b>between</b><br class="mbr"> '+zi+' = −'+zAbs+' and '+zi+' = '+zAbs+' is '+A+pctS+'.';
       }
     } else {
       label= region==='center' ? 'z-scores that bound the center area' : 'z-score';
@@ -415,15 +430,15 @@
       if(region==='left'){
         ans=zi+' = '+zs;
         formula=zi+' = '+phi+'<sup>−1</sup>('+As+') = '+zs;
-        interp='An area of '+As+pctS+' lies to the <b>left</b> of '+zi+' = '+zs+'.';
+        interp='An area of '+As+pctS+' lies to the <b>left</b> of<br class="mbr"> '+zi+' = '+zs+'.';
       } else if(region==='right'){
         ans=zi+' = '+zs;
         formula=zi+' = '+phi+'<sup>−1</sup>(1 − '+As+') = '+phi+'<sup>−1</sup>('+fmtP(1-area,dp)+') = '+zs;
-        interp='An area of '+As+pctS+' lies to the <b>right</b> of '+zi+' = '+zs+'.';
+        interp='An area of '+As+pctS+' lies to the <b>right</b> of<br class="mbr"> '+zi+' = '+zs+'.';
       } else {
         ans=zi+' = ±'+zAbs;
         formula=zi+' = '+phi+'<sup>−1</sup>((1 + '+As+') / 2) = '+phi+'<sup>−1</sup>('+fmtP((1+area)/2,dp)+') = '+zAbs;
-        interp='An area of '+As+pctS+' lies <b>between</b> '+zi+' = −'+zAbs+' and '+zi+' = '+zAbs+', leaving '+fmtP(tail,dp)+' in each tail.';
+        interp='An area of '+As+pctS+' lies <b>between</b><br class="mbr"> '+zi+' = −'+zAbs+' and '+zi+' = '+zAbs+', leaving '+fmtP(tail,dp)+' in each tail.';
       }
     }
     if(note) interp+=' <span class="msg">'+note+'</span>';

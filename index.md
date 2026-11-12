@@ -177,6 +177,9 @@ MathJax = {
 
 ### Distributions
 * [Normal Distribution: Z-Score](./calculator/normal-zscore.html)
+* [T-Distribution: T-Score](./calculator/tdistribution.html)
+* [Chi-Squared Distribution](./calculator/chisqdistribution.html)
+* [F-Distribution: ANOVA](./calculator/fdistribution.html)
 
 ### Quantitative Inference
 * [1-sample Quantitative Confidence Interval](./calculator/confint-1sample-quantitative.html)
