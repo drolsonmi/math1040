@@ -89,6 +89,8 @@ $$z = \frac{0.51 - 0.45}{0.03518} = \frac{0.06}{0.03518} = 1.706$$
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to conclude that support in the city is higher than the national rate of 45%.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/svVhxGloD0E?si=Uad7XULJyLXgoVFo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Practice
 1. A pharmaceutical company claims that 70% of patients who take their medication experience significant improvement. A research group suspects the true rate is lower. In a clinical trial with a random sample of 150 patients, 96 experienced significant improvement. At the 5% significance level, find the test statistic and the p-value.
     * [After solving on your own, see solution here](Solutions/21_2_Solution1.md)

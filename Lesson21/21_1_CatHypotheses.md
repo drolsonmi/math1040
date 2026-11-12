@@ -73,6 +73,8 @@ $$H_0: p = 0.45 \qquad\qquad H_A: p > 0.45 \quad \text{(right-tailed)}$$
 
 The CLT holds — we can proceed with the hypothesis test in the next lesson.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Se4p_m1FhiY?si=jE23GgECHwy9Btua" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Practice
 For each of the following questions, identify the null value, state both hypotheses, and verify the Central Limit Theorem.
 

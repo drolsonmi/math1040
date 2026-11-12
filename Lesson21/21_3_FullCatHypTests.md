@@ -85,6 +85,10 @@ $$z = \frac{0.65 - 0.55}{0.04541} = \frac{0.10}{0.04541} = 2.202$$
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to conclude that the proportion of students at this school who use social media more than 3 hours per day is different from the national rate of 55%.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UpXNfe1N_xk?si=aObSi1Ydzut0bZIp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4Z_Q7W0yrO0?si=13geoTdkZ4Z5c2J8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 ## Practice
@@ -110,6 +114,8 @@ $$z = \frac{0.65 - 0.55}{0.04541} = \frac{0.10}{0.04541} = 2.202$$
 * Select `Calculate`
 
 The output shows the z-statistic, the p-value, $\hat{p}$, and $n$. Compare the p-value to $\alpha$ to make your decision.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CDL4haF1RZ8?si=kIiTzqbFs3j3NkGT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Excel
 Set up your worksheet with $p_0$, $x$, and $n$ in their own cells, then work through the full test the same way we did in Lesson 21.2.
