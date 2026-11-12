@@ -68,6 +68,9 @@ Both approaches give the same result, as they always will. The null hypothesis i
 
 > There is enough evidence, at the 5% significance level, to conclude that the average gas mileage for this popular car model is less than 32 mpg.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XSEEO8Vd_ug?si=jNrPQ99QFkyTmf71" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sPdH5PhPq3A?si=O0a9hX1dDcUcc_k8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Practice
 For each of the following questions (same questions as in 20.2 and 20.3), state the correct hypotheses and determine the level of significance. Then use the p-value to make your decision and confirm that you reach the same conclusion as you did in 20.3.
@@ -92,6 +95,10 @@ The TI-83/84 can run the whole test at once and give you the test statistic and 
 * Select "Calculate"
 
 The calculator returns the test statistic (`z` or `t`) and the p-value. Compare the p-value to $$\alpha$$ (or the test statistic to your critical value) to make your decision.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uxuwQD7bJWo?si=jvQLLTOsRy9pIHw2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7yqqfkfmBhA?si=2Cvhu14dTlq8llx2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Excel
 Build the test statistic and p-value from their pieces, just as in Lessons 20.3 and 20.4.
