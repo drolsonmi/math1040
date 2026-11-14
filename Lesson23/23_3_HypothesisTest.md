@@ -9,6 +9,18 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  .anim-embed { margin: 1.5rem 0; }
+  .anim-embed iframe {
+    display: block;
+    width: 100%;
+    height: min(85vh, 760px);
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.15);
+  }
+  .anim-embed a { font-size: .9rem; }
+</style>
 </head>
 
 # Lesson 23.3 Hypothesis Test of 2 Independent Categorical Samples
@@ -83,6 +95,13 @@ $$z = \frac{0.56-0.478}{0.04565} = \frac{0.082}{0.04565} \approx 1.790$$
 
 **Conclusion:** There is not enough evidence at the 5% significance level to conclude that the proportion of adults who exercise regularly is different between City A and City B. This matches the confidence interval we found in Lesson 23.2, which contained 0.
 
+<div class="anim-embed">
+  <iframe src="../animations/23.3_HypothesisTest.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
+
 ## Practice
 1. A marketing team wants to know if customer satisfaction differs between two products. A random sample of 180 Product A customers found 126 satisfied. An independent random sample of 165 Product B customers found 90 satisfied. Conduct a full hypothesis test at the 5% significance level.
     * [After solving on your own, see solution here](./Solutions/23_3_Solution1.md)
@@ -101,6 +120,13 @@ $$z = \frac{0.56-0.478}{0.04565} = \frac{0.082}{0.04565} \approx 1.790$$
 * Select `Calculate`
 
 The calculator returns the pooled test statistic (`z`), the p-value, $\hat{p}_1$, $\hat{p}_2$, and the pooled proportion $\bar{p}$.
+
+<div class="anim-embed">
+  <iframe src="../animations/23.3_HypothesisTest_TI84.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
 
 ### Excel
 Build the test statistic and p-value from their pieces, using the pooled proportion.

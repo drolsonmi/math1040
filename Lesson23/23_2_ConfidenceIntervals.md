@@ -9,6 +9,18 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  .anim-embed { margin: 1.5rem 0; }
+  .anim-embed iframe {
+    display: block;
+    width: 100%;
+    height: min(85vh, 760px);
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.15);
+  }
+  .anim-embed a { font-size: .9rem; }
+</style>
 </head>
 
 # Lesson 23.2 Confidence Intervals for 2 Independent Categorical Samples
@@ -66,6 +78,13 @@ $$(-0.007, \ 0.171)$$
 
 **Interpretation:** We are 95% confident that the true difference in exercise rates between City A and City B ($p_1 - p_2$) is between -0.007 and 0.171 (-0.7 and 17.1 percentage points). Since the interval **contains 0**, we don't have enough evidence to say the two cities have different exercise rates.
 
+<div class="anim-embed">
+  <iframe src="../animations/23.2_ConfidenceInterval.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
+
 ## Practice
 1. A marketing team wants to know if customer satisfaction differs between two products. A random sample of 180 Product A customers found 126 satisfied. An independent random sample of 165 Product B customers found 90 satisfied. Build a 95% confidence interval for $p_1 - p_2$.
     * [After solving on your own, see solution here](./Solutions/23_2_Solution1.md)
@@ -83,6 +102,13 @@ $$(-0.007, \ 0.171)$$
 * Select `Calculate`
 
 The calculator returns the confidence interval bounds, along with $\hat{p}_1$ and $\hat{p}_2$.
+
+<div class="anim-embed">
+  <iframe src="../animations/23.2_ConfidenceInterval_TI84.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
 
 ### Excel
 Just as with means, build the interval from its pieces — no pooling this time.

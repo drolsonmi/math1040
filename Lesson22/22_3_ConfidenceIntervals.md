@@ -9,6 +9,18 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  .anim-embed { margin: 1.5rem 0; }
+  .anim-embed iframe {
+    display: block;
+    width: 100%;
+    height: min(85vh, 760px);
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.15);
+  }
+  .anim-embed a { font-size: .9rem; }
+</style>
 </head>
 
 # Lesson 22.3 Confidence Intervals for 2 Independent Samples
@@ -68,6 +80,13 @@ $$(0.007, \ 0.993)$$
 
 **Interpretation:** We are 95% confident that the true difference in average wait time between Location A and Location B ($\mu_1 - \mu_2$) is between 0.007 and 0.993 minutes. Since the entire interval is above 0 (barely!), there is evidence that Location A's average wait time is longer than Location B's.
 
+<div class="anim-embed">
+  <iframe src="../animations/22.3_ConfidenceInterval.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
+
 ## Practice
 1. An education researcher wants to know if there is a difference in average test scores between School A and School B. A random sample of 40 students at School A had an average score of 78.4 with a standard deviation of 8.2. An independent random sample of 38 students at School B had an average score of 74.9 with a standard deviation of 7.5. Build a 95% confidence interval for $\mu_1 - \mu_2$ (use $df \approx 75.7$).
     * [After solving on your own, see solution here](./Solutions/22_3_Solution1.md)
@@ -86,6 +105,12 @@ $$(0.007, \ 0.993)$$
 * Select `Calculate`
 
 The calculator returns the confidence interval bounds, along with the degrees of freedom (`df`) it used.
+<div class="anim-embed">
+  <iframe src="../animations/22.3_ConfidenceInterval_TI84.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
 
 ### Excel
 Excel does not have a single 2-sample confidence interval function, so we build it from its pieces.

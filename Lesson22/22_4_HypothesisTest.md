@@ -9,6 +9,18 @@ MathJax = {
 };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  .anim-embed { margin: 1.5rem 0; }
+  .anim-embed iframe {
+    display: block;
+    width: 100%;
+    height: min(85vh, 760px);
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.15);
+  }
+  .anim-embed a { font-size: .9rem; }
+</style>
 </head>
 
 # Lesson 22.4 Hypothesis Test of 2 Independent Samples
@@ -83,6 +95,13 @@ $$t = \frac{4.8-4.3}{0.2469} = \frac{0.5}{0.2469} \approx 2.025$$
 
 **Conclusion:** There is sufficient evidence at the 5% significance level to conclude that the average customer wait time is different between the two coffee shop locations. This matches the 95% confidence interval we found in Lesson 22.3, which barely excluded 0.
 
+<div class="anim-embed">
+  <iframe src="../animations/22.4_HypothesisTest.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
+
 ## Practice
 1. An education researcher wants to know if there is a difference in average test scores between School A and School B. A random sample of 40 students at School A had an average score of 78.4 with a standard deviation of 8.2. An independent random sample of 38 students at School B had an average score of 74.9 with a standard deviation of 7.5. Conduct a full hypothesis test at the 5% significance level (use $df \approx 75.7$).
     * [After solving on your own, see solution here](./Solutions/22_4_Solution1.md)
@@ -102,6 +121,13 @@ $$t = \frac{4.8-4.3}{0.2469} = \frac{0.5}{0.2469} \approx 2.025$$
 * Select `Calculate`
 
 The calculator returns the test statistic (`t`), the p-value, and the degrees of freedom (`df`) it used.
+
+<div class="anim-embed">
+  <iframe src="../animations/22.4_HypothesisTest_TI84.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
 
 ### Excel
 Build the test statistic and p-value from their pieces, using the same standard error as Lesson 22.3.

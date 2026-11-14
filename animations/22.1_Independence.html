@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paired vs. Independent Samples – MATH 1040, Lesson 22.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;800&family=Zilla+Slab:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ground:#ffffff; --paper:#f2f5fa; --grid:#e3e9f3; --ink:#16181a; --muted:#55595e; --main:#1e376c;
+  --accent:#f47920; --accent-ink:#b85410; --soft:#fde9cf; --success:#2e7d4f; --on-success:#ffffff;
+  --rule:#cfd1d3; --ui:#767a7f; --grey-fig:#c3cfe4;
+  --a1:#1e376c; --a2:#3a5fa8; --a3:#7e96c4; --a4:#2a4a8c;
+  --b1:#f47920; --b2:#d9631a; --b3:#faa634; --b4:#b85410;
+  --p1:#1e376c; --p2:#f47920; --p3:#3a5fa8; --p4:#faa634;
+  --btn:#1e376c; --btn-ink:#ffffff;
+  --sans:"Nunito Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --slab:"Zilla Slab", Georgia, "Times New Roman", serif;
+  --mono:"Courier New", Courier, ui-monospace, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:#0d1830; --paper:#132349; --grid:#1e376c; --ink:#f2f5fa; --muted:#b2b4b7; --main:#c3cfe4;
+    --accent:#faa634; --accent-ink:#faa634; --soft:#3a3226; --success:#5cb88a; --on-success:#0d1830;
+    --rule:#3a4a6c; --ui:#6e7fa3; --grey-fig:#7e96c4;
+    --a1:#c3cfe4; --a2:#7e96c4; --a3:#e3e9f3; --a4:#8aa3d6;
+    --b1:#faa634; --b2:#f47920; --b3:#fdcb86; --b4:#d9631a;
+    --p1:#c3cfe4; --p2:#f47920; --p3:#7e96c4; --p4:#faa634;
+    --btn:#faa634; --btn-ink:#0d1830;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground:#0d1830; --paper:#132349; --grid:#1e376c; --ink:#f2f5fa; --muted:#b2b4b7; --main:#c3cfe4;
+  --accent:#faa634; --accent-ink:#faa634; --soft:#3a3226; --success:#5cb88a; --on-success:#0d1830;
+  --rule:#3a4a6c; --ui:#6e7fa3; --grey-fig:#7e96c4;
+  --a1:#c3cfe4; --a2:#7e96c4; --a3:#e3e9f3; --a4:#8aa3d6;
+  --b1:#faa634; --b2:#f47920; --b3:#fdcb86; --b4:#d9631a;
+  --p1:#c3cfe4; --p2:#f47920; --p3:#7e96c4; --p4:#faa634;
+  --btn:#faa634; --btn-ink:#0d1830;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; text-size-adjust:100%; scroll-padding-top:env(safe-area-inset-top, 0px); }
+body { margin:0; min-height:100vh; min-height:100dvh; display:flex; flex-direction:column; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:1.0625rem; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-wrap:break-word;
+  padding-top:env(safe-area-inset-top, 0px); }
+svg { max-width:100%; }
+.sr-only { position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+.skip { position:absolute; left:12px; top:-60px; z-index:20; background:var(--btn); color:var(--btn-ink); font-weight:800; padding:10px 16px; border-radius:10px; text-decoration:none; }
+.skip:focus { top:calc(12px + env(safe-area-inset-top, 0px)); }
+
+.shell { flex:1; width:100%; max-width:1240px; margin:0 auto; padding:22px 24px 32px; }
+.top { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 24px; padding-bottom:12px; border-bottom:3px solid var(--accent); }
+.top h1 { font-family:var(--slab); font-weight:700; color:var(--main); font-size:clamp(1.35rem, 2.6vw, 1.8rem); line-height:1.15; margin:0; }
+.top .course { margin:0; color:var(--muted); font-weight:700; font-size:.95rem; }
+
+main:focus { outline:none; }
+.scene { display:none; padding-top:30px; }
+.scene.active { display:grid; grid-template-columns:minmax(0, 0.95fr) minmax(0, 1.05fr); gap:40px; align-items:start; }
+.scene.wide.active { grid-template-columns:minmax(0, 1fr); }
+.scene > * { min-width:0; }
+.copy { max-width:62ch; }
+.scene.wide .copy { max-width:none; }
+.tag { font-size:.95rem; font-weight:800; color:var(--accent-ink); margin:0 0 6px; }
+h2 { font-family:var(--slab); font-weight:700; color:var(--main); line-height:1.08; margin:0 0 18px; letter-spacing:-0.01em; font-size:clamp(1.9rem, 4.2vw, 3.1rem); }
+h2.display { font-size:clamp(2.2rem, 5.6vw, 4rem); }
+h3 { color:var(--main); }
+.lead { font-size:clamp(1.12rem, 1.9vw, 1.3rem); margin:0 0 18px; }
+.copy p { margin:0 0 16px; }
+.small, .hint { font-size:.95rem; color:var(--muted); }
+kbd { font-family:inherit; font-weight:800; border:2px solid var(--ui); border-radius:6px; padding:0 6px; }
+
+.panel { position:relative; margin:0; background-color:var(--paper); border-radius:18px; padding:18px;
+  background-image:linear-gradient(var(--grid) 1.5px, transparent 1.5px), linear-gradient(90deg, var(--grid) 1.5px, transparent 1.5px);
+  background-size:40px 40px; }
+.panel svg { display:block; width:100%; height:auto; max-height:min(68vh, 760px); overflow:visible; }
+.caption { margin:12px 4px 0; font-size:1rem; color:var(--ink); }
+.caption b { color:var(--main); }
+
+.examples { margin:22px 0 0; }
+.examples h3 { font-size:1.05rem; margin:0 0 10px; }
+.ex-list { display:flex; flex-direction:column; gap:8px; list-style:none; margin:0; padding:0; }
+.ex-list button { width:100%; min-height:48px; text-align:left; font:inherit; font-size:1rem; color:var(--ink); background:var(--ground); border:2px solid var(--ui); border-left-width:8px; border-radius:10px; padding:9px 14px; cursor:pointer; line-height:1.35; }
+.ex-list button small { display:block; color:var(--muted); font-size:.9rem; }
+.ex-list button:hover { border-color:var(--main); }
+.ex-list button[aria-pressed="true"] { border-color:var(--accent); background:var(--soft); }
+.ex-list button[aria-pressed="true"]::after { content:"Showing"; float:right; font-size:.8rem; font-weight:800; color:var(--accent-ink); margin-left:8px; }
+.ways { list-style:none; padding:0; margin:8px 0 0; display:flex; flex-direction:column; gap:14px; }
+.ways li { padding-left:18px; border-left:5px solid var(--accent); }
+.ways b { color:var(--main); display:block; }
+
+.datasets { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin:16px 0 10px; }
+.datasets h3 { font-size:1rem; margin:0 0 6px; }
+.vals { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:6px; }
+.vals li { font-variant-numeric:tabular-nums; font-weight:700; background:var(--ground); border:2px solid var(--rule); border-radius:8px; padding:2px 10px; min-width:3.2em; text-align:center; }
+
+.calc { font-size:clamp(1.08rem, 1.9vw, 1.3rem); margin:6px 0 0; }
+.calc .row { margin:0 0 12px; font-variant-numeric:tabular-nums; }
+.calc .vis { display:block; line-height:2.6; }
+.calc .vis .frac, .calc .vis .sqrt { margin:0 4px; line-height:1.25; }
+.calc .vis .ans { line-height:1.5; }
+.calc .big { font-weight:800; color:var(--main); }
+.frac { display:inline-flex; flex-direction:column; text-align:center; vertical-align:middle; line-height:1.25; }
+.frac > span:first-child { border-bottom:2px solid currentColor; padding:0 4px 2px; }
+.frac > span:last-child { padding:2px 4px 0; }
+.sqrt { display:inline-flex; align-items:stretch; max-width:100%; }
+.sqrt::before { content:"\221A"; font-size:1.7em; line-height:1; align-self:center; margin-right:-2px; }
+.sqrt > span { border-top:2px solid currentColor; padding:4px 4px 0; display:inline-flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.ans { display:inline-block; padding:2px 10px; border-radius:8px; background:var(--soft); color:var(--accent-ink); font-weight:800; }
+
+.checks, .keys { list-style:none; padding:0; margin:10px 0 16px; display:flex; flex-direction:column; gap:12px; }
+.checks li, .keys li { padding-left:40px; position:relative; }
+.checks li::before { content:"\2713"; position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--success); color:var(--on-success); font-weight:800; text-align:center; line-height:28px; font-size:1rem; }
+.checks.plain li::before { content:"\2192"; background:none; color:var(--accent-ink); line-height:26px; font-size:1.2rem; }
+.checks b { color:var(--main); }
+.keys { counter-reset:k; }
+.keys li { counter-increment:k; }
+.keys li::before { content:counter(k); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; border:2px solid var(--main); color:var(--main); font-weight:800; text-align:center; line-height:24px; font-size:.95rem; }
+.key { display:inline-block; font-weight:800; font-size:.92rem; padding:0 8px; border-radius:6px; border:2px solid var(--main); color:var(--main); background:var(--ground); line-height:1.5; white-space:nowrap; }
+
+.screens { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap:16px; }
+.lcd-label { font-size:.95rem; font-weight:800; color:var(--main); margin:0 0 6px; }
+.lcd { margin:0; background:#d7e0cf; color:#1b2416; font-family:var(--mono); font-size:clamp(.9rem, 3.6vw, 1.1rem); line-height:1.45; padding:12px 14px; border-radius:10px; border:6px solid #2b2f33; overflow-x:auto; box-shadow:inset 0 2px 6px rgba(0,0,0,.18); }
+.lcd span { display:block; white-space:pre; }
+.lcd .sel { display:inline; background:#1b2416; color:#d7e0cf; padding:0 2px; }
+.lcd .hit { display:inline; background:#f6c38f; padding:0 2px; text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:3px; }
+.summary { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap:12px; margin-top:16px; }
+.summary div { background:var(--ground); border:2px solid var(--rule); border-radius:12px; padding:10px 14px; font-variant-numeric:tabular-nums; }
+.summary b { display:block; color:var(--main); }
+.box { margin:16px 0 0; padding:14px 18px; border-left:6px solid var(--success); background:var(--paper); border-radius:0 12px 12px 0; }
+.box b { color:var(--main); }
+.recap { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; font-size:1.05rem; background:var(--ground); border-radius:12px; overflow:hidden; }
+.recap th, .recap td { padding:9px 14px; border-bottom:1px solid var(--rule); text-align:left; vertical-align:top; }
+.recap th { color:var(--muted); font-weight:700; }
+.recap td { font-weight:800; color:var(--main); }
+.tablewrap { overflow-x:auto; margin:4px 0 16px; }
+.ref { width:100%; border-collapse:collapse; background:var(--ground); font-size:1rem; }
+.ref th, .ref td { border:1px solid var(--rule); padding:7px 12px; text-align:left; }
+.ref thead th { color:var(--main); font-weight:800; }
+.ref tbody th { font-weight:700; }
+.ref tr.ours th, .ref tr.ours td { background:var(--soft); font-weight:800; color:var(--ink); }
+.why-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap:28px; margin-top:8px; }
+.why-grid h3 { font-family:var(--slab); font-size:1.7rem; margin:0 0 6px; }
+.why-grid .sub { margin:0 0 14px; color:var(--muted); }
+.diffs { width:100%; border-collapse:collapse; font-size:1.15rem; font-variant-numeric:tabular-nums; background:var(--ground); border-radius:12px; overflow:hidden; }
+.diffs th, .diffs td { padding:8px 14px; text-align:right; border-bottom:1px solid var(--rule); }
+.diffs th { font-size:.9rem; color:var(--muted); font-weight:800; }
+.diffs td.d, .diffs th.d { color:var(--accent-ink); font-weight:800; background:var(--soft); }
+.result { margin:14px 0 0; font-weight:800; color:var(--main); }
+
+/* Sticky bottom bar */
+.bar { position:sticky; bottom:0; z-index:10; background:color-mix(in srgb, var(--ground) 94%, transparent); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-top:1px solid var(--rule); padding:10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); }
+.bar-in { max-width:1240px; margin:0 auto; display:flex; align-items:center; gap:14px; }
+.progress { flex:1; min-width:0; display:flex; align-items:center; gap:12px; }
+.segs { flex:1; display:flex; gap:4px; min-width:0; }
+.segs button { flex:1; min-width:0; height:32px; padding:0; margin:0; border:0; background:transparent; cursor:pointer; display:flex; align-items:center; border-radius:4px; }
+.segs button::before { content:""; display:block; width:100%; height:6px; border-radius:3px; background:var(--rule); transition:height .15s ease; }
+.segs button.done::before { background:color-mix(in srgb, var(--accent) 55%, var(--rule)); }
+.segs button.now::before { background:var(--accent); height:8px; }
+.segs button:hover::before { height:10px; }
+.count { font-weight:800; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap; margin:0; }
+.btn { font:inherit; font-weight:800; font-size:1.02rem; min-height:48px; border-radius:12px; padding:10px 22px; cursor:pointer; border:2px solid var(--btn); white-space:nowrap; }
+.btn.next { background:var(--btn); color:var(--btn-ink); }
+.btn.back { background:transparent; color:var(--main); border-color:var(--ui); }
+.btn:disabled { opacity:.45; cursor:default; }
+button:focus-visible, a:focus-visible, .lcd:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+
+/* SVG text */
+.lab { font-family:var(--sans); font-weight:800; font-size:30px; fill:var(--main); }
+.nlab { font-family:var(--sans); font-weight:700; font-size:26px; fill:var(--muted); }
+.val { font-family:var(--sans); font-weight:800; font-size:26px; fill:var(--ink); text-anchor:middle; font-variant-numeric:tabular-nums; }
+.dlab { font-family:var(--sans); font-weight:800; font-size:26px; fill:var(--accent-ink); }
+.dsm { font-family:var(--sans); font-weight:800; font-size:22px; fill:var(--accent-ink); }
+.tick { font-family:var(--sans); font-size:24px; fill:var(--muted); text-anchor:middle; }
+.axis { stroke:var(--muted); stroke-width:2.5; }
+.sep { stroke:var(--muted); stroke-width:3; stroke-dasharray:14 12; }
+
+/* Animation: plays every time a slide opens. Nothing loops. */
+.an { opacity:0; transform:translateY(12px); transition:opacity .5s ease var(--d, 0s), transform .6s cubic-bezier(.2,.9,.3,1.15) var(--d, 0s); }
+.play .an { opacity:1; transform:none; }
+.drop { opacity:0; transform:translateY(-40px); transition:opacity .35s ease var(--d, 0s), transform .6s cubic-bezier(.25,1.5,.45,1) var(--d, 0s); }
+.play .drop { opacity:1; transform:none; }
+.lk path { stroke-dasharray:1; stroke-dashoffset:1; transition:stroke-dashoffset .55s ease var(--d, 0s); }
+.play .lk path { stroke-dashoffset:0; }
+.lk circle, .lk text { opacity:0; transition:opacity .3s ease calc(var(--d, 0s) + .35s); }
+.play .lk circle, .play .lk text { opacity:1; }
+.grow { transform:scaleX(0); transition:transform .7s ease var(--d, 0s); }
+.play .grow { transform:scaleX(1); }
+.pop { opacity:0; transform:scale(.2); transform-box:fill-box; transform-origin:center; transition:opacity .25s ease var(--d, 0s), transform .45s cubic-bezier(.25,1.6,.45,1) var(--d, 0s); }
+.play .pop { opacity:1; transform:none; }
+.fade-in { animation:fadein .45s ease both; }
+@keyframes fadein { from { opacity:0; } to { opacity:1; } }
+.reset, .reset * { transition:none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .an, .drop, .lk path, .lk circle, .lk text, .grow, .pop { transition:none !important; }
+  .fade-in { animation:none !important; }
+}
+@media (forced-colors: active) {
+  .lcd { forced-color-adjust:none; }
+  .ans, .key, .vals li { border:1px solid CanvasText; }
+  .segs button.now::before { background:Highlight; }
+}
+@media (max-width: 900px) {
+  .scene.active { grid-template-columns:minmax(0, 1fr); gap:24px; }
+  .copy { max-width:none; }
+}
+@media (max-width: 640px) {
+  .shell { padding:14px 14px 24px; }
+  .top { flex-direction:column; gap:2px; }
+  .scene { padding-top:20px; }
+  .panel { padding:10px; border-radius:14px; }
+  .bar { padding:8px 10px calc(8px + env(safe-area-inset-bottom, 0px)); }
+  .bar-in { gap:10px; }
+  .btn { padding:10px 16px; }
+  .progress { gap:8px; }
+}
+@media (max-width: 360px) {
+  .btn { padding:10px 12px; font-size:.95rem; }
+  .segs { display:none; }
+  .progress { justify-content:center; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to the slide</a>
+<div class="shell">
+  <header class="top">
+    <h1>Paired vs. Independent Samples</h1>
+    <p class="course">MATH 1040, Lesson 22.1</p>
+  </header>
+  <main id="content" tabindex="-1">
+    <p class="sr-only" id="status" aria-live="polite"></p>
+
+    <section class="scene" aria-labelledby="a1">
+      <div class="copy">
+        <p class="tag an">The big question</p>
+        <h2 id="a1" class="display an" style="--d:.1s">Paired or independent?</h2>
+        <p class="lead an" style="--d:.3s">Before we can compare two samples, we need to know how they are related to each other.</p>
+        <p class="an" style="--d:.5s">That relationship decides which formulas we use, so it’s worth pausing to review the difference.</p>
+        <p class="hint an" style="--d:.7s">Move through the lesson with <b>Next</b> and <b>Back</b>, or the <kbd>←</kbd> <kbd>→</kbd> keys. Take as long as you need on each slide.</p>
+      </div>
+      <figure class="panel an" style="--d:.15s">
+        <svg data-g="title" role="img" aria-labelledby="ga1"><title id="ga1">Two rows of people labelled sample 1 and sample 2, with a question mark between them.</title></svg>
+      </figure>
+    </section>
+
+    <section class="scene" aria-labelledby="a2">
+      <div class="copy">
+        <p class="tag an">Definition</p>
+        <h2 id="a2" class="an" style="--d:.1s">Independent samples</h2>
+        <p class="lead an" style="--d:.3s">Two samples are <b>independent</b> when the individuals in one sample have no natural relationship to the individuals in the other.</p>
+        <p class="an" style="--d:.45s">The two groups are made up of different individuals, selected separately. The groups don’t even need to be the same size.</p>
+        <div class="examples an" style="--d:.6s">
+          <h3 id="exi">Pick an example</h3>
+          <ul class="ex-list" id="ex-indep" aria-labelledby="exi"></ul>
+        </div>
+      </div>
+      <figure class="panel an" style="--d:.15s">
+        <svg data-g="indep" role="img" aria-labelledby="ga2"><title id="ga2">Two separate groups of different people, 4 in the first and 5 in the second, divided by a dashed line, each person showing one measurement.</title></svg>
+        <figcaption class="caption" id="cap-indep" aria-live="polite"></figcaption>
+      </figure>
+    </section>
+
+    <section class="scene" aria-labelledby="a3">
+      <div class="copy">
+        <p class="tag an">Definition</p>
+        <h2 id="a3" class="an" style="--d:.1s">Dependent (paired) samples</h2>
+        <p class="lead an" style="--d:.3s">Two samples are <b>dependent</b>, or <b>paired</b>, when each individual in one sample is naturally matched with exactly one individual in the other.</p>
+        <p class="an" style="--d:.45s">Because every value has a partner, we can subtract each pair. The orange numbers show each difference, <i>d</i> = first − second.</p>
+        <div class="examples an" style="--d:.6s">
+          <h3 id="exp">Pick an example</h3>
+          <ul class="ex-list" id="ex-paired" aria-labelledby="exp"></ul>
+        </div>
+      </div>
+      <figure class="panel an" style="--d:.15s">
+        <svg data-g="paired" role="img" aria-labelledby="ga3"><title id="ga3">The same four people measured twice, each first measurement linked to its second measurement, with the difference shown on each link.</title></svg>
+        <figcaption class="caption" id="cap-paired" aria-live="polite"></figcaption>
+      </figure>
+    </section>
+
+    <section class="scene" aria-labelledby="a4">
+      <div class="copy">
+        <p class="tag an">How pairing happens</p>
+        <h2 id="a4" class="an" style="--d:.1s">Where pairs come from</h2>
+        <p class="lead an" style="--d:.3s">Pairing usually happens in one of two ways.</p>
+        <ul class="ways">
+          <li class="an" style="--d:.5s"><b>The same individuals are measured twice</b>For example, before and after a treatment.</li>
+          <li class="an" style="--d:.9s"><b>Individuals are matched by shared characteristics</b>For example, twins, or the left hand and right hand of the same person.</li>
+        </ul>
+      </div>
+      <figure class="panel an" style="--d:.15s">
+        <svg data-g="how" role="img" aria-labelledby="ga4"><title id="ga4">One athlete with a before time of 5.1 seconds and an after time of 4.9 seconds, both linked to the same person; and a pair of twins linked together.</title></svg>
+        <figcaption class="caption">Pairs can also be the left and right hand of one person.</figcaption>
+      </figure>
+    </section>
+
+    <section class="scene wide" aria-labelledby="a5">
+      <div class="copy">
+        <p class="tag an">Why it matters</p>
+        <h2 id="a5" class="an" style="--d:.1s">Different data, different formulas</h2>
+        <p class="lead an" style="--d:.3s">The formulas for confidence intervals and hypothesis tests are different for dependent and independent samples.</p>
+      </div>
+      <div class="why-grid">
+        <div class="an" style="--d:.5s">
+          <h3>Paired</h3>
+          <p class="sub">Subtract each pair to get one new variable: the differences.</p>
+          <div class="tablewrap" style="margin:0">
+          <table class="diffs">
+            <caption class="sr-only">Blood pressure before and after, with differences</caption>
+            <thead><tr><th scope="col">Patient</th><th scope="col">Before</th><th scope="col">After</th><th scope="col" class="d">d</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>142</td><td>134</td><td class="d"><span class="an" style="--d:1.0s;display:inline-block">8</span></td></tr>
+              <tr><td>2</td><td>135</td><td>130</td><td class="d"><span class="an" style="--d:1.2s;display:inline-block">5</span></td></tr>
+              <tr><td>3</td><td>150</td><td>141</td><td class="d"><span class="an" style="--d:1.4s;display:inline-block">9</span></td></tr>
+              <tr><td>4</td><td>128</td><td>125</td><td class="d"><span class="an" style="--d:1.6s;display:inline-block">3</span></td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p class="result an" style="--d:1.9s">One list of n = 4 differences, so we run a one-sample test on the differences.</p>
+        </div>
+        <div class="an" style="--d:2.2s">
+          <h3>Independent</h3>
+          <p class="sub">No pairs to subtract, so each group keeps its own size and its own sample mean.</p>
+          <figure class="panel" style="padding:12px">
+            <svg data-g="why" role="img" aria-labelledby="ga5"><title id="ga5">Dot plots of commute times: Route 1 has 5 drivers with mean 27 minutes; Route 2 has 8 drivers with mean 31 minutes.</title></svg>
+          </figure>
+          <p class="result an" style="--d:4.4s">Two separate means from groups of different sizes, so we need two-sample formulas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" aria-labelledby="a6">
+      <div class="copy">
+        <p class="tag an">Looking ahead</p>
+        <h2 id="a6" class="an" style="--d:.1s">Step one, every time</h2>
+        <p class="lead an" style="--d:.3s">Before choosing a method, decide whether your two samples are independent or dependent.</p>
+        <p class="an" style="--d:.5s">Lessons 22 and 23 focus entirely on <b>independent</b> samples: two separate groups, each with its own sample size and its own sample mean (or proportion).</p>
+        <p class="hint an" style="--d:.7s">Ready to check yourself? Try the practice problems for Lesson 22.1.</p>
+      </div>
+      <figure class="panel an" style="--d:.15s">
+        <svg data-g="endI" role="img" aria-labelledby="ga6"><title id="ga6">Two independent groups of different sizes, 4 people in group 1 and 6 in group 2, divided by a dashed line with no links between them.</title></svg>
+        <figcaption class="caption">Two independent groups: different people, chosen separately, each with its own size and its own mean.</figcaption>
+      </figure>
+    </section>
+
+  </main>
+</div>
+<nav class="bar" aria-label="Slide navigation">
+  <div class="bar-in">
+    <button type="button" class="btn back" id="back">Back</button>
+    <div class="progress">
+      <div class="segs" id="segs" role="group" aria-label="Go to slide"></div>
+      <p class="count" id="count" aria-hidden="true"></p>
+    </div>
+    <button type="button" class="btn next" id="next">Next</button>
+  </div>
+</nav>
+<script>
+(function () {
+
+  function person(x, y, fill, d, s) {
+    s = s || 1;
+    return '<g transform="translate(' + x + ' ' + y + ') scale(' + s + ')">' +
+      '<ellipse cx="0" cy="4" rx="46" ry="9" style="fill:var(--ink);opacity:.12"/>' +
+      '<g class="drop" style="--d:' + (+d).toFixed(2) + 's">' +
+      '<path d="M-42 0 V-58 Q-42 -88 -12 -90 H12 Q42 -88 42 -58 V0 Z" style="fill:' + fill + '"/>' +
+      '<path d="M16 -88 Q40 -84 42 -58 V0 H24 V-60 Q24 -78 16 -88 Z" style="fill:#000;opacity:.16"/>' +
+      '<circle cx="0" cy="-124" r="28" style="fill:' + fill + '"/></g></g>';
+  }
+  function link(x1, y1, x2, y2, d, bend, label, lid, cls) {
+    bend = bend || 0;
+    var mx = (x1 + x2) / 2 + bend, my = (y1 + y2) / 2;
+    return '<g class="lk" style="--d:' + (+d).toFixed(2) + 's"><path pathLength="1" d="M' + x1 + ' ' + y1 + ' Q' + mx + ' ' + my + ' ' + x2 + ' ' + y2 + '" style="fill:none;stroke:var(--accent);stroke-width:7;stroke-linecap:round"/>' +
+      '<circle cx="' + x1 + '" cy="' + y1 + '" r="9" style="fill:var(--accent)"/><circle cx="' + x2 + '" cy="' + y2 + '" r="9" style="fill:var(--accent)"/>' +
+      (label !== undefined ? '<text class="' + (cls || 'dlab') + '"' + (lid ? ' id="' + lid + '"' : '') + ' x="' + ((x1 + x2) / 2 + Math.max(0, bend / 2) + 16) + '" y="' + (my + 8) + '">' + label + '</text>' : '') + '</g>';
+  }
+  // Wide drawings put two-line labels at the left; narrow drawings put one-line labels above each row.
+  function label2(y, lines, id) {
+    var s = '<text class="lab" x="24" y="' + y + '"' + (id ? ' id="' + id + '"' : '') + '>';
+    lines.forEach(function (l, i) { s += '<tspan x="24" dy="' + (i ? 32 : 0) + '">' + l + '</tspan>'; });
+    return s + '</text>';
+  }
+  function label1(y, text, id) { return '<text class="lab" x="24" y="' + y + '"' + (id ? ' id="' + id + '"' : '') + '>' + text + '</text>'; }
+  function nlab(x, y, text, anchor) { return '<text class="nlab" x="' + x + '" y="' + y + '" text-anchor="' + (anchor || 'start') + '">' + text + '</text>'; }
+  var A = ['var(--a1)', 'var(--a2)', 'var(--a3)', 'var(--a4)', 'var(--a2)', 'var(--a1)'];
+  var B = ['var(--b1)', 'var(--b2)', 'var(--b3)', 'var(--b4)', 'var(--b1)', 'var(--b2)'];
+  var P = ['var(--p1)', 'var(--p2)', 'var(--p3)', 'var(--p4)'];
+
+  var indepEx = [
+    { btn: 'Test scores at two schools', small: 'Students at School A vs. students at School B', a: ['School A'], b: ['School B'], av: ['78', '85', '91', '72'], bv: ['88', '69', '94', '81', '76'],
+      cap: '<b>Test scores.</b> Different students attend each school. A score from School A has no natural partner at School B.' },
+    { btn: 'Two diet plans', small: 'Weight loss on Diet Plan 1 vs. Diet Plan 2 (different people in each group)', a: ['Diet', 'Plan 1'], b: ['Diet', 'Plan 2'], av: ['8 lb', '12 lb', '5 lb', '10 lb'], bv: ['6 lb', '9 lb', '14 lb', '7 lb', '11 lb'],
+      cap: '<b>Weight loss.</b> Each person follows only one plan, so the two groups are made of different people.' },
+    { btn: 'Two commute routes', small: 'Commute times for drivers on Route 1 vs. drivers on Route 2', a: ['Route 1'], b: ['Route 2'], av: ['24', '31', '27', '22'], bv: ['35', '29', '33', '26', '30'],
+      cap: '<b>Commute times (minutes).</b> The drivers on Route 1 are not the drivers on Route 2. Nothing links one driver to another.' }
+  ];
+  var pairedEx = [
+    { btn: 'Blood pressure and a new medication', small: 'Each patient’s blood pressure before and after taking it', a: ['Before', 'medication'], b: ['After', 'medication'], av: [142, 135, 150, 128], bv: [134, 130, 141, 125], fmt: function (v) { return v; },
+      cap: '<b>Blood pressure (mmHg).</b> The same 4 patients are measured twice, so each “before” has exactly one “after”.' },
+    { btn: '40-yard dash and a training program', small: 'An athlete’s time before and after the program', a: ['Before', 'training'], b: ['After', 'training'], av: [5.1, 4.9, 5.4, 5.0], bv: [4.9, 4.8, 5.1, 4.8], fmt: function (v) { return v.toFixed(1) + ' s'; }, dfmt: function (v) { return v.toFixed(1); },
+      cap: '<b>40-yard dash (seconds).</b> Each athlete is compared with themselves, so the two times form a pair.' },
+    { btn: 'Pretest and posttest', small: 'Scores for the same students on both tests', a: ['Pretest'], b: ['Posttest'], av: [62, 70, 55, 81], bv: [74, 78, 68, 85], fmt: function (v) { return v; },
+      cap: '<b>Test scores.</b> The same students take both tests. Here d = pretest − posttest is negative because scores went up.' }
+  ];
+  var curIndep = 0, curPaired = 0;
+
+  var draws = {
+    title: function (n) {
+      var s = '';
+      if (n) {
+        var xs = [80, 190, 300, 410];
+        s += label1(44, 'Sample 1') + label1(372, 'Sample 2');
+        xs.forEach(function (x, i) { s += person(x, 260, 'var(--grey-fig)', 0.2 + i * 0.08, 0.9) + person(x, 600, 'var(--grey-fig)', 0.5 + i * 0.08, 0.9); });
+        s += qmark(245, 318, 34);
+        return [500, 620, s];
+      }
+      var xw = [330, 470, 610, 750];
+      s += label2(150, ['Sample 1']) + label2(480, ['Sample 2']);
+      xw.forEach(function (x, i) { s += person(x, 250, 'var(--grey-fig)', 0.2 + i * 0.08) + person(x, 580, 'var(--grey-fig)', 0.5 + i * 0.08); });
+      s += qmark(540, 340, 40);
+      return [900, 610, s];
+    },
+    indep: function (n) {
+      var s = '', ax, bx, as, bs, ay, by;
+      if (n) {
+        ax = [80, 190, 300, 410]; bx = [60, 155, 250, 345, 440]; as = 0.85; bs = 0.75; ay = 250; by = 590;
+        s += label1(44, '', 'ia-lab') + nlab(476, 44, 'n₁ = 4', 'end');
+        s += '<line class="sep an" style="--d:1.1s" x1="24" y1="318" x2="476" y2="318"/>';
+        s += label1(366, '', 'ib-lab') + nlab(476, 366, 'n₂ = 5', 'end');
+      } else {
+        ax = [310, 450, 590, 730]; bx = [270, 390, 510, 630, 750]; as = 1; bs = 1; ay = 250; by = 584;
+        s += label2(140, ['', ''], 'ia-lab') + nlab(24, 214, 'n₁ = 4');
+        s += '<line class="sep an" style="--d:1.1s" x1="24" y1="320" x2="876" y2="320"/>';
+        s += label2(470, ['', ''], 'ib-lab') + nlab(24, 544, 'n₂ = 5');
+      }
+      ax.forEach(function (x, i) { s += person(x, ay, A[i], 0.25 + i * 0.08, as) + '<text class="val an" id="ia-v' + i + '" style="--d:' + (0.5 + i * 0.08).toFixed(2) + 's" x="' + x + '" y="' + (ay + 36) + '"></text>'; });
+      bx.forEach(function (x, i) { s += person(x, by, B[i], 0.7 + i * 0.08, bs) + '<text class="val an" id="ib-v' + i + '" style="--d:' + (0.95 + i * 0.08).toFixed(2) + 's" x="' + x + '" y="' + (by + 36) + '"></text>'; });
+      return n ? [500, 640, s] : [900, 640, s];
+    },
+    paired: function (n) {
+      var s = '', xs;
+      if (n) {
+        xs = [75, 190, 305, 420];
+        s += label1(44, '', 'pa-lab') + nlab(476, 44, 'n = 4 pairs', 'end') + label1(684, '', 'pb-lab');
+        xs.forEach(function (x, i) { s += link(x, 298, x, 456, 1.2 + i * 0.22, 0, '', 'pd' + i, 'dsm'); });
+        xs.forEach(function (x, i) {
+          s += person(x, 250, P[i], 0.25 + i * 0.08, 0.85) + '<text class="val an" id="pa-v' + i + '" style="--d:' + (0.5 + i * 0.08).toFixed(2) + 's" x="' + x + '" y="286"></text>';
+          s += person(x, 600, P[i], 0.65 + i * 0.08, 0.85) + '<text class="val an" id="pb-v' + i + '" style="--d:' + (0.9 + i * 0.08).toFixed(2) + 's" x="' + x + '" y="636"></text>';
+        });
+        return [500, 700, s];
+      }
+      xs = [330, 470, 610, 750];
+      s += label2(140, ['', ''], 'pa-lab') + '<text class="nlab an" style="--d:1.9s" x="24" y="372">n = 4 pairs</text>' + label2(470, ['', ''], 'pb-lab');
+      xs.forEach(function (x, i) { s += link(x, 304, x, 424, 1.2 + i * 0.22, i % 2 ? -26 : 26, '', 'pd' + i); });
+      xs.forEach(function (x, i) {
+        s += person(x, 250, P[i], 0.25 + i * 0.08) + '<text class="val an" id="pa-v' + i + '" style="--d:' + (0.5 + i * 0.08).toFixed(2) + 's" x="' + x + '" y="290"></text>';
+        s += person(x, 584, P[i], 0.65 + i * 0.08) + '<text class="val an" id="pb-v' + i + '" style="--d:' + (0.9 + i * 0.08).toFixed(2) + 's" x="' + x + '" y="624"></text>';
+      });
+      return [900, 640, s];
+    },
+    how: function (n) {
+      function card(x, y, t1, t2, d) {
+        return '<g class="an" style="--d:' + d + 's"><rect x="' + x + '" y="' + y + '" width="160" height="84" rx="14" style="fill:var(--ground);stroke:var(--main);stroke-width:3"/>' +
+          '<text class="nlab" x="' + (x + 80) + '" y="' + (y + 32) + '" text-anchor="middle">' + t1 + '</text><text class="val" x="' + (x + 80) + '" y="' + (y + 68) + '">' + t2 + '</text></g>';
+      }
+      var s = '';
+      if (n) {
+        s += label1(44, 'Measured twice');
+        s += card(40, 80, 'Before', '5.1 s', 0.6) + card(300, 80, 'After', '4.9 s', 0.9);
+        s += link(120, 170, 228, 322, 1.2, -20) + link(380, 170, 272, 322, 1.4, 20);
+        s += person(250, 500, 'var(--p1)', 0.3);
+        s += '<text class="nlab an" style="--d:1.6s" x="250" y="540" text-anchor="middle">same athlete</text>';
+        s += '<line x1="24" y1="578" x2="476" y2="578" style="stroke:var(--rule);stroke-width:3"/>';
+        s += label1(632, 'Matched pairs');
+        s += person(150, 800, 'var(--p2)', 1.8, 0.9) + person(350, 800, 'var(--p2)', 1.95, 0.9);
+        s += link(190, 722, 310, 722, 2.4, 0);
+        s += '<text class="nlab an" style="--d:2.6s" x="250" y="842" text-anchor="middle">twins</text>';
+        return [500, 860, s];
+      }
+      s += '<text class="lab" x="40" y="70">Measured twice</text><text class="lab" x="490" y="70">Matched pairs</text>';
+      s += '<line x1="450" y1="40" x2="450" y2="610" style="stroke:var(--rule);stroke-width:3"/>';
+      s += card(40, 150, 'Before', '5.1 s', 0.6) + card(250, 150, 'After', '4.9 s', 0.9);
+      s += link(120, 240, 205, 410, 1.2, -30) + link(330, 240, 245, 410, 1.4, 30);
+      s += person(225, 590, 'var(--p1)', 0.3);
+      s += '<text class="nlab an" style="--d:1.6s" x="225" y="630" text-anchor="middle">same athlete</text>';
+      s += person(590, 590, 'var(--p2)', 1.8) + person(780, 590, 'var(--p2)', 1.95);
+      s += link(636, 500, 734, 500, 2.4, 0);
+      s += '<text class="nlab an" style="--d:2.6s" x="685" y="630" text-anchor="middle">twins</text>';
+      return [900, 650, s];
+    },
+    why: function (n) {
+      var W = n ? 500 : 660, L = n ? 40 : 70, R = n ? 460 : 610, r = n ? 10 : 13;
+      var X = function (v) { return L + (v - 20) * (R - L) / 20; };
+      var g1 = [22, 24, 27, 30, 32], g2 = [25, 28, 29, 30, 31, 33, 34, 38];
+      function row(vals, base, color, name, nl, xbar, d0) {
+        var m = vals.reduce(function (a, b) { return a + b; }, 0) / vals.length, ax = base + r + 6;
+        var o = label1(base - 100, name) + nlab(W - 24, base - 100, nl, 'end');
+        o += '<line class="axis" x1="' + X(20) + '" y1="' + ax + '" x2="' + X(40) + '" y2="' + ax + '"/>';
+        [20, 25, 30, 35, 40].forEach(function (v) { o += '<line class="axis" x1="' + X(v) + '" y1="' + ax + '" x2="' + X(v) + '" y2="' + (ax + 8) + '"/><text class="tick" x="' + X(v) + '" y="' + (ax + 36) + '">' + v + '</text>'; });
+        vals.forEach(function (v, i) { o += '<circle class="pop" style="--d:' + (d0 + i * 0.12).toFixed(2) + 's;fill:' + color + '" cx="' + X(v) + '" cy="' + base + '" r="' + r + '"/>'; });
+        var dm = d0 + vals.length * 0.12 + 0.2;
+        o += '<g class="lk" style="--d:' + dm.toFixed(2) + 's"><path pathLength="1" d="M' + X(m) + ' ' + (ax + 2) + ' V' + (base - 40) + '" style="fill:none;stroke:var(--accent-ink);stroke-width:4"/></g>';
+        o += '<text class="dlab an" style="--d:' + (dm + 0.3).toFixed(2) + 's" x="' + (X(m) + 8) + '" y="' + (base - 48) + '">' + xbar + ' = ' + m.toFixed(1) + '</text>';
+        return o;
+      }
+      var s = row(g1, 150, 'var(--a1)', 'Route 1', 'n₁ = 5', 'x̄₁', 2.6) + row(g2, 360, 'var(--b2)', 'Route 2', 'n₂ = 8', 'x̄₂', 3.3);
+      s += '<text class="tick" x="' + (W / 2) + '" y="466">Commute time (minutes)</text>';
+      return [W, 480, s];
+    },
+    endI: function (n) {
+      var s = '';
+      if (n) {
+        s += label1(44, 'Group 1') + nlab(476, 44, 'n₁ = 4', 'end');
+        s += '<line class="sep an" style="--d:1.2s" x1="24" y1="300" x2="476" y2="300"/>';
+        s += label1(350, 'Group 2') + nlab(476, 350, 'n₂ = 6', 'end');
+        [80, 190, 300, 410].forEach(function (x, i) { s += person(x, 250, A[i], 0.25 + i * 0.08, 0.85); });
+        [55, 133, 211, 289, 367, 445].forEach(function (x, i) { s += person(x, 560, B[i], 0.6 + i * 0.08, 0.62); });
+        return [500, 580, s];
+      }
+      s += label2(140, ['Group 1']) + nlab(24, 178, 'n₁ = 4') + label2(470, ['Group 2']) + nlab(24, 508, 'n₂ = 6');
+      s += '<line class="sep an" style="--d:1.2s" x1="24" y1="320" x2="876" y2="320"/>';
+      [330, 470, 610, 750].forEach(function (x, i) { s += person(x, 270, A[i], 0.25 + i * 0.08); });
+      [290, 382, 474, 566, 658, 750].forEach(function (x, i) { s += person(x, 600, B[i], 0.6 + i * 0.08, 0.9); });
+      return [900, 620, s];
+    },
+    endP: function (n) {
+      var s = '', ds = [4, 2, 5, 3];
+      if (n) {
+        var xs = [75, 190, 305, 420];
+        s += label1(44, 'First measurement') + nlab(476, 44, 'n = 4 pairs', 'end') + label1(684, 'Second measurement');
+        xs.forEach(function (x, i) { s += link(x, 298, x, 456, 1.0 + i * 0.22, 0, 'd = ' + ds[i], null, 'dsm'); });
+        xs.forEach(function (x, i) { s += person(x, 250, P[i], 0.25 + i * 0.08, 0.85) + person(x, 600, P[i], 0.6 + i * 0.08, 0.85); });
+        s += '<text class="dlab an" style="--d:2.3s" x="476" y="684" text-anchor="end">x̄<tspan dy="6" font-size="18">d</tspan><tspan dy="-6"> = 3.5</tspan></text>';
+        return [500, 700, s];
+      }
+      var xw = [330, 470, 610, 750];
+      s += label2(140, ['First', 'measurement']) + label2(470, ['Second', 'measurement']);
+      s += '<text class="nlab an" style="--d:1.9s" x="24" y="372">n = 4 pairs</text>';
+      xw.forEach(function (x, i) { s += link(x, 284, x, 424, 1.0 + i * 0.22, i % 2 ? -26 : 26, 'd = ' + ds[i]); });
+      xw.forEach(function (x, i) { s += person(x, 250, P[i], 0.25 + i * 0.08) + person(x, 584, P[i], 0.6 + i * 0.08); });
+      s += '<text class="dlab an" style="--d:2.3s" x="876" y="628" text-anchor="end">x̄<tspan dy="6" font-size="18">d</tspan><tspan dy="-6"> = 3.5</tspan></text>';
+      return [900, 640, s];
+    }
+  };
+  function qmark(cx, cy, r) {
+    return '<g class="pop" style="--d:1s"><circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" style="fill:var(--ground);stroke:var(--accent);stroke-width:6"/>' +
+      '<path d="M' + (cx - 14) + ' ' + (cy - 10) + ' Q' + (cx - 14) + ' ' + (cy - 28) + ' ' + (cx + 1) + ' ' + (cy - 28) + ' Q' + (cx + 16) + ' ' + (cy - 28) + ' ' + (cx + 16) + ' ' + (cy - 14) + ' Q' + (cx + 16) + ' ' + (cy - 4) + ' ' + (cx + 4) + ' ' + (cy + 1) + ' Q' + cx + ' ' + (cy + 4) + ' ' + cx + ' ' + (cy + 12) + '" style="fill:none;stroke:var(--accent-ink);stroke-width:7;stroke-linecap:round"/><circle cx="' + cx + '" cy="' + (cy + 26) + '" r="5" style="fill:var(--accent-ink)"/></g>';
+  }
+
+  function setLabel(id, lines) {
+    var el = document.getElementById(id); if (!el) return;
+    var ts = el.querySelectorAll('tspan');
+    if (ts.length === 2) { ts[0].textContent = lines[0] || ''; ts[1].textContent = lines[1] || ''; }
+    else el.textContent = lines.filter(Boolean).join(' ');
+  }
+  function setText(id, t) { var el = document.getElementById(id); if (el) el.textContent = t; }
+  function flash(svgSel) {
+    var svg = document.querySelector(svgSel); if (!svg) return;
+    svg.querySelectorAll('.val, .dlab, .dsm, .lab').forEach(function (e) { e.classList.remove('fade-in'); e.getBoundingClientRect(); e.classList.add('fade-in'); });
+  }
+  function pickIndep(i, anim) {
+    curIndep = i; var e = indepEx[i];
+    setLabel('ia-lab', e.a); setLabel('ib-lab', e.b);
+    e.av.forEach(function (v, k) { setText('ia-v' + k, v); });
+    e.bv.forEach(function (v, k) { setText('ib-v' + k, v); });
+    document.getElementById('cap-indep').innerHTML = e.cap;
+    if (anim) flash('svg[data-g="indep"]');
+  }
+  function pickPaired(i, anim) {
+    curPaired = i; var e = pairedEx[i], df = e.dfmt || function (v) { return Math.round(v); };
+    setLabel('pa-lab', e.a); setLabel('pb-lab', e.b);
+    e.av.forEach(function (v, k) {
+      setText('pa-v' + k, e.fmt(v)); setText('pb-v' + k, e.fmt(e.bv[k]));
+      var d = v - e.bv[k];
+      setText('pd' + k, 'd = ' + (d < 0 ? '−' + df(-d) : df(d)));
+    });
+    document.getElementById('cap-paired').innerHTML = e.cap;
+    if (anim) flash('svg[data-g="paired"]');
+  }
+  var after = { indep: function () { pickIndep(curIndep, false); }, paired: function () { pickPaired(curPaired, false); } };
+  function buildList(listId, items, onPick) {
+    var ul = document.getElementById(listId);
+    items.forEach(function (it, i) {
+      var li = document.createElement('li'), b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+      b.innerHTML = it.btn + '<small>' + it.small + '</small>';
+      b.addEventListener('click', function () {
+        ul.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true'); onPick(i, true);
+      });
+      li.appendChild(b); ul.appendChild(li);
+    });
+  }
+  buildList('ex-indep', indepEx, pickIndep);
+  buildList('ex-paired', pairedEx, pickPaired);
+
+
+  function layout(scene) {
+    scene.querySelectorAll('svg[data-g]').forEach(function (svg) {
+      var w = svg.parentElement.clientWidth || 0;
+      var mode = w && w < 620 ? 'narrow' : 'wide';
+      if (svg.dataset.mode === mode) return;
+      var title = svg.querySelector('title').outerHTML;
+      var out = draws[svg.dataset.g](mode === 'narrow');
+      svg.setAttribute('viewBox', '0 0 ' + out[0] + ' ' + out[1]);
+      svg.innerHTML = title + out[2];
+      svg.dataset.mode = mode;
+      if (typeof after !== 'undefined' && after[svg.dataset.g]) after[svg.dataset.g]();
+    });
+  }
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
+  var segs = document.getElementById('segs'), count = document.getElementById('count');
+  var back = document.getElementById('back'), next = document.getElementById('next'), status = document.getElementById('status');
+  var cur = 0, baseTitle = document.title;
+  scenes.forEach(function (sc, k) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Slide ' + (k + 1) + ': ' + sc.querySelector('h2').textContent);
+    b.title = 'Slide ' + (k + 1);
+    b.addEventListener('click', function () { go(k, true); });
+    segs.appendChild(b);
+  });
+  function play(sc) {
+    sc.classList.remove('play'); sc.classList.add('reset');
+    void sc.offsetWidth;
+    sc.classList.remove('reset');
+    requestAnimationFrame(function () { requestAnimationFrame(function () { sc.classList.add('play'); }); });
+  }
+  function go(i, announce) {
+    if (i < 0 || i >= scenes.length) return;
+    scenes[cur].classList.remove('active', 'play');
+    cur = i;
+    var sc = scenes[cur];
+    sc.classList.add('active');
+    layout(sc);
+    play(sc);
+    Array.prototype.forEach.call(segs.children, function (s, k) {
+      s.className = k < cur ? 'done' : (k === cur ? 'now' : '');
+      if (k === cur) s.setAttribute('aria-current', 'step'); else s.removeAttribute('aria-current');
+    });
+    count.textContent = (cur + 1) + ' / ' + scenes.length;
+    back.disabled = cur === 0;
+    next.textContent = cur === scenes.length - 1 ? 'Start over' : 'Next';
+    var h = sc.querySelector('h2').textContent;
+    document.title = h + ' (' + (cur + 1) + ' / ' + scenes.length + ') – ' + baseTitle;
+    if (announce) status.textContent = 'Slide ' + (cur + 1) + ' of ' + scenes.length + ': ' + h;
+    window.scrollTo(0, 0);
+  }
+  back.addEventListener('click', function () { go(cur - 1, true); });
+  next.addEventListener('click', function () { go(cur === scenes.length - 1 ? 0 : cur + 1, true); });
+  document.addEventListener('keydown', function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    var t = e.target;
+    if (t && t.closest && t.closest('.lcd, .tablewrap, input, textarea, select, [contenteditable="true"]')) return;
+    if (e.key === 'ArrowRight') { e.preventDefault(); if (cur < scenes.length - 1) go(cur + 1, true); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1, true); }
+  });
+  var rt;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { layout(scenes[cur]); }, 150); });
+  go(0, false);
+
+})();
+</script>
+</body>
+</html>
