@@ -184,6 +184,8 @@ MathJax = {
 ### Quantitative Inference
 * [1-sample Quantitative Confidence Interval](./calculator/confint-1sample-quantitative.html)
 * [1-sample Quantitative Hypothesis Test](./calculator/hyptest-1sample-quantitative.html)
+* [2-sample Quantitative Confidence Interval](./calculator/confint-2sample-quantitative.html)
+* [2-sample Quantitative Hypothesis Test](./calculator/hyptest-2sample-quantitative.html)
 
 ### Categorical Inference
 * [1-sample Categorical Confidence Interval](./calculator/confint-1sample-categorical.html)
