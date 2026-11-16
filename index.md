@@ -171,22 +171,3 @@ MathJax = {
 [25: Inference with Correlation](./Lesson25/index.md)
 * [25.1 Hypotheses for a Correlation Test](./Lesson25/25_1_Hypotheses.md)
 * [25.2 Testing the Correlation Coefficient](./Lesson25/25_2_TestingCorrelation.md)
-
-## Calculators
-* [Descriptive 1-variable Statistics](./calculator/descriptive-stats.html)
-
-### Distributions
-* [Normal Distribution: Z-Score](./calculator/normal-zscore.html)
-* [T-Distribution: T-Score](./calculator/tdistribution.html)
-* [Chi-Squared Distribution](./calculator/chisqdistribution.html)
-* [F-Distribution: ANOVA](./calculator/fdistribution.html)
-
-### Quantitative Inference
-* [1-sample Quantitative Confidence Interval](./calculator/confint-1sample-quantitative.html)
-* [1-sample Quantitative Hypothesis Test](./calculator/hyptest-1sample-quantitative.html)
-* [2-sample Quantitative Confidence Interval](./calculator/confint-2sample-quantitative.html)
-* [2-sample Quantitative Hypothesis Test](./calculator/hyptest-2sample-quantitative.html)
-
-### Categorical Inference
-* [1-sample Categorical Confidence Interval](./calculator/confint-1sample-categorical.html)
-* [1-sample Categorical Hypothesis Test](./calculator/hyptest-1sample-categorical.html)
