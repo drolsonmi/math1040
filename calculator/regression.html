@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Linear Regression and Correlation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Spectral:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1E376C; --orange:#F47920; --lorange:#FAA634;
+    --bg:#f6f7fa; --grid:rgba(30,55,108,.07); --panel:#ffffff; --text:#1c2333; --muted:#596377;
+    --border:#d8dde6; --btntext:#ffffff; --soft:#eef1f7; --err:#b42318; --sel:#fff3e6;
+    --serif:"Spectral",Georgia,"Times New Roman",serif;
+    --sans:"Atkinson Hyperlegible",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    color-scheme:light;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --blue:#8FA9DD; --bg:#111725; --grid:rgba(143,169,221,.07); --panel:#1a2133; --text:#e4e8f1; --muted:#9aa6bd;
+      --border:#2f3a52; --btntext:#111725; --soft:#232c42; --err:#ff8a7a; --sel:#3a2c1e;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --blue:#8FA9DD; --bg:#111725; --grid:rgba(143,169,221,.07); --panel:#1a2133; --text:#e4e8f1; --muted:#9aa6bd;
+    --border:#2f3a52; --btntext:#111725; --soft:#232c42; --err:#ff8a7a; --sel:#3a2c1e;
+    color-scheme:dark;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-padding-top:env(safe-area-inset-top,0px)}
+  html,body{margin:0}
+  body{background-color:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.45;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:20px 20px}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px}
+  h1,h2,h3{font-family:var(--serif);color:var(--blue);font-weight:600;margin:0}
+  h1{font-size:26px;line-height:1.2}
+  .subtitle{color:var(--muted);margin:2px 0 14px;font-size:15px}
+  h2{font-size:20px;margin-bottom:10px}
+  h3{font-size:17px;margin-bottom:8px}
+  .sym{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue)}
+  .sym sub{font-size:.68em;line-height:0}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;min-width:0}
+  .hidden{display:none !important}
+  .opt{font-family:var(--sans);font-size:13px;font-weight:400;color:var(--muted)}
+
+  /* ---------- Layout ---------- */
+  .tabs{display:none}
+  .screens{display:grid;grid-template-columns:minmax(320px,5fr) 7fr;gap:16px;align-items:start;
+    grid-template-areas:"data results" "graph graph" "tdist tdist" "table table" "how how"}
+  .screen{display:contents}
+  #dataPanel{grid-area:data;border-top:5px solid var(--orange)}
+  #resultsPanel{grid-area:results}
+  #graphPanel{grid-area:graph}
+  #tPanel{grid-area:tdist}
+  #tablePanel{grid-area:table}
+  #howPanel{grid-area:how}
+  .see-results{display:none}
+
+  @media (max-width:760px){
+    .wrap{padding:12px 10px}
+    h1{font-size:22px}
+    .tabs{display:flex;position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);padding:6px 0 8px;margin-bottom:6px}
+    .tabs button{flex:1;border:1px solid var(--blue);background:var(--panel);color:var(--blue);font:700 15px var(--sans);padding:9px 0;cursor:pointer}
+    .tabs button:first-child{border-radius:8px 0 0 8px}
+    .tabs button:last-child{border-radius:0 8px 8px 0;border-left:none}
+    .tabs button.on{background:var(--blue);color:var(--btntext)}
+    .screens{display:flex;gap:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;align-items:flex-start;
+      scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .screens::-webkit-scrollbar{display:none}
+    .screen{display:flex;flex-direction:column;gap:12px;flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;padding:0 1px}
+    .see-results{display:block}
+  }
+
+  /* ---------- Controls ---------- */
+  label,.lbl{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+  textarea,input[type=text],select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:7px;
+    font:16px var(--sans);color:var(--text);background:var(--panel)}
+  textarea{min-height:120px;resize:vertical}
+  textarea:focus,input[type=text]:focus,select:focus{outline:2px solid var(--lorange);outline-offset:0;border-color:var(--orange)}
+  button:focus-visible,summary:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+  .xy{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .xy .var{font-size:15px;color:var(--text);font-weight:700;margin-bottom:6px}
+  .xy input[type=text]{margin-bottom:6px;padding:6px 9px;font-size:15px}
+  .count{font-size:13px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+  .count.bad{color:var(--err);font-weight:700}
+  .hint{font-size:13px;color:var(--muted);margin:6px 0 0}
+  .seg{display:flex;border:1px solid var(--blue);border-radius:8px;overflow:hidden;margin-bottom:12px}
+  .seg button{flex:1;border:none;background:var(--panel);color:var(--blue);padding:8px 6px;font:700 14px var(--sans);cursor:pointer;line-height:1.25}
+  .seg button+button{border-left:1px solid var(--blue)}
+  .seg button.on{background:var(--blue);color:var(--btntext)}
+  .seg .op{font-family:var(--serif);font-size:17px;font-weight:600}
+  .seg .sym{color:inherit}
+  .btn{border:1px solid var(--blue);background:var(--blue);color:var(--btntext);border-radius:7px;padding:8px 14px;font:700 14px var(--sans);cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--blue)}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}
+  .toolbar .dec{margin-left:auto;display:flex;align-items:center;gap:6px}
+  .toolbar .dec label{margin:0}
+  .toolbar .dec select{width:auto;padding:6px 8px}
+  .check{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text);margin-top:10px;cursor:pointer}
+  .check input{width:18px;height:18px;accent-color:var(--blue)}
+  .fields2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+  .msg{font-size:14px;margin-top:8px;color:var(--muted)}
+  .msg.warn{color:var(--orange)}
+  .err{color:var(--err);font-size:14px;margin-top:8px}
+  .err:empty,.msg:empty{display:none}
+  .see-results{width:100%;margin-top:16px;padding:12px;font-size:16px}
+  .hyp{display:flex;flex-wrap:wrap;gap:4px 22px;font-family:var(--serif);font-size:18px;color:var(--blue);
+    background:var(--soft);border-radius:8px;padding:8px 12px;margin-top:10px}
+  .hyp i{font-weight:600}
+  .predict{display:flex;align-items:center;gap:10px}
+  .predict label{margin:0;white-space:nowrap;font-size:15px;color:var(--text)}
+  .predict input{max-width:160px}
+
+  /* hypothesis test drawer */
+  .testbox{border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:8px;background:var(--soft)}
+  .testbox[open]{background:transparent}
+  .testbox > summary{list-style:none;cursor:pointer;padding:11px 14px;display:flex;align-items:center;gap:10px;
+    font-family:var(--serif);font-weight:600;font-size:18px;color:var(--blue)}
+  .testbox > summary::-webkit-details-marker{display:none}
+  .testbox > summary::before{content:"";width:8px;height:8px;border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);
+    transform:rotate(-45deg);transition:transform .15s;flex:0 0 auto;margin-right:2px}
+  .testbox[open] > summary::before{transform:rotate(45deg)}
+  .testbox .state{margin-left:auto;font:700 12px var(--sans);color:var(--btntext);background:var(--orange);border-radius:20px;padding:2px 9px}
+  .testbody{padding:2px 14px 14px}
+  @media (prefers-reduced-motion: reduce){ .testbox > summary::before{transition:none} }
+
+  /* keypad */
+  .keypad{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px;user-select:none;-webkit-user-select:none}
+  .key{border:1px solid var(--border);background:var(--soft);color:var(--blue);border-radius:8px;padding:11px 0;
+    font:700 19px var(--sans);cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .key:active,.key.tap{background:var(--lorange);color:#1E376C;border-color:var(--lorange)}
+  .key.next{grid-row:span 2;background:var(--blue);color:var(--btntext);border-color:var(--blue);font-size:15px;line-height:1.2}
+  .key.next:active,.key.next.tap{background:var(--lorange);color:#1E376C}
+  .key.zero{grid-column:span 2}
+
+  /* ---------- Results ---------- */
+  .placeholder{color:var(--muted);font-style:italic;padding:20px 0;text-align:center}
+  .eq-card{border:1px solid var(--border);border-left:5px solid var(--orange);border-radius:8px;padding:12px 14px;background:var(--soft)}
+  .eqn{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1.25;overflow-wrap:anywhere}
+  .eqn i{font-style:italic}
+  .eqwords{font-size:14px;color:var(--muted);margin-top:4px;overflow-wrap:anywhere}
+  .dec-card{border:1px solid var(--border);border-left:5px solid var(--blue);border-radius:8px;padding:12px 14px;background:var(--soft)}
+  .dec-card.reject{border-left-color:var(--orange)}
+  .dec-main{font-size:24px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums;line-height:1.25}
+  .formula{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;margin-top:6px}
+  .formula .nw{white-space:nowrap}
+  .interp{font-size:14px;margin-top:8px}
+  .interp p{margin:6px 0}
+  .interp .warn{color:var(--orange)}
+  .measures{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+  .m{border:1px solid var(--border);border-radius:8px;padding:8px 12px;min-width:0}
+  .m.key2{border-color:var(--blue);border-width:2px;padding:7px 11px}
+  .m .top{display:flex;align-items:baseline;gap:8px}
+  .m .sym{font-size:20px}
+  .m .name{font-size:13px;color:var(--muted)}
+  .m .val{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+  .section-gap{margin-top:18px}
+  .pred{margin-top:8px}
+  .pred .top{flex-wrap:wrap}
+  .tag{margin-left:auto;font:700 12px var(--sans);border-radius:20px;padding:2px 10px;white-space:nowrap}
+  .tag.in{color:var(--blue);background:var(--soft);border:1px solid var(--blue)}
+  .tag.ex{color:var(--btntext);background:var(--orange);border:1px solid var(--orange)}
+
+  #plotBox,#tBox{width:100%;margin-top:10px}
+  #plotBox svg,#tBox svg{display:block}
+  #plotBox,#plotBox svg{touch-action:pan-x pan-y}
+  #plotBox.zoomed svg{cursor:grab}
+  #plotBox.panning svg,#plotBox.panning svg *{cursor:grabbing !important}
+  .graphbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px}
+  .graphbar .check{margin:0}
+  .zoombtns{display:flex;flex-wrap:wrap;gap:6px}
+  .zoombtns .zb{min-width:40px;font-size:18px;padding:4px 10px;line-height:1.2}
+  .zoombtns .btn{padding-top:5px;padding-bottom:5px}
+  .btn:disabled{opacity:.45;cursor:default}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;font-size:13px;color:var(--muted);margin-top:6px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{display:inline-block}
+  .sw.dot{width:11px;height:11px;border-radius:50%;background:var(--blue)}
+  .sw.line{width:22px;height:3px;background:var(--orange)}
+  .sw.dash{width:22px;height:0;border-top:3px dashed var(--orange)}
+  .sw.resid{width:0;height:14px;border-left:2px dashed var(--muted)}
+  .sw.pred{width:11px;height:11px;background:var(--lorange);border:2px solid var(--orange);transform:rotate(45deg)}
+  .sw.rej{width:18px;height:12px;background:var(--lorange);opacity:.75;border:1px solid var(--orange)}
+  .sw.pv{width:18px;height:12px;border:1px solid var(--blue);background:repeating-linear-gradient(45deg,var(--blue) 0 2px,transparent 2px 5px)}
+  .sw.ts{width:3px;height:14px;background:var(--blue)}
+  .caption{font-size:13px;color:var(--muted);text-align:center;margin-top:4px}
+  .readout{font-size:14px;text-align:center;margin-top:8px;min-height:21px;font-variant-numeric:tabular-nums}
+  .readout.idle{color:var(--muted)}
+
+  .tablewrap{overflow-x:auto;max-height:420px;overflow-y:auto;border:1px solid var(--border);border-radius:8px}
+  table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:15px}
+  th,td{padding:6px 12px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
+  th{position:sticky;top:0;background:var(--soft);color:var(--blue);font-family:var(--serif);font-style:italic;font-weight:600;font-size:16px}
+  th:first-child,td:first-child{text-align:left;color:var(--muted);font-style:normal}
+  tbody tr{cursor:pointer}
+  tbody tr:hover{background:var(--soft)}
+  tbody tr.on{background:var(--sel)}
+  tfoot td{font-weight:700;background:var(--soft);border-bottom:none}
+
+  details.how-d summary{cursor:pointer;font-family:var(--serif);font-weight:600;font-size:20px;color:var(--blue)}
+  details.how-d[open] summary{margin-bottom:8px}
+  .how p{margin:10px 0}
+  .how .eq{font-family:var(--serif);font-size:18px;color:var(--blue);margin:2px 0}
+  .how .num{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+  .how h3{margin-top:18px}
+
+  @media (max-width:560px){
+    .dec-main{font-size:20px}
+    .eqn{font-size:22px}
+    .toolbar .dec{margin-left:0}
+    th,td{padding:6px 8px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Linear Regression and Correlation</h1>
+  <p class="subtitle">Two quantitative variables: line of best fit, correlation <span class="sym">r</span>, coefficient of determination <span class="sym">r</span>², and an optional <span class="sym">t</span>-test</p>
+
+  <div class="tabs" role="tablist">
+    <button id="tabData" class="on" role="tab">Data</button>
+    <button id="tabRes" role="tab">Results</button>
+  </div>
+
+  <div class="screens" id="screens">
+    <!-- ========== SCREEN 1: DATA ========== -->
+    <div class="screen" id="screenData">
+      <div class="panel" id="dataPanel">
+        <h2>Data</h2>
+        <div class="xy">
+          <div>
+            <div class="var">Explanatory, <span class="sym">x</span></div>
+            <input type="text" id="xn" placeholder="Name (optional)" autocomplete="off" aria-label="Name of the x variable">
+            <textarea id="xv" class="kp" spellcheck="false" autocomplete="off" aria-label="x values"></textarea>
+            <div class="count" id="xc">0 values</div>
+          </div>
+          <div>
+            <div class="var">Response, <span class="sym">y</span></div>
+            <input type="text" id="yn" placeholder="Name (optional)" autocomplete="off" aria-label="Name of the y variable">
+            <textarea id="yv" class="kp" spellcheck="false" autocomplete="off" aria-label="y values"></textarea>
+            <div class="count" id="yc">0 values</div>
+          </div>
+        </div>
+        <p class="hint">To enter data, use the keypad, paste data into the box, or type values separated by commas, spaces, or new lines. List the <span class="sym">y</span> values in the same order as their <span class="sym">x</span> values. You can also paste two columns from a spreadsheet into either box.</p>
+
+        <div class="keypad" id="keypad">
+          <button class="key" data-k="7">7</button><button class="key" data-k="8">8</button><button class="key" data-k="9">9</button><button class="key" data-k="back" aria-label="Backspace">⌫</button>
+          <button class="key" data-k="4">4</button><button class="key" data-k="5">5</button><button class="key" data-k="6">6</button><button class="key" data-k="-" aria-label="Minus">−</button>
+          <button class="key" data-k="1">1</button><button class="key" data-k="2">2</button><button class="key" data-k="3">3</button><button class="key next" data-k="next">Next<br>value</button>
+          <button class="key zero" data-k="0">0</button><button class="key" data-k=".">.</button>
+        </div>
+        <label class="check"><input type="checkbox" id="useKb"> Use my device’s keyboard</label>
+
+        <hr>
+        <div class="predict">
+          <label for="xp">Predict <span class="sym">ŷ</span> at <span class="sym">x</span> =</label>
+          <input type="text" id="xp" class="kp" autocomplete="off" placeholder="optional">
+        </div>
+
+        <hr>
+        <details class="testbox" id="testBox">
+          <summary>Hypothesis test <span class="opt">(optional)</span><span class="state hidden" id="testState">On</span></summary>
+          <div class="testbody">
+            <span class="lbl">Test about the population</span>
+            <div class="seg" id="paramSeg">
+              <button data-v="rho" class="on">Correlation <span class="sym">ρ</span></button>
+              <button data-v="slope">Slope <span class="sym">β</span>₁</button>
+            </div>
+            <div class="seg" id="tailSeg">
+              <button data-v="two" class="on">Two-tailed<br><span class="op">≠</span></button>
+              <button data-v="left">Left-tailed<br><span class="op">&lt;</span></button>
+              <button data-v="right">Right-tailed<br><span class="op">&gt;</span></button>
+            </div>
+            <div class="fields2">
+              <div><label for="h0" id="h0lbl">Null value, <span class="sym">ρ</span>₀</label><input type="text" id="h0" class="kp" autocomplete="off" placeholder="e.g., 0"></div>
+              <div><label for="alpha">Significance level, <span class="sym">α</span> (%)</label><input type="text" id="alpha" class="kp" value="5" autocomplete="off"></div>
+            </div>
+            <p class="hint" id="h0hint">Enter 0 to test whether there is a linear relationship. Enter <span class="sym">α</span> as a percent (5) or a decimal (0.05).</p>
+            <div class="hyp" id="hyp"></div>
+            <div class="msg" id="testMsg"></div>
+            <div class="err" id="testErr"></div>
+          </div>
+        </details>
+
+        <div class="toolbar">
+          <button class="btn" id="exampleBtn">Load example</button>
+          <button class="btn ghost" id="clearBtn">Clear</button>
+          <div class="dec"><label for="dp">Decimals</label>
+            <select id="dp"><option>2</option><option selected>4</option><option>6</option></select></div>
+        </div>
+        <div class="msg warn" id="ignored"></div>
+        <div class="msg" id="pasted"></div>
+        <div class="err" id="err"></div>
+
+        <button class="btn see-results" id="seeRes">See results</button>
+      </div>
+    </div>
+
+    <!-- ========== SCREEN 2: RESULTS ========== -->
+    <div class="screen" id="screenRes">
+      <div class="panel" id="resultsPanel">
+        <h2>Results</h2>
+        <div class="placeholder" id="empty">Enter at least 3 (<span class="sym">x</span>, <span class="sym">y</span>) pairs to fit a line, or tap Load example.</div>
+        <div id="res" class="hidden">
+          <h3 id="regHead" class="hidden">Regression</h3>
+          <div class="eq-card">
+            <div class="eqn" id="eqn"></div>
+            <div class="eqwords" id="eqWords"></div>
+          </div>
+          <div class="interp" id="interp"></div>
+          <div class="measures" id="measures"></div>
+          <div id="predRes" class="hidden"></div>
+          <div id="testRes" class="hidden">
+            <h3 class="section-gap">Hypothesis test</h3>
+            <div class="dec-card" id="decCard">
+              <div class="dec-main" id="decMain"></div>
+              <div class="formula" id="formula"></div>
+            </div>
+            <div class="interp" id="tInterp"></div>
+            <div class="measures" id="tMeasures"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel hidden" id="graphPanel">
+        <h2>Scatterplot with line of best fit</h2>
+        <div class="graphbar">
+          <label class="check"><input type="checkbox" id="showRes"> Show residuals</label>
+          <div class="zoombtns" role="group" aria-label="Zoom">
+            <button class="btn ghost zb" id="zoomOut" aria-label="Zoom out">−</button>
+            <button class="btn ghost zb" id="zoomIn" aria-label="Zoom in">+</button>
+            <button class="btn ghost" id="zoomReset" disabled>Reset zoom</button>
+            <button class="btn ghost" id="pinReset" disabled>Reset points</button>
+          </div>
+        </div>
+        <p class="hint" id="zoomHint"></p>
+        <div id="plotBox"></div>
+        <div class="legend" id="legend"></div>
+        <div class="readout idle" id="readout">Click or tap a point or the line to pin its coordinates.</div>
+      </div>
+
+      <div class="panel hidden" id="tPanel">
+        <h2 id="tTitle"><span class="sym">t</span>-distribution</h2>
+        <div id="tBox"></div>
+        <div class="legend">
+          <span><i class="sw rej"></i>Rejection region (area = <span class="sym">α</span>)</span>
+          <span><i class="sw pv"></i>p-value area</span>
+          <span><i class="sw ts"></i>Test statistic</span>
+        </div>
+        <div class="caption" id="tCaption"></div>
+      </div>
+
+      <div class="panel hidden" id="tablePanel">
+        <h2 id="tableTitle">Data and residuals</h2>
+        <div class="tablewrap"><table id="dataTable"></table></div>
+      </div>
+
+      <div class="panel" id="howPanel">
+        <details class="how-d">
+          <summary>How these are calculated</summary>
+          <div class="how" id="how"></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  // ================= Statistical functions =================
+  function gammaln(x){
+    var c=[76.18009172947146,-86.50532032941677,24.01409824083091,-1.231739572450155,0.1208650973866179e-2,-0.5395239384953e-5];
+    var y=x,tmp=x+5.5; tmp-=(x+0.5)*Math.log(tmp); var ser=1.000000000190015;
+    for(var j=0;j<6;j++) ser+=c[j]/++y;
+    return -tmp+Math.log(2.5066282746310005*ser/x);
+  }
+  function betacf(a,b,x){
+    var MAXIT=300,EPS=3e-16,FPMIN=1e-300,qab=a+b,qap=a+1,qam=a-1,c=1,d=1-qab*x/qap;
+    if(Math.abs(d)<FPMIN)d=FPMIN; d=1/d; var h=d;
+    for(var m=1;m<=MAXIT;m++){
+      var m2=2*m,aa=m*(b-m)*x/((qam+m2)*(a+m2));
+      d=1+aa*d; if(Math.abs(d)<FPMIN)d=FPMIN; c=1+aa/c; if(Math.abs(c)<FPMIN)c=FPMIN; d=1/d; h*=d*c;
+      aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2));
+      d=1+aa*d; if(Math.abs(d)<FPMIN)d=FPMIN; c=1+aa/c; if(Math.abs(c)<FPMIN)c=FPMIN; d=1/d;
+      var del=d*c; h*=del; if(Math.abs(del-1)<EPS)break;
+    }
+    return h;
+  }
+  function ibeta(x,a,b){
+    if(x<=0)return 0; if(x>=1)return 1;
+    var bt=Math.exp(gammaln(a+b)-gammaln(a)-gammaln(b)+a*Math.log(x)+b*Math.log(1-x));
+    return (x<(a+1)/(a+b+2)) ? bt*betacf(a,b,x)/a : 1-bt*betacf(b,a,1-x)/b;
+  }
+  function tupper(t,df){ return 0.5*ibeta(df/(df+t*t),df/2,0.5); } // P(T > t), t >= 0
+  function tcdf(t,df){ var p=tupper(Math.abs(t),df); return t>=0?1-p:p; }
+  function tinv(p,df){
+    var lo=0,hi=1; while(tcdf(hi,df)<p) hi*=2;
+    for(var i=0;i<200;i++){ var mid=(lo+hi)/2; if(tcdf(mid,df)<p) lo=mid; else hi=mid; if(hi-lo<1e-12)break; }
+    return (lo+hi)/2;
+  }
+  function tpdf(x,df){ return Math.exp(gammaln((df+1)/2)-gammaln(df/2)-0.5*Math.log(df*Math.PI)-(df+1)/2*Math.log(1+x*x/df)); }
+
+  // ================= State & helpers =================
+  var $=function(id){return document.getElementById(id);};
+  var tail='two', param='rho', testOpen=false, last=null, lastT=null, sel=null;
+  var EX={xn:'Hours studied', yn:'Exam score',
+    x:'1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 9',
+    y:'58, 61, 66, 64, 70, 73, 72, 79, 77, 83, 85, 90'};
+  var OP={two:'≠',left:'<',right:'>'};
+
+  function fmt(x,dp){ if(!isFinite(x)) return '—'; var v=Math.abs(x)<0.5*Math.pow(10,-dp)?0:x; return v.toFixed(dp); }
+  function fmtP(p,dp){ var lim=Math.pow(10,-dp); return p<lim ? '< '+lim.toFixed(dp) : p.toFixed(dp); }
+  function pEq(pTxt){ return pTxt.charAt(0)==='<' ? pTxt : '= '+pTxt; }
+  function trimNum(x){ return String(+(+x).toFixed(10)); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function readNum(id){ var t=$(id).value.trim().replace(/−/g,'-'); return t===''?null:(isFinite(Number(t))?Number(t):NaN); }
+  function readAlphaPct(){ var a=readNum('alpha'); if(a==null||!isFinite(a)) return a; return a<1 ? a*100 : a; }
+  function nameX(){ return $('xn').value.trim(); }
+  function nameY(){ return $('yn').value.trim(); }
+  function labX(){ return nameX()||'x'; }
+  function labY(){ return nameY()||'y'; }
+  function parseData(txt){
+    var parts=txt.replace(/−/g,'-').split(/[\s,;]+/).filter(function(x){return x.length;});
+    var vals=[],bad=[];
+    parts.forEach(function(p){ var v=Number(p); if(isFinite(v)) vals.push(v); else bad.push(p); });
+    return {vals:vals,bad:bad};
+  }
+
+  // ================= Segmented toggles =================
+  function setupSeg(id,cb){
+    var btns=$(id).querySelectorAll('button');
+    btns.forEach(function(b){ b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); cb(b.getAttribute('data-v')); update();
+    });});
+  }
+  function setSeg(id,v){ $(id).querySelectorAll('button').forEach(function(b){ b.classList.toggle('on',b.getAttribute('data-v')===v); }); }
+  setupSeg('tailSeg',function(v){ tail=v; });
+  setupSeg('paramSeg',function(v){
+    param=v;
+    $('h0lbl').innerHTML = v==='slope' ? 'Null value, <span class="sym">β</span>₁₀' : 'Null value, <span class="sym">ρ</span>₀';
+  });
+  $('testBox').addEventListener('toggle',function(){ testOpen=$('testBox').open; update(); });
+
+  // ================= Keypad =================
+  var target=$('xv');
+  var isTouch=window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  $('useKb').checked=!isTouch;
+  function applyKb(){
+    var kb=$('useKb').checked;
+    $('keypad').classList.toggle('hidden',kb);
+    document.querySelectorAll('.kp').forEach(function(el){
+      if(kb) el.setAttribute('inputmode', el.tagName==='TEXTAREA'?'text':'decimal');
+      else el.setAttribute('inputmode','none');
+    });
+    syncHeight();
+  }
+  $('useKb').addEventListener('change',applyKb);
+  document.querySelectorAll('.kp').forEach(function(el){ el.addEventListener('focus',function(){ target=el; }); });
+
+  function fieldOrder(){
+    var f=['xp']; if(testOpen) f.push('h0','alpha');
+    return f.map($);
+  }
+  function setVal(el,v,pos){ el.value=v; try{el.setSelectionRange(pos,pos);}catch(e){} el.dispatchEvent(new Event('input',{bubbles:true})); }
+  function press(k){
+    var el=target||$('xv'), isTA=el.tagName==='TEXTAREA';
+    if(document.activeElement!==el){ el.focus({preventScroll:true}); try{el.setSelectionRange(el.value.length,el.value.length);}catch(e){} }
+    var v=el.value, s=el.selectionStart==null?v.length:el.selectionStart, e=el.selectionEnd==null?v.length:el.selectionEnd;
+    if(k==='back'){
+      if(s!==e) setVal(el,v.slice(0,s)+v.slice(e),s);
+      else if(s>0){
+        var cut=(isTA && v.slice(s-2,s)===', ') ? 2 : 1;
+        setVal(el,v.slice(0,s-cut)+v.slice(s),s-cut);
+      }
+    } else if(k==='next'){
+      if(isTA){
+        var before=v.slice(0,s).replace(/[\s,]+$/,'');
+        if(before==='') return;
+        setVal(el,before+', '+v.slice(e).replace(/^[\s,]+/,''),before.length+2);
+      } else {
+        var f=fieldOrder(), i=f.indexOf(el), nx=f[(i+1)%f.length];
+        nx.focus({preventScroll:true}); target=nx; try{nx.setSelectionRange(nx.value.length,nx.value.length);}catch(err){}
+      }
+    } else {
+      setVal(el,v.slice(0,s)+k+v.slice(e),s+1);
+    }
+  }
+  document.querySelectorAll('.key').forEach(function(b){
+    b.addEventListener('pointerdown',function(ev){ ev.preventDefault(); b.classList.add('tap'); });
+    ['pointerup','pointerleave','pointercancel'].forEach(function(t){ b.addEventListener(t,function(){ b.classList.remove('tap'); }); });
+    b.addEventListener('mousedown',function(ev){ ev.preventDefault(); });
+    b.addEventListener('click',function(){ press(b.getAttribute('data-k')); });
+  });
+
+  // ================= Two-column paste =================
+  function splitLine(line){
+    return (line.indexOf('\t')>=0 ? line.split('\t') : line.split(/[\s,;]+/)).map(function(s){return s.trim().replace(/−/g,'-');}).filter(function(s){return s.length;});
+  }
+  function onPaste(ev){
+    var txt=(ev.clipboardData||window.clipboardData).getData('text');
+    if(!txt) return;
+    var lines=txt.replace(/\r/g,'').split('\n').filter(function(l){return l.trim().length;});
+    if(lines.length<2) return;
+    var rows=lines.map(splitLine), header=null;
+    if(rows[0].length===2 && !isFinite(Number(rows[0][0])) && !isFinite(Number(rows[0][1]))){ header=rows[0]; rows=rows.slice(1); }
+    if(rows.length<2) return;
+    var ok=rows.every(function(r){ return r.length===2 && isFinite(Number(r[0])) && isFinite(Number(r[1])); });
+    if(!ok) return;
+    ev.preventDefault();
+    $('xv').value=rows.map(function(r){return r[0];}).join(', ');
+    $('yv').value=rows.map(function(r){return r[1];}).join(', ');
+    if(header){ if(!nameX()) $('xn').value=header[0]; if(!nameY()) $('yn').value=header[1]; }
+    $('pasted').textContent='Pasted '+rows.length+' rows: the first column went to x and the second to y.';
+    sel=null; update();
+  }
+  $('xv').addEventListener('paste',onPaste);
+  $('yv').addEventListener('paste',onPaste);
+
+  // ================= Buttons & inputs =================
+  $('exampleBtn').addEventListener('click',function(){
+    $('xn').value=EX.xn; $('yn').value=EX.yn; $('xv').value=EX.x; $('yv').value=EX.y;
+    if(testOpen && $('h0').value.trim()===''){ $('h0').value='0'; }
+    $('pasted').textContent=''; sel=null; update();
+  });
+  $('clearBtn').addEventListener('click',function(){
+    ['xn','yn','xv','yv','xp','h0'].forEach(function(id){ $(id).value=''; });
+    $('pasted').textContent=''; sel=null; update();
+  });
+  ['xv','yv'].forEach(function(id){ $(id).addEventListener('input',function(){ $('pasted').textContent=''; sel=null; update(); }); });
+  ['xn','yn','xp','h0','alpha'].forEach(function(id){ $(id).addEventListener('input',update); });
+  $('dp').addEventListener('change',update);
+  $('showRes').addEventListener('change',function(){ drawScatter(); });
+
+  // ================= Regression =================
+  function fit(X,Y){
+    var n=X.length,sx=0,sy=0,i;
+    for(i=0;i<n;i++){ sx+=X[i]; sy+=Y[i]; }
+    var xbar=sx/n, ybar=sy/n, Sxx=0, Syy=0, Sxy=0;
+    for(i=0;i<n;i++){ var dx=X[i]-xbar, dy=Y[i]-ybar; Sxx+=dx*dx; Syy+=dy*dy; Sxy+=dx*dy; }
+    var R={n:n,X:X,Y:Y,sx:sx,sy:sy,xbar:xbar,ybar:ybar,Sxx:Sxx,Syy:Syy,Sxy:Sxy,
+      xmin:Math.min.apply(null,X), xmax:Math.max.apply(null,X)};
+    if(!(Sxx>0)) return R;
+    var b1=Sxy/Sxx, b0=ybar-b1*xbar, SSE=0, yh=[], e=[];
+    for(i=0;i<n;i++){ var h=b0+b1*X[i]; yh.push(h); e.push(Y[i]-h); SSE+=(Y[i]-h)*(Y[i]-h); }
+    if(Syy===0 || SSE<1e-13*Syy) SSE=0;
+    var r=Syy>0 ? Math.max(-1,Math.min(1,Sxy/Math.sqrt(Sxx*Syy))) : NaN;
+    R.b1=b1; R.b0=b0; R.yh=yh; R.e=e; R.SSE=SSE; R.r=r; R.r2=r*r;
+    R.se=Math.sqrt(SSE/(n-2)); R.sdx=Math.sqrt(Sxx/(n-1)); R.sdy=Math.sqrt(Syy/(n-1));
+    return R;
+  }
+  function strength(r){
+    var a=Math.abs(r);
+    if(a===1) return 'perfect';
+    if(a>=0.8) return 'strong';
+    if(a>=0.5) return 'moderate';
+    if(a>=0.3) return 'weak';
+    return 'very weak';
+  }
+  function countTxt(n){ return n+(n===1?' value':' values'); }
+
+  // ================= Main update =================
+  function update(){
+    var dp=parseInt($('dp').value,10);
+    var px=parseData($('xv').value), py=parseData($('yv').value);
+    var key=$('xv').value+'|'+$('yv').value; if(key!==dataKey){ dataKey=key; view=null; } // new data: reset zoom
+    var bad=px.bad.concat(py.bad), err='';
+    $('ignored').innerHTML = bad.length ? 'Ignored (not numbers): '+bad.slice(0,8).map(esc).join(', ')+(bad.length>8?' … (+'+(bad.length-8)+' more)':'') : '';
+    var nx=px.vals.length, ny=py.vals.length;
+    $('xc').textContent=countTxt(nx); $('yc').textContent=countTxt(ny);
+    var mismatch = nx!==ny && nx>0 && ny>0;
+    $('xc').classList.toggle('bad',mismatch); $('yc').classList.toggle('bad',mismatch);
+    if(nx||ny){
+      if(nx!==ny) err='x has '+countTxt(nx)+' and y has '+countTxt(ny)+'. Each x value needs a matching y value.';
+      else if(nx<3) err='Enter at least 3 (x, y) pairs.';
+    }
+    var R=null, ready=!err && nx>=3;
+    if(ready){
+      R=fit(px.vals,py.vals);
+      if(!(R.Sxx>0)){ err='All the x values are the same, so no line can be fitted. Use at least two different x values.'; ready=false; }
+    }
+
+    // prediction
+    var xp=readNum('xp'), predErr='';
+    if(xp!=null && !isFinite(xp)){ predErr='The x value to predict at must be a number.'; xp=null; }
+
+    // hypothesis test
+    var h0=readNum('h0'), aPct=readAlphaPct(), testErr='', testMsg='';
+    renderHyp(h0);
+    var testActive = testOpen && h0!=null;
+    if(testOpen && h0==null) testMsg='Enter a null value to add the test to your results.';
+    if(testActive){
+      if(!isFinite(h0)) testErr='The null value must be a number.';
+      else if(param==='rho' && h0!==0) testErr='The correlation test here checks ρ₀ = 0. To test a different value, test the slope instead.';
+      else if(aPct==null || !isFinite(aPct) || !(aPct>0 && aPct<50)) testErr='Significance level must be between 0 and 50% (e.g., 5 or 0.05).';
+      else if(ready && !(R.se>0)) testErr='The points fall exactly on a line, so the standard error is 0 and the t-test can’t be run.';
+      else if(ready && param==='rho' && !(R.Syy>0)) testErr='All the y values are the same, so the correlation is undefined and can’t be tested.';
+    }
+    var runTest = ready && testActive && !testErr;
+    $('testState').classList.toggle('hidden',!(testActive && !testErr));
+    $('testMsg').textContent=testMsg; $('testErr').textContent=testErr;
+    $('err').textContent=[err,predErr].filter(Boolean).join(' ');
+
+    $('empty').classList.toggle('hidden',ready);
+    $('res').classList.toggle('hidden',!ready);
+    $('graphPanel').classList.toggle('hidden',!ready);
+    $('tablePanel').classList.toggle('hidden',!ready);
+    $('testRes').classList.toggle('hidden',!runTest);
+    $('regHead').classList.toggle('hidden',!runTest);
+    $('tPanel').classList.toggle('hidden',!runTest);
+    if(!ready){ last=null; lastT=null; sel=null; renderHow(null,null,dp); syncHeight(); return; }
+    if(sel && sel.pt!=null && sel.pt>=R.n) sel.pt=null;
+
+    var xL=labX(), yL=labY(), xH=esc(xL), yH=esc(yL), named=!!(nameX()||nameY());
+
+    // ----- equation -----
+    $('eqn').innerHTML='<i>ŷ</i> = '+fmt(R.b0,dp)+(R.b1<0?' − ':' + ')+fmt(Math.abs(R.b1),dp)+'<i>x</i>';
+    $('eqWords').innerHTML = named
+      ? 'Predicted '+yH+' = '+fmt(R.b0,dp)+(R.b1<0?' − ':' + ')+fmt(Math.abs(R.b1),dp)+' × ('+xH+')'
+      : 'Line of best fit (least-squares regression line)';
+
+    // ----- interpretation -----
+    var I=[];
+    if(isFinite(R.r)){
+      var dir = R.r>0?'positive':(R.r<0?'negative':'');
+      I.push('<p><span class="sym">r</span> = '+fmt(R.r,dp)+' indicates a <strong>'+strength(R.r)+(dir?' '+dir:'')+'</strong> linear relationship between '+xH+' and '+yH+'.</p>');
+      I.push('<p>About '+(R.r2*100).toFixed(Math.max(1,dp-2))+'% of the variation in '+yH+' is explained by its linear relationship with '+xH+' (<span class="sym">r</span>² = '+fmt(R.r2,dp)+').</p>');
+    } else {
+      I.push('<p>All the <span class="sym">y</span> values are the same, so the line is flat and <span class="sym">r</span> and <span class="sym">r</span>² are undefined.</p>');
+    }
+    if(R.b1!==0) I.push('<p>For each 1-unit increase in '+xH+', the predicted '+yH+' '+(R.b1>0?'increases':'decreases')+' by '+fmt(Math.abs(R.b1),dp)+'.</p>');
+    else I.push('<p>The slope is 0: the predicted '+yH+' does not change as '+xH+' changes.</p>');
+    var yp=null, ph='';
+    if(xp!=null){
+      yp=R.b0+R.b1*xp;
+      var extrap = xp<R.xmin || xp>R.xmax, rng='('+trimNum(R.xmin)+' to '+trimNum(R.xmax)+')';
+      ph='<div class="m key2 pred"><div class="top"><span class="sym">ŷ</span><span class="name">Predicted '+yH+' at <i>x</i> = '+esc(trimNum(xp))+'</span>'+
+        '<span class="tag '+(extrap?'ex':'in')+'">'+(extrap?'Extrapolation':'Interpolation')+'</span></div><div class="val">'+fmt(yp,dp)+'</div></div>'+
+        '<div class="interp">'+(extrap
+          ? '<p class="warn">This is an <strong>extrapolation</strong>: <span class="sym">x</span> = '+trimNum(xp)+' is outside the range of the x data '+rng+', so the prediction may be unreliable.</p>'
+          : '<p>This is an <strong>interpolation</strong>: <span class="sym">x</span> = '+trimNum(xp)+' is within the range of the x data '+rng+'.</p>')+'</div>';
+    }
+    $('predRes').innerHTML=ph; $('predRes').classList.toggle('hidden',!ph);
+    $('interp').innerHTML=I.join('');
+
+    // ----- measures -----
+    var M=[
+      ['r','Correlation coefficient',fmt(R.r,dp),1],
+      ['r²','Coefficient of determination',fmt(R.r2,dp),1],
+      ['b<sub>1</sub>','Slope',fmt(R.b1,dp),1],
+      ['b<sub>0</sub>','y-intercept',fmt(R.b0,dp),1]
+    ];
+    M.push(['n','Number of (x, y) pairs',String(R.n),0]);
+    M.push(['s<sub>e</sub>','Standard error of estimate',fmt(R.se,dp),0]);
+    M.push(['x̄','Mean of x',fmt(R.xbar,dp),0]);
+    M.push(['ȳ','Mean of y',fmt(R.ybar,dp),0]);
+    M.push(['s<sub>x</sub>','Standard deviation of x',fmt(R.sdx,dp),0]);
+    M.push(['s<sub>y</sub>','Standard deviation of y',fmt(R.sdy,dp),0]);
+    $('measures').innerHTML=measHTML(M);
+
+    // ----- hypothesis test -----
+    var T=null;
+    if(runTest){
+      var alpha=aPct/100, df=R.n-2, SEb=R.se/Math.sqrt(R.Sxx);
+      var ts = param==='slope' ? (R.b1-h0)/SEb : R.r*Math.sqrt(df)/Math.sqrt(1-R.r2);
+      var crit=tinv(tail==='two'?1-alpha/2:1-alpha,df), p;
+      if(tail==='two') p=Math.min(1,2*tupper(Math.abs(ts),df));
+      else if(tail==='left') p=tcdf(ts,df);
+      else p=ts>=0?tupper(ts,df):1-tupper(-ts,df);
+      var reject=p<=alpha, pTxt=fmtP(p,dp);
+      var critTxt = tail==='two' ? '±'+fmt(crit,dp) : (tail==='left' ? fmt(-crit,dp) : fmt(crit,dp));
+      var inRegion = tail==='two' ? Math.abs(ts)>=crit : (tail==='left' ? ts<=-crit : ts>=crit);
+      T={alpha:alpha,aPct:aPct,df:df,SEb:SEb,ts:ts,crit:crit,critTxt:critTxt,p:p,pTxt:pTxt,reject:reject,h0:h0};
+
+      $('decCard').classList.toggle('reject',reject);
+      $('decMain').innerHTML='<span class="sym">t</span> = '+fmt(ts,dp)+',&nbsp; p '+pEq(pTxt);
+      $('formula').innerHTML='<div>p-value '+pEq(pTxt)+(reject?' ≤ ':' &gt; ')+'<span class="sym">α</span> = '+trimNum(alpha)+' → '+(reject?'reject H₀':'fail to reject H₀')+'</div>'+
+        '<div>test statistic '+(inRegion?'is':'is not')+' in the rejection region '+
+        '<span class="nw">('+(tail==='two'?'|t| ≥ '+fmt(crit,dp):'t'+(tail==='left'?' ≤ ':' ≥ ')+critTxt)+')</span></div>';
+      var dirW = tail==='two'?'different from':(tail==='left'?'less than':'greater than');
+      var subj = param==='slope' ? 'the population slope <span class="sym">β</span>₁' : 'the population correlation <span class="sym">ρ</span>';
+      var rel='';
+      if(h0===0) rel=' (that is, there is '+(tail==='two'?'a':(tail==='left'?'a negative':'a positive'))+' linear relationship between '+xH+' and '+yH+')';
+      $('tInterp').innerHTML='<p>At the '+trimNum(aPct)+'% significance level, there '+(reject?'<strong>is</strong>':'is <strong>not</strong>')+
+        ' sufficient evidence to conclude that '+subj+' is '+dirW+' '+trimNum(h0)+rel+'.</p>';
+      var TM=[];
+      if(param==='slope') TM.push(['SE<sub>b₁</sub>','Standard error of the slope',fmt(SEb,dp),0]);
+      else TM.push(['r','Sample correlation',fmt(R.r,dp),0]);
+      TM.push(['df','Degrees of freedom = n − 2',String(df),0]);
+      TM.push(['t*','Critical value',critTxt,0]);
+      TM.push(['t','Test statistic',fmt(ts,dp),1]);
+      TM.push(['p','p-value ('+(tail==='two'?'two':tail)+'-tailed)',pTxt,1]);
+      $('tMeasures').innerHTML=measHTML(TM);
+
+      var critMax=Math.max(crit,tinv(tail==='two'?0.995:0.99,df));
+      var rg=Math.max(4,Math.min(8,Math.max(critMax*1.08,Math.abs(ts)*1.1)));
+      rg=Math.ceil(rg*2)/2;
+      lastT={ts:ts,crit:crit,p:p,df:df,rg:rg,dp:dp,tail:tail,alpha:alpha};
+      $('tTitle').innerHTML='<span class="sym">t</span>-distribution (df = '+df+')';
+      $('tCaption').innerHTML='0 corresponds to '+(param==='slope'?'<span class="sym">β</span>₁ = '+trimNum(h0):'<span class="sym">ρ</span> = 0')+'.';
+    } else lastT=null;
+
+    // ----- data table -----
+    $('tableTitle').innerHTML='Data and residuals (<span class="sym">n</span> = '+R.n+')';
+    var rows='';
+    for(var i=0;i<R.n;i++){
+      rows+='<tr data-i="'+i+'"'+(sel&&sel.pt===i?' class="on"':'')+'><td>'+(i+1)+'</td><td>'+trimNum(R.X[i])+'</td><td>'+trimNum(R.Y[i])+'</td><td>'+fmt(R.yh[i],dp)+'</td><td>'+fmt(R.e[i],dp)+'</td></tr>';
+    }
+    $('dataTable').innerHTML='<thead><tr><th>#</th><th>x</th><th>y</th><th>ŷ</th><th>residual</th></tr></thead><tbody>'+rows+'</tbody>'+
+      '<tfoot><tr><td>Σ</td><td>'+trimNum(R.sx)+'</td><td>'+trimNum(R.sy)+'</td><td></td><td>'+fmt(R.e.reduce(function(a,b){return a+b;},0),dp)+'</td></tr></tfoot>';
+
+    last={R:R,xp:xp,yp:yp,dp:dp,xL:xL,yL:yL};
+    drawScatter(); drawT(); renderReadout();
+    renderHow(R,T,dp);
+    syncHeight();
+  }
+  function measHTML(M){
+    return M.map(function(r){
+      return '<div class="m'+(r[3]?' key2':'')+'"><div class="top"><span class="sym">'+r[0]+'</span><span class="name">'+r[1]+'</span></div><div class="val">'+r[2]+'</div></div>';
+    }).join('');
+  }
+  function renderHyp(h0){
+    var p = param==='slope' ? '<i>β</i>₁' : '<i>ρ</i>';
+    var m = param==='rho' ? '0' : ((h0==null||!isFinite(h0)) ? '<i>β</i>₁₀' : trimNum(h0));
+    $('hyp').innerHTML='<span>H₀: '+p+' = '+m+'</span><span>Hₐ: '+p+' '+OP[tail]+' '+m+'</span>';
+  }
+
+  // ================= Point / line selection =================
+  // sel holds the pinned coordinates: {pt: point index or null, ln: x on the line or null}.
+  // A pinned point stays until another point is clicked; a pinned line spot stays until another spot on the line is clicked.
+  // hov is a temporary mouse-hover preview that disappears when the pointer moves off.
+  var SC=null, hov=null; // SC: scatterplot scale, set by drawScatter
+  function same(a,b){ return !!a && !!b && a.type===b.type && (a.type==='pt' ? a.i===b.i : a.x===b.x); }
+  function refreshSel(){
+    renderHL(); renderReadout();
+    document.querySelectorAll('#dataTable tbody tr').forEach(function(tr){ tr.classList.toggle('on', !!sel && sel.pt===+tr.getAttribute('data-i')); });
+  }
+  function pin(h){
+    if(!h) return;
+    sel=sel||{pt:null,ln:null};
+    if(h.type==='pt') sel.pt=h.i; else sel.ln=h.x;
+    hov=null; refreshSel();
+  }
+  function lineX(ev){
+    var svg=$('plotBox').querySelector('svg'); if(!svg||!SC) return null;
+    var px=ev.clientX-svg.getBoundingClientRect().left;
+    var x=SC.xr[0]+(px-SC.Lm)/SC.plotW*(SC.xr[1]-SC.xr[0]);
+    x=Math.max(SC.xr[0],Math.min(SC.xr[1],x));
+    var f=Math.pow(10,SC.xd); return Math.round(x*f)/f;
+  }
+  function hitAt(ev){
+    var t=ev.target.closest && ev.target.closest('[data-i],[data-line]'); if(!t) return null;
+    if(t.hasAttribute('data-i')) return {type:'pt',i:+t.getAttribute('data-i')};
+    var x=lineX(ev); return x==null ? null : {type:'line',x:x};
+  }
+  $('plotBox').addEventListener('pointermove',function(ev){
+    if(ev.pointerType!=='mouse' || panning) return;
+    var h=hitAt(ev); if(!same(h,hov) && (h||hov)){ hov=h; renderHL(); }
+  });
+  $('plotBox').addEventListener('pointerleave',function(){ if(hov){ hov=null; renderHL(); } });
+  function clearPins(){ if(!sel && !hov) return; sel=null; hov=null; refreshSel(); }
+  // clicking a point or the line pins it; clicking the background clears all pins
+  $('plotBox').addEventListener('click',function(ev){
+    if(Date.now()<noClickUntil) return;
+    var h=hitAt(ev); if(h) pin(h); else clearPins();
+  });
+  $('pinReset').addEventListener('click',clearPins);
+  $('dataTable').addEventListener('click',function(ev){
+    var t=ev.target.closest('tr[data-i]'); if(t) pin({type:'pt',i:+t.getAttribute('data-i')});
+  });
+  // ================= Zoom (pinch, Ctrl/⌘ + scroll, buttons) and pan =================
+  var view=null, dataKey='', noClickUntil=0, panning=false, rafId=0;
+  $('zoomHint').textContent = isTouch
+    ? 'Pinch to zoom; move two fingers to look around.'
+    : 'Zoom with the + and − buttons, Ctrl/⌘ + scroll, or a trackpad pinch. Drag to move around when zoomed in.';
+  function scheduleDraw(){ if(rafId) return; rafId=requestAnimationFrame(function(){ rafId=0; drawScatter(); }); }
+  function setView(v){
+    if(v && SC){
+      var bw=SC.base.x[1]-SC.base.x[0], bh=SC.base.y[1]-SC.base.y[0];
+      if(v.x[1]-v.x[0]>=bw*0.999 && v.y[1]-v.y[0]>=bh*0.999) v=null; // fully zoomed out: back to the whole data set
+      else if(v.x[1]-v.x[0]<bw/500) return;                       // zoom-in limit
+    }
+    view=v; scheduleDraw();
+  }
+  function curView(){ return view ? {x:view.x.slice(),y:view.y.slice()} : {x:SC.xr.slice(),y:SC.yr.slice()}; }
+  function svgPt(cx,cy){ var r=$('plotBox').getBoundingClientRect(); return {x:cx-r.left,y:cy-r.top}; }
+  function toData(V,p){ return {x:V.x[0]+(p.x-SC.Lm)/SC.plotW*(V.x[1]-V.x[0]), y:V.y[1]-(p.y-SC.Tm)/SC.plotH*(V.y[1]-V.y[0])}; }
+  // the view in which data point m sits at screen point p, with V's ranges divided by f
+  function viewAt(V,m,p,f){
+    var w=(V.x[1]-V.x[0])/f, h=(V.y[1]-V.y[0])/f;
+    var x0=m.x-(p.x-SC.Lm)/SC.plotW*w, y1=m.y+(p.y-SC.Tm)/SC.plotH*h;
+    return {x:[x0,x0+w],y:[y1-h,y1]};
+  }
+  function zoomBy(f,p){
+    if(!SC) return;
+    var V=curView(); p=p||{x:SC.Lm+SC.plotW/2,y:SC.Tm+SC.plotH/2};
+    setView(viewAt(V,toData(V,p),p,f));
+  }
+  $('zoomIn').addEventListener('click',function(){ zoomBy(1.5); });
+  $('zoomOut').addEventListener('click',function(){ zoomBy(1/1.5); });
+  $('zoomReset').addEventListener('click',function(){ setView(null); });
+  var pb=$('plotBox');
+  // Ctrl/⌘ + scroll wheel, and trackpad pinch (browsers report it as a Ctrl + wheel event)
+  pb.addEventListener('wheel',function(ev){
+    if(!(ev.ctrlKey||ev.metaKey) || !SC) return;
+    ev.preventDefault();
+    var d=Math.max(-50,Math.min(50,ev.deltaY*(ev.deltaMode===1?20:1)));
+    zoomBy(Math.exp(-d*0.01),svgPt(ev.clientX,ev.clientY));
+  },{passive:false});
+  // two-finger pinch on touch screens (zoom + move together)
+  var pinch=null;
+  function touchPts(tl){ return [svgPt(tl[0].clientX,tl[0].clientY),svgPt(tl[1].clientX,tl[1].clientY)]; }
+  function gap(a){ return Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y); }
+  function midOf(a){ return {x:(a[0].x+a[1].x)/2,y:(a[0].y+a[1].y)/2}; }
+  pb.addEventListener('touchstart',function(ev){
+    if(ev.touches.length===2 && SC){
+      ev.preventDefault();
+      var a=touchPts(ev.touches), V=curView();
+      pinch={V:V,d:Math.max(10,gap(a)),m:toData(V,midOf(a))};
+      noClickUntil=Date.now()+600;
+    }
+  },{passive:false});
+  pb.addEventListener('touchmove',function(ev){
+    if(!pinch || ev.touches.length<2) return;
+    ev.preventDefault();
+    var a=touchPts(ev.touches);
+    setView(viewAt(pinch.V,pinch.m,midOf(a),gap(a)/pinch.d));
+    noClickUntil=Date.now()+600;
+  },{passive:false});
+  ['touchend','touchcancel'].forEach(function(t){ pb.addEventListener(t,function(ev){ if(ev.touches.length<2) pinch=null; }); });
+  pb.addEventListener('gesturestart',function(ev){ ev.preventDefault(); });
+  // mouse drag to move around when zoomed in
+  var drag=null;
+  pb.addEventListener('pointerdown',function(ev){
+    if(ev.pointerType==='mouse' && ev.button===0 && view && SC) drag={id:ev.pointerId,x:ev.clientX,y:ev.clientY,V:curView(),moved:false};
+  });
+  pb.addEventListener('pointermove',function(ev){
+    if(!drag || ev.pointerId!==drag.id) return;
+    var dx=ev.clientX-drag.x, dy=ev.clientY-drag.y;
+    if(!drag.moved){
+      if(Math.hypot(dx,dy)<4) return;
+      drag.moved=true; panning=true; pb.classList.add('panning');
+      if(hov){ hov=null; renderHL(); }
+      try{ pb.setPointerCapture(ev.pointerId); }catch(e){}
+    }
+    var V=drag.V, w=V.x[1]-V.x[0], h=V.y[1]-V.y[0];
+    setView({x:[V.x[0]-dx/SC.plotW*w,V.x[1]-dx/SC.plotW*w], y:[V.y[0]+dy/SC.plotH*h,V.y[1]+dy/SC.plotH*h]});
+  });
+  function endDrag(ev){
+    if(!drag || ev.pointerId!==drag.id) return;
+    if(drag.moved) noClickUntil=Date.now()+300;
+    drag=null; panning=false; pb.classList.remove('panning');
+  }
+  pb.addEventListener('pointerup',endDrag);
+  pb.addEventListener('pointercancel',endDrag);
+
+  function renderReadout(){
+    var el=$('readout');
+    $('pinReset').disabled=!(sel && (sel.pt!=null || sel.ln!=null));
+    if(!last || !sel || (sel.pt==null && sel.ln==null)){ el.className='readout idle'; el.textContent='Click or tap a point or the line to pin its coordinates.'; return; }
+    var R=last.R, dp=last.dp, out=[];
+    el.className='readout';
+    if(sel.pt!=null){
+      var i=sel.pt;
+      out.push('<div>Point '+(i+1)+': <span class="sym">x</span> = '+trimNum(R.X[i])+', <span class="sym">y</span> = '+trimNum(R.Y[i])+
+        '; <span class="sym">ŷ</span> = '+fmt(R.yh[i],dp)+'; residual = '+fmt(R.e[i],dp)+'</div>');
+    }
+    if(sel.ln!=null){
+      out.push('<div>On the line: <span class="sym">x</span> = '+trimNum(sel.ln)+', <span class="sym">ŷ</span> = '+fmt(R.b0+R.b1*sel.ln,dp)+
+        ((sel.ln<R.xmin||sel.ln>R.xmax)?' (beyond the data)':'')+'</div>');
+    }
+    el.innerHTML=out.join('');
+  }
+  // coordinate labels drawn on the graph: the pinned point, the pinned line spot, and any hover preview
+  function renderHL(){
+    var g=$('plotBox').querySelector('#hl'); if(!g||!SC||!last) return;
+    var R=last.R, dp=last.dp, orange=cssVar('--orange'), blue=cssVar('--blue'), muted=cssVar('--muted'), panel=cssVar('--panel'), text=cssVar('--text');
+    var items=[];
+    if(sel && sel.pt!=null && sel.pt<R.n) items.push({type:'pt',i:sel.pt,pinned:true});
+    if(sel && sel.ln!=null && sel.ln>=SC.xr[0] && sel.ln<=SC.xr[1]) items.push({type:'line',x:sel.ln,pinned:true});
+    if(hov && !(hov.type==='pt' && hov.i>=R.n) && !items.some(function(it){ return same(it,hov); })) items.push({type:hov.type,i:hov.i,x:hov.x,pinned:false});
+    var marks='', labels='', placed=[];
+    items.forEach(function(it){
+      var x, y, lab;
+      if(it.type==='pt'){
+        x=R.X[it.i]; y=R.Y[it.i]; lab='('+trimNum(x)+', '+trimNum(y)+')';
+        if(it.pinned) marks+='<line x1="'+SC.PX(x)+'" y1="'+SC.PY(y)+'" x2="'+SC.PX(x)+'" y2="'+SC.PY(R.yh[it.i])+'" stroke="'+orange+'" stroke-width="2" stroke-dasharray="3 3"/>';
+        marks+='<circle cx="'+SC.PX(x)+'" cy="'+SC.PY(y)+'" r="'+(SC.rad+5)+'" fill="none" stroke="'+(it.pinned?orange:muted)+'" stroke-width="'+(it.pinned?2.6:1.8)+'"/>';
+      } else {
+        x=it.x; y=R.b0+R.b1*x; lab='('+trimNum(x)+', '+fmt(y,dp)+')';
+        marks+='<circle cx="'+SC.PX(x)+'" cy="'+SC.PY(y)+'" r="6" fill="'+panel+'" stroke="'+(it.pinned?orange:muted)+'" stroke-width="'+(it.pinned?3:2)+'"/>';
+      }
+      var cx=SC.PX(x), cy=SC.PY(y), fs=14, w=lab.length*fs*0.6+16, bh=24;
+      if(cx<SC.Lm-1 || cx>SC.Lm+SC.plotW+1 || cy<SC.Tm-1 || cy>SC.Tm+SC.plotH+1) return; // zoomed out of view
+      var bx=Math.max(SC.Lm+2,Math.min(SC.Lm+SC.plotW-w-2,cx-w/2));
+      // try above, then below, then further out; avoid overlapping labels already placed
+      var tries=[cy-bh-14, cy+14, cy-2*bh-20, cy+bh+20], by=null;
+      for(var k=0;k<tries.length;k++){
+        var t=tries[k];
+        if(t<SC.Tm || t+bh>SC.Tm+SC.plotH) continue;
+        var hit=placed.some(function(p){ return bx<p.x+p.w+4 && bx+w+4>p.x && t<p.y+p.h+4 && t+bh+4>p.y; });
+        if(!hit){ by=t; break; }
+      }
+      if(by==null) by=Math.max(SC.Tm,Math.min(SC.Tm+SC.plotH-bh,cy-bh-14));
+      placed.push({x:bx,y:by,w:w,h:bh});
+      labels+='<rect x="'+bx+'" y="'+by+'" width="'+w+'" height="'+bh+'" rx="5" fill="'+panel+'" stroke="'+(it.pinned?blue:muted)+'" stroke-width="1.5"'+(it.pinned?'':' stroke-dasharray="4 3"')+'/>';
+      labels+='<text x="'+(bx+w/2)+'" y="'+(by+17)+'" font-size="'+fs+'" font-weight="700" text-anchor="middle" fill="'+(it.pinned?text:muted)+'">'+esc(lab)+'</text>';
+    });
+    g.innerHTML=marks+labels;
+  }
+
+  // ================= Graph helpers =================
+  function niceStep(range,maxTicks){
+    var raw=range/maxTicks, mag=Math.pow(10,Math.floor(Math.log10(raw))), opts=[1,2,2.5,5,10];
+    for(var i=0;i<opts.length;i++) if(opts[i]*mag>=raw) return opts[i]*mag;
+    return 10*mag;
+  }
+  function decimalsOf(step){ var d=0; while(d<10 && Math.abs(Math.round(step*Math.pow(10,d))-step*Math.pow(10,d))>1e-7) d++; return d; }
+  function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  function ticksFor(lo,hi,maxT){
+    var step=niceStep(hi-lo,maxT), d=decimalsOf(step), t=[];
+    for(var k=Math.ceil(lo/step-1e-9); k*step<=hi+1e-9*step; k++){ var v=k*step; t.push({v:v,s:(Math.abs(v)<step/1e6?0:v).toFixed(d)}); }
+    return {step:step,t:t};
+  }
+  function padRange(lo,hi){
+    var d=hi-lo; if(d===0){ var a=Math.abs(lo)||1; return [lo-a*0.1,hi+a*0.1]; }
+    return [lo-d*0.07,hi+d*0.07];
+  }
+
+  // ================= Scatterplot =================
+  function drawScatter(){
+    if(!last) return;
+    var box=$('plotBox'), W=Math.max(260,Math.floor(box.clientWidth||600));
+    var H=Math.round(Math.max(270,Math.min(430,W*0.62)));
+    var blue=cssVar('--blue'), orange=cssVar('--orange'), lor=cssVar('--lorange'), muted=cssVar('--muted'), panel=cssVar('--panel'), text=cssVar('--text');
+    var R=last.R, X=R.X, Y=R.Y, fs=13, cw=fs*0.58;
+    var xs=X.slice(), ys=Y.slice();
+    if(last.xp!=null){ xs.push(last.xp); ys.push(last.yp); }
+    var xr=padRange(Math.min.apply(null,xs),Math.max.apply(null,xs));
+    var yr=padRange(Math.min.apply(null,ys),Math.max.apply(null,ys));
+    var base={x:xr.slice(),y:yr.slice()};
+    if(view){ xr=view.x.slice(); yr=view.y.slice(); }
+    $('plotBox').classList.toggle('zoomed',!!view);
+    $('zoomReset').disabled=!view;
+    var Tm=14, Bm=54, Rm=14;
+    var plotH=H-Tm-Bm;
+    var yT=ticksFor(yr[0],yr[1],Math.max(3,Math.min(8,Math.floor(plotH/42))));
+    var yLabW=Math.max.apply(null,yT.t.map(function(t){return t.s.length;}))*cw;
+    var Lm=Math.round(26+yLabW+8), plotW=W-Lm-Rm;
+    var maxTx=Math.max(3,Math.min(10,Math.floor(plotW/70))), xT;
+    while(true){
+      xT=ticksFor(xr[0],xr[1],maxTx);
+      var lw=Math.max.apply(null,xT.t.map(function(t){return t.s.length;}))*cw;
+      if(xT.step/(xr[1]-xr[0])*plotW>=lw+14 || maxTx<=2) break;
+      maxTx--;
+    }
+    var PX=function(v){ return Lm+(v-xr[0])/(xr[1]-xr[0])*plotW; };
+    var PY=function(v){ return Tm+plotH-(v-yr[0])/(yr[1]-yr[0])*plotH; };
+    var g='<defs><clipPath id="pc"><rect x="'+Lm+'" y="'+Tm+'" width="'+plotW+'" height="'+plotH+'"/></clipPath></defs>';
+
+    // grid + tick labels
+    yT.t.forEach(function(t){
+      var y=PY(t.v);
+      g+='<line x1="'+Lm+'" y1="'+y+'" x2="'+(Lm+plotW)+'" y2="'+y+'" stroke="'+muted+'" stroke-opacity=".18"/>';
+      g+='<text x="'+(Lm-7)+'" y="'+(y+4.5)+'" font-size="'+fs+'" text-anchor="end" fill="'+muted+'">'+t.s+'</text>';
+    });
+    xT.t.forEach(function(t){
+      var x=PX(t.v);
+      g+='<line x1="'+x+'" y1="'+Tm+'" x2="'+x+'" y2="'+(Tm+plotH)+'" stroke="'+muted+'" stroke-opacity=".18"/>';
+      g+='<line x1="'+x+'" y1="'+(Tm+plotH)+'" x2="'+x+'" y2="'+(Tm+plotH+5)+'" stroke="'+muted+'" stroke-width="1.2"/>';
+      g+='<text x="'+x+'" y="'+(Tm+plotH+19)+'" font-size="'+fs+'" text-anchor="middle" fill="'+muted+'">'+t.s+'</text>';
+    });
+    // axes
+    g+='<line x1="'+Lm+'" y1="'+Tm+'" x2="'+Lm+'" y2="'+(Tm+plotH)+'" stroke="'+muted+'" stroke-width="1.3"/>';
+    g+='<line x1="'+Lm+'" y1="'+(Tm+plotH)+'" x2="'+(Lm+plotW)+'" y2="'+(Tm+plotH)+'" stroke="'+muted+'" stroke-width="1.3"/>';
+    // axis titles
+    g+='<text x="'+(Lm+plotW/2)+'" y="'+(H-8)+'" font-size="'+(fs+1)+'" font-weight="700" text-anchor="middle" fill="'+text+'">'+esc(last.xL)+'</text>';
+    g+='<text transform="translate(15,'+(Tm+plotH/2)+') rotate(-90)" font-size="'+(fs+1)+'" font-weight="700" text-anchor="middle" fill="'+text+'">'+esc(last.yL)+'</text>';
+
+    var f=function(x){ return R.b0+R.b1*x; };
+    g+='<g clip-path="url(#pc)">';
+    // residuals
+    if($('showRes').checked){
+      for(var i=0;i<R.n;i++) g+='<line x1="'+PX(X[i])+'" y1="'+PY(Y[i])+'" x2="'+PX(X[i])+'" y2="'+PY(R.yh[i])+'" stroke="'+muted+'" stroke-width="1.6" stroke-dasharray="3 3"/>';
+    }
+    // line of best fit: solid over the data, dashed beyond (extrapolation)
+    g+='<line x1="'+PX(xr[0])+'" y1="'+PY(f(xr[0]))+'" x2="'+PX(R.xmin)+'" y2="'+PY(f(R.xmin))+'" stroke="'+orange+'" stroke-width="2.4" stroke-dasharray="6 5"/>';
+    g+='<line x1="'+PX(R.xmax)+'" y1="'+PY(f(R.xmax))+'" x2="'+PX(xr[1])+'" y2="'+PY(f(xr[1]))+'" stroke="'+orange+'" stroke-width="2.4" stroke-dasharray="6 5"/>';
+    g+='<line x1="'+PX(R.xmin)+'" y1="'+PY(f(R.xmin))+'" x2="'+PX(R.xmax)+'" y2="'+PY(f(R.xmax))+'" stroke="'+orange+'" stroke-width="3"/>';
+    // prediction guides
+    if(last.xp!=null){
+      var qx=PX(last.xp), qy=PY(last.yp);
+      g+='<line x1="'+qx+'" y1="'+(Tm+plotH)+'" x2="'+qx+'" y2="'+qy+'" stroke="'+orange+'" stroke-width="1.4" stroke-dasharray="2 3"/>';
+      g+='<line x1="'+Lm+'" y1="'+qy+'" x2="'+qx+'" y2="'+qy+'" stroke="'+orange+'" stroke-width="1.4" stroke-dasharray="2 3"/>';
+    }
+    g+='</g>';
+    // points (clipped so zooming hides anything outside the view)
+    g+='<g clip-path="url(#pc)">';
+    var rad=R.n>150?3.5:(R.n>60?4.5:5.5);
+    for(var j=0;j<R.n;j++){
+      g+='<circle cx="'+PX(X[j])+'" cy="'+PY(Y[j])+'" r="'+rad+'" fill="'+blue+'" fill-opacity=".85" stroke="'+panel+'" stroke-width="1.4"/>';
+    }
+    if(last.xp!=null){
+      var px=PX(last.xp), py=PY(last.yp), s=7;
+      g+='<path d="M'+px+','+(py-s)+' L'+(px+s)+','+py+' L'+px+','+(py+s)+' L'+(px-s)+','+py+' Z" fill="'+lor+'" stroke="'+orange+'" stroke-width="2"/>';
+    }
+    // selection highlight + coordinate label (filled by renderHL)
+    g+='<g id="hl" pointer-events="none"></g>';
+    // hover/tap target along the line (wide, invisible, clipped to the plot)
+    g+='<g clip-path="url(#pc)"><line data-line="1" x1="'+PX(xr[0])+'" y1="'+PY(f(xr[0]))+'" x2="'+PX(xr[1])+'" y2="'+PY(f(xr[1]))+'" stroke="transparent" stroke-width="18" pointer-events="stroke" style="cursor:crosshair"/></g>';
+    // hover/tap targets for the points (on top, so points win over the line)
+    for(var k=0;k<R.n;k++){
+      g+='<circle data-i="'+k+'" cx="'+PX(X[k])+'" cy="'+PY(Y[k])+'" r="13" fill="transparent" pointer-events="all" style="cursor:pointer"/>';
+    }
+    g+='</g>';
+    SC={PX:PX,PY:PY,Lm:Lm,plotW:plotW,Tm:Tm,plotH:plotH,xr:xr,yr:yr,base:base,rad:rad,xd:Math.min(8,decimalsOf(xT.step)+1)};
+    box.innerHTML='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Scatterplot of '+esc(last.yL)+' against '+esc(last.xL)+' with the line of best fit" font-family="Atkinson Hyperlegible, Arial, sans-serif">'+g+'</svg>';
+
+    var lg='<span><i class="sw dot"></i>Data</span><span><i class="sw line"></i>Line of best fit</span>';
+    var extr = xr[0]<R.xmin || xr[1]>R.xmax;
+    if(extr) lg+='<span><i class="sw dash"></i>Beyond the data</span>';
+    if($('showRes').checked) lg+='<span><i class="sw resid"></i>Residual</span>';
+    if(last.xp!=null) lg+='<span><i class="sw pred"></i>Prediction</span>';
+    $('legend').innerHTML=lg;
+    renderHL();
+  }
+
+  // ================= t-distribution graph =================
+  function drawT(){
+    if(!lastT) return;
+    var box=$('tBox'), W=Math.max(260,Math.floor(box.clientWidth||600)), H=236;
+    var blue=cssVar('--blue'), orange=cssVar('--orange'), lor=cssVar('--lorange'), muted=cssVar('--muted'), panel=cssVar('--panel'), text=cssVar('--text');
+    var pad=Math.max(16,Math.min(40,W*0.04)), Lx=pad, Rx=W-pad;
+    var L=lastT, rg=L.rg, df=L.df, dp=Math.min(L.dp,3);
+    var pdf=function(x){ return tpdf(x,df); };
+    var topY=34, axisY=176, fs=13, ymax=pdf(0);
+    var X=function(v){ return Lx+(v+rg)/(2*rg)*(Rx-Lx); };
+    var Y=function(d){ return axisY-d/ymax*(axisY-topY); };
+    var clampV=function(v){ return Math.max(-rg,Math.min(rg,v)); };
+    function area(a,b){
+      a=clampV(a); b=clampV(b); if(b-a<=1e-9) return '';
+      var N=Math.max(8,Math.ceil((b-a)/(2*rg)*240)), d='M'+X(a).toFixed(2)+','+axisY;
+      for(var i=0;i<=N;i++){ var x=a+(b-a)*i/N; d+=' L'+X(x).toFixed(2)+','+Y(pdf(x)).toFixed(2); }
+      return d+' L'+X(b).toFixed(2)+','+axisY+' Z';
+    }
+    var g='<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'+
+      '<line x1="0" y1="0" x2="0" y2="6" stroke="'+blue+'" stroke-width="2.4"/></pattern></defs>';
+    var c=L.crit, tl=L.tail, ts=L.ts, rej=[], pv=[];
+    if(tl==='two'||tl==='left') rej.push(area(-rg,-c));
+    if(tl==='two'||tl==='right') rej.push(area(c,rg));
+    rej.forEach(function(d){ if(d) g+='<path d="'+d+'" fill="'+lor+'" fill-opacity=".6"/>'; });
+    if(tl==='two'){ pv.push(area(-rg,-Math.abs(ts))); pv.push(area(Math.abs(ts),rg)); }
+    else if(tl==='left') pv.push(area(-rg,ts));
+    else pv.push(area(ts,rg));
+    pv.forEach(function(d){ if(d) g+='<path d="'+d+'" fill="'+blue+'" fill-opacity=".1"/><path d="'+d+'" fill="url(#hatch)" fill-opacity=".55"/>'; });
+    var cd='';
+    for(var i=0;i<=300;i++){ var x=-rg+2*rg*i/300; cd+=(i?' L':'M')+X(x).toFixed(2)+','+Y(pdf(x)).toFixed(2); }
+    g+='<path d="'+cd+'" fill="none" stroke="'+blue+'" stroke-width="2.2"/>';
+    g+='<line x1="'+Lx+'" y1="'+axisY+'" x2="'+Rx+'" y2="'+axisY+'" stroke="'+muted+'" stroke-width="1.3"/>';
+    var tk=ticksFor(-rg,rg,Math.max(4,Math.min(10,Math.floor(W/70))));
+    tk.t.forEach(function(t){
+      var tx=X(t.v);
+      g+='<line x1="'+tx+'" y1="'+(axisY-4)+'" x2="'+tx+'" y2="'+(axisY+5)+'" stroke="'+muted+'" stroke-width="1.2"/>';
+      g+='<text x="'+tx+'" y="'+(axisY+20)+'" font-size="'+fs+'" text-anchor="middle" fill="'+muted+'">'+t.s+'</text>';
+    });
+    var clampX=function(x,w){ return Math.max(w/2+2,Math.min(W-w/2-2,x)); }, cw=fs*0.6;
+    var critPts=[]; if(tl==='two'||tl==='left') critPts.push(-c); if(tl==='two'||tl==='right') critPts.push(c);
+    critPts.forEach(function(v){
+      var lab='t* = '+fmt(v,dp), off=Math.abs(v)>rg;
+      if(!off) g+='<line x1="'+X(v)+'" y1="'+(axisY+6)+'" x2="'+X(v)+'" y2="'+Y(pdf(v))+'" stroke="'+orange+'" stroke-width="2"/>';
+      else lab=(v<0?'← ':'')+lab+(v>0?' →':'');
+      var w=lab.length*cw;
+      g+='<text x="'+clampX(X(clampV(v)),w)+'" y="'+(axisY+40)+'" font-size="'+fs+'" font-weight="700" text-anchor="middle" fill="'+orange+'">'+esc(lab)+'</text>';
+    });
+    if(tl==='two' && Math.abs(ts)<=rg && Math.abs(ts)>1e-9){
+      g+='<line x1="'+X(-ts)+'" y1="'+axisY+'" x2="'+X(-ts)+'" y2="'+(topY-4)+'" stroke="'+blue+'" stroke-width="1.5" stroke-dasharray="4 4" stroke-opacity=".6"/>';
+    }
+    var tsOff=Math.abs(ts)>rg, tx2=X(clampV(ts)), tlab='t = '+fmt(ts,dp);
+    if(tsOff) tlab=(ts<0?'← ':'')+tlab+(ts>0?' →':'');
+    else {
+      g+='<line x1="'+tx2+'" y1="'+axisY+'" x2="'+tx2+'" y2="'+(topY-4)+'" stroke="'+blue+'" stroke-width="3"/>';
+      g+='<path d="M'+(tx2-6)+','+(axisY+9)+' L'+(tx2+6)+','+(axisY+9)+' L'+tx2+','+(axisY+1)+' Z" fill="'+blue+'"/>';
+    }
+    var tw=tlab.length*cw+4;
+    g+='<text x="'+clampX(tx2,tw)+'" y="'+(topY-12)+'" font-size="'+(fs+1)+'" font-weight="700" text-anchor="middle" fill="'+blue+'" stroke="'+panel+'" stroke-width="4" paint-order="stroke">'+esc(tlab)+'</text>';
+    var pLab='p-value '+pEq(fmtP(L.p,L.dp))+'   ·   α = '+trimNum(L.alpha);
+    g+='<text x="'+(W/2)+'" y="'+(axisY+58)+'" font-size="'+fs+'" text-anchor="middle" fill="'+text+'">'+esc(pLab)+'</text>';
+    box.innerHTML='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="t distribution with the rejection region, the test statistic, and the p-value area shaded" font-family="Atkinson Hyperlegible, Arial, sans-serif">'+g+'</svg>';
+  }
+
+  // ================= "How" section =================
+  function renderHow(R,T,dp){
+    var h='', n=R?R.n:null;
+    h+='<h3>Means and sums of squares</h3>';
+    h+='<div class="eq"><i>x̄</i> = Σ<i>x</i> / <i>n</i> &nbsp;&nbsp; <i>ȳ</i> = Σ<i>y</i> / <i>n</i></div>';
+    if(R) h+='<div class="num"><i>x̄</i> = '+trimNum(R.sx)+' / '+n+' = '+fmt(R.xbar,dp)+';&nbsp; <i>ȳ</i> = '+trimNum(R.sy)+' / '+n+' = '+fmt(R.ybar,dp)+'</div>';
+    h+='<div class="eq">S<sub>xx</sub> = Σ(<i>x</i> − <i>x̄</i>)² &nbsp;&nbsp; S<sub>yy</sub> = Σ(<i>y</i> − <i>ȳ</i>)²</div>';
+    h+='<div class="eq">S<sub>xy</sub> = Σ(<i>x</i> − <i>x̄</i>)(<i>y</i> − <i>ȳ</i>)</div>';
+    if(R) h+='<div class="num">S<sub>xx</sub> = '+fmt(R.Sxx,dp)+';&nbsp; S<sub>yy</sub> = '+fmt(R.Syy,dp)+';&nbsp; S<sub>xy</sub> = '+fmt(R.Sxy,dp)+'</div>';
+
+    h+='<h3>Line of best fit</h3>';
+    h+='<p>The least-squares line makes the sum of the squared residuals, Σ(<i>y</i> − <i>ŷ</i>)², as small as possible.</p>';
+    h+='<div class="eq"><i>b</i><sub>1</sub> = S<sub>xy</sub> / S<sub>xx</sub></div>';
+    if(R) h+='<div class="num">= '+fmt(R.Sxy,dp)+' / '+fmt(R.Sxx,dp)+' = '+fmt(R.b1,dp)+'</div>';
+    h+='<div class="eq"><i>b</i><sub>0</sub> = <i>ȳ</i> − <i>b</i><sub>1</sub><i>x̄</i></div>';
+    if(R) h+='<div class="num">= '+fmt(R.ybar,dp)+' − ('+fmt(R.b1,dp)+')('+fmt(R.xbar,dp)+') = '+fmt(R.b0,dp)+'</div>';
+
+    h+='<h3>Correlation and coefficient of determination</h3>';
+    h+='<div class="eq"><i>r</i> = S<sub>xy</sub> / √(S<sub>xx</sub> · S<sub>yy</sub>)</div>';
+    if(R) h+='<div class="num">= '+fmt(R.Sxy,dp)+' / √('+fmt(R.Sxx,dp)+' × '+fmt(R.Syy,dp)+') = '+fmt(R.r,dp)+'</div>';
+    h+='<p><i>r</i> is always between −1 and 1. A rough guide for the strength: |<i>r</i>| ≥ 0.8 strong, 0.5 to 0.8 moderate, 0.3 to 0.5 weak, below 0.3 very weak.</p>';
+    h+='<div class="eq"><i>r</i>² = 1 − SSE / S<sub>yy</sub></div>';
+    if(R) h+='<div class="num">= 1 − '+fmt(R.SSE,dp)+' / '+fmt(R.Syy,dp)+' = '+fmt(R.r2,dp)+' (the same as '+fmt(R.r,dp)+'²)</div>';
+    h+='<p><i>r</i>² is the proportion of the variation in <i>y</i> explained by the linear relationship with <i>x</i>.</p>';
+
+    h+='<h3>Residuals and standard error of estimate</h3>';
+    h+='<div class="eq">residual <i>e</i> = <i>y</i> − <i>ŷ</i> &nbsp;&nbsp; SSE = Σ<i>e</i>²</div>';
+    h+='<div class="eq"><i>s</i><sub>e</sub> = √[ SSE / (<i>n</i> − 2) ]</div>';
+    if(R) h+='<div class="num">= √( '+fmt(R.SSE,dp)+' / '+(n-2)+' ) = '+fmt(R.se,dp)+'</div>';
+    h+='<p><i>s</i><sub>e</sub> is the typical size of a residual, the usual distance of a point from the line.</p>';
+
+    if(testOpen){
+      h+='<h3>Hypothesis test</h3>';
+      var P = param==='slope' ? '<i>β</i>₁' : '<i>ρ</i>', nv = param==='slope' ? (T?trimNum(T.h0):'<i>β</i>₁₀') : '0';
+      h+='<div class="eq">H₀: '+P+' = '+nv+' &nbsp;&nbsp; Hₐ: '+P+' '+OP[tail]+' '+nv+'</div>';
+      if(param==='slope'){
+        h+='<p><strong>Standard error of the slope</strong>: how much sample slopes typically vary from sample to sample.</p>';
+        h+='<div class="eq">SE<sub><i>b</i>₁</sub> = <i>s</i><sub>e</sub> / √S<sub>xx</sub></div>';
+        if(T) h+='<div class="num">= '+fmt(R.se,dp)+' / √'+fmt(R.Sxx,dp)+' = '+fmt(T.SEb,dp)+'</div>';
+        h+='<div class="eq"><i>t</i> = (<i>b</i><sub>1</sub> − <i>β</i>₁₀) / SE<sub><i>b</i>₁</sub></div>';
+        if(T) h+='<div class="num">= ('+fmt(R.b1,dp)+' − '+trimNum(T.h0)+') / '+fmt(T.SEb,dp)+' = '+fmt(T.ts,dp)+'</div>';
+      } else {
+        h+='<div class="eq"><i>t</i> = <i>r</i> √(<i>n</i> − 2) / √(1 − <i>r</i>²)</div>';
+        if(T) h+='<div class="num">= '+fmt(R.r,dp)+' × √'+(n-2)+' / √(1 − '+fmt(R.r2,dp)+') = '+fmt(T.ts,dp)+'</div>';
+        h+='<p>This gives exactly the same <i>t</i> and p-value as testing <i>β</i>₁ = 0.</p>';
+      }
+      h+='<p><strong>Degrees of freedom</strong>: df = <i>n</i> − 2, because two values (<i>b</i><sub>0</sub> and <i>b</i><sub>1</sub>) are estimated from the data.</p>';
+      if(T) h+='<div class="num">df = '+n+' − 2 = '+T.df+';&nbsp; <i>α</i> = '+trimNum(T.alpha)+' → <i>t*</i> = '+T.critTxt+'</div>';
+      h+='<p><strong>p-value</strong>: the probability, assuming H₀ is true, of a test statistic at least as extreme as the one observed.</p>';
+      h+='<div class="eq">'+(tail==='two'?'p = 2 · P(<i>T</i> ≥ |<i>t</i>|)':tail==='left'?'p = P(<i>T</i> ≤ <i>t</i>)':'p = P(<i>T</i> ≥ <i>t</i>)')+'</div>';
+      if(T) h+='<div class="num">'+(tail==='two'?'= 2 · P(T ≥ '+fmt(Math.abs(T.ts),dp)+')':tail==='left'?'= P(T ≤ '+fmt(T.ts,dp)+')':'= P(T ≥ '+fmt(T.ts,dp)+')')+' = '+T.pTxt+'</div>';
+      h+='<p><strong>Decision</strong>: reject H₀ if p-value ≤ <i>α</i> (equivalently, if <i>t</i> falls in the rejection region). Otherwise, fail to reject H₀.</p>';
+      if(T) h+='<div class="num">'+T.pTxt+(T.reject?' ≤ ':' > ')+trimNum(T.alpha)+' → '+(T.reject?'reject H₀':'fail to reject H₀')+'</div>';
+      h+='<p class="num">The test assumes a linear relationship, independent observations, and residuals that are roughly normal with about the same spread for all <i>x</i>. Check the scatterplot with residuals shown.</p>';
+    }
+    h+='<p class="num">Intermediate values are rounded for display only; all calculations use full precision.</p>';
+    $('how').innerHTML=h;
+  }
+
+  // ================= Phone screens =================
+  var mq=window.matchMedia('(max-width:760px)');
+  var screensEl=$('screens'), screenEls=[$('screenData'),$('screenRes')], cur=0;
+  function setTabs(){ $('tabData').classList.toggle('on',cur===0); $('tabRes').classList.toggle('on',cur===1); }
+  function syncHeight(){
+    if(mq.matches) screensEl.style.height=screenEls[cur].scrollHeight+'px';
+    else screensEl.style.height='';
+  }
+  function go(i){
+    cur=i; setTabs(); syncHeight();
+    screensEl.scrollTo({left:i*screensEl.clientWidth,behavior:'smooth'});
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  $('tabData').addEventListener('click',function(){ go(0); });
+  $('tabRes').addEventListener('click',function(){ go(1); });
+  $('seeRes').addEventListener('click',function(){ go(1); });
+  var scrollT;
+  screensEl.addEventListener('scroll',function(){
+    clearTimeout(scrollT);
+    scrollT=setTimeout(function(){
+      if(!mq.matches) return;
+      var i=Math.round(screensEl.scrollLeft/screensEl.clientWidth);
+      if(i!==cur){ cur=i; setTabs(); syncHeight(); window.scrollTo({top:0,behavior:'smooth'}); }
+    },90);
+  });
+  function redraw(){ drawScatter(); drawT(); }
+  function onLayout(){ if(!mq.matches){ cur=0; setTabs(); screensEl.scrollLeft=0; } syncHeight(); redraw(); }
+  if(mq.addEventListener) mq.addEventListener('change',onLayout); else mq.addListener(onLayout);
+  if(window.ResizeObserver){
+    var ro=new ResizeObserver(function(){ syncHeight(); });
+    screenEls.forEach(function(el){ ro.observe(el); });
+    document.querySelectorAll('.screen > .panel').forEach(function(el){ ro.observe(el); });
+    var lw1=0, lw2=0;
+    new ResizeObserver(function(){ var w=$('plotBox').clientWidth; if(w!==lw1){ lw1=w; drawScatter(); } }).observe($('plotBox'));
+    new ResizeObserver(function(){ var w=$('tBox').clientWidth; if(w!==lw2){ lw2=w; drawT(); } }).observe($('tBox'));
+  } else window.addEventListener('resize',onLayout);
+  var dmq=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+  if(dmq && dmq.addEventListener) dmq.addEventListener('change',redraw);
+  new MutationObserver(redraw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ redraw(); syncHeight(); });
+
+  applyKb();
+  update();
+})();
+</script>
+</body>
+</html>

@@ -10,6 +10,9 @@ I have been creating a number of interactive HTML-based statistical calculators.
 * [Chi-Squared Distribution](./chisqdistribution.html)
 * [F-Distribution: ANOVA](./fdistribution.html)
 
+### Linear Regression
+* [Linear Regression and Hypothesis Test](./regression.html)
+
 ### Quantitative Inference
 * [1-sample Quantitative Confidence Interval](./confint-1sample-quantitative.html)
 * [1-sample Quantitative Hypothesis Test](./hyptest-1sample-quantitative.html)
@@ -19,3 +22,5 @@ I have been creating a number of interactive HTML-based statistical calculators.
 ### Categorical Inference
 * [1-sample Categorical Confidence Interval](./confint-1sample-categorical.html)
 * [1-sample Categorical Hypothesis Test](./hyptest-1sample-categorical.html)
+* [2-sample Categorical Confidence Interval](./confint-2sample-categorical.html)
+* [2-sample Categorical Hypothesis Test](./hyptest-2sample-categorical.html)
