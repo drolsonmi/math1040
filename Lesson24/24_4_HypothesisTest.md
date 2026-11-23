@@ -45,7 +45,12 @@ $$t = \frac{\bar{d} - 0}{s_d/\sqrt{n}} \qquad\qquad df = n-1$$
 * Reject $H_0$ if the test statistic falls in the critical region, or if $p\text{-value} \le \alpha$.
 * Write a plain-language conclusion in terms of the two original (paired) variables.
 
----
+<div class="anim-embed">
+  <iframe src="https://drolsonmi.github.io/math1040/animations/24.4_PairedHypothesisTest.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
 
 ### Example
 
@@ -98,6 +103,13 @@ $$t = \frac{6.5 - 0}{0.8465} \approx 7.678 \qquad\qquad df = 9$$
 * Select `Calculate`
 
 The calculator returns the test statistic (`t`), the p-value, and the degrees of freedom (`df`). If you only have summary statistics ($\bar{d}$, $s_d$, $n$), choose `Stats` instead of `Data` and enter them directly.
+
+<div class="anim-embed">
+  <iframe src="https://drolsonmi.github.io/math1040/animations/24.4_PairedHypothesisTest_TI84.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
 
 ### Excel
 1. Build a column of differences from the raw data (or start from your known $\bar{d}$ and $s_d$)

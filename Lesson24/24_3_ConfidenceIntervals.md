@@ -34,6 +34,13 @@ The critical value $t_c$ comes from the t-distribution with $df = n - 1$, exactl
 
 Remember that the sign of $\bar{d}$ (and therefore the interval) depends entirely on the order of subtraction you chose in Lesson 24.1 — always interpret the interval in terms of the original variables, not just the number.
 
+<div class="anim-embed">
+  <iframe src="https://drolsonmi.github.io/math1040/animations/24.3_PairedConfidenceInterval.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
+
 #### Example
 
 > A clinic wants to know whether a new medication lowers systolic blood pressure. Blood pressure is measured for 10 patients before starting the medication, and again after 4 weeks. Build a 90% confidence interval for the mean difference.
@@ -76,6 +83,13 @@ The easiest approach is to enter both lists of raw data and let the calculator b
 * Select `Calculate`
 
 If you only have the summary statistics ($\bar{d}$, $s_d$, $n$) rather than the raw data, choose `Stats` instead of `Data` and enter them directly.
+
+<div class="anim-embed">
+  <iframe src="https://drolsonmi.github.io/math1040/animations/24.3_PairedConfidenceInterval_TI84.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
 
 ### Excel
 1. Enter the "Before" and "After" values in two columns, then create a third column of differences (e.g., `=A2-B2`, filled down)

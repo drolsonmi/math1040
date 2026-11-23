@@ -23,6 +23,13 @@ Back in Lesson 22.1, we said two samples are **dependent (paired)** when each in
 
 Lesson 22 dealt with **independent** samples, where we needed brand-new formulas involving two separate means, $\bar{x}_1$ and $\bar{x}_2$. Dependent samples let us do something much simpler.
 
+<div class="anim-embed">
+  <iframe src="https://drolsonmi.github.io/math1040/animations/24.1_Dependence.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
+
 ### The Key Idea: Build a Difference Variable
 Because each pair belongs to the same individual, we can subtract the two measurements for every individual and get a single new number for each person:
 
@@ -38,6 +45,13 @@ Once we have our list of differences, we treat it exactly like any other quantit
 $$\bar{d} = \frac{\sum d}{n} \qquad\qquad s_d = \sqrt{\frac{\sum(d-\bar{d})^2}{n-1}}$$
 
 Here, $n$ is the number of **pairs** (not the total number of measurements).
+
+<div class="anim-embed">
+  <iframe src="https://drolsonmi.github.io/math1040/animations/24.1_WhyPair.html"
+          title="Confidence interval for two means: by hand"
+          loading="lazy" allowfullscreen></iframe>
+  <a href="animations/22_3_CI_ByHand.html" target="_blank" rel="noopener">Open full screen</a>
+</div>
 
 ### Example
 
